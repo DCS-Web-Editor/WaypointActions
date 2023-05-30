@@ -1,0 +1,3953 @@
+{
+  "coalition": {
+    "blue": {
+      "bullseye": {
+        "x": -291014,
+        "y": 617414
+      },
+      "country": [
+        {
+          "helicopter": {
+            "group": [
+              {
+                "communication": true,
+                "frequency": 263,
+                "groupId": 7,
+                "hidden": false,
+                "modulation": 0,
+                "name": "AH-64D",
+                "radioSet": true,
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "From Parking Area",
+                      "airdromeId": 25,
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "addopt": []
+                      },
+                      "speed": 41.666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "EngageTargets",
+                              "key": "CAS",
+                              "number": 1,
+                              "params": {
+                                "priority": 0,
+                                "targetTypes": [
+                                  "Helicopters",
+                                  "Ground Units",
+                                  "Light armed ships"
+                                ]
+                              }
+                            },
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 2,
+                              "params": {
+                                "action": {
+                                  "id": "EPLRS",
+                                  "params": {
+                                    "groupId": 1,
+                                    "value": true
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 3,
+                              "params": {
+                                "action": {
+                                  "id": "SetFrequency",
+                                  "params": {
+                                    "frequency": 134000000,
+                                    "modulation": 0,
+                                    "power": 10
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "TakeOffParking",
+                      "x": -284565.9268625,
+                      "y": 682400.98182915
+                    },
+                    {
+                      "ETA": 28.403746170217,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "addopt": []
+                      },
+                      "speed": 41.666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -285518.25389461,
+                      "y": 681698.32939725
+                    },
+                    {
+                      "ETA": 586.33987376593,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "addopt": []
+                      },
+                      "speed": 41.666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -289736.72327629,
+                      "y": 658836.93682428
+                    },
+                    {
+                      "ETA": 1366.4445748581,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "addopt": []
+                      },
+                      "speed": 41.666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -287404.30809648,
+                      "y": 626416.36582501
+                    },
+                    {
+                      "ETA": 1687.3048863591,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "addopt": []
+                      },
+                      "speed": 41.666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -294829.16308552,
+                      "y": 615298.52013462
+                    },
+                    {
+                      "ETA": 2131.9579256671,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "addopt": []
+                      },
+                      "speed": 41.666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -309678.8730636,
+                      "y": 626377.49223868
+                    },
+                    {
+                      "ETA": 2418.0249716992,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "addopt": []
+                      },
+                      "speed": 41.666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -317887.82560468,
+                      "y": 635019.63496265
+                    }
+                  ]
+                },
+                "start_time": 0,
+                "task": "CAS",
+                "tasks": [],
+                "uncontrollable": false,
+                "uncontrolled": false,
+                "units": [
+                  {
+                    "AddPropAircraft": {
+                      "AIDisabled": false,
+                      "CpgNVG": true,
+                      "FCR_RFI_removed": false,
+                      "FlareBurstCount": 0,
+                      "FlareBurstInterval": 0,
+                      "FlareProgramDelay": 0,
+                      "FlareSalvoCount": 0,
+                      "FlareSalvoInterval": 0,
+                      "HumanOrchestra": false,
+                      "NetCrewControlPriority": 0,
+                      "OverrideIFF": 0,
+                      "PltNVG": true,
+                      "TrackAirTargets": true
+                    },
+                    "Radio": [
+                      {
+                        "channels": [
+                          263,
+                          134,
+                          136,
+                          127,
+                          125,
+                          121,
+                          141,
+                          128,
+                          126,
+                          137
+                        ],
+                        "modulations": []
+                      },
+                      {
+                        "channels": [
+                          263,
+                          240,
+                          255,
+                          270,
+                          285,
+                          300,
+                          325,
+                          350,
+                          375,
+                          390
+                        ],
+                        "modulations": []
+                      },
+                      {
+                        "channels": [
+                          30.005,
+                          30.01,
+                          30.015,
+                          30.02,
+                          30.025,
+                          30.03,
+                          30.035,
+                          30.04,
+                          30.045,
+                          30.05
+                        ],
+                        "modulations": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1
+                        ]
+                      },
+                      {
+                        "channels": [
+                          30.005,
+                          30.01,
+                          30.015,
+                          30.02,
+                          30.025,
+                          30.03,
+                          30.035,
+                          30.04,
+                          30.045,
+                          30.05
+                        ],
+                        "modulations": [
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1,
+                          1
+                        ]
+                      }
+                    ],
+                    "alt": 45,
+                    "alt_type": "BARO",
+                    "callsign": {
+                      "1": 14,
+                      "2": 2,
+                      "3": 1,
+                      "name": "Gatling21"
+                    },
+                    "hardpoint_racks": true,
+                    "heading": -2.5059280057592,
+                    "livery_id": "Killer Bees 1-130th ARB NCNG",
+                    "name": "AH-64D",
+                    "onboard_num": "21",
+                    "parking": "1",
+                    "parking_id": "15",
+                    "payload": {
+                      "ammo_type": 1,
+                      "chaff": 30,
+                      "flare": 60,
+                      "fuel": 1122,
+                      "gun": 100,
+                      "pylons": [
+                        {
+                          "CLSID": "M261_MK151"
+                        },
+                        {
+                          "CLSID": "{M299_2xAGM_114K}"
+                        },
+                        {
+                          "CLSID": "{M299_2xAGM_114K}"
+                        },
+                        {
+                          "CLSID": "M261_MK151"
+                        }
+                      ]
+                    },
+                    "psi": 2.5059280057592,
+                    "ropeLength": 15,
+                    "skill": "Player",
+                    "speed": 41.666666666667,
+                    "type": "AH-64D_BLK_II",
+                    "unitId": 1,
+                    "x": -284565.9268625,
+                    "y": 682400.98182915
+                  }
+                ],
+                "x": -284565.9268625,
+                "y": 682400.98182915
+              }
+            ]
+          },
+          "id": 2,
+          "name": "USA",
+          "static": {
+            "group": [
+              {
+                "dead": false,
+                "groupId": 14,
+                "heading": 5.4628805587423,
+                "hidden": true,
+                "name": "Static ACFT-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284589.69141973,
+                      "y": 682454.64876456
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Helicopters",
+                    "heading": 5.4628805587423,
+                    "livery_id": "Gunslingers 2-159th ARB",
+                    "name": "Static ACFT-1-1",
+                    "rate": "50",
+                    "type": "AH-64D_BLK_II",
+                    "unitId": 19,
+                    "x": -284589.69141973,
+                    "y": 682454.64876456
+                  }
+                ],
+                "x": -284589.69141973,
+                "y": 682454.64876456
+              },
+              {
+                "dead": false,
+                "groupId": 15,
+                "heading": 5.4628805587423,
+                "hidden": true,
+                "name": "Static ACFT-3",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284621.75803908,
+                      "y": 682416.60244357
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Helicopters",
+                    "heading": 5.4628805587423,
+                    "livery_id": "Gunslingers 2-159th ARB",
+                    "name": "Static ACFT-3-1",
+                    "rate": "50",
+                    "type": "AH-64D_BLK_II",
+                    "unitId": 20,
+                    "x": -284621.75803908,
+                    "y": 682416.60244357
+                  }
+                ],
+                "x": -284621.75803908,
+                "y": 682416.60244357
+              },
+              {
+                "dead": false,
+                "groupId": 16,
+                "heading": 2.3736477827123,
+                "hidden": true,
+                "name": "Static ACFT-4",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284596.53451112,
+                      "y": 682360.52034417
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Helicopters",
+                    "heading": 2.3736477827123,
+                    "livery_id": "Gunslingers 2-159th ARB",
+                    "name": "Static ACFT-4-1",
+                    "rate": "50",
+                    "type": "AH-64D_BLK_II",
+                    "unitId": 21,
+                    "x": -284596.53451112,
+                    "y": 682360.52034417
+                  }
+                ],
+                "x": -284596.53451112,
+                "y": 682360.52034417
+              },
+              {
+                "dead": false,
+                "groupId": 17,
+                "heading": 2.3736477827123,
+                "hidden": true,
+                "name": "Static ACFT-5",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284527.84064774,
+                      "y": 682431.36089078
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Helicopters",
+                    "heading": 2.3736477827123,
+                    "livery_id": "Gunslingers 2-159th ARB",
+                    "name": "Static ACFT-5-1",
+                    "rate": "50",
+                    "type": "AH-64D_BLK_II",
+                    "unitId": 22,
+                    "x": -284527.84064774,
+                    "y": 682431.36089078
+                  }
+                ],
+                "x": -284527.84064774,
+                "y": 682431.36089078
+              },
+              {
+                "dead": false,
+                "groupId": 18,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284518.76098604,
+                      "y": 682488.68011415
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-1-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B_RF",
+                    "type": "Black_Tyre_RF",
+                    "unitId": 23,
+                    "x": -284518.76098604,
+                    "y": 682488.68011415
+                  }
+                ],
+                "x": -284518.76098604,
+                "y": 682488.68011415
+              },
+              {
+                "dead": false,
+                "groupId": 19,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-2",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284525.17818563,
+                      "y": 682494.32724979
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-2-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 24,
+                    "x": -284525.17818563,
+                    "y": 682494.32724979
+                  }
+                ],
+                "x": -284525.17818563,
+                "y": 682494.32724979
+              },
+              {
+                "dead": false,
+                "groupId": 20,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-3",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284513.11385041,
+                      "y": 682483.28966649
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-3-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 25,
+                    "x": -284513.11385041,
+                    "y": 682483.28966649
+                  }
+                ],
+                "x": -284513.11385041,
+                "y": 682483.28966649
+              },
+              {
+                "dead": false,
+                "groupId": 21,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-4",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284533.13551313,
+                      "y": 682501.38616933
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-4-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 26,
+                    "x": -284533.13551313,
+                    "y": 682501.38616933
+                  }
+                ],
+                "x": -284533.13551313,
+                "y": 682501.38616933
+              },
+              {
+                "dead": false,
+                "groupId": 22,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-5",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284549.56354408,
+                      "y": 682482.90463451
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-5-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 27,
+                    "x": -284549.56354408,
+                    "y": 682482.90463451
+                  }
+                ],
+                "x": -284549.56354408,
+                "y": 682482.90463451
+              },
+              {
+                "dead": false,
+                "groupId": 23,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-6",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284520.04442596,
+                      "y": 682456.33742821
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-6-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 28,
+                    "x": -284520.04442596,
+                    "y": 682456.33742821
+                  }
+                ],
+                "x": -284520.04442596,
+                "y": 682456.33742821
+              },
+              {
+                "dead": false,
+                "groupId": 24,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-7",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284503.873083,
+                      "y": 682474.81896303
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-7-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 29,
+                    "x": -284503.873083,
+                    "y": 682474.81896303
+                  }
+                ],
+                "x": -284503.873083,
+                "y": 682474.81896303
+              },
+              {
+                "dead": false,
+                "groupId": 25,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-8",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284511.7020665,
+                      "y": 682466.60494756
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-8-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 30,
+                    "x": -284511.7020665,
+                    "y": 682466.60494756
+                  }
+                ],
+                "x": -284511.7020665,
+                "y": 682466.60494756
+              },
+              {
+                "dead": false,
+                "groupId": 26,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-9",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284540.96449663,
+                      "y": 682492.78712188
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-9-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 31,
+                    "x": -284540.96449663,
+                    "y": 682492.78712188
+                  }
+                ],
+                "x": -284540.96449663,
+                "y": 682492.78712188
+              },
+              {
+                "dead": false,
+                "groupId": 27,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-10",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284497.45588341,
+                      "y": 682482.26291456
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "canCargo": false,
+                    "category": "Cargos",
+                    "heading": 0,
+                    "mass": 5000,
+                    "name": "Pad Mkr-10-1",
+                    "rate": 100,
+                    "shape_name": "tetrapod_cargo",
+                    "type": "tetrapod_cargo",
+                    "unitId": 32,
+                    "x": -284497.45588341,
+                    "y": 682482.26291456
+                  }
+                ],
+                "x": -284497.45588341,
+                "y": 682482.26291456
+              },
+              {
+                "dead": false,
+                "groupId": 28,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-11",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284506.05493086,
+                      "y": 682490.47693003
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "canCargo": false,
+                    "category": "Cargos",
+                    "heading": 0,
+                    "mass": 5000,
+                    "name": "Pad Mkr-11-1",
+                    "rate": 100,
+                    "shape_name": "tetrapod_cargo",
+                    "type": "tetrapod_cargo",
+                    "unitId": 33,
+                    "x": -284506.05493086,
+                    "y": 682490.47693003
+                  }
+                ],
+                "x": -284506.05493086,
+                "y": 682490.47693003
+              },
+              {
+                "dead": false,
+                "groupId": 29,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-12",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284511.83041049,
+                      "y": 682495.86737769
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "canCargo": false,
+                    "category": "Cargos",
+                    "heading": 0,
+                    "mass": 5000,
+                    "name": "Pad Mkr-12-1",
+                    "rate": 100,
+                    "shape_name": "tetrapod_cargo",
+                    "type": "tetrapod_cargo",
+                    "unitId": 34,
+                    "x": -284511.83041049,
+                    "y": 682495.86737769
+                  }
+                ],
+                "x": -284511.83041049,
+                "y": 682495.86737769
+              },
+              {
+                "dead": false,
+                "groupId": 30,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-13",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284521.04758486,
+                      "y": 682502.3832802
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "canCargo": false,
+                    "category": "Cargos",
+                    "heading": 0,
+                    "mass": 5000,
+                    "name": "Pad Mkr-13-1",
+                    "rate": 100,
+                    "shape_name": "tetrapod_cargo",
+                    "type": "tetrapod_cargo",
+                    "unitId": 35,
+                    "x": -284521.04758486,
+                    "y": 682502.3832802
+                  }
+                ],
+                "x": -284521.04758486,
+                "y": 682502.3832802
+              },
+              {
+                "dead": false,
+                "groupId": 31,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-14",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284524.85021251,
+                      "y": 682505.67889083
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "canCargo": false,
+                    "category": "Cargos",
+                    "heading": 0,
+                    "mass": 5000,
+                    "name": "Pad Mkr-14-1",
+                    "rate": 100,
+                    "shape_name": "tetrapod_cargo",
+                    "type": "tetrapod_cargo",
+                    "unitId": 36,
+                    "x": -284524.85021251,
+                    "y": 682505.67889083
+                  }
+                ],
+                "x": -284524.85021251,
+                "y": 682505.67889083
+              },
+              {
+                "dead": false,
+                "groupId": 32,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-15",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284556.49411963,
+                      "y": 682474.56227505
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-15-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 37,
+                    "x": -284556.49411963,
+                    "y": 682474.56227505
+                  }
+                ],
+                "x": -284556.49411963,
+                "y": 682474.56227505
+              },
+              {
+                "dead": false,
+                "groupId": 33,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-16",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284551.48870395,
+                      "y": 682469.81354735
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-16-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 38,
+                    "x": -284551.48870395,
+                    "y": 682469.81354735
+                  }
+                ],
+                "x": -284551.48870395,
+                "y": 682469.81354735
+              },
+              {
+                "dead": false,
+                "groupId": 34,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-17",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284528.13009745,
+                      "y": 682447.99506874
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-17-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 39,
+                    "x": -284528.13009745,
+                    "y": 682447.99506874
+                  }
+                ],
+                "x": -284528.13009745,
+                "y": 682447.99506874
+              },
+              {
+                "dead": false,
+                "groupId": 35,
+                "heading": 0,
+                "hidden": true,
+                "name": "Pad Mkr-18",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284532.23710518,
+                      "y": 682451.97373249
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Pad Mkr-18-1",
+                    "rate": 3,
+                    "shape_name": "H-tyre_B",
+                    "type": "Black_Tyre",
+                    "unitId": 40,
+                    "x": -284532.23710518,
+                    "y": 682451.97373249
+                  }
+                ],
+                "x": -284532.23710518,
+                "y": 682451.97373249
+              },
+              {
+                "dead": false,
+                "groupId": 36,
+                "heading": 0,
+                "hidden": true,
+                "name": "Static Windsock-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284501.5274296,
+                      "y": 682487.76428947
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 0,
+                    "name": "Static Windsock-1-1",
+                    "rate": 3,
+                    "shape_name": "H-Windsock_RW",
+                    "type": "Windsock",
+                    "unitId": 41,
+                    "x": -284501.5274296,
+                    "y": 682487.76428947
+                  }
+                ],
+                "x": -284501.5274296,
+                "y": 682487.76428947
+              },
+              {
+                "dead": false,
+                "groupId": 39,
+                "heading": 2.8797932657906,
+                "hidden": true,
+                "name": "Static A-10C-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284353.41622488,
+                      "y": 683494.61272683
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 2.8797932657906,
+                    "livery_id": "357th FS Davis Monthan AFB, Arizona (DM)",
+                    "name": "Static A-10C-1-1",
+                    "rate": 50,
+                    "type": "A-10C",
+                    "unitId": 44,
+                    "x": -284353.41622488,
+                    "y": 683494.61272683
+                  }
+                ],
+                "x": -284353.41622488,
+                "y": 683494.61272683
+              },
+              {
+                "dead": false,
+                "groupId": 40,
+                "heading": 2.8797932657906,
+                "hidden": true,
+                "name": "Static A-10C-2",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284340.44826244,
+                      "y": 683542.41619623
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 2.8797932657906,
+                    "livery_id": "357th FS Davis Monthan AFB, Arizona (DM)",
+                    "name": "Static A-10C-2-1",
+                    "rate": 50,
+                    "type": "A-10C",
+                    "unitId": 45,
+                    "x": -284340.44826244,
+                    "y": 683542.41619623
+                  }
+                ],
+                "x": -284340.44826244,
+                "y": 683542.41619623
+              },
+              {
+                "dead": false,
+                "groupId": 41,
+                "heading": 2.8797932657906,
+                "hidden": true,
+                "name": "Static A-10C-3",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284326.71747868,
+                      "y": 683587.93120166
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 2.8797932657906,
+                    "livery_id": "357th FS Davis Monthan AFB, Arizona (DM)",
+                    "name": "Static A-10C-3-1",
+                    "rate": 50,
+                    "type": "A-10C",
+                    "unitId": 46,
+                    "x": -284326.71747868,
+                    "y": 683587.93120166
+                  }
+                ],
+                "x": -284326.71747868,
+                "y": 683587.93120166
+              },
+              {
+                "dead": false,
+                "groupId": 42,
+                "heading": 2.8797932657906,
+                "hidden": true,
+                "name": "Static A-10C-4",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284312.73242114,
+                      "y": 683634.97184973
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 2.8797932657906,
+                    "livery_id": "357th FS Davis Monthan AFB, Arizona (DM)",
+                    "name": "Static A-10C-4-1",
+                    "rate": 50,
+                    "type": "A-10C",
+                    "unitId": 47,
+                    "x": -284312.73242114,
+                    "y": 683634.97184973
+                  }
+                ],
+                "x": -284312.73242114,
+                "y": 683634.97184973
+              },
+              {
+                "dead": false,
+                "groupId": 43,
+                "heading": 1.3613568165556,
+                "hidden": true,
+                "name": "Static C-130-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284372.74103165,
+                      "y": 683421.38188011
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 1.3613568165556,
+                    "livery_id": "US Air Force",
+                    "name": "Static C-130-1",
+                    "rate": "70",
+                    "type": "C-130",
+                    "unitId": 48,
+                    "x": -284372.74103165,
+                    "y": 683421.38188011
+                  }
+                ],
+                "x": -284372.74103165,
+                "y": 683421.38188011
+              },
+              {
+                "dead": false,
+                "groupId": 44,
+                "heading": 4.4505895925855,
+                "hidden": true,
+                "name": "Static F-15E-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -285763.8343932,
+                      "y": 682928.99306859
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 4.4505895925855,
+                    "livery_id": "492d Fighter SQN (LN)",
+                    "name": "Static F-15E-1",
+                    "rate": "50",
+                    "type": "F-15E",
+                    "unitId": 49,
+                    "x": -285763.8343932,
+                    "y": 682928.99306859
+                  }
+                ],
+                "x": -285763.8343932,
+                "y": 682928.99306859
+              },
+              {
+                "dead": false,
+                "groupId": 45,
+                "heading": 4.4505895925855,
+                "hidden": true,
+                "name": "Static F-15E-2",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -285956.18910388,
+                      "y": 683034.62137793
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 4.4505895925855,
+                    "livery_id": "492d Fighter SQN (LN)",
+                    "name": "Static F-15E-2-1",
+                    "rate": "50",
+                    "type": "F-15E",
+                    "unitId": 50,
+                    "x": -285956.18910388,
+                    "y": 683034.62137793
+                  }
+                ],
+                "x": -285956.18910388,
+                "y": 683034.62137793
+              },
+              {
+                "dead": false,
+                "groupId": 46,
+                "heading": 0.94247779607694,
+                "hidden": true,
+                "name": "Static F-15E-3",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -286043.4714437,
+                      "y": 682839.4869749
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 0.94247779607694,
+                    "livery_id": "492d Fighter SQN (LN)",
+                    "name": "Static F-15E-3-1",
+                    "rate": "50",
+                    "type": "F-15E",
+                    "unitId": 51,
+                    "x": -286043.4714437,
+                    "y": 682839.4869749
+                  }
+                ],
+                "x": -286043.4714437,
+                "y": 682839.4869749
+              },
+              {
+                "dead": false,
+                "groupId": 47,
+                "heading": 1.239183768916,
+                "hidden": true,
+                "name": "Static F-15E-4",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -285901.7071338,
+                      "y": 682750.53681967
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 1.239183768916,
+                    "livery_id": "492d Fighter SQN (LN)",
+                    "name": "Static F-15E-4-1",
+                    "rate": "50",
+                    "type": "F-15E",
+                    "unitId": 52,
+                    "x": -285901.7071338,
+                    "y": 682750.53681967
+                  }
+                ],
+                "x": -285901.7071338,
+                "y": 682750.53681967
+              }
+            ]
+          },
+          "vehicle": {
+            "group": [
+              {
+                "groupId": 13,
+                "hidden": true,
+                "name": "Ground Support Sec",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 0,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 1,
+                              "params": {
+                                "action": {
+                                  "id": "EPLRS",
+                                  "params": {
+                                    "groupId": 2,
+                                    "value": true
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284654.82657216,
+                      "y": 682441.36119346
+                    }
+                  ],
+                  "spans": [
+                    [
+                      {
+                        "x": -284654.82657216,
+                        "y": 682441.36119346
+                      },
+                      {
+                        "x": -284666.02981838,
+                        "y": 682454.12768334
+                      }
+                    ]
+                  ]
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.291069326891,
+                    "name": "Ground Support Sec-1",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "M1043 HMMWV Armament",
+                    "unitId": 8,
+                    "x": -284654.82657216,
+                    "y": 682441.36119346
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 5.4628805587423,
+                    "name": "Ground Support Sec-2",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "M978 HEMTT Tanker",
+                    "unitId": 9,
+                    "x": -284524.6206229,
+                    "y": 682409.89405848
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.996803987067,
+                    "name": "Ground Support Sec-3",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "M978 HEMTT Tanker",
+                    "unitId": 15,
+                    "x": -284601.15520656,
+                    "y": 682487.73742199
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 0.85521133347722,
+                    "name": "Ground Support Sec-4",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "M 818",
+                    "unitId": 10,
+                    "x": -284499.63773127,
+                    "y": 682445.68487689
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 0.78539816339745,
+                    "name": "Ground Support Sec-5",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "M 818",
+                    "unitId": 13,
+                    "x": -284503.873083,
+                    "y": 682449.53519665
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 5.0789081233035,
+                    "name": "Ground Support Sec-6",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Hummer",
+                    "unitId": 16,
+                    "x": -284561.20768495,
+                    "y": 682502.56421761
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.7227136331112,
+                    "name": "Ground Support Sec-7",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "Hummer",
+                    "unitId": 7,
+                    "x": -284514.44948904,
+                    "y": 682508.39216604
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.0317105721069,
+                    "name": "Ground Support Sec-8",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Hummer",
+                    "unitId": 11,
+                    "x": -284502.33238823,
+                    "y": 682467.99824752
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.014257279587,
+                    "name": "Ground Support Sec-9",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Soldier M4",
+                    "unitId": 12,
+                    "x": -284514.20236545,
+                    "y": 682505.74927586
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.291069326891,
+                    "name": "Ground Support Sec-10",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Soldier M4",
+                    "unitId": 14,
+                    "x": -284539.65524291,
+                    "y": 682387.47496916
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 5.3756140961425,
+                    "name": "Ground Support Sec-11",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Soldier M4",
+                    "unitId": 18,
+                    "x": -284568.68699356,
+                    "y": 682500.52440617
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.5132741228718,
+                    "name": "Ground Support Sec-12",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Soldier M4",
+                    "unitId": 17,
+                    "x": -284540.24966426,
+                    "y": 682386.13752113
+                  }
+                ],
+                "visible": false,
+                "x": -284654.82657216,
+                "y": 682441.36119346
+              },
+              {
+                "groupId": 38,
+                "hidden": true,
+                "lateActivation": true,
+                "name": "Ground Support Sec-2",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 12.5,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 1,
+                              "params": {
+                                "action": {
+                                  "id": "EPLRS",
+                                  "params": {
+                                    "groupId": 3,
+                                    "value": true
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284525.51230234,
+                      "y": 682478.42042765
+                    },
+                    {
+                      "ETA": 9.5780255993032,
+                      "ETA_locked": false,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 12.5,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284607.42503116,
+                      "y": 682391.10229033
+                    },
+                    {
+                      "ETA": 14.616733539612,
+                      "ETA_locked": false,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 12.5,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284667.30032532,
+                      "y": 682410.64492107
+                    },
+                    {
+                      "ETA": 33.623965147521,
+                      "ETA_locked": false,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 12.5,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284848.77804255,
+                      "y": 682563.99104588
+                    },
+                    {
+                      "ETA": 72.325245959812,
+                      "ETA_locked": false,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 12.5,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284710.29419277,
+                      "y": 683042.0549741
+                    },
+                    {
+                      "ETA": 104.04130936258,
+                      "ETA_locked": false,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 12.5,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284451.74189877,
+                      "y": 683342.59439276
+                    },
+                    {
+                      "ETA": 110.5973096115,
+                      "ETA_locked": false,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 12.5,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284384.70982255,
+                      "y": 683389.73783098
+                    }
+                  ],
+                  "routeRelativeTOT": true,
+                  "spans": [
+                    [
+                      {
+                        "x": -284525.51230234,
+                        "y": 682478.42042765
+                      },
+                      {
+                        "x": -284607.42503116,
+                        "y": 682391.10229033
+                      }
+                    ],
+                    [
+                      {
+                        "x": -284607.42503116,
+                        "y": 682391.10229033
+                      },
+                      {
+                        "x": -284667.30032532,
+                        "y": 682410.64492107
+                      }
+                    ],
+                    [
+                      {
+                        "x": -284667.30032532,
+                        "y": 682410.64492107
+                      },
+                      {
+                        "x": -284848.77804255,
+                        "y": 682563.99104588
+                      }
+                    ],
+                    [
+                      {
+                        "x": -284848.77804255,
+                        "y": 682563.99104588
+                      },
+                      {
+                        "x": -284710.29419277,
+                        "y": 683042.0549741
+                      }
+                    ],
+                    [
+                      {
+                        "x": -284710.29419277,
+                        "y": 683042.0549741
+                      },
+                      {
+                        "x": -284451.74189877,
+                        "y": 683342.59439276
+                      }
+                    ],
+                    [
+                      {
+                        "x": -284451.74189877,
+                        "y": 683342.59439276
+                      },
+                      {
+                        "x": -284384.70982255,
+                        "y": 683389.73783098
+                      }
+                    ],
+                    [
+                      {
+                        "x": -284384.70982255,
+                        "y": 683389.73783098
+                      },
+                      {
+                        "x": -284384.70982255,
+                        "y": 683389.73783098
+                      }
+                    ]
+                  ]
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": -2.3242643140061,
+                    "name": "Ground Support Sec-2-1",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "M1043 HMMWV Armament",
+                    "unitId": 43,
+                    "x": -284525.51230234,
+                    "y": 682478.42042765
+                  }
+                ],
+                "visible": true,
+                "x": -284525.51230234,
+                "y": 682478.42042765
+              },
+              {
+                "groupId": 54,
+                "hidden": true,
+                "name": "Ground Support Sec-1",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Off Road",
+                      "alt": 18,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 0,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -317881.16177031,
+                      "y": 635047.00618414
+                    }
+                  ],
+                  "spans": []
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": 0,
+                    "name": "Ground Support Sec-1-1",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Soldier M4",
+                    "unitId": 60,
+                    "x": -317881.16177031,
+                    "y": 635047.00618414
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 5.1836278784232,
+                    "name": "Ground Support Sec-1-2",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Soldier M4",
+                    "unitId": 61,
+                    "x": -317884.16172721,
+                    "y": 635045.68620311
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 6.14355896702,
+                    "name": "Ground Support Sec-1-3",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Hummer",
+                    "unitId": 62,
+                    "x": -317888.48166513,
+                    "y": 635048.92615655
+                  }
+                ],
+                "visible": false,
+                "x": -317881.16177031,
+                "y": 635047.00618414
+              }
+            ]
+          }
+        },
+        {
+          "id": 16,
+          "name": "Georgia",
+          "ship": {
+            "group": [
+              {
+                "groupId": 53,
+                "hidden": true,
+                "name": "GEO NAV Gp",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Turning Point",
+                      "alt": 0,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 6.1666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -310269.04745787,
+                      "y": 622672.91109189
+                    },
+                    {
+                      "ETA": 2715.0327454458,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 0,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 6.1666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -295891.02113765,
+                      "y": 614094.4248
+                    },
+                    {
+                      "ETA": 2888.6275277631,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 0,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 6.1666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -295588.96176118,
+                      "y": 613067.42291998
+                    },
+                    {
+                      "ETA": 3036.8757809353,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 0,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 6.1666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -296495.1398906,
+                      "y": 612946.59916939
+                    },
+                    {
+                      "ETA": 5698.2137157588,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 0,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 6.1666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -310631.51870964,
+                      "y": 621283.43796011
+                    },
+                    {
+                      "ETA": 5971.1131932708,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 0,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 6.1666666666667,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "GoToWaypoint",
+                              "number": 1,
+                              "params": {
+                                "fromWaypointIndex": 6,
+                                "nWaypointIndx": 1
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -311235.63746259,
+                      "y": 622854.14671778
+                    }
+                  ]
+                },
+                "start_time": 0,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "frequency": 127500000,
+                    "heading": 5.7452410493789,
+                    "modulation": 0,
+                    "name": "GEO NAV Gp-1",
+                    "skill": "Average",
+                    "type": "ALBATROS",
+                    "unitId": 58,
+                    "x": -310269.04745787,
+                    "y": 622672.91109189
+                  },
+                  {
+                    "frequency": 127500000,
+                    "heading": 5.7452410493789,
+                    "livery_id": "952",
+                    "modulation": 0,
+                    "name": "GEO NAV Gp-2",
+                    "skill": "Average",
+                    "type": "MOLNIYA",
+                    "unitId": 59,
+                    "x": -310442.53302001,
+                    "y": 623193.58612221
+                  }
+                ],
+                "visible": false,
+                "x": -310269.04745787,
+                "y": 622672.91109189
+              }
+            ]
+          },
+          "static": {
+            "group": [
+              {
+                "dead": false,
+                "groupId": 48,
+                "heading": 2.8623399732707,
+                "hidden": true,
+                "name": "Static Su-25-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284761.06410929,
+                      "y": 682710.66901116
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 2.8623399732707,
+                    "livery_id": "field camo scheme #1 (native)01",
+                    "name": "Static Su-25-1-1",
+                    "rate": "40",
+                    "type": "Su-25",
+                    "unitId": 53,
+                    "x": -284761.06410929,
+                    "y": 682710.66901116
+                  }
+                ],
+                "x": -284761.06410929,
+                "y": 682710.66901116
+              },
+              {
+                "dead": false,
+                "groupId": 49,
+                "heading": 2.8623399732707,
+                "hidden": true,
+                "name": "Static Su-25-2",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284732.7809529,
+                      "y": 682826.15856643
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 2.8623399732707,
+                    "livery_id": "field camo scheme #1 (native)01",
+                    "name": "Static Su-25-2-1",
+                    "rate": "40",
+                    "type": "Su-25",
+                    "unitId": 54,
+                    "x": -284732.7809529,
+                    "y": 682826.15856643
+                  }
+                ],
+                "x": -284732.7809529,
+                "y": 682826.15856643
+              },
+              {
+                "dead": false,
+                "groupId": 50,
+                "heading": 2.8623399732707,
+                "hidden": true,
+                "name": "Static Su-25-3",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284700.04581819,
+                      "y": 682939.81495415
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 2.8623399732707,
+                    "livery_id": "field camo scheme #1 (native)01",
+                    "name": "Static Su-25-3-1",
+                    "rate": "40",
+                    "type": "Su-25",
+                    "unitId": 55,
+                    "x": -284700.04581819,
+                    "y": 682939.81495415
+                  }
+                ],
+                "x": -284700.04581819,
+                "y": 682939.81495415
+              },
+              {
+                "dead": false,
+                "groupId": 51,
+                "heading": 5.532693728822,
+                "hidden": true,
+                "name": "Static Mi-8MTV2-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284205.42327373,
+                      "y": 685057.47206057
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Helicopters",
+                    "heading": 5.532693728822,
+                    "livery_id": "Georgia",
+                    "name": "Static Mi-8MTV2-1",
+                    "rate": "30",
+                    "type": "Mi-8MT",
+                    "unitId": 56,
+                    "x": -284205.42327373,
+                    "y": 685057.47206057
+                  }
+                ],
+                "x": -284205.42327373,
+                "y": 685057.47206057
+              },
+              {
+                "dead": false,
+                "groupId": 52,
+                "heading": 5.532693728822,
+                "hidden": true,
+                "name": "Static Mi-8MTV2-2",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -284106.51797484,
+                      "y": 685164.05390866
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Helicopters",
+                    "heading": 5.532693728822,
+                    "livery_id": "Georgia",
+                    "name": "Static Mi-8MTV2-2-1",
+                    "rate": "30",
+                    "type": "Mi-8MT",
+                    "unitId": 57,
+                    "x": -284106.51797484,
+                    "y": 685164.05390866
+                  }
+                ],
+                "x": -284106.51797484,
+                "y": 685164.05390866
+              },
+              {
+                "dead": false,
+                "groupId": 55,
+                "heading": 0.61086523819802,
+                "hidden": true,
+                "name": "Static Fueltank-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -317884.11783708,
+                      "y": 635043.17777676
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "canCargo": false,
+                    "category": "Cargos",
+                    "heading": 0.61086523819802,
+                    "mass": 2400,
+                    "name": "Static Fueltank-1-1",
+                    "rate": 100,
+                    "shape_name": "fueltank_cargo",
+                    "type": "fueltank_cargo",
+                    "unitId": 63,
+                    "x": -317884.11783708,
+                    "y": 635043.17777676
+                  }
+                ],
+                "x": -317884.11783708,
+                "y": 635043.17777676
+              },
+              {
+                "dead": false,
+                "groupId": 56,
+                "heading": 2.2514747350727,
+                "hidden": true,
+                "name": "Static Mi-8MTV2-3",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -317745.71573907,
+                      "y": 635100.16603249
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Helicopters",
+                    "heading": 2.2514747350727,
+                    "livery_id": "Georgia",
+                    "name": "Static Mi-8MTV2-3-1",
+                    "rate": "30",
+                    "type": "Mi-8MT",
+                    "unitId": 64,
+                    "x": -317745.71573907,
+                    "y": 635100.16603249
+                  }
+                ],
+                "x": -317745.71573907,
+                "y": 635100.16603249
+              },
+              {
+                "dead": false,
+                "groupId": 57,
+                "heading": 0.096563722072387,
+                "hidden": true,
+                "name": "Static An-26B-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -318267.29515801,
+                      "y": 635425.09577744
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 0.096563722072387,
+                    "livery_id": "Georgian AF",
+                    "name": "Static An-26B-1-1",
+                    "rate": "50",
+                    "type": "An-26B",
+                    "unitId": 65,
+                    "x": -318267.29515801,
+                    "y": 635425.09577744
+                  }
+                ],
+                "x": -318267.29515801,
+                "y": 635425.09577744
+              },
+              {
+                "dead": false,
+                "groupId": 58,
+                "heading": 0.096563722072387,
+                "hidden": true,
+                "name": "Static An-26B-2",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -318280.88600799,
+                      "y": 635357.96521541
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 0.096563722072387,
+                    "livery_id": "Georgian AF",
+                    "name": "Static An-26B-2-1",
+                    "rate": "50",
+                    "type": "An-26B",
+                    "unitId": 66,
+                    "x": -318280.88600799,
+                    "y": 635357.96521541
+                  }
+                ],
+                "x": -318280.88600799,
+                "y": 635357.96521541
+              },
+              {
+                "dead": false,
+                "groupId": 59,
+                "heading": 0.096563722072387,
+                "hidden": true,
+                "name": "Static An-26B-3",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -318293.65317009,
+                      "y": 635295.77678064
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Planes",
+                    "heading": 0.096563722072387,
+                    "livery_id": "Georgian AF",
+                    "name": "Static An-26B-3-1",
+                    "rate": "50",
+                    "type": "An-26B",
+                    "unitId": 67,
+                    "x": -318293.65317009,
+                    "y": 635295.77678064
+                  }
+                ],
+                "x": -318293.65317009,
+                "y": 635295.77678064
+              },
+              {
+                "dead": false,
+                "groupId": 64,
+                "heading": 1.5184364492351,
+                "hidden": true,
+                "name": "Static Tanker Elnya 160-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -294647.91210426,
+                      "y": 616362.63020129
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Ships",
+                    "heading": 1.5184364492351,
+                    "name": "Static Tanker Elnya 160-1-1",
+                    "rate": 700,
+                    "type": "ELNYA",
+                    "unitId": 91,
+                    "x": -294647.91210426,
+                    "y": 616362.63020129
+                  }
+                ],
+                "x": -294647.91210426,
+                "y": 616362.63020129
+              },
+              {
+                "dead": false,
+                "groupId": 65,
+                "heading": 4.9043751981041,
+                "hidden": true,
+                "name": "Static TV tower-1",
+                "route": {
+                  "points": [
+                    {
+                      "action": "",
+                      "alt": 0,
+                      "formation_template": "",
+                      "name": "",
+                      "speed": 0,
+                      "type": "",
+                      "x": -291340.16007477,
+                      "y": 658704.75993972
+                    }
+                  ]
+                },
+                "units": [
+                  {
+                    "category": "Fortifications",
+                    "heading": 4.9043751981041,
+                    "name": "Static TV tower-1-1",
+                    "rate": 100,
+                    "shape_name": "tele_bash",
+                    "type": "TV tower",
+                    "unitId": 92,
+                    "x": -291340.16007477,
+                    "y": 658704.75993972
+                  }
+                ],
+                "x": -291340.16007477,
+                "y": 658704.75993972
+              }
+            ]
+          },
+          "vehicle": {
+            "group": [
+              {
+                "groupId": 37,
+                "hidden": true,
+                "name": "Twr",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Off Road",
+                      "alt": 45,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 0,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -284520.8959432,
+                      "y": 682506.62350998
+                    }
+                  ],
+                  "spans": [
+                    [
+                      {
+                        "x": -284521.4497966,
+                        "y": 682504.26963302
+                      },
+                      {
+                        "x": -284521.10363822,
+                        "y": 682503.85424296
+                      }
+                    ]
+                  ]
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.4434609527921,
+                    "name": "Twr-1",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "SKP-11",
+                    "unitId": 42,
+                    "x": -284520.8959432,
+                    "y": 682506.62350998
+                  }
+                ],
+                "visible": false,
+                "x": -284520.8959432,
+                "y": 682506.62350998
+              },
+              {
+                "groupId": 62,
+                "hidden": true,
+                "name": "Poti SAM",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Off Road",
+                      "alt": 5,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 0,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -299813.74967439,
+                      "y": 619285.46678658
+                    }
+                  ],
+                  "spans": [
+                    [
+                      {
+                        "x": -293184.94470744,
+                        "y": 618442.78361729
+                      },
+                      {
+                        "x": -293269.4602357,
+                        "y": 618301.92440352
+                      }
+                    ]
+                  ]
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.1719694801143,
+                    "name": "Poti SAM-1",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "snr s-125 tr",
+                    "unitId": 81,
+                    "x": -299813.74967439,
+                    "y": 619285.46678658
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.1719694801143,
+                    "name": "Poti SAM-2",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "5p73 s-125 ln",
+                    "unitId": 82,
+                    "x": -299847.33917921,
+                    "y": 619141.35697556
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.1719694801143,
+                    "name": "Poti SAM-3",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "5p73 s-125 ln",
+                    "unitId": 83,
+                    "x": -299918.85231851,
+                    "y": 619203.11832314
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.1719694801143,
+                    "name": "Poti SAM-4",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "5p73 s-125 ln",
+                    "unitId": 84,
+                    "x": -299755.23892405,
+                    "y": 619143.52404039
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.1719694801143,
+                    "name": "Poti SAM-5",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "5p73 s-125 ln",
+                    "unitId": 85,
+                    "x": -299943.77356403,
+                    "y": 619314.72216175
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.1719694801143,
+                    "name": "Poti SAM-6",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "p-19 s-125 sr",
+                    "unitId": 86,
+                    "x": -299651.21981234,
+                    "y": 619474.00142655
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 5.4977871437821,
+                    "name": "Poti SAM-7",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Ural-375 PBU",
+                    "unitId": 87,
+                    "x": -299758.48952129,
+                    "y": 619338.55987485
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 5.4977871437821,
+                    "name": "Poti SAM-8",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "ZIL-131 KUNG",
+                    "unitId": 88,
+                    "x": -299749.82126199,
+                    "y": 619360.23052312
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.1719694801143,
+                    "name": "Poti SAM-9",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "ZiL-131 APA-80",
+                    "unitId": 89,
+                    "x": -299780.16016957,
+                    "y": 619417.65774104
+                  }
+                ],
+                "visible": false,
+                "x": -299813.74967439,
+                "y": 619285.46678658
+              }
+            ]
+          }
+        }
+      ],
+      "name": "blue",
+      "nav_points": []
+    },
+    "neutrals": {
+      "bullseye": {
+        "x": 0,
+        "y": 0
+      },
+      "country": [],
+      "name": "neutrals",
+      "nav_points": []
+    },
+    "red": {
+      "bullseye": {
+        "x": 11557,
+        "y": 371700
+      },
+      "country": [
+        {
+          "id": 81,
+          "name": "CJTF Red",
+          "vehicle": {
+            "group": [
+              {
+                "groupId": 66,
+                "hidden": true,
+                "name": "Ground-1",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "On Road",
+                      "alt": 14,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 0,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": []
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -285785.74991076,
+                      "y": 641694.50560669
+                    },
+                    {
+                      "ETA": 178.33366732349,
+                      "ETA_locked": false,
+                      "action": "On Road",
+                      "alt": 10,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 5.5555555555556,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 1,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 0,
+                                    "value": 4
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -286523.29177221,
+                      "y": 641220.87700447
+                    }
+                  ],
+                  "spans": [
+                    [
+                      {
+                        "x": -285784.96606163,
+                        "y": 641693.40631261
+                      },
+                      {
+                        "x": -286109.59062233,
+                        "y": 641459.73515244
+                      },
+                      {
+                        "x": -286124.96909338,
+                        "y": 641446.95153836
+                      },
+                      {
+                        "x": -286135.93287325,
+                        "y": 641436.71826354
+                      },
+                      {
+                        "x": -286142.81778892,
+                        "y": 641429.467597
+                      },
+                      {
+                        "x": -286152.39590747,
+                        "y": 641417.92670784
+                      },
+                      {
+                        "x": -286158.32470992,
+                        "y": 641409.87584922
+                      },
+                      {
+                        "x": -286163.80293021,
+                        "y": 641401.51118945
+                      },
+                      {
+                        "x": -286168.84047298,
+                        "y": 641392.87398418
+                      },
+                      {
+                        "x": -286173.42793122,
+                        "y": 641383.98954651
+                      },
+                      {
+                        "x": -286177.5501559,
+                        "y": 641374.87995496
+                      },
+                      {
+                        "x": -286181.20451424,
+                        "y": 641365.57279311
+                      },
+                      {
+                        "x": -286185.92797856,
+                        "y": 641351.33807867
+                      },
+                      {
+                        "x": -286191.12151013,
+                        "y": 641332.02675588
+                      },
+                      {
+                        "x": -286198.39565227,
+                        "y": 641297.79449876
+                      },
+                      {
+                        "x": -286204.82825122,
+                        "y": 641263.40032119
+                      },
+                      {
+                        "x": -286208.9695865,
+                        "y": 641248.98592797
+                      },
+                      {
+                        "x": -286212.32587782,
+                        "y": 641239.56745018
+                      },
+                      {
+                        "x": -286216.30518626,
+                        "y": 641230.39551916
+                      },
+                      {
+                        "x": -286221.03193573,
+                        "y": 641221.58704971
+                      },
+                      {
+                        "x": -286223.71747043,
+                        "y": 641217.37022793
+                      },
+                      {
+                        "x": -286226.64062794,
+                        "y": 641213.31533111
+                      },
+                      {
+                        "x": -286229.80883035,
+                        "y": 641209.44836943
+                      },
+                      {
+                        "x": -286233.20683853,
+                        "y": 641205.78137677
+                      },
+                      {
+                        "x": -286236.81751573,
+                        "y": 641202.32363737
+                      },
+                      {
+                        "x": -286240.62500106,
+                        "y": 641199.08392384
+                      },
+                      {
+                        "x": -286244.61443036,
+                        "y": 641196.07097909
+                      },
+                      {
+                        "x": -286248.77158055,
+                        "y": 641193.29403115
+                      },
+                      {
+                        "x": -286253.08275614,
+                        "y": 641190.76286928
+                      },
+                      {
+                        "x": -286257.53445081,
+                        "y": 641188.48803023
+                      },
+                      {
+                        "x": -286262.11318284,
+                        "y": 641186.48079636
+                      },
+                      {
+                        "x": -286266.80448245,
+                        "y": 641184.75358134
+                      },
+                      {
+                        "x": -286271.59330081,
+                        "y": 641183.31935468
+                      },
+                      {
+                        "x": -286276.46055171,
+                        "y": 641182.17940216
+                      },
+                      {
+                        "x": -286281.38557101,
+                        "y": 641181.31787948
+                      },
+                      {
+                        "x": -286286.34823114,
+                        "y": 641180.71416509
+                      },
+                      {
+                        "x": -286296.33147818,
+                        "y": 641180.18306819
+                      },
+                      {
+                        "x": -286306.3275571,
+                        "y": 641180.38637361
+                      },
+                      {
+                        "x": -286321.27114357,
+                        "y": 641181.65840283
+                      },
+                      {
+                        "x": -286346.01606173,
+                        "y": 641185.20147066
+                      },
+                      {
+                        "x": -286523.55054543,
+                        "y": 641219.55282127
+                      }
+                    ],
+                    [
+                      {
+                        "x": -286552.18263887,
+                        "y": 641220.33231813
+                      },
+                      {
+                        "x": -286552.18263887,
+                        "y": 641220.33231813
+                      }
+                    ]
+                  ]
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.7688723838505,
+                    "name": "Ground-1-1",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "BTR-82A",
+                    "unitId": 93,
+                    "x": -285785.74991076,
+                    "y": 641694.50560669
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.7631779664639,
+                    "name": "Ground-1-2",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "BTR-80",
+                    "unitId": 94,
+                    "x": -285761.36143219,
+                    "y": 641711.97519616
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.7649840559859,
+                    "name": "Ground-1-3",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "BTR-80",
+                    "unitId": 95,
+                    "x": -285737.00438631,
+                    "y": 641729.48891901
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.7652738975717,
+                    "name": "Ground-1-4",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Ural-375 ZU-23",
+                    "unitId": 96,
+                    "x": -285712.65236637,
+                    "y": 641747.00973771
+                  }
+                ],
+                "visible": false,
+                "x": -285785.74991076,
+                "y": 641694.50560669
+              },
+              {
+                "groupId": 67,
+                "hidden": true,
+                "name": "Ground-2",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Off Road",
+                      "alt": 4,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 0,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 1,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 0,
+                                    "value": 4
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -288631.15570219,
+                      "y": 624292.86045123
+                    }
+                  ],
+                  "spans": [
+                    [
+                      {
+                        "x": -288480.50459932,
+                        "y": 623850.07720976
+                      },
+                      {
+                        "x": -288526.35493498,
+                        "y": 623914.26767967
+                      }
+                    ]
+                  ]
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.191045812778,
+                    "name": "Ground-2-1",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "S-60_Type59_Artillery",
+                    "unitId": 97,
+                    "x": -288631.15570219,
+                    "y": 624292.86045123
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.191045812778,
+                    "name": "Ground-2-2",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "S-60_Type59_Artillery",
+                    "unitId": 98,
+                    "x": -288664.60565424,
+                    "y": 624257.49019229
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.191045812778,
+                    "name": "Ground-2-3",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "S-60_Type59_Artillery",
+                    "unitId": 99,
+                    "x": -288721.54636391,
+                    "y": 624174.95958811
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.191045812778,
+                    "name": "Ground-2-4",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "S-60_Type59_Artillery",
+                    "unitId": 100,
+                    "x": -288705.82624883,
+                    "y": 624231.29000049
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 5.2708943410229,
+                    "name": "Ground-2-5",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "Ural-375",
+                    "unitId": 101,
+                    "x": -288649.49583645,
+                    "y": 624177.57960729
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 2.191045812778,
+                    "name": "Ground-2-6",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "UAZ-469",
+                    "unitId": 102,
+                    "x": -288670.4559899,
+                    "y": 624160.54948262
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 4.9916416607038,
+                    "name": "Ground-2-7",
+                    "playerCanDrive": true,
+                    "skill": "Average",
+                    "type": "Ural-375",
+                    "unitId": 103,
+                    "x": -288624.60565424,
+                    "y": 624206.39981828
+                  }
+                ],
+                "visible": false,
+                "x": -288631.15570219,
+                "y": 624292.86045123
+              },
+              {
+                "groupId": 68,
+                "hidden": true,
+                "name": "Ground-3",
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Off Road",
+                      "alt": 5,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "speed": 0,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 1,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 9,
+                                    "value": 2
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 2,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 0,
+                                    "value": 4
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -305003.88406292,
+                      "y": 623240.86317353
+                    }
+                  ],
+                  "spans": [
+                    [
+                      {
+                        "x": -305003.88406292,
+                        "y": 623240.86317353
+                      },
+                      {
+                        "x": -305104.87600243,
+                        "y": 623177.92616775
+                      }
+                    ]
+                  ]
+                },
+                "start_time": 0,
+                "task": "Ground Nothing",
+                "taskSelected": true,
+                "tasks": [],
+                "uncontrollable": false,
+                "units": [
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.6988881887072,
+                    "name": "Ground-3-1",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Scud_B",
+                    "unitId": 104,
+                    "x": -305003.88406292,
+                    "y": 623240.86317353
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.6988881887072,
+                    "name": "Ground-3-2",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Scud_B",
+                    "unitId": 105,
+                    "x": -305069.7483713,
+                    "y": 623251.84055826
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.6988881887072,
+                    "name": "Ground-3-3",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Scud_B",
+                    "unitId": 106,
+                    "x": -305158.29927477,
+                    "y": 623274.52715337
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.6988881887072,
+                    "name": "Ground-3-4",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "ATZ-5",
+                    "unitId": 107,
+                    "x": -305019.98422719,
+                    "y": 623358.68710295
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 3.6988881887072,
+                    "name": "Ground-3-5",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "ATZ-5",
+                    "unitId": 108,
+                    "x": -305041.93899665,
+                    "y": 623361.61440555
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 1.3962634015955,
+                    "name": "Ground-3-6",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "Ural-375 PBU",
+                    "unitId": 109,
+                    "x": -304968.75643179,
+                    "y": 623327.95042571
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 1.6231562043547,
+                    "name": "Ground-3-7",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "KAMAZ Truck",
+                    "unitId": 110,
+                    "x": -305109.99878197,
+                    "y": 623371.85996463
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 1.5707963267949,
+                    "name": "Ground-3-8",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "KAMAZ Truck",
+                    "unitId": 111,
+                    "x": -305129.02624883,
+                    "y": 623368.20083639
+                  },
+                  {
+                    "coldAtStart": false,
+                    "heading": 1.221730476396,
+                    "name": "Ground-3-9",
+                    "playerCanDrive": false,
+                    "skill": "Average",
+                    "type": "KAMAZ Truck",
+                    "unitId": 112,
+                    "x": -305148.05371569,
+                    "y": 623368.93266204
+                  }
+                ],
+                "visible": false,
+                "x": -305003.88406292,
+                "y": 623240.86317353
+              }
+            ]
+          }
+        }
+      ],
+      "name": "red",
+      "nav_points": []
+    }
+  },
+  "coalitions": {
+    "blue": [
+      21,
+      11,
+      8,
+      80,
+      28,
+      26,
+      13,
+      5,
+      16,
+      6,
+      15,
+      20,
+      12,
+      40,
+      45,
+      9,
+      46,
+      10,
+      3,
+      4,
+      1,
+      2
+    ],
+    "neutrals": [
+      70,
+      83,
+      23,
+      65,
+      86,
+      64,
+      25,
+      63,
+      76,
+      84,
+      29,
+      62,
+      30,
+      78,
+      87,
+      31,
+      61,
+      32,
+      33,
+      60,
+      17,
+      35,
+      69,
+      36,
+      59,
+      71,
+      79,
+      58,
+      57,
+      56,
+      55,
+      88,
+      73,
+      39,
+      89,
+      54,
+      77,
+      72,
+      41,
+      42,
+      44,
+      85,
+      75,
+      53,
+      22,
+      52,
+      66,
+      51,
+      74,
+      82,
+      7,
+      68,
+      50,
+      49,
+      48,
+      67,
+      90
+    ],
+    "red": [
+      18,
+      24,
+      27,
+      81,
+      34,
+      37,
+      38,
+      0,
+      43,
+      19,
+      47
+    ]
+  },
+  "currentKey": 18122,
+  "date": {
+    "Day": 21,
+    "Month": 3,
+    "Year": 2016
+  },
+  "descriptionBlueTask": "DictKey_descriptionBlueTask_3",
+  "descriptionNeutralsTask": "DictKey_descriptionNeutralsTask_4",
+  "descriptionRedTask": "DictKey_descriptionRedTask_2",
+  "descriptionText": "DictKey_descriptionText_1",
+  "drawings": {
+    "layers": [
+      {
+        "name": "Red",
+        "objects": [],
+        "visible": true
+      },
+      {
+        "name": "Blue",
+        "objects": [],
+        "visible": true
+      },
+      {
+        "name": "Neutral",
+        "objects": [],
+        "visible": true
+      },
+      {
+        "name": "Common",
+        "objects": [],
+        "visible": true
+      },
+      {
+        "name": "Author",
+        "objects": [],
+        "visible": true
+      }
+    ],
+    "options": {
+      "hiddenOnF10Map": {
+        "ArtilleryCommander": {
+          "Blue": false,
+          "Neutral": false,
+          "Red": false
+        },
+        "ForwardObserver": {
+          "Blue": false,
+          "Neutral": false,
+          "Red": false
+        },
+        "Instructor": {
+          "Blue": false,
+          "Neutral": false,
+          "Red": false
+        },
+        "Observer": {
+          "Blue": false,
+          "Neutral": false,
+          "Red": false
+        },
+        "Pilot": {
+          "Blue": false,
+          "Neutral": false,
+          "Red": false
+        },
+        "Spectrator": {
+          "Blue": false,
+          "Neutral": false,
+          "Red": false
+        }
+      }
+    }
+  },
+  "failures": {
+    "APU_Fire": {
+      "enable": false,
+      "hh": 0,
+      "id": "APU_Fire",
+      "mm": 0,
+      "mmint": 1,
+      "prob": 100
+    },
+    "LeftEngine_Fire": {
+      "enable": false,
+      "hh": 0,
+      "id": "LeftEngine_Fire",
+      "mm": 0,
+      "mmint": 1,
+      "prob": 100
+    },
+    "RightEngine_Fire": {
+      "enable": false,
+      "hh": 0,
+      "id": "RightEngine_Fire",
+      "mm": 0,
+      "mmint": 1,
+      "prob": 100
+    }
+  },
+  "forcedOptions": {
+    "labels": 3
+  },
+  "goals": [],
+  "groundControl": {
+    "isPilotControlVehicles": false,
+    "passwords": {
+      "artillery_commander": [],
+      "forward_observer": [],
+      "instructor": [],
+      "observer": []
+    },
+    "roles": {
+      "artillery_commander": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      },
+      "forward_observer": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      },
+      "instructor": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      },
+      "observer": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      }
+    }
+  },
+  "map": {
+    "centerX": -284599.41535339,
+    "centerY": 682444.05255502,
+    "zoom": 492.29763764114
+  },
+  "maxDictId": 94,
+  "pictureFileNameB": [
+    "ResKey_ImageBriefing_76"
+  ],
+  "pictureFileNameN": [],
+  "pictureFileNameR": [],
+  "requiredModules": [],
+  "result": {
+    "blue": {
+      "actions": [],
+      "conditions": [],
+      "func": []
+    },
+    "offline": {
+      "actions": [],
+      "conditions": [],
+      "func": []
+    },
+    "red": {
+      "actions": [],
+      "conditions": [],
+      "func": []
+    },
+    "total": 0
+  },
+  "sortie": "DictKey_sortie_5",
+  "start_time": 63300,
+  "theatre": "Caucasus",
+  "trig": {
+    "actions": [
+      "a_remove_scene_objects(165, 1);",
+      "a_out_text_delay(getValueDictByKey(\"DictKey_ActionText_93\"), 21, false, 0);a_out_sound(getValueResourceByKey(\"ResKey_Action_94\"), 0); mission.trig.func[2]=nil;"
+    ],
+    "conditions": [
+      "return(true)",
+      "return(c_time_after(1) )"
+    ],
+    "custom": [],
+    "customStartup": [],
+    "events": [],
+    "flag": [
+      true,
+      true
+    ],
+    "func": [
+      null,
+      "if mission.trig.conditions[2]() then mission.trig.actions[2]() end"
+    ],
+    "funcStartup": [
+      "if mission.trig.conditions[1]() then mission.trig.actions[1]() end"
+    ]
+  },
+  "triggers": {
+    "zones": [
+      {
+        "color": [
+          0,
+          0,
+          0,
+          0.14901960784314
+        ],
+        "hidden": true,
+        "name": "No Treez Zone-1",
+        "properties": [],
+        "radius": 50,
+        "type": 0,
+        "x": -284459.21711304,
+        "y": 682567.15824648,
+        "zoneId": 165
+      }
+    ]
+  },
+  "trigrules": [
+    {
+      "actions": [
+        {
+          "objects_mask": 1,
+          "predicate": "a_remove_scene_objects",
+          "zone": 165
+        }
+      ],
+      "comment": "Set Up",
+      "eventlist": "",
+      "predicate": "triggerStart",
+      "rules": []
+    },
+    {
+      "actions": [
+        {
+          "KeyDict_text": "DictKey_ActionText_93",
+          "clearview": false,
+          "predicate": "a_out_text_delay",
+          "seconds": 21,
+          "start_delay": 0,
+          "text": "DictKey_ActionText_93"
+        },
+        {
+          "file": "ResKey_Action_94",
+          "predicate": "a_out_sound",
+          "start_delay": 0
+        }
+      ],
+      "comment": "Intro",
+      "eventlist": "",
+      "predicate": "triggerOnce",
+      "rules": [
+        {
+          "coalitionlist": "red",
+          "predicate": "c_time_after",
+          "seconds": 1,
+          "unitType": "ALL",
+          "zone": ""
+        }
+      ]
+    }
+  ],
+  "version": 22,
+  "weather": {
+    "atmosphere_type": 0,
+    "clouds": {
+      "base": 2600,
+      "density": 0,
+      "iprecptns": 0,
+      "preset": "Preset13",
+      "thickness": 200
+    },
+    "cyclones": [],
+    "dust_density": 0,
+    "enable_dust": false,
+    "enable_fog": false,
+    "fog": {
+      "thickness": 0,
+      "visibility": 0
+    },
+    "groundTurbulence": 0,
+    "halo": {
+      "preset": "off"
+    },
+    "modifiedTime": false,
+    "name": "Winter, clean sky",
+    "qnh": 760,
+    "season": {
+      "temperature": 19
+    },
+    "type_weather": 0,
+    "visibility": {
+      "distance": 80000
+    },
+    "wind": {
+      "at2000": {
+        "dir": 253,
+        "speed": 4
+      },
+      "at8000": {
+        "dir": 0,
+        "speed": 0
+      },
+      "atGround": {
+        "dir": 261,
+        "speed": 2
+      }
+    }
+  }
+}
