@@ -15,8 +15,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["naive-ui/volar"],
+    "allowJs": true
   },
-  "include": ["src/vite-env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["src/vite-env.d.ts", ".eslintrc.cjs", "src/**/*", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -12,7 +12,9 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
+    parser: "@typescript-eslint/parser",
     project: "./tsconfig.json",
+    extraFileExtensions: [".vue"],
   },
   plugins: ["@typescript-eslint", "vue"],
   rules: {
