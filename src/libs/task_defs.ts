@@ -1,6 +1,6 @@
-import task_defs from "./task_defs.json";
-import { type TaskDef } from "./Tasks";
+import option_defs from "./option_defs.json";
+import { type SetOption } from "./Tasks";
 
-const TaskDefs: TaskDef = task_defs;
+const OptionDefs: SetOption.TaskDef[] = option_defs ;
 
-export default { TaskDefs };
+export { OptionDefs };

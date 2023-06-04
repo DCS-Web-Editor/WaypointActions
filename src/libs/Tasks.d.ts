@@ -12,20 +12,14 @@ export interface Tasks {
   };
 }
 
-type Formation = Record<
-  number,
-  {
-    type: string;
-    varient: string[];
+export namespace SetOption {
+  interface SubOptions {
+    name: string;
+    children: string[] | SubTasks[] | null;
   }
->;
 
-export interface TaskDef {
-  options: Record<
-    number,
-    {
-      name: string;
-      items: string[] | Formation | null;
-    }
-  >;
+  export interface TaskDef {
+    name: string;
+    options: SubOptions[] | string[] | null;
+  }
 }

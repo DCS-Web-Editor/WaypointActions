@@ -1,44 +1,704 @@
 {
-  "id": "ComboTask",
-  "params": {
-    "tasks": [
-      {
-        "auto": false,
-        "enabled": true,
-        "id": "WrappedAction",
-        "number": 1,
-        "params": {
-          "action": {
-            "id": "Option",
-            "params": {
-              "name": 1,
-              "value": 2
-            }
+  "coalition": {
+    "blue": {
+      "bullseye": {
+        "x": -291014,
+        "y": 617414
+      },
+      "country": [
+        {
+          "id": 2,
+          "name": "USA",
+          "plane": {
+            "group": [
+              {
+                "communication": true,
+                "frequency": 251,
+                "groupId": 1,
+                "hidden": false,
+                "modulation": 0,
+                "name": "Aerial-1",
+                "radioSet": false,
+                "route": {
+                  "points": [
+                    {
+                      "ETA": 0,
+                      "ETA_locked": true,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "angle": 0,
+                        "scale": 0,
+                        "steer": 2,
+                        "vangle": 0,
+                        "vnav": 1
+                      },
+                      "speed": 123.33333333333,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 1,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 1,
+                                    "value": 2
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 2,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 3,
+                                    "value": 1
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 3,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "formationIndex": 2,
+                                    "name": 5,
+                                    "value": 131074,
+                                    "variantIndex": 2
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 4,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 15,
+                                    "value": true
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 5,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 21,
+                                    "noTargetTypes": [
+                                      "Fighters",
+                                      "Multirole fighters",
+                                      "Bombers",
+                                      "Helicopters",
+                                      "UAVs",
+                                      "Infantry",
+                                      "Fortifications",
+                                      "Tanks",
+                                      "IFV",
+                                      "APC",
+                                      "Artillery",
+                                      "Unarmed vehicles",
+                                      "AAA",
+                                      "SR SAM",
+                                      "MR SAM",
+                                      "LR SAM",
+                                      "Aircraft Carriers",
+                                      "Cruisers",
+                                      "Destroyers",
+                                      "Frigates",
+                                      "Corvettes",
+                                      "Light armed ships",
+                                      "Unarmed ships",
+                                      "Submarines",
+                                      "Cruise missiles",
+                                      "Antiship Missiles",
+                                      "AA Missiles",
+                                      "AG Missiles",
+                                      "SA Missiles"
+                                    ],
+                                    "targetTypes": [],
+                                    "value": "none;"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 6,
+                              "params": {
+                                "action": {
+                                  "id": "Option",
+                                  "params": {
+                                    "name": 19,
+                                    "value": true
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": true,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 7,
+                              "params": {
+                                "action": {
+                                  "id": "EPLRS",
+                                  "params": {
+                                    "groupId": 1,
+                                    "value": true
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -294571.42857143,
+                      "y": 643428.57142857
+                    },
+                    {
+                      "ETA": 121.33154584868,
+                      "ETA_locked": false,
+                      "action": "Turning Point",
+                      "alt": 2000,
+                      "alt_type": "BARO",
+                      "formation_template": "",
+                      "properties": {
+                        "angle": 0,
+                        "scale": 0,
+                        "steer": 2,
+                        "vangle": 0,
+                        "vnav": 1
+                      },
+                      "speed": 123.33333333333,
+                      "speed_locked": true,
+                      "task": {
+                        "id": "ComboTask",
+                        "params": {
+                          "tasks": [
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 1,
+                              "params": {
+                                "action": {
+                                  "id": "Script",
+                                  "params": {
+                                    "command": ""
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 2,
+                              "params": {
+                                "action": {
+                                  "id": "ScriptFile",
+                                  "params": {
+                                    "file": ""
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 3,
+                              "params": {
+                                "action": {
+                                  "id": "SetFrequency",
+                                  "params": {
+                                    "frequency": 131000000,
+                                    "modulation": 0,
+                                    "power": 10
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 4,
+                              "params": {
+                                "action": {
+                                  "id": "SetFrequencyForUnit",
+                                  "params": {
+                                    "frequency": 131000000,
+                                    "modulation": 0,
+                                    "power": 10
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 5,
+                              "params": {
+                                "action": {
+                                  "id": "TransmitMessage",
+                                  "params": {
+                                    "duration": 5,
+                                    "file": "",
+                                    "loop": false,
+                                    "subtitle": "DictKey_subtitle_7"
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 6,
+                              "params": {
+                                "action": {
+                                  "id": "StopTransmission",
+                                  "params": []
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 7,
+                              "params": {
+                                "action": {
+                                  "id": "SwitchWaypoint",
+                                  "params": {
+                                    "fromWaypointIndex": 2,
+                                    "goToWaypointIndex": 1
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 8,
+                              "params": {
+                                "action": {
+                                  "id": "SetInvisible",
+                                  "params": {
+                                    "value": true
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 9,
+                              "params": {
+                                "action": {
+                                  "id": "SetImmortal",
+                                  "params": {
+                                    "value": true
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 10,
+                              "params": {
+                                "action": {
+                                  "id": "EPLRS",
+                                  "params": {
+                                    "groupId": 1,
+                                    "value": true
+                                  }
+                                }
+                              }
+                            },
+                            {
+                              "auto": false,
+                              "enabled": true,
+                              "id": "WrappedAction",
+                              "number": 11,
+                              "params": {
+                                "action": {
+                                  "id": "SMOKE_ON_OFF",
+                                  "params": {
+                                    "value": true
+                                  }
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "type": "Turning Point",
+                      "x": -293530.37624362,
+                      "y": 658356.53879234
+                    }
+                  ]
+                },
+                "start_time": 0,
+                "task": "CAS",
+                "tasks": [],
+                "uncontrolled": false,
+                "units": [
+                  {
+                    "AddPropAircraft": [],
+                    "alt": 2000,
+                    "alt_type": "BARO",
+                    "callsign": {
+                      "1": 1,
+                      "2": 1,
+                      "3": 1,
+                      "name": "Enfield11"
+                    },
+                    "heading": 1.5011706697342,
+                    "livery_id": "104th fs maryland ang, baltimore (md)",
+                    "name": "Aerial-1-1",
+                    "onboard_num": "010",
+                    "payload": {
+                      "ammo_type": 1,
+                      "chaff": 240,
+                      "flare": 120,
+                      "fuel": 5029,
+                      "gun": 100,
+                      "pylons": []
+                    },
+                    "psi": -1.5011706697342,
+                    "skill": "High",
+                    "speed": 123.33333333333,
+                    "type": "A-10C",
+                    "unitId": 1,
+                    "x": -294571.42857143,
+                    "y": 643428.57142857
+                  }
+                ],
+                "x": -294571.42857143,
+                "y": 643428.57142857
+              }
+            ]
           }
         }
+      ],
+      "name": "blue",
+      "nav_points": []
+    },
+    "neutrals": {
+      "bullseye": {
+        "x": 0,
+        "y": 0
       },
-      {
-        "auto": false,
-        "enabled": true,
-        "id": "Orbit",
-        "number": 2,
-        "params": {
-          "altitude": 2000,
-          "pattern": "Race-Track",
-          "speed": 100
-        }
+      "country": [],
+      "name": "neutrals",
+      "nav_points": []
+    },
+    "red": {
+      "bullseye": {
+        "x": 11557,
+        "y": 371700
       },
-      {
-        "auto": false,
-        "enabled": true,
-        "id": "EngageTargets",
-        "key": "CAS",
-        "number": 3,
-        "params": {
-          "priority": 0,
-          "targetTypes": ["Helicopters", "Ground Units", "Light armed ships"]
-        }
-      }
+      "country": [],
+      "name": "red",
+      "nav_points": []
+    }
+  },
+  "coalitions": {
+    "blue": [
+      21,
+      23,
+      11,
+      25,
+      8,
+      80,
+      28,
+      26,
+      13,
+      30,
+      5,
+      16,
+      6,
+      31,
+      32,
+      15,
+      20,
+      12,
+      40,
+      41,
+      44,
+      9,
+      46,
+      10,
+      3,
+      4,
+      1,
+      2
+    ],
+    "neutrals": [
+      70,
+      83,
+      65,
+      86,
+      64,
+      63,
+      76,
+      84,
+      90,
+      29,
+      62,
+      78,
+      87,
+      61,
+      33,
+      60,
+      17,
+      34,
+      35,
+      69,
+      36,
+      59,
+      37,
+      71,
+      79,
+      58,
+      57,
+      56,
+      55,
+      88,
+      38,
+      73,
+      39,
+      89,
+      54,
+      77,
+      72,
+      42,
+      85,
+      75,
+      45,
+      53,
+      22,
+      52,
+      66,
+      51,
+      74,
+      82,
+      7,
+      68,
+      50,
+      49,
+      48,
+      67
+    ],
+    "red": [
+      18,
+      24,
+      27,
+      81,
+      0,
+      43,
+      19,
+      47
     ]
+  },
+  "currentKey": 229,
+  "date": {
+    "Day": 21,
+    "Month": 6,
+    "Year": 2016
+  },
+  "descriptionBlueTask": "DictKey_descriptionBlueTask_3",
+  "descriptionNeutralsTask": "DictKey_descriptionNeutralsTask_4",
+  "descriptionRedTask": "DictKey_descriptionRedTask_2",
+  "descriptionText": "DictKey_descriptionText_1",
+  "failures": {
+    "APU_Fire": {
+      "enable": false,
+      "hh": 0,
+      "id": "APU_Fire",
+      "mm": 0,
+      "mmint": 1,
+      "prob": 100
+    },
+    "LeftEngine_Fire": {
+      "enable": false,
+      "hh": 0,
+      "id": "LeftEngine_Fire",
+      "mm": 0,
+      "mmint": 1,
+      "prob": 100
+    },
+    "RightEngine_Fire": {
+      "enable": false,
+      "hh": 0,
+      "id": "RightEngine_Fire",
+      "mm": 0,
+      "mmint": 1,
+      "prob": 100
+    }
+  },
+  "forcedOptions": [],
+  "goals": [],
+  "groundControl": {
+    "isPilotControlVehicles": false,
+    "passwords": {
+      "artillery_commander": [],
+      "forward_observer": [],
+      "instructor": [],
+      "observer": []
+    },
+    "roles": {
+      "artillery_commander": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      },
+      "forward_observer": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      },
+      "instructor": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      },
+      "observer": {
+        "blue": 0,
+        "neutrals": 0,
+        "red": 0
+      }
+    }
+  },
+  "map": {
+    "centerX": -298675.11268016,
+    "centerY": 667495.63581626,
+    "zoom": 223684.19289295
+  },
+  "maxDictId": 8,
+  "pictureFileNameB": [],
+  "pictureFileNameN": [],
+  "pictureFileNameR": [],
+  "requiredModules": [],
+  "result": {
+    "blue": {
+      "actions": [],
+      "conditions": [],
+      "func": []
+    },
+    "offline": {
+      "actions": [],
+      "conditions": [],
+      "func": []
+    },
+    "red": {
+      "actions": [],
+      "conditions": [],
+      "func": []
+    },
+    "total": 0
+  },
+  "sortie": "DictKey_sortie_5",
+  "start_time": 28800,
+  "theatre": "Caucasus",
+  "trig": {
+    "actions": [],
+    "conditions": [],
+    "custom": [],
+    "customStartup": [],
+    "events": [],
+    "flag": [],
+    "func": [],
+    "funcStartup": []
+  },
+  "triggers": {
+    "zones": []
+  },
+  "trigrules": [],
+  "version": 22,
+  "weather": {
+    "atmosphere_type": 0,
+    "clouds": {
+      "base": 2500,
+      "density": 0,
+      "iprecptns": 0,
+      "preset": "Preset2",
+      "thickness": 200
+    },
+    "cyclones": [],
+    "dust_density": 0,
+    "enable_dust": false,
+    "enable_fog": false,
+    "fog": {
+      "thickness": 0,
+      "visibility": 0
+    },
+    "groundTurbulence": 0,
+    "halo": {
+      "preset": "auto"
+    },
+    "modifiedTime": false,
+    "name": "Winter, clean sky",
+    "qnh": 760,
+    "season": {
+      "temperature": 20
+    },
+    "type_weather": 0,
+    "visibility": {
+      "distance": 80000
+    },
+    "wind": {
+      "at2000": {
+        "dir": 0,
+        "speed": 0
+      },
+      "at8000": {
+        "dir": 0,
+        "speed": 0
+      },
+      "atGround": {
+        "dir": 0,
+        "speed": 0
+      }
+    }
   }
 }
