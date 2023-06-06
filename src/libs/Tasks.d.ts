@@ -1,3 +1,8 @@
+interface SubOptions {
+  name: string;
+  children: string[] | SubTasks[] | null;
+}
+
 export interface Tasks {
   id: string;
   params: {
@@ -6,20 +11,25 @@ export interface Tasks {
       enabled: boolean;
       id: string;
       number: number;
-      params: any; // Too many possible types to list here
-      key?: string;
+      params: OptionParams | any;
     }>;
   };
 }
+export interface OptionParams {
+  action: {
+    id: "Option";
+    params: {
+      name: number;
+      value: number | string | boolean;
+      noTargetTypes?: string[];
+      targetTypes?: string[];
+      formationIndex?: number;
+      varientIndex?: number;
+    };
+  };
+}
 
-export namespace SetOption {
-  interface SubOptions {
-    name: string;
-    children: string[] | SubTasks[] | null;
-  }
-
-  export interface TaskDef {
-    name: string;
-    options: SubOptions[] | string[] | null;
-  }
+export interface TaskDef {
+  name: string;
+  options: SubOptions[] | string[] | null;
 }

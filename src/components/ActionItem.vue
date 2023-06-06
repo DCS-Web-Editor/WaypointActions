@@ -6,10 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import { Tasks } from "../libs/Tasks";
-
 const props = defineProps<{
   index: number;
-  data: Tasks;
+  data: string;
 }>();
 </script>
