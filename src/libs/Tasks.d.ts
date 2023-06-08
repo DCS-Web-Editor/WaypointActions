@@ -1,8 +1,3 @@
-interface SubOptions {
-  name: string;
-  children: string[] | SubTasks[] | null;
-}
-
 export interface Tasks {
   id: string;
   params: {
@@ -17,7 +12,7 @@ export interface Tasks {
 }
 export interface OptionParams {
   action: {
-    id: "Option";
+    id: string;
     params: {
       name: number;
       value: number | string | boolean;
@@ -29,7 +24,8 @@ export interface OptionParams {
   };
 }
 
-export interface TaskDef {
-  name: string;
-  options: SubOptions[] | string[] | null;
+export interface Checkbox {
+  label: string;
+  value: number;
+  val: boolean;
 }
