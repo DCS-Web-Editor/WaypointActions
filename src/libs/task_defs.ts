@@ -197,7 +197,7 @@ export const optionDefs = [
       },
       {
         label: "Modern Bomber Element",
-        value: 15,
+        value: 17,
         children: [
           { label: "Close (100m x 100m)", value: 1 },
           { label: "Open (200m x 200m)", value: 2 },
@@ -214,31 +214,106 @@ export const optionDefs = [
     label: "RTB on out of ammo",
     value: 7,
     options: [
-      "No weapon",
-      "All",
-      "Unguided",
-      "-Cannons",
-      "-Rockets",
-      "--Light Rockets",
-      "--Heavy Rockets",
-      "-Bombs",
-      "--Iron Bombs",
-      "--Cluster Bombs",
-      "--Candle Bombs",
-      "-Torpedoes",
-      "Guided",
-      "-Guided Bombs",
-      "-Missiles",
-      "-ASM",
-      "--ATGM",
-      "--Standard ASM",
-      "--ARM",
-      "--Antiship Missiles",
-      "--Cruise Missiles",
-      "-AAM",
-      "--SR AAM",
-      "--MR AAM",
-      "--LR AAM",
+      {
+        label: "No weapon",
+        value: 0,
+      },
+      {
+        label: "All",
+        value: 4294967295,
+      },
+      {
+        label: "Unguided",
+        value: 805339120,
+      },
+      {
+        label: "-Cannons",
+        value: 805306368,
+      },
+      {
+        label: "-Rockets",
+        value: 30720,
+      },
+      {
+        label: "--Light Rockets",
+        value: 2048,
+      },
+      {
+        label: "--Heavy Rockets",
+        value: 16384,
+      },
+      {
+        label: "-Bombs",
+        value: 2032,
+      },
+      {
+        label: "--Iron Bombs",
+        value: 240,
+      },
+      {
+        label: "--Cluster Bombs",
+        value: 768,
+      },
+      {
+        label: "--Candle Bombs",
+        value: 1024,
+      },
+      {
+        label: "-Torpedoes",
+        value: 4294967296,
+      },
+      {
+        label: "Guided",
+        value: 268402702,
+      },
+      {
+        label: "-Guided Bombs",
+        value: 14,
+      },
+      {
+        label: "-Missiles",
+        value: 268402688,
+      },
+      {
+        label: "-ASM",
+        value: 4161536,
+      },
+      {
+        label: "--ATGM",
+        value: 131072,
+      },
+      {
+        label: "--Standard ASM",
+        value: 1835008,
+      },
+      {
+        label: "--ARM",
+        value: 32768,
+      },
+      {
+        label: "--Antiship Missiles",
+        value: 65536,
+      },
+      {
+        label: "--Cruise Missiles",
+        value: 2097152,
+      },
+      {
+        label: "-AAM",
+        value: 264241152,
+      },
+      {
+        label: "--SR AAM",
+        value: 4194304,
+      },
+      {
+        label: "--MR AAM",
+        value: 8388608,
+      },
+      {
+        label: "--LR AAM",
+        value: 16777216,
+      },
     ],
   },
   {
