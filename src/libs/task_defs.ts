@@ -5,7 +5,7 @@ export const optionDefs = [
   {
     label: "No Option",
     val: false,
-    value: 0
+    value: 0,
   },
   {
     label: "ROE",
@@ -13,25 +13,25 @@ export const optionDefs = [
     options: [
       {
         label: "WEAPON FREE",
-        value: 1
+        value: 1,
       },
       {
         label: "PRIORITY DESIGNATED",
-        value: 2
+        value: 2,
       },
       {
         label: "ONLY DESIGNATED",
-        value: 3
+        value: 3,
       },
       {
         label: "RETURN FIRE",
-        value: 4
+        value: 4,
       },
       {
         label: "WEAPON HOLD",
-        value: 5
-      }
-    ] as SelectOption[]
+        value: 5,
+      },
+    ] as SelectOption[],
   },
   {
     label: "Reaction To Threat",
@@ -39,29 +39,29 @@ export const optionDefs = [
     options: [
       {
         label: "NO REACTION",
-        value: 1
+        value: 1,
       },
       {
         label: "PASSIVE DEFENCE",
-        value: 2
+        value: 2,
       },
       {
         label: "EVADE FIRE",
-        value: 3
+        value: 3,
       },
       {
         label: "EVASIVE VERTICAL MANOEUVER",
-        value: 4
+        value: 4,
       },
       {
         label: "ALLOW ABORT MISSION",
-        value: 5
+        value: 5,
       },
       {
         label: "HORIZONTAL AAA FIRE EVADE",
-        value: 6
-      }
-    ] as SelectOption[]
+        value: 6,
+      },
+    ] as SelectOption[],
   },
   {
     label: "Radar Using",
@@ -69,21 +69,21 @@ export const optionDefs = [
     options: [
       {
         label: "NEVER USE",
-        value: 1
+        value: 1,
       },
       {
         label: "USE FOR ATTACK ONLY",
-        value: 2
+        value: 2,
       },
       {
         label: "USE FOR SEARCH IF REQUIRED",
-        value: 3
+        value: 3,
       },
       {
         label: "USE FOR CONTINUOUS SEARCH",
-        value: 4
-      }
-    ] as SelectOption[]
+        value: 4,
+      },
+    ] as SelectOption[],
   },
   {
     label: "Chaff - Flare Using",
@@ -91,21 +91,21 @@ export const optionDefs = [
     options: [
       {
         label: "NEVER USE",
-        value: 1
+        value: 1,
       },
       {
         label: "USE AGAINST FIRED MISSILE",
-        value: 2
+        value: 2,
       },
       {
         label: "USE WHEN FLYING IN SAM WEZ",
-        value: 3
+        value: 3,
       },
       {
         label: "USE WHEN FLYING NEAR ENEMIES (N/A)",
-        value: 4
-      }
-    ] as SelectOption[]
+        value: 4,
+      },
+    ] as SelectOption[],
   },
   {
     label: "Formation",
@@ -113,82 +113,102 @@ export const optionDefs = [
     options: [
       {
         label: "Line Abreast",
+        value: 1,
         children: [
-          "Close (1828m x 0m)",
-          "Open (2743m x 0m)",
-          "Group Close (39m x 0m)"
-        ]
+          { label: "Close (1828m x 0m)", value: 1 },
+          { label: "Open (2743m x 0m)", value: 2 },
+          { label: "Group Close (39m x 0m)", value: 3 },
+        ],
       },
       {
         label: "Trail",
+        value: 2,
         children: [
-          "Close (0m x 1389m)",
-          "Open (0m x 2778m)",
-          "Group Close (0m x 100m)"
-        ]
+          { label: "Close (0m x 1389m)", value: 1 },
+          { label: "Open (0m x 2778m)", value: 2 },
+          { label: "Group Close (0m x 100m)", value: 3 },
+        ],
       },
       {
         label: "Wedge",
+        value: 3,
         children: [
-          "Close (527m x 304m)",
-          "Open (1055m x 609m)",
-          "Group Close (39m x 36m)"
-        ]
+          { label: "Close (527m x 304m)", value: 1 },
+          { label: "Open (1055m x 609m)", value: 2 },
+          { label: "Group Close (39m x 36m)", value: 3 },
+        ],
       },
       {
         label: "Echelon Right",
+        value: 4,
         children: [
-          "Close (527m x 304m)",
-          "Open (1055m x 609m)",
-          "Group Close (39m x 36m)"
-        ]
+          { label: "Close (527m x 304m)", value: 1 },
+          { label: "Open (1055m x 609m)", value: 2 },
+          { label: "Group Close (39m x 36m)", value: 3 },
+        ],
       },
       {
         label: "Echelon Left",
+        value: 5,
         children: [
-          "Close (527m x 304m)",
-          "Open (1055m x 609m)",
-          "Group Close (39m x 36m)"
-        ]
+          { label: "Close (527m x 304m)", value: 1 },
+          { label: "Open (1055m x 609m)", value: 2 },
+          { label: "Group Close (39m x 36m)", value: 3 },
+        ],
       },
       {
         label: "Finger Four",
+        value: 6,
         children: [
-          "Close (58m x 48m)",
-          "Open (116m x 97m)",
-          "Group Close 50m x 50m)"
-        ]
+          { label: "Close (58m x 48m)", value: 1 },
+          { label: "Open (116m x 97m)", value: 2 },
+          { label: "Group Close 50m x 50m)", value: 3 },
+        ],
       },
       {
         label: "Spread Four",
+        value: 7,
         children: [
-          "Close (58m x 48m)",
-          "Open (116m x 97m)",
-          "Group Close (50m x 50m)"
-        ]
+          { label: "Close (58m x 48m)", value: 1 },
+          { label: "Open (116m x 97m)", value: 2 },
+          { label: "Group Close (50m x 50m)", value: 3 },
+        ],
       },
       {
         label: "WW2: Bomber Element",
-        children: ["Close (45m x 30m)", "Open (90m x 60m)"]
+        value: 12,
+        children: [
+          { label: "Close (45m x 30m)", value: 1 },
+          { label: "Open (90m x 60m)", value: 2 },
+        ],
       },
       {
         label: "WW2: Bomber Element Height Separation",
-        children: []
+        value: 13,
+        children: [],
       },
       {
         label: "WW2: Fighter Vic",
-        children: ["Close (30m x 30m)", "Open (60m x 60m)"]
+        value: 14,
+        children: [
+          { label: "Close (30m x 30m)", value: 1 },
+          { label: "Open (60m x 60m)", value: 2 },
+        ],
       },
       {
         label: "Modern Bomber Element",
-        children: ["Close (100m x 100m)", "Open (200m x 200m)"]
-      }
-    ] as SelectOption[]
+        value: 15,
+        children: [
+          { label: "Close (100m x 100m)", value: 1 },
+          { label: "Open (200m x 200m)", value: 2 },
+        ],
+      },
+    ] as SelectOption[],
   },
   {
     label: "RTB on Bingo Fuel",
     value: 6,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "RTB on out of ammo",
@@ -218,13 +238,13 @@ export const optionDefs = [
       "-AAM",
       "--SR AAM",
       "--MR AAM",
-      "--LR AAM"
-    ]
+      "--LR AAM",
+    ],
   },
   {
     label: "Silence",
     value: 8,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "ECM Using",
@@ -232,41 +252,41 @@ export const optionDefs = [
     options: [
       {
         label: "NEVER USE",
-        value: 1
+        value: 1,
       },
       {
         label: "USE IF ONLY LOCKED BY RADAR",
-        value: 2
+        value: 2,
       },
       {
         label: "USE IF DETECTED OR LOCKED BY RADAR",
-        value: 3
+        value: 3,
       },
       {
         label: "ALWAYS USE",
-        value: 4
-      }
-    ] as SelectOption[]
+        value: 4,
+      },
+    ] as SelectOption[],
   },
   {
     label: "Restrict Air-to-Air Attack",
     value: 10,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "Restrict Jettision",
     value: 11,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "Restrict Afterburner",
     value: 12,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "Restrict Air-to-Ground Attack",
     value: 13,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "AA Missile Attack Ranges",
@@ -274,30 +294,30 @@ export const optionDefs = [
     options: [
       {
         label: "MAX RANGE LAUNCH",
-        value: 1
+        value: 1,
       },
       {
         label: "NO ESCAPE ZONE LAUNCH",
-        value: 2
+        value: 2,
       },
       {
         label: "HALF WAY MAX RANGE - NO ESCAPE ZONE LAUNCH",
-        value: 3
+        value: 3,
       },
       {
         label: "LAUNCH BY TARGET THREAT ESTIMATE",
-        value: 4
+        value: 4,
       },
       {
         label: "RANDOM BETWEEN MAX RANGE AND NO ESCAPE ZONE LAUNCH",
-        value: 5
-      }
-    ] as SelectOption[]
+        value: 5,
+      },
+    ] as SelectOption[],
   },
   {
     label: "No Report Waypoint Pass",
     value: 15,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "Radio Usage when Contact",
@@ -314,38 +334,38 @@ export const optionDefs = [
                 children: [
                   {
                     label: "Fighters",
-                    key: "Fighters"
+                    key: "Fighters",
                   },
                   {
                     label: "Multirole fighters",
-                    key: "Multirole fighters"
+                    key: "Multirole fighters",
                   },
                   {
                     label: "Bombers",
-                    key: "Bombers"
-                  }
-                ]
+                    key: "Bombers",
+                  },
+                ],
               },
               {
                 label: "Helicopters",
-                key: "Helicopters"
+                key: "Helicopters",
               },
               {
                 label: "UAVs",
-                key: "UAVs"
-              }
-            ]
+                key: "UAVs",
+              },
+            ],
           },
           {
             label: "Ground",
             children: [
               {
                 label: "Infantry",
-                key: "Infantry"
+                key: "Infantry",
               },
               {
                 label: "Fortifications",
-                key: "Fortifications"
+                key: "Fortifications",
               },
               {
                 label: "Vehicles",
@@ -355,55 +375,55 @@ export const optionDefs = [
                     children: [
                       {
                         label: "Tanks",
-                        key: "Tanks"
+                        key: "Tanks",
                       },
                       {
                         label: "IFV",
-                        key: "IFV"
+                        key: "IFV",
                       },
                       {
                         label: "APC",
-                        key: "APC"
-                      }
-                    ]
+                        key: "APC",
+                      },
+                    ],
                   },
                   {
                     label: "Artillery",
-                    key: "Artillery"
+                    key: "Artillery",
                   },
                   {
                     label: "Unarmed vehicles",
-                    key: "Unarmed vehicles"
-                  }
-                ]
+                    key: "Unarmed vehicles",
+                  },
+                ],
               },
               {
                 label: "Air Defence",
                 children: [
                   {
                     label: "AAA",
-                    key: "AAA"
+                    key: "AAA",
                   },
                   {
                     label: "SAM",
                     children: [
                       {
                         label: "SR SAM",
-                        key: "SR SAM"
+                        key: "SR SAM",
                       },
                       {
                         label: "MR SAM",
-                        key: "MR SAM"
+                        key: "MR SAM",
                       },
                       {
                         label: "LR SAM",
-                        key: "LR SAM"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+                        key: "LR SAM",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
           {
             label: "Naval",
@@ -416,70 +436,70 @@ export const optionDefs = [
                     children: [
                       {
                         label: "Aircraft Carriers",
-                        key: "Aircraft Carriers"
+                        key: "Aircraft Carriers",
                       },
                       {
                         label: "Cruisers",
-                        key: "Cruisers"
+                        key: "Cruisers",
                       },
                       {
                         label: "Destroyers",
-                        key: "Destroyers"
+                        key: "Destroyers",
                       },
                       {
                         label: "Frigates",
-                        key: "Frigates"
+                        key: "Frigates",
                       },
                       {
                         label: "Corvettes",
-                        key: "Corvettes"
+                        key: "Corvettes",
                       },
                       {
                         label: "Light armed ships",
-                        key: "Light armed ships"
-                      }
-                    ]
+                        key: "Light armed ships",
+                      },
+                    ],
                   },
                   {
                     label: "Unarmed ships",
-                    key: "Unarmed ships"
-                  }
-                ]
+                    key: "Unarmed ships",
+                  },
+                ],
               },
               {
                 label: "Submarines",
-                key: "Submarines"
-              }
-            ]
+                key: "Submarines",
+              },
+            ],
           },
           {
             label: "Missiles",
             children: [
               {
                 label: "Cruise missiles",
-                key: "Cruise missiles"
+                key: "Cruise missiles",
               },
               {
                 label: "Antiship Missiles",
-                key: "Antiship Missiles"
+                key: "Antiship Missiles",
               },
               {
                 label: "AA Missiles",
-                key: "AA Missiles"
+                key: "AA Missiles",
               },
               {
                 label: "AG Missiles",
-                key: "AG Missiles"
+                key: "AG Missiles",
               },
               {
                 label: "SA Missiles",
-                key: "SA Missiles"
-              }
-            ]
-          }
-        ]
-      }
-    ] as TreeSelectOption[]
+                key: "SA Missiles",
+              },
+            ],
+          },
+        ],
+      },
+    ] as TreeSelectOption[],
   },
   {
     label: "Radio Usage when Engage",
@@ -496,38 +516,38 @@ export const optionDefs = [
                 children: [
                   {
                     label: "Fighters",
-                    key: "Fighters"
+                    key: "Fighters",
                   },
                   {
                     label: "Multirole fighters",
-                    key: "Multirole fighters"
+                    key: "Multirole fighters",
                   },
                   {
                     label: "Bombers",
-                    key: "Bombers"
-                  }
-                ]
+                    key: "Bombers",
+                  },
+                ],
               },
               {
                 label: "Helicopters",
-                key: "Helicopters"
+                key: "Helicopters",
               },
               {
                 label: "UAVs",
-                key: "UAVs"
-              }
-            ]
+                key: "UAVs",
+              },
+            ],
           },
           {
             label: "Ground",
             children: [
               {
                 label: "Infantry",
-                key: "Infantry"
+                key: "Infantry",
               },
               {
                 label: "Fortifications",
-                key: "Fortifications"
+                key: "Fortifications",
               },
               {
                 label: "Vehicles",
@@ -537,55 +557,55 @@ export const optionDefs = [
                     children: [
                       {
                         label: "Tanks",
-                        key: "Tanks"
+                        key: "Tanks",
                       },
                       {
                         label: "IFV",
-                        key: "IFV"
+                        key: "IFV",
                       },
                       {
                         label: "APC",
-                        key: "APC"
-                      }
-                    ]
+                        key: "APC",
+                      },
+                    ],
                   },
                   {
                     label: "Artillery",
-                    key: "Artillery"
+                    key: "Artillery",
                   },
                   {
                     label: "Unarmed vehicles",
-                    key: "Unarmed vehicles"
-                  }
-                ]
+                    key: "Unarmed vehicles",
+                  },
+                ],
               },
               {
                 label: "Air Defence",
                 children: [
                   {
                     label: "AAA",
-                    key: "AAA"
+                    key: "AAA",
                   },
                   {
                     label: "SAM",
                     children: [
                       {
                         label: "SR SAM",
-                        key: "SR SAM"
+                        key: "SR SAM",
                       },
                       {
                         label: "MR SAM",
-                        key: "MR SAM"
+                        key: "MR SAM",
                       },
                       {
                         label: "LR SAM",
-                        key: "LR SAM"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+                        key: "LR SAM",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
           {
             label: "Naval",
@@ -598,70 +618,70 @@ export const optionDefs = [
                     children: [
                       {
                         label: "Aircraft Carriers",
-                        key: "Aircraft Carriers"
+                        key: "Aircraft Carriers",
                       },
                       {
                         label: "Cruisers",
-                        key: "Cruisers"
+                        key: "Cruisers",
                       },
                       {
                         label: "Destroyers",
-                        key: "Destroyers"
+                        key: "Destroyers",
                       },
                       {
                         label: "Frigates",
-                        key: "Frigates"
+                        key: "Frigates",
                       },
                       {
                         label: "Corvettes",
-                        key: "Corvettes"
+                        key: "Corvettes",
                       },
                       {
                         label: "Light armed ships",
-                        key: "Light armed ships"
-                      }
-                    ]
+                        key: "Light armed ships",
+                      },
+                    ],
                   },
                   {
                     label: "Unarmed ships",
-                    key: "Unarmed ships"
-                  }
-                ]
+                    key: "Unarmed ships",
+                  },
+                ],
               },
               {
                 label: "Submarines",
-                key: "Submarines"
-              }
-            ]
+                key: "Submarines",
+              },
+            ],
           },
           {
             label: "Missiles",
             children: [
               {
                 label: "Cruise missiles",
-                key: "Cruise missiles"
+                key: "Cruise missiles",
               },
               {
                 label: "Antiship Missiles",
-                key: "Antiship Missiles"
+                key: "Antiship Missiles",
               },
               {
                 label: "AA Missiles",
-                key: "AA Missiles"
+                key: "AA Missiles",
               },
               {
                 label: "AG Missiles",
-                key: "AG Missiles"
+                key: "AG Missiles",
               },
               {
                 label: "SA Missiles",
-                key: "SA Missiles"
-              }
-            ]
-          }
-        ]
-      }
-    ] as TreeSelectOption[]
+                key: "SA Missiles",
+              },
+            ],
+          },
+        ],
+      },
+    ] as TreeSelectOption[],
   },
   {
     label: "Radio Usage when Kill Target",
@@ -678,38 +698,38 @@ export const optionDefs = [
                 children: [
                   {
                     label: "Fighters",
-                    key: "Fighters"
+                    key: "Fighters",
                   },
                   {
                     label: "Multirole fighters",
-                    key: "Multirole fighters"
+                    key: "Multirole fighters",
                   },
                   {
                     label: "Bombers",
-                    key: "Bombers"
-                  }
-                ]
+                    key: "Bombers",
+                  },
+                ],
               },
               {
                 label: "Helicopters",
-                key: "Helicopters"
+                key: "Helicopters",
               },
               {
                 label: "UAVs",
-                key: "UAVs"
-              }
-            ]
+                key: "UAVs",
+              },
+            ],
           },
           {
             label: "Ground",
             children: [
               {
                 label: "Infantry",
-                key: "Infantry"
+                key: "Infantry",
               },
               {
                 label: "Fortifications",
-                key: "Fortifications"
+                key: "Fortifications",
               },
               {
                 label: "Vehicles",
@@ -719,55 +739,55 @@ export const optionDefs = [
                     children: [
                       {
                         label: "Tanks",
-                        key: "Tanks"
+                        key: "Tanks",
                       },
                       {
                         label: "IFV",
-                        key: "IFV"
+                        key: "IFV",
                       },
                       {
                         label: "APC",
-                        key: "APC"
-                      }
-                    ]
+                        key: "APC",
+                      },
+                    ],
                   },
                   {
                     label: "Artillery",
-                    key: "Artillery"
+                    key: "Artillery",
                   },
                   {
                     label: "Unarmed vehicles",
-                    key: "Unarmed vehicles"
-                  }
-                ]
+                    key: "Unarmed vehicles",
+                  },
+                ],
               },
               {
                 label: "Air Defence",
                 children: [
                   {
                     label: "AAA",
-                    key: "AAA"
+                    key: "AAA",
                   },
                   {
                     label: "SAM",
                     children: [
                       {
                         label: "SR SAM",
-                        key: "SR SAM"
+                        key: "SR SAM",
                       },
                       {
                         label: "MR SAM",
-                        key: "MR SAM"
+                        key: "MR SAM",
                       },
                       {
                         label: "LR SAM",
-                        key: "LR SAM"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
+                        key: "LR SAM",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
           },
           {
             label: "Naval",
@@ -780,79 +800,79 @@ export const optionDefs = [
                     children: [
                       {
                         label: "Aircraft Carriers",
-                        key: "Aircraft Carriers"
+                        key: "Aircraft Carriers",
                       },
                       {
                         label: "Cruisers",
-                        key: "Cruisers"
+                        key: "Cruisers",
                       },
                       {
                         label: "Destroyers",
-                        key: "Destroyers"
+                        key: "Destroyers",
                       },
                       {
                         label: "Frigates",
-                        key: "Frigates"
+                        key: "Frigates",
                       },
                       {
                         label: "Corvettes",
-                        key: "Corvettes"
+                        key: "Corvettes",
                       },
                       {
                         label: "Light armed ships",
-                        key: "Light armed ships"
-                      }
-                    ]
+                        key: "Light armed ships",
+                      },
+                    ],
                   },
                   {
                     label: "Unarmed ships",
-                    key: "Unarmed ships"
-                  }
-                ]
+                    key: "Unarmed ships",
+                  },
+                ],
               },
               {
                 label: "Submarines",
-                key: "Submarines"
-              }
-            ]
+                key: "Submarines",
+              },
+            ],
           },
           {
             label: "Missiles",
             children: [
               {
                 label: "Cruise missiles",
-                key: "Cruise missiles"
+                key: "Cruise missiles",
               },
               {
                 label: "Antiship Missiles",
-                key: "Antiship Missiles"
+                key: "Antiship Missiles",
               },
               {
                 label: "AA Missiles",
-                key: "AA Missiles"
+                key: "AA Missiles",
               },
               {
                 label: "AG Missiles",
-                key: "AG Missiles"
+                key: "AG Missiles",
               },
               {
                 label: "SA Missiles",
-                key: "SA Missiles"
-              }
-            ]
-          }
-        ]
-      }
-    ] as TreeSelectOption[]
+                key: "SA Missiles",
+              },
+            ],
+          },
+        ],
+      },
+    ] as TreeSelectOption[],
   },
   {
     label: "Jettison fuel tanks when empty",
     value: 19,
-    val: false
+    val: false,
   } satisfies Checkbox,
   {
     label: "Override AI attack avoidance decisions",
     value: 20,
-    val: false
-  } satisfies Checkbox
+    val: false,
+  } satisfies Checkbox,
 ];

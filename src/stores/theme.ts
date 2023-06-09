@@ -10,13 +10,13 @@ const themeOverrides: GlobalThemeOverrides = {
     bodyColor: "#23313f",
     cardColor: "#293949",
     railColor: "#555",
-    primaryColorSuppl: "#fff"
-  }
+    primaryColorSuppl: "#fff",
+  },
 };
 
 export const useThemeStore = defineStore("theme", {
   state: () => ({
-    theme: darkTheme
+    theme: darkTheme,
   }),
   actions: {
     setTheme(newTheme: GlobalTheme) {
@@ -24,7 +24,7 @@ export const useThemeStore = defineStore("theme", {
     },
     setThemeOverrides(newThemeOverrides: GlobalThemeOverrides) {
       themeOverrides.common = newThemeOverrides.common;
-    }
+    },
   },
   getters: {
     getTheme() {
@@ -35,6 +35,6 @@ export const useThemeStore = defineStore("theme", {
     },
     getSelectedTheme() {
       return selectedTheme.value;
-    }
-  }
+    },
+  },
 });
