@@ -3,8 +3,7 @@
     :theme="selectedTheme === 'Dark' ? theme : null"
     :theme-overrides="selectedTheme === 'Dark' ? themeOverrides : null"
   >
-    <div>
-    </div>
+    <div></div>
   </n-config-provider>
 </template>
 
