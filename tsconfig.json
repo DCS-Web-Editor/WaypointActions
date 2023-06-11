@@ -17,7 +17,6 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "types": ["naive-ui/volar"],
-    "allowJs": true
   },
   "include": ["src/vite-env.d.ts", ".eslintrc.cjs", "src/**/*", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
