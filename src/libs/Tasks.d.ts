@@ -6,20 +6,48 @@ export interface Tasks {
       enabled: boolean;
       id: string;
       number: number;
-      params: OptionParams | any;
+      params: DropdownParams | FormationParams | CheckboxParams | TreeSelectParams;
     }>;
   };
 }
-export interface OptionParams {
+export interface DropdownParams {
   action: {
     id: string;
     params: {
       name: number;
-      value: number | string | boolean;
-      noTargetTypes?: string[];
-      targetTypes?: string[];
-      formationIndex?: number;
-      varientIndex?: number;
+      value: number;
+    };
+  };
+}
+
+export interface FormationParams extends DropdownParams {
+  action: {
+    id: string;
+    params: {
+      formationIndex: number;
+      varientIndex: number;
+    };
+  };
+}
+
+export interface CheckboxParams extends DropdownParams {
+  action: {
+    id: string;
+    params: {
+      name: number;
+      value: boolean;
+    };
+  };
+}
+
+export interface TreeSelectParams extends DropdownParams {
+  action: {
+    id: string;
+    params: {
+      name: number;
+      value: string;
+      noTargetTypes: string[];
+      targetTypes: string[];
     };
   };
 }
@@ -27,5 +55,5 @@ export interface OptionParams {
 export interface Checkbox {
   label: string;
   value: number;
-  val: boolean;
+  enabled: boolean;
 }

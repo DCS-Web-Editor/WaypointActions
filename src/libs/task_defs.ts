@@ -1,13 +1,9 @@
 import type { TreeSelectOption, SelectOption } from "naive-ui";
+import { UnitOptions } from "./utils";
 import type { Checkbox } from "./Tasks";
 
-export const optionDefs = [
-  {
-    label: "No Option",
-    val: false,
-    value: 0,
-  },
-  {
+export const DropDownDefs: Record<number, SelectOption> = {
+  1: {
     label: "ROE",
     value: 1,
     options: [
@@ -31,9 +27,9 @@ export const optionDefs = [
         label: "WEAPON HOLD",
         value: 5,
       },
-    ] as SelectOption[],
+    ],
   },
-  {
+  2: {
     label: "Reaction To Threat",
     value: 2,
     options: [
@@ -61,9 +57,9 @@ export const optionDefs = [
         label: "HORIZONTAL AAA FIRE EVADE",
         value: 6,
       },
-    ] as SelectOption[],
+    ],
   },
-  {
+  3: {
     label: "Radar Using",
     value: 3,
     options: [
@@ -83,9 +79,9 @@ export const optionDefs = [
         label: "USE FOR CONTINUOUS SEARCH",
         value: 4,
       },
-    ] as SelectOption[],
+    ],
   },
-  {
+  4: {
     label: "Chaff - Flare Using",
     value: 4,
     options: [
@@ -105,112 +101,9 @@ export const optionDefs = [
         label: "USE WHEN FLYING NEAR ENEMIES (N/A)",
         value: 4,
       },
-    ] as SelectOption[],
+    ],
   },
-  {
-    label: "Formation",
-    value: 5,
-    options: [
-      {
-        label: "Line Abreast",
-        value: 1,
-        children: [
-          { label: "Close (1828m x 0m)", value: 1 },
-          { label: "Open (2743m x 0m)", value: 2 },
-          { label: "Group Close (39m x 0m)", value: 3 },
-        ],
-      },
-      {
-        label: "Trail",
-        value: 2,
-        children: [
-          { label: "Close (0m x 1389m)", value: 1 },
-          { label: "Open (0m x 2778m)", value: 2 },
-          { label: "Group Close (0m x 100m)", value: 3 },
-        ],
-      },
-      {
-        label: "Wedge",
-        value: 3,
-        children: [
-          { label: "Close (527m x 304m)", value: 1 },
-          { label: "Open (1055m x 609m)", value: 2 },
-          { label: "Group Close (39m x 36m)", value: 3 },
-        ],
-      },
-      {
-        label: "Echelon Right",
-        value: 4,
-        children: [
-          { label: "Close (527m x 304m)", value: 1 },
-          { label: "Open (1055m x 609m)", value: 2 },
-          { label: "Group Close (39m x 36m)", value: 3 },
-        ],
-      },
-      {
-        label: "Echelon Left",
-        value: 5,
-        children: [
-          { label: "Close (527m x 304m)", value: 1 },
-          { label: "Open (1055m x 609m)", value: 2 },
-          { label: "Group Close (39m x 36m)", value: 3 },
-        ],
-      },
-      {
-        label: "Finger Four",
-        value: 6,
-        children: [
-          { label: "Close (58m x 48m)", value: 1 },
-          { label: "Open (116m x 97m)", value: 2 },
-          { label: "Group Close 50m x 50m)", value: 3 },
-        ],
-      },
-      {
-        label: "Spread Four",
-        value: 7,
-        children: [
-          { label: "Close (58m x 48m)", value: 1 },
-          { label: "Open (116m x 97m)", value: 2 },
-          { label: "Group Close (50m x 50m)", value: 3 },
-        ],
-      },
-      {
-        label: "WW2: Bomber Element",
-        value: 12,
-        children: [
-          { label: "Close (45m x 30m)", value: 1 },
-          { label: "Open (90m x 60m)", value: 2 },
-        ],
-      },
-      {
-        label: "WW2: Bomber Element Height Separation",
-        value: 13,
-        children: [],
-      },
-      {
-        label: "WW2: Fighter Vic",
-        value: 14,
-        children: [
-          { label: "Close (30m x 30m)", value: 1 },
-          { label: "Open (60m x 60m)", value: 2 },
-        ],
-      },
-      {
-        label: "Modern Bomber Element",
-        value: 17,
-        children: [
-          { label: "Close (100m x 100m)", value: 1 },
-          { label: "Open (200m x 200m)", value: 2 },
-        ],
-      },
-    ] as SelectOption[],
-  },
-  {
-    label: "RTB on Bingo Fuel",
-    value: 6,
-    val: false,
-  } satisfies Checkbox,
-  {
+  7: {
     label: "RTB on out of ammo",
     value: 7,
     options: [
@@ -316,12 +209,7 @@ export const optionDefs = [
       },
     ],
   },
-  {
-    label: "Silence",
-    value: 8,
-    val: false,
-  } satisfies Checkbox,
-  {
+  9: {
     label: "ECM Using",
     value: 9,
     options: [
@@ -341,29 +229,9 @@ export const optionDefs = [
         label: "ALWAYS USE",
         value: 4,
       },
-    ] as SelectOption[],
+    ],
   },
-  {
-    label: "Restrict Air-to-Air Attack",
-    value: 10,
-    val: false,
-  } satisfies Checkbox,
-  {
-    label: "Restrict Jettision",
-    value: 11,
-    val: false,
-  } satisfies Checkbox,
-  {
-    label: "Restrict Afterburner",
-    value: 12,
-    val: false,
-  } satisfies Checkbox,
-  {
-    label: "Restrict Air-to-Ground Attack",
-    value: 13,
-    val: false,
-  } satisfies Checkbox,
-  {
+  14: {
     label: "AA Missile Attack Ranges",
     value: 14,
     options: [
@@ -387,567 +255,170 @@ export const optionDefs = [
         label: "RANDOM BETWEEN MAX RANGE AND NO ESCAPE ZONE LAUNCH",
         value: 5,
       },
-    ] as SelectOption[],
+    ],
   },
-  {
-    label: "No Report Waypoint Pass",
-    value: 15,
-    val: false,
-  } satisfies Checkbox,
-  {
+};
+
+export const TreeSelectDefsRecord: Record<number, TreeSelectOption> = {
+  5: {
+    label: "Formation",
+    value: 5,
+    options: [
+      {
+        label: "Line Abreast",
+        value: 1,
+        children: [
+          { label: "Close (1828m x 0m)", value: 1 },
+          { label: "Open (2743m x 0m)", value: 2 },
+          { label: "Group Close (39m x 0m)", value: 3 },
+        ],
+      },
+      {
+        label: "Trail",
+        value: 2,
+        children: [
+          { label: "Close (0m x 1389m)", value: 1 },
+          { label: "Open (0m x 2778m)", value: 2 },
+          { label: "Group Close (0m x 100m)", value: 3 },
+        ],
+      },
+      {
+        label: "Wedge",
+        value: 3,
+        children: [
+          { label: "Close (527m x 304m)", value: 1 },
+          { label: "Open (1055m x 609m)", value: 2 },
+          { label: "Group Close (39m x 36m)", value: 3 },
+        ],
+      },
+      {
+        label: "Echelon Right",
+        value: 4,
+        children: [
+          { label: "Close (527m x 304m)", value: 1 },
+          { label: "Open (1055m x 609m)", value: 2 },
+          { label: "Group Close (39m x 36m)", value: 3 },
+        ],
+      },
+      {
+        label: "Echelon Left",
+        value: 5,
+        children: [
+          { label: "Close (527m x 304m)", value: 1 },
+          { label: "Open (1055m x 609m)", value: 2 },
+          { label: "Group Close (39m x 36m)", value: 3 },
+        ],
+      },
+      {
+        label: "Finger Four",
+        value: 6,
+        children: [
+          { label: "Close (58m x 48m)", value: 1 },
+          { label: "Open (116m x 97m)", value: 2 },
+          { label: "Group Close 50m x 50m)", value: 3 },
+        ],
+      },
+      {
+        label: "Spread Four",
+        value: 7,
+        children: [
+          { label: "Close (58m x 48m)", value: 1 },
+          { label: "Open (116m x 97m)", value: 2 },
+          { label: "Group Close (50m x 50m)", value: 3 },
+        ],
+      },
+      {
+        label: "WW2: Bomber Element",
+        value: 12,
+        children: [
+          { label: "Close (45m x 30m)", value: 1 },
+          { label: "Open (90m x 60m)", value: 2 },
+        ],
+      },
+      {
+        label: "WW2: Bomber Element Height Separation",
+        value: 13,
+        children: [],
+      },
+      {
+        label: "WW2: Fighter Vic",
+        value: 14,
+        children: [
+          { label: "Close (30m x 30m)", value: 1 },
+          { label: "Open (60m x 60m)", value: 2 },
+        ],
+      },
+      {
+        label: "Modern Bomber Element",
+        value: 17,
+        children: [
+          { label: "Close (100m x 100m)", value: 1 },
+          { label: "Open (200m x 200m)", value: 2 },
+        ],
+      },
+    ],
+  },
+  16: {
     label: "Radio Usage when Contact",
     value: 16,
-    options: [
-      {
-        label: "All",
-        children: [
-          {
-            label: "Air",
-            children: [
-              {
-                label: "Airplanes",
-                children: [
-                  {
-                    label: "Fighters",
-                    key: "Fighters",
-                  },
-                  {
-                    label: "Multirole fighters",
-                    key: "Multirole fighters",
-                  },
-                  {
-                    label: "Bombers",
-                    key: "Bombers",
-                  },
-                ],
-              },
-              {
-                label: "Helicopters",
-                key: "Helicopters",
-              },
-              {
-                label: "UAVs",
-                key: "UAVs",
-              },
-            ],
-          },
-          {
-            label: "Ground",
-            children: [
-              {
-                label: "Infantry",
-                key: "Infantry",
-              },
-              {
-                label: "Fortifications",
-                key: "Fortifications",
-              },
-              {
-                label: "Vehicles",
-                children: [
-                  {
-                    label: "Armor",
-                    children: [
-                      {
-                        label: "Tanks",
-                        key: "Tanks",
-                      },
-                      {
-                        label: "IFV",
-                        key: "IFV",
-                      },
-                      {
-                        label: "APC",
-                        key: "APC",
-                      },
-                    ],
-                  },
-                  {
-                    label: "Artillery",
-                    key: "Artillery",
-                  },
-                  {
-                    label: "Unarmed vehicles",
-                    key: "Unarmed vehicles",
-                  },
-                ],
-              },
-              {
-                label: "Air Defence",
-                children: [
-                  {
-                    label: "AAA",
-                    key: "AAA",
-                  },
-                  {
-                    label: "SAM",
-                    children: [
-                      {
-                        label: "SR SAM",
-                        key: "SR SAM",
-                      },
-                      {
-                        label: "MR SAM",
-                        key: "MR SAM",
-                      },
-                      {
-                        label: "LR SAM",
-                        key: "LR SAM",
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            label: "Naval",
-            children: [
-              {
-                label: "Ships",
-                children: [
-                  {
-                    label: "Armed ships",
-                    children: [
-                      {
-                        label: "Aircraft Carriers",
-                        key: "Aircraft Carriers",
-                      },
-                      {
-                        label: "Cruisers",
-                        key: "Cruisers",
-                      },
-                      {
-                        label: "Destroyers",
-                        key: "Destroyers",
-                      },
-                      {
-                        label: "Frigates",
-                        key: "Frigates",
-                      },
-                      {
-                        label: "Corvettes",
-                        key: "Corvettes",
-                      },
-                      {
-                        label: "Light armed ships",
-                        key: "Light armed ships",
-                      },
-                    ],
-                  },
-                  {
-                    label: "Unarmed ships",
-                    key: "Unarmed ships",
-                  },
-                ],
-              },
-              {
-                label: "Submarines",
-                key: "Submarines",
-              },
-            ],
-          },
-          {
-            label: "Missiles",
-            children: [
-              {
-                label: "Cruise missiles",
-                key: "Cruise missiles",
-              },
-              {
-                label: "Antiship Missiles",
-                key: "Antiship Missiles",
-              },
-              {
-                label: "AA Missiles",
-                key: "AA Missiles",
-              },
-              {
-                label: "AG Missiles",
-                key: "AG Missiles",
-              },
-              {
-                label: "SA Missiles",
-                key: "SA Missiles",
-              },
-            ],
-          },
-        ],
-      },
-    ] as TreeSelectOption[],
+    options: UnitOptions,
   },
-  {
+  17: {
     label: "Radio Usage when Engage",
     value: 17,
-    options: [
-      {
-        label: "All",
-        children: [
-          {
-            label: "Air",
-            children: [
-              {
-                label: "Airplanes",
-                children: [
-                  {
-                    label: "Fighters",
-                    key: "Fighters",
-                  },
-                  {
-                    label: "Multirole fighters",
-                    key: "Multirole fighters",
-                  },
-                  {
-                    label: "Bombers",
-                    key: "Bombers",
-                  },
-                ],
-              },
-              {
-                label: "Helicopters",
-                key: "Helicopters",
-              },
-              {
-                label: "UAVs",
-                key: "UAVs",
-              },
-            ],
-          },
-          {
-            label: "Ground",
-            children: [
-              {
-                label: "Infantry",
-                key: "Infantry",
-              },
-              {
-                label: "Fortifications",
-                key: "Fortifications",
-              },
-              {
-                label: "Vehicles",
-                children: [
-                  {
-                    label: "Armor",
-                    children: [
-                      {
-                        label: "Tanks",
-                        key: "Tanks",
-                      },
-                      {
-                        label: "IFV",
-                        key: "IFV",
-                      },
-                      {
-                        label: "APC",
-                        key: "APC",
-                      },
-                    ],
-                  },
-                  {
-                    label: "Artillery",
-                    key: "Artillery",
-                  },
-                  {
-                    label: "Unarmed vehicles",
-                    key: "Unarmed vehicles",
-                  },
-                ],
-              },
-              {
-                label: "Air Defence",
-                children: [
-                  {
-                    label: "AAA",
-                    key: "AAA",
-                  },
-                  {
-                    label: "SAM",
-                    children: [
-                      {
-                        label: "SR SAM",
-                        key: "SR SAM",
-                      },
-                      {
-                        label: "MR SAM",
-                        key: "MR SAM",
-                      },
-                      {
-                        label: "LR SAM",
-                        key: "LR SAM",
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            label: "Naval",
-            children: [
-              {
-                label: "Ships",
-                children: [
-                  {
-                    label: "Armed ships",
-                    children: [
-                      {
-                        label: "Aircraft Carriers",
-                        key: "Aircraft Carriers",
-                      },
-                      {
-                        label: "Cruisers",
-                        key: "Cruisers",
-                      },
-                      {
-                        label: "Destroyers",
-                        key: "Destroyers",
-                      },
-                      {
-                        label: "Frigates",
-                        key: "Frigates",
-                      },
-                      {
-                        label: "Corvettes",
-                        key: "Corvettes",
-                      },
-                      {
-                        label: "Light armed ships",
-                        key: "Light armed ships",
-                      },
-                    ],
-                  },
-                  {
-                    label: "Unarmed ships",
-                    key: "Unarmed ships",
-                  },
-                ],
-              },
-              {
-                label: "Submarines",
-                key: "Submarines",
-              },
-            ],
-          },
-          {
-            label: "Missiles",
-            children: [
-              {
-                label: "Cruise missiles",
-                key: "Cruise missiles",
-              },
-              {
-                label: "Antiship Missiles",
-                key: "Antiship Missiles",
-              },
-              {
-                label: "AA Missiles",
-                key: "AA Missiles",
-              },
-              {
-                label: "AG Missiles",
-                key: "AG Missiles",
-              },
-              {
-                label: "SA Missiles",
-                key: "SA Missiles",
-              },
-            ],
-          },
-        ],
-      },
-    ] as TreeSelectOption[],
+    options: UnitOptions,
   },
-  {
+  18: {
     label: "Radio Usage when Kill Target",
     value: 18,
-    options: [
-      {
-        label: "All",
-        children: [
-          {
-            label: "Air",
-            children: [
-              {
-                label: "Airplanes",
-                children: [
-                  {
-                    label: "Fighters",
-                    key: "Fighters",
-                  },
-                  {
-                    label: "Multirole fighters",
-                    key: "Multirole fighters",
-                  },
-                  {
-                    label: "Bombers",
-                    key: "Bombers",
-                  },
-                ],
-              },
-              {
-                label: "Helicopters",
-                key: "Helicopters",
-              },
-              {
-                label: "UAVs",
-                key: "UAVs",
-              },
-            ],
-          },
-          {
-            label: "Ground",
-            children: [
-              {
-                label: "Infantry",
-                key: "Infantry",
-              },
-              {
-                label: "Fortifications",
-                key: "Fortifications",
-              },
-              {
-                label: "Vehicles",
-                children: [
-                  {
-                    label: "Armor",
-                    children: [
-                      {
-                        label: "Tanks",
-                        key: "Tanks",
-                      },
-                      {
-                        label: "IFV",
-                        key: "IFV",
-                      },
-                      {
-                        label: "APC",
-                        key: "APC",
-                      },
-                    ],
-                  },
-                  {
-                    label: "Artillery",
-                    key: "Artillery",
-                  },
-                  {
-                    label: "Unarmed vehicles",
-                    key: "Unarmed vehicles",
-                  },
-                ],
-              },
-              {
-                label: "Air Defence",
-                children: [
-                  {
-                    label: "AAA",
-                    key: "AAA",
-                  },
-                  {
-                    label: "SAM",
-                    children: [
-                      {
-                        label: "SR SAM",
-                        key: "SR SAM",
-                      },
-                      {
-                        label: "MR SAM",
-                        key: "MR SAM",
-                      },
-                      {
-                        label: "LR SAM",
-                        key: "LR SAM",
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          },
-          {
-            label: "Naval",
-            children: [
-              {
-                label: "Ships",
-                children: [
-                  {
-                    label: "Armed ships",
-                    children: [
-                      {
-                        label: "Aircraft Carriers",
-                        key: "Aircraft Carriers",
-                      },
-                      {
-                        label: "Cruisers",
-                        key: "Cruisers",
-                      },
-                      {
-                        label: "Destroyers",
-                        key: "Destroyers",
-                      },
-                      {
-                        label: "Frigates",
-                        key: "Frigates",
-                      },
-                      {
-                        label: "Corvettes",
-                        key: "Corvettes",
-                      },
-                      {
-                        label: "Light armed ships",
-                        key: "Light armed ships",
-                      },
-                    ],
-                  },
-                  {
-                    label: "Unarmed ships",
-                    key: "Unarmed ships",
-                  },
-                ],
-              },
-              {
-                label: "Submarines",
-                key: "Submarines",
-              },
-            ],
-          },
-          {
-            label: "Missiles",
-            children: [
-              {
-                label: "Cruise missiles",
-                key: "Cruise missiles",
-              },
-              {
-                label: "Antiship Missiles",
-                key: "Antiship Missiles",
-              },
-              {
-                label: "AA Missiles",
-                key: "AA Missiles",
-              },
-              {
-                label: "AG Missiles",
-                key: "AG Missiles",
-              },
-              {
-                label: "SA Missiles",
-                key: "SA Missiles",
-              },
-            ],
-          },
-        ],
-      },
-    ] as TreeSelectOption[],
+    options: UnitOptions,
   },
-  {
+};
+
+export const optionDefs: Record<number, Checkbox> = {
+  6: {
+    label: "RTB on Bingo Fuel",
+    value: 6,
+    enabled: false,
+  },
+  8: {
+    label: "Silence",
+    value: 8,
+    enabled: false,
+  },
+  10: {
+    label: "Restrict Air-to-Air Attack",
+    value: 10,
+    enabled: false,
+  },
+  11: {
+    label: "Restrict Jettision",
+    value: 11,
+    enabled: false,
+  },
+  12: {
+    label: "Restrict Afterburner",
+    value: 12,
+    enabled: false,
+  },
+  13: {
+    label: "Restrict Air-to-Ground Attack",
+    value: 13,
+    enabled: false,
+  },
+  15: {
+    label: "No Report Waypoint Pass",
+    value: 15,
+    enabled: false,
+  },
+  19: {
     label: "Jettison fuel tanks when empty",
     value: 19,
-    val: false,
-  } satisfies Checkbox,
-  {
+    enabled: false,
+  },
+  20: {
     label: "Override AI attack avoidance decisions",
     value: 20,
-    val: false,
-  } satisfies Checkbox,
-];
+    enabled: false,
+  },
+};
