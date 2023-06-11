@@ -10,6 +10,7 @@ export interface Tasks {
     }>;
   };
 }
+
 export interface DropdownParams {
   action: {
     id: string;
@@ -56,4 +57,9 @@ export interface Checkbox {
   label: string;
   value: number;
   enabled: boolean;
+}
+
+export interface TaskList {
+  option: string;
+  value: string;
 }
