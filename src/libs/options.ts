@@ -190,10 +190,6 @@ const flagSelect = [
   },
 ];
 
-/**
- * @todo Complete options and get rid of any type
- */
-
 export const options: Record<number, any> = {
   [OptionName.roe]: {
     label: "ROE",
@@ -593,7 +589,7 @@ export const options: Record<number, any> = {
   [OptionName.disperseOnAttack]: {
     label: "Disperse On Attack",
     value: OptionName.disperseOnAttack,
-    options: [],
+    data: 600,
   },
   [OptionName.alarmState]: {
     label: "Alarm State",
@@ -736,11 +732,6 @@ export const options: Record<number, any> = {
         value: 2,
       },
     ],
-  },
-  [OptionName.following]: {
-    label: "Following",
-    value: OptionName.following,
-    options: [],
   },
   [OptionName.ecmUsing]: {
     label: "ECM Using",
