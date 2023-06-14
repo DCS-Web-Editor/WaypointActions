@@ -48,4 +48,3 @@ export enum Formation {
   ww2_fighter_vic = 14,
   modern_bomber_element = 17,
 }
- 

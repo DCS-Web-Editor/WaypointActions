@@ -13,6 +13,6 @@ const props = defineProps<{
 }>();
 
 const concat = (option: string, value: string) => {
-  return `${value} = ${option}`;
+  return `${option} = ${value}`;
 };
 </script>

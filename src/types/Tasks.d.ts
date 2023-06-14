@@ -7,3 +7,8 @@ export interface Tasks {
     params: any;
   }>;
 }
+
+export interface OptionList {
+  option: string;
+  value: string;
+}

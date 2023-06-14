@@ -190,7 +190,11 @@ const flagSelect = [
   },
 ];
 
-export const options = {
+/**
+ * @todo Complete options and get rid of any type
+ */
+
+export const options: Record<number, any> = {
   [OptionName.roe]: {
     label: "ROE",
     value: OptionName.roe,
@@ -834,11 +838,7 @@ export const options = {
   [OptionName.aircraftInterceptRange]: {
     label: "Aircraft Intercept Range",
     value: OptionName.aircraftInterceptRange,
-    data: {
-      min: 0,
-      max: 100,
-      default: 100,
-    },
+    data: 100,
   },
   [OptionName.jettTanksIfEmpty]: {
     label: "Jettison fuel tanks when empty",
@@ -853,11 +853,7 @@ export const options = {
   [OptionName.altRestrictionMin]: {
     label: "Altitude Restriction Min",
     value: OptionName.altRestrictionMin,
-    data: {
-      min: 0,
-      max: 1000000,
-      default: 200,
-    },
+    data: 200,
   },
   [OptionName.restrictTarget]: {
     label: "Restrict Target",
@@ -880,10 +876,6 @@ export const options = {
   [OptionName.altRestrictionMax]: {
     label: "Altitude Restriction Max",
     value: OptionName.altRestrictionMax,
-    data: {
-      min: 0,
-      max: 1000000,
-      default: 3500,
-    },
+    data: 3500,
   },
 };
