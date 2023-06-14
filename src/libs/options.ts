@@ -1,35 +1,4 @@
-enum OptionName {
-  noOption = -1,
-  roe = 0,
-  reactionOnThreat = 1,
-  radarUsing = 3,
-  flareUsing = 4,
-  formation = 5,
-  rtbOnBingo = 6,
-  silence = 7,
-  disperseOnAttack = 8,
-  alarmState = 9,
-  rtbOnOutOfAmmo = 10,
-  awarnessLevel = 11,
-  following = 12,
-  ecmUsing = 13,
-  prohibitAA = 14,
-  prohibitJett = 15,
-  prohibitAB = 16,
-  prohibitAG = 17,
-  missileAttack = 18,
-  prohibitWpPassReport = 19,
-  engageAirWeapons = 20,
-  radioUsageContact = 21,
-  radioUsageEngage = 22,
-  radioUsageKill = 23,
-  aircraftInterceptRange = 24,
-  jettTanksIfEmpty = 25,
-  forcedAttack = 26,
-  altRestrictionMin = 27,
-  restrictTarget = 28,
-  altRestrictionMax = 29,
-}
+import { OptionName, Formation } from "./optionEnums";
 
 const treeSelect = [
   {
@@ -325,10 +294,287 @@ export const options = {
   [OptionName.formation]: {
     label: "Formation",
     value: OptionName.formation,
-    /**
-     * @todo Add formation options from useFormation hook
-     */
-    options: []
+    options: [
+      [
+        {
+          label: "Helicopter - Wedge",
+          key: Formation.heli_wedge,
+          value: [
+            {
+              label: "Helicopter - Wedge 70",
+              key: 1,
+              value: 524288,
+            },
+          ],
+        },
+        {
+          label: "Helicopter - Column",
+          key: Formation.heli_column,
+          value: [
+            {
+              label: "Helicopter - Column 70",
+              key: 1,
+              value: 720896,
+            },
+          ],
+        },
+        {
+          label: "Helicopter - Echelon",
+          key: Formation.heli_echelon,
+          value: [
+            {
+              label: "Helicopter - Echelon Right 70",
+              key: 1,
+              value: 589825,
+            },
+            {
+              label: "Helicopter - Echelon Left 70",
+              key: 2,
+              value: 590081,
+            },
+          ],
+        },
+        {
+          label: "Helicopter - Front",
+          key: Formation.heli_front,
+          value: [
+            {
+              label: "Helicopter - Right Front 300",
+              key: 1,
+              value: 655361,
+            },
+            {
+              label: "Helicopter - Right Front 600",
+              key: 2,
+              value: 655362,
+            },
+            {
+              label: "Helicopter - Left Front 300",
+              key: 3,
+              value: 655617,
+            },
+            {
+              label: "Helicopter - Left Front 600",
+              key: 4,
+              value: 655618,
+            },
+          ],
+        },
+      ],
+      [
+        {
+          label: "Fixed Wing - Line Abreast",
+          key: Formation.line_abreast,
+          value: [
+            {
+              label: "Fixed Wing - Line Abreast Close",
+              key: 1,
+              value: 65537,
+            },
+            {
+              label: "Fixed Wing - Line Abreast Open",
+              key: 2,
+              value: 65538,
+            },
+            {
+              label: "Fixed Wing - Line Abreast Group Close",
+              key: 3,
+              value: 65539,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing - Trail",
+          key: Formation.trail,
+          value: [
+            {
+              label: "Fixed Wing - Trail Close",
+              key: 1,
+              value: 131073,
+            },
+            {
+              label: "Fixed Wing - Trail Open",
+              key: 2,
+              value: 131074,
+            },
+            {
+              label: "Fixed Wing - Trail Group Close",
+              key: 3,
+              value: 131075,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing - Wedge",
+          key: Formation.wedge,
+          value: [
+            {
+              label: "Fixed Wing - Wedge Close",
+              key: 1,
+              value: 196609,
+            },
+            {
+              label: "Fixed Wing - Wedge Open",
+              key: 2,
+              value: 196610,
+            },
+            {
+              label: "Fixed Wing - Wedge Group Close",
+              key: 3,
+              value: 196611,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing - Echelon Right",
+          key: Formation.echelon_right,
+          value: [
+            {
+              label: "Fixed Wing - Echelon Right Close",
+              key: 1,
+              value: 262145,
+            },
+            {
+              label: "Fixed Wing - Echelon Right Open",
+              key: 2,
+              value: 262146,
+            },
+            {
+              label: "Fixed Wing - Echelon Right Group Close",
+              key: 3,
+              value: 262147,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing - Echelon",
+          key: Formation.echelon_left,
+          value: [
+            {
+              label: "Fixed Wing - Echelon Left Close",
+              key: 1,
+              value: 327681,
+            },
+            {
+              label: "Fixed Wing - Echelon Left Open",
+              key: 2,
+              value: 327682,
+            },
+            {
+              label: "Fixed Wing - Echelon Left Group Close",
+              key: 3,
+              value: 327683,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing - Finger Four",
+          key: Formation.finger_four,
+          value: [
+            {
+              label: "Fixed Wing - Finger Four Close",
+              key: 1,
+              value: 393217,
+            },
+            {
+              label: "Fixed Wing - Finger Four Open",
+              key: 2,
+              value: 393218,
+            },
+            {
+              label: "Fixed Wing - Finger Four Group Close",
+              key: 3,
+              value: 393219,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing - Spread Four",
+          key: Formation.spread_four,
+          value: [
+            {
+              label: "Fixed Wing - Spread Four Close",
+              key: 1,
+              value: 458753,
+            },
+            {
+              label: "Fixed Wing - Spread Four Open",
+              key: 2,
+              value: 458754,
+            },
+            {
+              label: "Fixed Wing - Spread Four Group Close",
+              key: 3,
+              value: 458755,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing WW2 - Bomber Element",
+          key: Formation.ww2_bomber_element,
+          value: [
+            {
+              label: "Fixed Wing WW2 - Bomber Element Close",
+              key: 1,
+              value: 786433,
+            },
+            {
+              label: "Fixed Wing WW2 - Bomber Element Open",
+              key: 2,
+              value: 786434,
+            },
+            {
+              label: "Fixed Wing WW2 - Bomber Element Group Close",
+              key: 3,
+              value: 786435,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing WW2 - Bomber Element Height",
+          key: Formation.ww2_bomber_element_height,
+          value: [
+            {
+              label: "Fixed Wing WW2 - Bomber Element Height Close",
+              key: 1,
+              value: 851969,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing WW2 - Fighter Vic",
+          key: Formation.ww2_fighter_vic,
+          value: [
+            {
+              label: "Fixed Wing WW2 - Fighter Vic Close",
+              key: 1,
+              value: 917505,
+            },
+            {
+              label: "Fixed Wing WW2 - Fighter Vic Open",
+              key: 2,
+              value: 917506,
+            },
+          ],
+        },
+        {
+          label: "Fixed Wing Modern - Bomber Element",
+          key: Formation.modern_bomber_element,
+          value: [
+            {
+              label: "Fixed Wing Modern - Bomber Element Close",
+              key: 1,
+              value: 1114113,
+            },
+            {
+              label: "Fixed Wing Modern - Bomber Element Open",
+              key: 2,
+              value: 1114114,
+            },
+          ],
+        },
+      ],
+    ],
   },
   [OptionName.rtbOnBingo]: {
     label: "RTB On Bingo Fuel",
@@ -343,9 +589,6 @@ export const options = {
   [OptionName.disperseOnAttack]: {
     label: "Disperse On Attack",
     value: OptionName.disperseOnAttack,
-    /**
-     * @todo Add options from DCS ME
-     */
     options: [],
   },
   [OptionName.alarmState]: {
