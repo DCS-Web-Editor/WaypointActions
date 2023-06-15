@@ -3,7 +3,9 @@
     :theme="selectedTheme === 'Dark' ? theme : null"
     :theme-overrides="selectedTheme === 'Dark' ? themeOverrides : null"
   >
-    <div></div>
+    <div>
+      <action-list />
+    </div>
   </n-config-provider>
 </template>
 
@@ -11,6 +13,7 @@
 import type { GlobalTheme, GlobalThemeOverrides } from "naive-ui";
 import { NConfigProvider } from "naive-ui";
 import { useThemeStore } from "./stores/theme";
+import ActionList from "./components/ActionList.vue";
 import { ref } from "vue";
 
 const themeStore = useThemeStore();

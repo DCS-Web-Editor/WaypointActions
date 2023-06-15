@@ -141,21 +141,6 @@
               }
             }
           }
-        },
-        {
-          "auto": true,
-          "enabled": true,
-          "id": "WrappedAction",
-          "number": 7,
-          "params": {
-            "action": {
-              "id": "EPLRS",
-              "params": {
-                "groupId": 1,
-                "value": true
-              }
-            }
-          }
         }
       ]
     }
