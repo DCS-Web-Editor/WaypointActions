@@ -9,11 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import ActionItem from "@components/ActionItem.vue";
-import parseOption from "@task/options/parseOption";
-import { useTasksStore } from "@stores/state";
+import ActionItem from "./ActionItem.vue";
+import parseOption from "../tasks/options/parseOption";
+import { useTasksStore } from "../stores/state";
 import { Ref, computed, ref } from "vue";
-import { ActionList } from "@types";
+import { ActionList } from "../types";
 
 const store = computed(() => useTasksStore());
 

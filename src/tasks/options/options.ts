@@ -1,4 +1,4 @@
-import { OptionName, Formation } from "@task/options/optionEnums";
+import { OptionName, Formation } from "./optionEnums";
 
 const treeSelect = [
   {

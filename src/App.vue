@@ -12,8 +12,8 @@
 <script setup lang="ts">
 import type { GlobalTheme, GlobalThemeOverrides } from "naive-ui";
 import { NConfigProvider } from "naive-ui";
-import { useThemeStore } from "@stores/theme";
-import ActionList from "@components/ActionList.vue";
+import { useThemeStore } from "./stores/theme";
+import ActionList from "./components/ActionList.vue";
 import { ref } from "vue";
 
 const themeStore = useThemeStore();

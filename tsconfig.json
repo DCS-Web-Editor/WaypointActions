@@ -17,15 +17,6 @@
     "noImplicitReturns": true,
     "skipLibCheck": true,
     "types": ["naive-ui/volar"],
-    "baseUrl": "src",
-    "paths": {
-      "@components/*": ["components/*"],
-      "@task/options/*": ["tasks/options/*"],
-      "@task/enroute/*": ["tasks/enrouteTask/*"],
-      "@task/perform/*": ["tasks/performTask/*"],
-      "@types": ["types.ts"],
-      "@stores/*": ["stores/*"],
-    }
   },
   "include": ["src/vite-env.d.ts", ".eslintrc.cjs", "src/**/*", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]
