@@ -1,4 +1,4 @@
-import type { Tasks } from "../types/Tasks";
+import type { Tasks } from "../types";
 import { defineStore } from "pinia";
 
 export const useTasksStore = defineStore({

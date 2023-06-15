@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 
-import type { OptionList } from "../types/Tasks";
+import { type OptionList } from "types";
 import { options } from "./options";
 import { OptionName } from "./optionEnums";
 
@@ -61,7 +61,7 @@ export default function parseOption(id: number, value: number | boolean | string
     };
   }
   return {
-    option: "",
+    option: "Option Not Found",
     value: "",
   };
 }
