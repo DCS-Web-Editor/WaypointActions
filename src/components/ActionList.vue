@@ -13,13 +13,13 @@ import ActionItem from "@components/ActionItem.vue";
 import parseOption from "@task/options/parseOption";
 import { useTasksStore } from "@stores/state";
 import { Ref, computed, ref } from "vue";
-import { OptionList } from "@types";
+import { ActionList } from "@types";
 
 const store = computed(() => useTasksStore());
 
 const actions = store.value.getTasks();
 
-const actionList: Ref<OptionList[]> = ref([]);
+const actionList: Ref<ActionList[]> = ref([]);
 
 for (const action of actions.tasks) {
   if (action.params.action.id === "Option") {

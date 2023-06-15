@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 
-import { type OptionList } from "types";
+import type { ActionList } from "@types";
 import { options } from "./options";
 import { OptionName } from "./optionEnums";
 
@@ -27,7 +27,7 @@ type TOption = {
   options: any[];
 };
 
-export default function parseOption(id: number, value: number | boolean | string): OptionList {
+export default function parseOption(id: number, value: number | boolean | string): ActionList {
   const option: TOption = options[id];
   if (typeof value === "number") {
     if (id === OptionName.formation) {

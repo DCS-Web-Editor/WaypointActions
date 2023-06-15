@@ -10,7 +10,7 @@ export type Tasks ={
   }>;
 }
 
-export type OptionList = {
+export type ActionList = {
   option: string;
   value: string;
 }
