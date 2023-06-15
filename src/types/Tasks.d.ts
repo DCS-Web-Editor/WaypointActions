@@ -1,4 +1,6 @@
-export interface Tasks {
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+
+export type Tasks ={
   tasks: Array<{
     auto: boolean;
     enabled: boolean;
@@ -8,7 +10,7 @@ export interface Tasks {
   }>;
 }
 
-export interface OptionList {
+export type OptionList = {
   option: string;
   value: string;
 }

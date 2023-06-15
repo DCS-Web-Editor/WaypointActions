@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/consistent-type-definitions */
+
 import type { OptionList } from "../types/Tasks";
 import { options } from "./options";
 import { OptionName } from "./optionEnums";
@@ -18,12 +20,15 @@ function findById(data: any[], id: number): any {
   return null;
 }
 
-/**
- * @todo: Add support for indexes 24, 27, 29 of OptionName enum
- */
+type TOption = {
+  label: string;
+  value: number | boolean | string;
+  data?: number;
+  options: any[];
+};
 
 export default function parseOption(id: number, value: number | boolean | string): OptionList {
-  const option = options[id];
+  const option: TOption = options[id];
   if (typeof value === "number") {
     if (id === OptionName.formation) {
       const form = findById(option.options, value);
@@ -47,6 +52,12 @@ export default function parseOption(id: number, value: number | boolean | string
     return {
       option: option.label,
       value,
+    };
+  }
+  if (option.data != null) {
+    return {
+      option: option.label,
+      value: `${option.data}ft`,
     };
   }
   return {
