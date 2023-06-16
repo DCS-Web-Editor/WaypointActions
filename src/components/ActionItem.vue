@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row text-xs">
-    <p class="p-2 pr-0">{{ props.index + 1 }}</p>
-    <p class="p-2">{{ concat(props.option, props.value) }}</p>
+    <span class="p-2 pr-0" >{{ props.index + 1 }}</span>
+    <span class="p-2">{{ concat(props.option, props.value) }}</span>
   </div>
 </template>
 
