@@ -191,6 +191,16 @@ const flagSelect = [
 ];
 
 export const options: Record<number, any> = {
+  [OptionName.noOption]: {
+    label: "No Option",
+    value: OptionName.noOption,
+    options: [
+      {
+        label: "",
+        value: 0,
+      },
+    ],
+  },
   [OptionName.roe]: {
     label: "ROE",
     value: OptionName.roe,
