@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/consistent-type-definitions */
 
-import type { ActionList } from "../../types";
+import type { ActionList } from "../types";
 import { options } from "./options";
 import { OptionName } from "./optionEnums";
 

@@ -4,13 +4,18 @@ import { defineStore } from "pinia";
 export const useTasksStore = defineStore({
   id: "tasks",
   state: () => ({
-    tasks: {
-      tasks: [] as Tasks["tasks"],
-    },
+    tasks: [] as Tasks,
   }),
   actions: {
     setTasks(tasks: Tasks) {
-      this.tasks = tasks;
+      const taskArr: Tasks = [];
+      for (const task of tasks) {
+        if (task.number !== tasks.indexOf(task)) {
+          task.number = tasks.indexOf(task);
+        }
+        taskArr.push(task);
+      }
+      this.tasks = taskArr;
     },
     getTasks(): Tasks {
       return this.tasks;
