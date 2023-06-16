@@ -17,29 +17,64 @@
     </div>
     <div class="mt-2 flex flex-col">
       <div class="flex justify-between">
-        <n-button class="w-1/6" size="small">Add</n-button>
-        <n-button class="w-1/6" size="small">Ins</n-button>
-        <n-button class="w-1/6" size="small">Edit</n-button>
-        <n-button class="w-1/6" size="small">Del</n-button>
-        <n-button class="w-1/6 p-0" size="small">Clone</n-button>
+        <n-tooltip trigger="hover"
+          ><template #trigger>
+            <n-button class="w-1/6" size="small">Add</n-button>
+          </template>
+          <span>Add a new action</span>
+        </n-tooltip>
+        <n-tooltip trigger="hover"
+          ><template #trigger>
+            <n-button class="w-1/6" size="small">Ins</n-button>
+          </template>
+          <span>Insert a new action above the selected action</span>
+        </n-tooltip>
+        <n-tooltip trigger="hover"
+          ><template #trigger>
+            <n-button class="w-1/6" size="small">Edit</n-button>
+          </template>
+          <span>Edit the selected action</span>
+        </n-tooltip>
+        <n-tooltip trigger="hover"
+          ><template #trigger>
+            <n-button class="w-1/6" size="small">Del</n-button>
+          </template>
+          <span>Delete the selected action</span>
+        </n-tooltip>
+        <n-tooltip trigger="hover"
+          ><template #trigger>
+            <n-button class="w-1/6 p-0" size="small">Clone</n-button>
+          </template>
+          <span>Clone the selected action</span>
+        </n-tooltip>
       </div>
       <div class="flex justify-between mt-2">
-        <n-button
-          class="w-1/6"
-          :disabled="upDisable"
-          size="small"
-          @click="moveListItemUp(currentSelection)"
-        >
-          Up
-        </n-button>
-        <n-button
-          class="w-1/6 p-0"
-          :disabled="downDisable"
-          size="small"
-          @click="moveListItemDown(currentSelection)"
-        >
-          Down
-        </n-button>
+        <n-tooltip trigger="hover"
+          ><template #trigger>
+            <n-button
+              class="w-1/6"
+              :disabled="upDisable"
+              size="small"
+              @click="moveListItemUp(currentSelection)"
+            >
+              Up
+            </n-button>
+          </template>
+          <span>Move the selected action up in the execution chain</span>
+        </n-tooltip>
+        <n-tooltip trigger="hover"
+          ><template #trigger>
+            <n-button
+              class="w-1/6 p-0"
+              :disabled="downDisable"
+              size="small"
+              @click="moveListItemDown(currentSelection)"
+            >
+              Down
+            </n-button>
+          </template>
+          <span>Move the selected action down in the execution chain</span>
+        </n-tooltip>
         <div class="w-1/6"></div>
         <div class="w-1/6"></div>
         <div class="w-1/6"></div>
@@ -52,7 +87,7 @@
 import ActionItem from "./ActionItem.vue";
 import parseOption from "../tasks/parseOption";
 import { useTasksStore } from "../stores/state";
-import { NButton } from "naive-ui";
+import { NButton, NTooltip } from "naive-ui";
 import { computed, ref, watch } from "vue";
 import { ActionList, Tasks } from "../types";
 

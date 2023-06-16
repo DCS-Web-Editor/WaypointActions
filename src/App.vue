@@ -3,7 +3,7 @@
     :theme="selectedTheme === 'Dark' ? theme : null"
     :theme-overrides="selectedTheme === 'Dark' ? themeOverrides : null"
   >
-  <div class="grid h-screen place-items-center">
+    <div class="grid h-screen place-items-center">
       <action-list />
     </div>
   </n-config-provider>
