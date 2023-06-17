@@ -27,7 +27,7 @@ type TOption = {
   options: any[];
 };
 
-export default function parseOption(id: number, value: number | boolean | string): ActionList {
+export function parseOption(id: number, value: number | boolean | string): ActionList {
   const option: TOption = options[id];
   if (typeof value === "number") {
     if (id === OptionName.formation) {
@@ -65,3 +65,5 @@ export default function parseOption(id: number, value: number | boolean | string
     value: "",
   };
 }
+
+export function parseCommand(id: number, value: number | boolean | string): ActionList {}

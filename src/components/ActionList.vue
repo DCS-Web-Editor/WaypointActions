@@ -92,7 +92,7 @@
 
 <script setup lang="ts">
 import ActionItem from "./ActionItem.vue";
-import parseOption from "../tasks/parseOption";
+import { parseOption } from "../tasks/parseAction";
 import { useTasksStore } from "../stores/state";
 import { NButton, NTooltip } from "naive-ui";
 import { computed, ref, watch } from "vue";
