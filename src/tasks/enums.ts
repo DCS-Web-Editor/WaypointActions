@@ -117,15 +117,12 @@ export enum EnrouteTask {
   ewr = "EWR",
   tanker = "Tanker",
   fac = "FAC",
-  facEngageGroup = "FAC_EngageGroup",
-  shipHoldPoint = "ShipHoldPoint",
-  recoveryTanker = "RecoveryTanker",
-}
-
-export enum EngageTargets {
   fighterSweep = "FighterSweep",
   cas = "CAS",
   cap = "CAP",
   sead = "SEAD",
   antiShip = "AntiShip",
+  facEngageGroup = "FAC_EngageGroup",
+  shipHoldPoint = "ShipHoldPoint",
+  recoveryTanker = "RecoveryTanker",
 }

@@ -1,4 +1,5 @@
 import { OptionName, Formation } from "./enums";
+import type { EnumList } from "../types";
 
 const treeSelect = [
   {
@@ -190,7 +191,7 @@ const flagSelect = [
   },
 ];
 
-export const options: Record<number, any> = {
+export const options: Record<number, EnumList<OptionName>> = {
   [OptionName.noOption]: {
     label: "No Option",
     value: OptionName.noOption,

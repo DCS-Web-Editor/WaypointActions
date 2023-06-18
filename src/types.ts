@@ -38,3 +38,10 @@ export interface ActionList {
   option: string;
   value: string;
 }
+
+export interface EnumList<T> {
+  label: string;
+  value: T;
+  options?: any[];
+  [key: string]: unknown;
+}

@@ -30,12 +30,12 @@ type TOption = {
   label: string;
   value: number | boolean | string;
   data?: number;
-  options: any[];
+  options?: any[];
 };
 
 export function parseOption(id: number, value: number | boolean | string): ActionList {
   const option: TOption = options[id];
-  if (typeof value === "number") {
+  if (typeof value === "number" && option.options != null) {
     if (id === OptionName.formation) {
       const form = findById(option.options, value);
       return {

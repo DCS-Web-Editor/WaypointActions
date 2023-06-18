@@ -1,11 +1,7 @@
 import { PerformCommand } from "./enums";
+import type { EnumList } from "../types";
 
-interface TCommand {
-  label: string;
-  value: PerformCommand;
-}
-
-export const commands: Record<string, TCommand> = {
+export const commands: Record<string, EnumList<PerformCommand>> = {
   [PerformCommand.noAction]: {
     label: "No Action",
     value: PerformCommand.noAction,
