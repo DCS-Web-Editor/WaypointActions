@@ -105,7 +105,10 @@ import { ActionList, Tasks } from "../types";
 
 const store = computed(() => useTasksStore());
 
-const actions = computed(() => store.value.getTasks());
+const actions = computed({
+  get: () => store.value.getTasks(),
+  set: (value) => store.value.setTasks(value),
+});
 const actionList = computed<ActionList[]>(() => updateList(actions.value));
 
 const currentSelection = ref(0);
@@ -125,8 +128,7 @@ function createOption(
   value: number | string | boolean,
   auto?: boolean,
 ): void {
-  const arr = [...actions.value];
-  arr.splice(index, 0, {
+  actions.value.splice(index, 0, {
     auto: auto ?? false,
     enabled: true,
     id: "WrappedAction",
@@ -141,7 +143,6 @@ function createOption(
       },
     },
   });
-  store.value.setTasks(arr);
 }
 
 function handleItemClick(index: number) {
@@ -149,9 +150,7 @@ function handleItemClick(index: number) {
 }
 
 function moveArrayItem(oldIndex: number, newIndex: number): void {
-  const arr = [...actions.value];
-  arr.splice(newIndex, 0, arr.splice(oldIndex, 1)[0]);
-  store.value.setTasks(arr);
+  actions.value.splice(newIndex, 0, actions.value.splice(oldIndex, 1)[0]);
 }
 
 function moveListItemDown(index: number) {
@@ -169,9 +168,7 @@ function moveListItemUp(index: number) {
 }
 
 function deleteListItem(index: number) {
-  const arr = [...actions.value];
-  arr.splice(index, 1);
-  store.value.setTasks(arr);
+  actions.value.splice(index, 1);
 }
 
 function insertListItem(index: number) {
@@ -179,10 +176,8 @@ function insertListItem(index: number) {
 }
 
 function cloneListItem(index: number) {
-  const arr = [...actions.value];
-  const clone = { ...arr[index] };
-  arr.push(clone);
-  store.value.setTasks(arr);
+  const clone = actions.value[index];
+  actions.value.push(clone);
 }
 
 function addListItem() {
