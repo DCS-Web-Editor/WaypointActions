@@ -1,6 +1,11 @@
 import { PerformCommand } from "./enums";
 
-export const commands: Record<string, any> = {
+interface TCommand {
+  label: string;
+  value: PerformCommand;
+}
+
+export const commands: Record<string, TCommand> = {
   [PerformCommand.noAction]: {
     label: "No Action",
     value: PerformCommand.noAction,

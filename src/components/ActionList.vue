@@ -101,7 +101,7 @@ import { NButton, NTooltip } from "naive-ui";
 import { computed, ref, watch } from "vue";
 import { ActionList, Tasks } from "../types";
 
-import json from "../../dev.json";
+// import json from "../../dev.json";
 
 const store = computed(() => useTasksStore());
 
@@ -241,5 +241,5 @@ watch(
   { immediate: true },
 );
 
-store.value.setTasks(json.task.params.tasks);
+// store.value.setTasks(json.task.params.tasks);
 </script>

@@ -72,9 +72,9 @@ export function parseOption(id: number, value: number | boolean | string): Actio
   };
 }
 /**
- *
  * @todo Go through each command and add unit names to ones that need it (e.g. "Set ACLS")
  */
+
 export function parseCommand(id: string, value: any): ActionList {
   switch (id) {
     case PerformCommand.noAction:
