@@ -12,7 +12,10 @@
           }"
           @click="handleItemClick(index)"
         >
-          <ActionItem :index="index" :option="action.option" :value="action.value" />
+          <div class="flex flex-row text-xs">
+            <span class="p-2 pr-0">{{ index + 1 }}</span>
+            <span class="p-2">{{ concat(action.option, action.value) }}</span>
+          </div>
         </li>
       </ul>
     </div>
@@ -91,14 +94,14 @@
 </template>
 
 <script setup lang="ts">
-import ActionItem from "./ActionItem.vue";
-import { parseOption } from "../tasks/parseAction";
+import { parseOption, parseCommand } from "../tasks/parseAction";
+import { PerformCommand } from "../tasks/enums";
 import { useTasksStore } from "../stores/state";
 import { NButton, NTooltip } from "naive-ui";
 import { computed, ref, watch } from "vue";
 import { ActionList, Tasks } from "../types";
 
-// import json from "../../dev.json";
+import json from "../../dev.json";
 
 const store = computed(() => useTasksStore());
 
@@ -108,6 +111,13 @@ const actionList = computed<ActionList[]>(() => updateList(actions.value));
 const currentSelection = ref(0);
 const upDisable = ref(false);
 const downDisable = ref(false);
+
+const concat = (option: string, value: string) => {
+  if (value === "") {
+    return `${option}${value}`;
+  }
+  return `${option} = ${value}`;
+};
 
 function createOption(
   index: number,
@@ -188,6 +198,9 @@ function updateList(task: Tasks): ActionList[] {
         action.params.action.params.value,
       );
       actionList.push(parsed);
+    } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
+      const parsed = parseCommand(action.params.action.id, action.params.action.params);
+      actionList.push(parsed);
     } else {
       actionList.push({
         option: action.params.action.id,
@@ -228,5 +241,5 @@ watch(
   { immediate: true },
 );
 
-// store.value.setTasks(json.task.params.tasks);
+store.value.setTasks(json.task.params.tasks);
 </script>

@@ -141,6 +141,22 @@
               }
             }
           }
+        },
+        {
+          "auto": false,
+          "enabled": true,
+          "id": "WrappedAction",
+          "number": 7,
+          "params": {
+            "action": {
+              "id": "SetFrequency",
+              "params": {
+                "frequency": 121800000,
+                "modulation": 0,
+                "power": 10
+              }
+            }
+          }
         }
       ]
     }

@@ -1,4 +1,4 @@
-import { OptionName, Formation } from "./optionEnums";
+import { OptionName, Formation } from "./enums";
 
 const treeSelect = [
   {
