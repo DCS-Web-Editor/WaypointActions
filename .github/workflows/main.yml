@@ -35,7 +35,7 @@ jobs:
           fi
 
       - name: Update Version
-        if: steps.check_commit.outputs.valid == 'true'
+        if: steps.check_commit.outputs.release == 'true'
         uses: changesets/action@v1.4.4
         with:
           commit: "chore: version changelog"
