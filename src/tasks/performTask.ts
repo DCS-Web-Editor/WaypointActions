@@ -114,4 +114,12 @@ export const performTask: Record<string, EnumList<Task>> = {
     label: "Paratroopers Drop",
     value: Task.paratroopersDrop,
   },
+  [Task.shipHoldPoint]: {
+    label: "Ship Hold Point",
+    value: Task.shipHoldPoint,
+  },
+  [Task.recoveryTanker]: {
+    label: "Recovery Tanker",
+    value: Task.recoveryTanker,
+  },
 };

@@ -105,6 +105,8 @@ export enum Task {
   followBigFormation = "FollowBigFormation",
   groundEscort = "GroundEscort",
   paratroopersDrop = "ParatroopersDrop",
+  shipHoldPoint = "ShipHoldPoint",
+  recoveryTanker = "RecoveryTanker",
 }
 
 export enum EnrouteTask {
@@ -123,6 +125,4 @@ export enum EnrouteTask {
   sead = "SEAD",
   antiShip = "AntiShip",
   facEngageGroup = "FAC_EngageGroup",
-  shipHoldPoint = "ShipHoldPoint",
-  recoveryTanker = "RecoveryTanker",
 }

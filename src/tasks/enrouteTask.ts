@@ -54,17 +54,9 @@ export const enrouteTask: Record<string, EnumList<EnrouteTask>> = {
     label: "Fighter Sweep",
     value: EnrouteTask.fighterSweep,
   },
-  [EnrouteTask.recoveryTanker]: {
-    label: "Recovery Tanker",
-    value: EnrouteTask.recoveryTanker,
-  },
   [EnrouteTask.sead]: {
     label: "SEAD",
     value: EnrouteTask.sead,
-  },
-  [EnrouteTask.shipHoldPoint]: {
-    label: "Ship Hold Point",
-    value: EnrouteTask.shipHoldPoint,
   },
   [EnrouteTask.tanker]: {
     label: "Tanker",
