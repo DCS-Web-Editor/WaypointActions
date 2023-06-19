@@ -6,7 +6,7 @@ interface Task<T> {
   params: T;
 }
 
-export type Tasks = Array<Task<any>>;
+export type Tasks<T = any> = Array<Task<T>>
 
 type Option<T extends string | boolean | number> = Task<{
   action: {
