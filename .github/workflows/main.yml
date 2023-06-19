@@ -17,19 +17,25 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"
-          
+
       - name: Install NPM Dependencies
         run: pnpm install --no-frozen-lockfile
-        
+
       - name: Lint and Format
         run: pnpm release:check
-        
-      - name: Check commit argument
-        id: check_commit_arg
-        run: echo "::set-output name=valid::$(if [[ ${{ github.event.head_commit.message }} =~ '--release' ]]; then echo true; else echo false; fi)"
+
+      - name: Check commit message
+        id: check_commit
+        run: |
+          message="${{ github.event.head_commit.message }}"
+          if [[ "$message" == *'--release'* ]] || [[ "$message" == *'-r'* ]]; then
+            echo "::set-output name=release::true"
+          else
+            echo "::set-output name=release::false"
+          fi
 
       - name: Update Version
-        if: steps.check_commit_arg.outputs.valid == 'true'
+        if: steps.check_commit.outputs.valid == 'true'
         uses: changesets/action@v1.4.4
         with:
           commit: "chore: version changelog"
