@@ -28,7 +28,7 @@ jobs:
         id: check_commit_arg
         run: echo "::set-output name=valid::$(if [[ ${{ github.event.head_commit.message }} == *'--release'* ]]; then echo true; else echo false; fi)"
 
-      - name: Version
+      - name: Update Version
         if: steps.check_commit_arg.outputs.valid == 'true'
         uses: changesets/action@v1.4.4
         with:
