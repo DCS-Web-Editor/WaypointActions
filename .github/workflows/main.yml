@@ -1,0 +1,39 @@
+name: CI
+on:
+  push:
+    branches:
+      - "**"
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: "pnpm"
+          
+      - name: Install NPM Dependencies
+        run: pnpm install
+        
+      - name: Lint and Format
+        run: pnpm release:check
+        
+      - name: Check commit argument
+        id: check_commit_arg
+        run: echo "::set-output name=valid::$(if [[ ${{ github.event.head_commit.message }} == *'--release'* ]]; then echo true; else echo false; fi)"
+
+      - name: Version
+        if: steps.check_commit_arg.outputs.valid == 'true'
+        uses: changesets/action@v1.4.4
+        with:
+          commit: "chore: version changelog"
+          title: "chore: version changelog"
+          version: npx changeset version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
