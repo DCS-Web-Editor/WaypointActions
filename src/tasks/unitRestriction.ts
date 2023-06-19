@@ -2,10 +2,7 @@ import { Task } from "./enums";
 import type { EnumList } from "../types";
 import { performTask } from "./performTask";
 
-type UnitRestriction = Record<
-  string,
-  Record<string, Record<string, Array<EnumList<Task>>>>
->;
+type UnitRestriction = Record<string, Record<string, Record<string, Array<EnumList<Task>>>>>;
 
 export const availableActions: UnitRestriction = {
   plane: {
