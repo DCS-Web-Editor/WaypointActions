@@ -1,0 +1,10 @@
+pull_request_rules:
+  - name: Automatic versioning
+    conditions:
+      - author=github-actions[bot]
+    actions:
+      merge:
+        method: merge
+      review:
+        type: APPROVE
+        message: Automatically approving Changesets
