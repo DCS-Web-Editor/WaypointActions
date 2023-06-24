@@ -1,13 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
-/* eslint-disable @typescript-eslint/strict-boolean-expressions */
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
-
-/**
- * @todo Fix types and remove eslint disabled rules
- */
 
 import type { ActionList } from "../types";
-import { options } from "./options";
+import { options } from "./actions/options";
 import { OptionName, PerformCommand } from "./enums";
 
 function findById(data: any[], id: number): any {
@@ -26,12 +20,12 @@ function findById(data: any[], id: number): any {
   return null;
 }
 
-type TOption = {
+interface TOption {
   label: string;
   value: number | boolean | string;
   data?: number;
   options?: any[];
-};
+}
 
 export function parseOption(id: number, value: number | boolean | string): ActionList {
   const option: TOption = options[id];

@@ -1,5 +1,5 @@
-import { Task } from "./enums";
-import type { EnumList } from "../types";
+import { Task } from "../enums";
+import type { EnumList } from "../../types";
 
 export const performTask: Record<string, EnumList<Task>> = {
   [Task.noTask]: {

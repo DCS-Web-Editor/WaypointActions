@@ -1,4 +1,4 @@
-import type { PerformCommand, EnrouteTask, Task } from "./tasks/enums";
+import type { PerformCommand, EnrouteTask, Task } from "./utils/enums";
 interface ITask<T> {
   auto: boolean;
   enabled: boolean;

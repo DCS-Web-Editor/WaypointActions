@@ -1,5 +1,5 @@
-import { PerformCommand } from "./enums";
-import type { EnumList } from "../types";
+import { PerformCommand } from "../enums";
+import type { EnumList } from "../../types";
 
 export const commands: Record<string, EnumList<PerformCommand>> = {
   [PerformCommand.noAction]: {

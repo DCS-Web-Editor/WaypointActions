@@ -94,23 +94,19 @@
 </template>
 
 <script setup lang="ts">
-import { parseOption, parseCommand } from "../tasks/parseAction";
-import { PerformCommand } from "../tasks/enums";
-import { useTasksStore } from "../stores/state";
+import { parseCommand, parseOption } from "../utils/parseAction";
+import { PerformCommand } from "../utils/enums";
+import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip } from "naive-ui";
 import { computed, ref, watch } from "vue";
 import { ActionList, ITasks } from "../types";
-import { createOption } from "../tasks/utils";
+import { createOption } from "../utils/utils";
 
 // import json from "../../dev.json";
 
-const store = computed(() => useTasksStore());
+const { tasks } = useTasks();
 
-const actions = computed({
-  get: () => store.value.getTasks(),
-  set: (value) => store.value.setTasks(value),
-});
-const actionList = computed<ActionList[]>(() => updateList(actions.value));
+const actionList = computed<ActionList[]>(() => updateList(tasks.value));
 
 const currentSelection = ref(0);
 const upDisable = ref(false);
@@ -128,41 +124,41 @@ function handleItemClick(index: number) {
 }
 
 function moveArrayItem(oldIndex: number, newIndex: number): void {
-  actions.value.splice(newIndex, 0, actions.value.splice(oldIndex, 1)[0]);
+  tasks.value.splice(newIndex, 0, tasks.value.splice(oldIndex, 1)[0]);
 }
 
 function moveListItemDown(index: number) {
-  if (index < actions.value.length - 1) {
+  if (index < tasks.value.length - 1) {
     moveArrayItem(index, index + 1);
     currentSelection.value = index + 1;
   }
 }
 
 function moveListItemUp(index: number) {
-  if (index <= actions.value.length - 1 && index > 0) {
+  if (index <= tasks.value.length - 1 && index > 0) {
     moveArrayItem(index, index - 1);
     currentSelection.value = index - 1;
   }
 }
 
 function deleteListItem(index: number) {
-  actions.value.splice(index, 1);
+  tasks.value.splice(index, 1);
 }
 
 function insertListItem(index: number) {
   const action = createOption(index, -1, 0);
-  actions.value.splice(index, 0, action);
+  tasks.value.splice(index, 0, action);
 }
 
 function cloneListItem(index: number) {
-  const clone = actions.value[index];
-  actions.value.push(clone);
+  const clone = tasks.value[index];
+  tasks.value.push(clone);
 }
 
 function addListItem() {
-  const index = actions.value.length;
+  const index = tasks.value.length;
   const action = createOption(index, -1, 0);
-  actions.value.splice(index, 0, action);
+  tasks.value.splice(index, 0, action);
 }
 
 function updateList(task: ITasks): ActionList[] {

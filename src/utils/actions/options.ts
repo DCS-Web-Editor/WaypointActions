@@ -1,5 +1,5 @@
-import { OptionName, Formation } from "./enums";
-import type { EnumList } from "../types";
+import { OptionName, Formation } from "../enums";
+import type { EnumList } from "../../types";
 
 const treeSelect = [
   {

@@ -1,15 +1,7 @@
-import { computed } from "vue";
-import { useTasksStore } from "../stores/state";
 import type { Action, EnumOptions } from "../types";
+import { useTasks } from "./hooks";
 
-const store = computed(() => useTasksStore());
-
-const actions = computed({
-  get: () => store.value.getTasks(),
-  set: (value) => {
-    store.value.setTasks(value);
-  },
-});
+const { tasks } = useTasks();
 
 export function createOption(
   index: number,
@@ -18,9 +10,9 @@ export function createOption(
   auto?: boolean,
   enabled?: boolean,
 ): Action<typeof value> {
-  let actionNumber = actions.value.length + 1;
+  let actionNumber = tasks.value.length + 1;
 
-  if (index != null && index < actions.value.length) {
+  if (index != null && index < tasks.value.length) {
     actionNumber = index;
   }
 
@@ -49,9 +41,9 @@ export function createTask(
   auto?: boolean,
   enabled?: boolean,
 ): Action<object> {
-  let actionNumber = actions.value.length + 1;
+  let actionNumber = tasks.value.length + 1;
 
-  if (index != null && index < actions.value.length) {
+  if (index != null && index < tasks.value.length) {
     actionNumber = index;
   }
 

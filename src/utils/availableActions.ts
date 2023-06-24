@@ -1,19 +1,20 @@
 import { EnrouteTask, OptionName, PerformCommand, Task } from "./enums";
 import type { EnumList } from "../types";
-import { performTask } from "./performTask";
-import { enrouteTask } from "./enrouteTask";
-import { commands } from "./commands";
-import { options } from "./options";
+import { performTask, enrouteTask, commands, options } from "./actions";
 
 type AvailableActions = Record<
-  string,
+  "plane" | "helicopter" | "vehicle" | "ship",
   Record<
     "task" | "enrouteTask" | "commands" | "options",
     Record<string, Array<EnumList<Task | EnrouteTask | PerformCommand | OptionName>>>
   >
 >;
 
-export const availableActions: AvailableActions = {
+/**
+ * @todo Remove partial type when all availableActions are added
+ */
+
+export const availableActions: Partial<AvailableActions> = {
   plane: {
     task: {
       default: [
