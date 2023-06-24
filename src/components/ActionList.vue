@@ -99,7 +99,8 @@ import { PerformCommand } from "../tasks/enums";
 import { useTasksStore } from "../stores/state";
 import { NButton, NTooltip } from "naive-ui";
 import { computed, ref, watch } from "vue";
-import { ActionList, Tasks } from "../types";
+import { ActionList, ITasks } from "../types";
+import { createOption } from "../tasks/utils";
 
 // import json from "../../dev.json";
 
@@ -121,29 +122,6 @@ const concat = (option: string, value: string) => {
   }
   return `${option} = ${value}`;
 };
-
-function createOption(
-  index: number,
-  name: number,
-  value: number | string | boolean,
-  auto?: boolean,
-): void {
-  actions.value.splice(index, 0, {
-    auto: auto ?? false,
-    enabled: true,
-    id: "WrappedAction",
-    number: index,
-    params: {
-      action: {
-        id: "Option",
-        params: {
-          name,
-          value,
-        },
-      },
-    },
-  });
-}
 
 function handleItemClick(index: number) {
   currentSelection.value = index;
@@ -172,7 +150,8 @@ function deleteListItem(index: number) {
 }
 
 function insertListItem(index: number) {
-  createOption(index, -1, 0);
+  const action = createOption(index, -1, 0);
+  actions.value.splice(index, 0, action);
 }
 
 function cloneListItem(index: number) {
@@ -181,10 +160,12 @@ function cloneListItem(index: number) {
 }
 
 function addListItem() {
-  createOption(actions.value.length, -1, 0);
+  const index = actions.value.length;
+  const action = createOption(index, -1, 0);
+  actions.value.splice(index, 0, action);
 }
 
-function updateList(task: Tasks): ActionList[] {
+function updateList(task: ITasks): ActionList[] {
   const actionList: ActionList[] = [];
   for (const action of task) {
     if (action.params.action.id === "Option") {

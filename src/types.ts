@@ -1,4 +1,5 @@
-interface Task<T> {
+import type { PerformCommand, EnrouteTask, Task } from "./tasks/enums";
+interface ITask<T> {
   auto: boolean;
   enabled: boolean;
   id: string;
@@ -6,9 +7,9 @@ interface Task<T> {
   params: T;
 }
 
-export type Tasks<T = any> = Array<Task<T>>;
+export type ITasks<T = any> = Array<ITask<T>>;
 
-type Option<T extends string | boolean | number> = Task<{
+type Option<T extends string | boolean | number> = ITask<{
   action: {
     id: "Option";
     params: {
@@ -19,18 +20,21 @@ type Option<T extends string | boolean | number> = Task<{
 }>;
 
 /**
- *@description Covers performCommand, performEnrouteTask, and performTask
+ *@description Covers performCommand, performEnrouteITask, and performITask
  */
-type UniversalAction<T extends object> = Task<{
+
+export type EnumOptions = keyof typeof PerformCommand | EnrouteTask | Task;
+
+type UniversalAction<T extends object> = ITask<{
   action: {
-    id: string;
+    id: EnumOptions;
     params: T;
   };
 }>;
 
-export type Action<T> = T extends UniversalAction<any>
-  ? UniversalAction<object>
-  : T extends Option<any>
+export type Action<T> = T extends object
+  ? UniversalAction<T>
+  : T extends string | number | boolean
   ? Option<string | number | boolean>
   : never;
 

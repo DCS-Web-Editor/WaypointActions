@@ -191,6 +191,11 @@ const flagSelect = [
   },
 ];
 
+/**
+ * @description OptionName.roe[options] has 2 options, air and ground. Index of 0 is air (helo and fixed wing), index of 1 is for ground (vehicle and ship)
+ * @description OptionName.alarmState[options] is only valid for vehicles and ships
+ */
+
 export const options: Record<number, EnumList<OptionName>> = {
   [OptionName.noOption]: {
     label: "No Option",
@@ -206,26 +211,44 @@ export const options: Record<number, EnumList<OptionName>> = {
     label: "ROE",
     value: OptionName.roe,
     options: [
-      {
-        label: "WEAPON FREE",
-        value: 1,
-      },
-      {
-        label: "PRIORITY DESIGNATED",
-        value: 2,
-      },
-      {
-        label: "ONLY DESIGNATED",
-        value: 3,
-      },
-      {
-        label: "RETURN FIRE",
-        value: 4,
-      },
-      {
-        label: "WEAPON HOLD",
-        value: 5,
-      },
+      [
+        {
+          label: "WEAPON FREE",
+          value: 1,
+        },
+        {
+          label: "PRIORITY DESIGNATED",
+          value: 2,
+        },
+        {
+          label: "ONLY DESIGNATED",
+          value: 3,
+        },
+        {
+          label: "RETURN FIRE",
+          value: 4,
+        },
+        {
+          label: "WEAPON HOLD",
+          value: 5,
+        },
+      ],
+      [
+        [
+          {
+            label: "WEAPON FREE",
+            value: 1,
+          },
+          {
+            label: "RETURN FIRE",
+            value: 4,
+          },
+          {
+            label: "WEAPON HOLD",
+            value: 5,
+          },
+        ],
+      ],
     ],
   },
   [OptionName.reactionOnThreat]: {

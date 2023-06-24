@@ -2,9 +2,9 @@ import { EnrouteTask } from "./enums";
 import type { EnumList } from "../types";
 
 export const enrouteTask: Record<string, EnumList<EnrouteTask>> = {
-  [EnrouteTask.noTask]: {
+  [EnrouteTask.noEnrouteTask]: {
     label: "No Task",
-    value: EnrouteTask.noTask,
+    value: EnrouteTask.noEnrouteTask,
   },
   [EnrouteTask.antiShip]: {
     label: "Anti Ship",

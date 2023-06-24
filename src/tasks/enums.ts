@@ -110,7 +110,7 @@ export enum Task {
 }
 
 export enum EnrouteTask {
-  noTask = "NoTask",
+  noEnrouteTask = "NoTask",
   engageTargets = "EngageTargets",
   engageTargetsInZone = "EngageTargetsInZone",
   engageGroup = "EngageGroup",
