@@ -98,17 +98,27 @@ import { parseCommand, parseOption } from "../utils/parseAction";
 import { PerformCommand } from "../utils/enums";
 import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip } from "naive-ui";
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, provide } from "vue";
 import { ActionList, ITasks } from "../types";
 import { createOption } from "../utils/utils";
 
 // import json from "../../dev.json";
+// import { useTasksStore } from "../stores/state";
 
 const { tasks } = useTasks();
 
 const actionList = computed<ActionList[]>(() => updateList(tasks.value));
 
 const currentSelection = ref(0);
+provide(
+  "selection",
+  computed({
+    get: () => currentSelection.value + 1,
+    set: (value) => {
+      currentSelection.value = value - 1;
+    },
+  }),
+);
 const upDisable = ref(false);
 const downDisable = ref(false);
 
@@ -213,5 +223,6 @@ watch(
   { immediate: true },
 );
 
+// const store = computed(() => useTasksStore());
 // store.value.setTasks(json.task.params.tasks);
 </script>

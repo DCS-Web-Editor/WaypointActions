@@ -1,4 +1,4 @@
-import type { ITasks } from "../types";
+import type { ITask, ITasks } from "../types";
 import { defineStore } from "pinia";
 
 export const useTasksStore = defineStore({
@@ -19,6 +19,9 @@ export const useTasksStore = defineStore({
     },
     getTasks(): ITasks {
       return this.tasks;
+    },
+    getOneTask(index: number): ITask {
+      return this.tasks[index];
     },
   },
 });
