@@ -37,7 +37,7 @@
         </n-tooltip>
         <n-tooltip trigger="hover"
           ><template #trigger>
-            <n-button class="w-1/6" size="small">Edit</n-button>
+            <n-button class="w-1/6" size="small" @click="editListItem">Edit</n-button>
           </template>
           <span>Edit the selected action</span>
         </n-tooltip>
@@ -90,26 +90,32 @@
         <div class="w-1/6"></div>
       </div>
     </div>
+    <n-modal v-model:show="editModalShow" :on-after-leave="removeNoOption">
+      <edit-action />
+    </n-modal>
   </div>
 </template>
 
 <script setup lang="ts">
 import { parseCommand, parseOption } from "../utils/parseAction";
+import EditAction from "./EditAction.vue";
 import { PerformCommand } from "../utils/enums";
 import { useTasks } from "../utils/hooks";
-import { NButton, NTooltip } from "naive-ui";
+import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide } from "vue";
 import { ActionList, ITasks } from "../types";
 import { createOption } from "../utils/utils";
 
-// import json from "../../dev.json";
-// import { useTasksStore } from "../stores/state";
+import json from "../../dev.json";
+import { useTasksStore } from "../stores/state";
 
 const { tasks } = useTasks();
 
 const actionList = computed<ActionList[]>(() => updateList(tasks.value));
-
 const currentSelection = ref(0);
+const upDisable = ref(false);
+const downDisable = ref(false);
+
 provide(
   "selection",
   computed({
@@ -119,8 +125,6 @@ provide(
     },
   }),
 );
-const upDisable = ref(false);
-const downDisable = ref(false);
 
 const concat = (option: string, value: string) => {
   if (value === "") {
@@ -165,10 +169,24 @@ function cloneListItem(index: number) {
   tasks.value.push(clone);
 }
 
+const editModalShow = ref(false);
+
+function removeNoOption() {
+  const index = actionList.value.findIndex((action) => action.option === "No Option");
+  if (index !== -1) {
+    deleteListItem(index);
+  }
+}
+
+function editListItem() {
+  editModalShow.value = true;
+}
+
 function addListItem() {
   const index = tasks.value.length;
   const action = createOption(index, -1, 0);
   tasks.value.splice(index, 0, action);
+  editModalShow.value = true;
 }
 
 function updateList(task: ITasks): ActionList[] {
@@ -223,6 +241,6 @@ watch(
   { immediate: true },
 );
 
-// const store = computed(() => useTasksStore());
-// store.value.setTasks(json.task.params.tasks);
+const store = computed(() => useTasksStore());
+store.value.setTasks(json.task.params.tasks);
 </script>
