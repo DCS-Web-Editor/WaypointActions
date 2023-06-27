@@ -7,7 +7,7 @@
       </div>
       <div class="flex flex-row justify-between">
         <h1 class="text-base font-medium w-1/5">Action</h1>
-        <h1 class="text-base font-medium">TODO</h1>
+        <n-select :options="actionOptions" />
       </div>
       <div class="flex flex-row justify-between">
         <h1 class="text-base font-medium w-1/5">Number</h1>
@@ -17,8 +17,8 @@
             :min="selTaskIndex[0]"
             :max="selTaskIndex.length"
           />
-          <div class="grid grid-flow-col gap-x-2">
-            <h1 class="text-base font-medium">Enabled</h1>
+          <div class="flex flex-row">
+            <h1 class="text-base font-medium mr-2">Enabled</h1>
             <n-checkbox v-model:checked="enabled" />
           </div>
         </div>
@@ -31,24 +31,28 @@
 import { NSpace, NSelect, NInputNumber, NCard, NCheckbox } from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useTasks } from "../utils/hooks";
-import { computed, watch, inject, type ComputedRef, ref } from "vue";
+import { computed, watch, ref, inject, type ComputedRef } from "vue";
 import { ITask } from "../types";
 import { Task, EnrouteTask, PerformCommand } from "../utils/enums";
+import { availableActions } from "../utils/availableActions";
+
+type UnitType = "plane" | "helicopter" | "vehicle" | "ship";
+type ActionType = "task" | "enrouteTask" | "commands" | "options";
 
 const { tasks } = useTasks();
 const store = useTasksStore();
 
 function getActionType(task: ITask) {
   if (Object.values(Task).includes(task.params.action.id)) {
-    return 0;
+    return "task";
   } else if (Object.values(EnrouteTask).includes(task.params.action.id)) {
-    return 1;
+    return "enrouteTask";
   } else if (Object.values(PerformCommand).includes(task.params.action.id)) {
-    return 2;
+    return "commands";
   } else if (task.params.action.id === "Option") {
-    return 3;
+    return "options";
   } else {
-    return null;
+    return "task";
   }
 }
 
@@ -61,7 +65,26 @@ const selTaskData = computed({
   },
 });
 
-const actionType = ref(getActionType(selTaskData.value));
+const actionType = ref<ActionType>(getActionType(selTaskData.value));
+const unitType = inject<UnitType>("unitType", "plane")
+
+function getActionOptions(unitType: UnitType, taskCatagory: string) {
+  switch (unitType) {
+    case "plane":
+      return availableActions.plane[actionType.value][taskCatagory];
+    case "helicopter":
+      return availableActions.helicopter[actionType.value][taskCatagory];
+    case "vehicle":
+      return availableActions.vehicle[actionType.value][taskCatagory];
+    case "ship":
+      return availableActions.ship[actionType.value][taskCatagory];
+  }
+}
+/**
+ * @todo add parsing for performTask and enrouteTask
+ */
+const taskCatagory = inject<string>("taskCatagory", "default");
+const actionOptions = computed(() => getActionOptions(unitType, taskCatagory));
 
 const enabled = computed({
   get: () => selTaskData.value.enabled,
@@ -78,19 +101,19 @@ watch(selTaskData, (val) => {
 const taskOptions = [
   {
     label: "Perform Task",
-    value: 0,
+    value: "task",
   },
   {
     label: "Start Enroute Task",
-    value: 1,
+    value: "enrouteTask",
   },
   {
     label: "Perform Command",
-    value: 2,
+    value: "commands",
   },
   {
     label: "Set Option",
-    value: 3,
+    value: "options",
   },
 ];
 </script>
