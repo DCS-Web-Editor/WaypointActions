@@ -106,9 +106,6 @@ import { computed, ref, watch, provide } from "vue";
 import { ActionList, ITasks } from "../types";
 import { createOption } from "../utils/utils";
 
-import json from "../../dev.json";
-import { useTasksStore } from "../stores/state";
-
 const { tasks } = useTasks();
 
 const actionList = computed<ActionList[]>(() => updateList(tasks.value));
@@ -191,30 +188,34 @@ function addListItem() {
 
 function updateList(task: ITasks): ActionList[] {
   const actionList: ActionList[] = [];
-  for (const action of task) {
-    if (action.params.action.id === "Option") {
-      const parsed = parseOption(
-        action.params.action.params.name,
-        action.params.action.params.value,
-      );
-      actionList.push(parsed);
-    } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
-      const parsed = parseCommand(action.params.action.id, action.params.action.params);
-      actionList.push(parsed);
-    } else if (Object.values(EnrouteTask).includes(action.params.action.id)) {
-      const parsed = parseEnrouteTask(action.params.action.id, action.params.action.params);
-      actionList.push(parsed);
-    } else if (Object.values(Task).includes(action.params.action.id)) {
-      const parsed = parseTask(action.params.action.id, action.params.action.params);
-      actionList.push(parsed);
-    } else {
-      actionList.push({
-        option: action.params.action.id,
-        value: action.params.action.params.value,
-      });
+  if (task.length === 0) {
+    return [];
+  } else {
+    for (const action of task) {
+      if (action.params.action.id === "Option") {
+        const parsed = parseOption(
+          action.params.action.params.name,
+          action.params.action.params.value,
+        );
+        actionList.push(parsed);
+      } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
+        const parsed = parseCommand(action.params.action.id, action.params.action.params);
+        actionList.push(parsed);
+      } else if (Object.values(EnrouteTask).includes(action.params.action.id)) {
+        const parsed = parseEnrouteTask(action.params.action.id, action.params.action.params);
+        actionList.push(parsed);
+      } else if (Object.values(Task).includes(action.params.action.id)) {
+        const parsed = parseTask(action.params.action.id, action.params.action.params);
+        actionList.push(parsed);
+      } else {
+        actionList.push({
+          option: "Error Parsing Action",
+          value: "",
+        });
+      }
     }
+    return actionList;
   }
-  return actionList;
 }
 
 watch(
@@ -247,6 +248,10 @@ watch(
   { immediate: true },
 );
 
-const store = computed(() => useTasksStore());
-store.value.setTasks(json.task.params.tasks);
+// import json from "../../dev.json";
+// import { useTasksStore } from "../stores/state";
+// import { computed } from "vue";
+
+// const store = computed(() => useTasksStore())
+// store.value.setTasks(json.task.params.tasks)
 </script>
