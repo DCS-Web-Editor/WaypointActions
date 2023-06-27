@@ -1,13 +1,17 @@
 name: CI
+
 on:
   push:
     branches:
       - "master"
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   build:
+    if: ${{ github.actor != 'github-actions[bot]' }} || ${{ github.event_name == 'pull_request' }}
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -38,8 +42,8 @@ jobs:
         if: steps.check_commit.outputs.release == 'true'
         uses: changesets/action@v1.4.4
         with:
-          commit: "chore: version changelog [no ci]"
-          title: "chore: version changelog [no ci]"
+          commit: "chore: version changelog"
+          title: "chore: version changelog"
           version: sudo npx changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
