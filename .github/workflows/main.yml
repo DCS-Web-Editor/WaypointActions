@@ -9,7 +9,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   build:
-    if: ${{ github.actor != 'github-actions[bot]' }} || ${{ github.event_name == 'pull_request' }}
+    if: ${{ github.actor != 'github-actions[bot]' }} || ${{ github.event_name != 'pull_request' }}
     runs-on: ubuntu-latest
 
     steps:
