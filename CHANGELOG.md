@@ -1,5 +1,15 @@
 # waypointactions
 
+## 0.1.12
+
+### Patch Changes
+
+- 286a284: Completed available actions
+- 2ec11a2: Added Action drop down
+- e16a922: Refactored file structure and added useTasks hook
+- 2ec11a2: Fixed some buttons not disabling
+- 2ec11a2: Various bug fixes, and other small changes
+
 ## 0.1.11
 
 ### Patch Changes
