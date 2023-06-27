@@ -97,9 +97,9 @@
 </template>
 
 <script setup lang="ts">
-import { parseCommand, parseOption } from "../utils/parseAction";
+import { parseCommand, parseEnrouteTask, parseOption, parseTask } from "../utils/parseAction";
 import EditAction from "./EditAction.vue";
-import { PerformCommand } from "../utils/enums";
+import { EnrouteTask, PerformCommand, Task } from "../utils/enums";
 import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide } from "vue";
@@ -200,6 +200,12 @@ function updateList(task: ITasks): ActionList[] {
       actionList.push(parsed);
     } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
       const parsed = parseCommand(action.params.action.id, action.params.action.params);
+      actionList.push(parsed);
+    } else if (Object.values(EnrouteTask).includes(action.params.action.id)) {
+      const parsed = parseEnrouteTask(action.params.action.id, action.params.action.params);
+      actionList.push(parsed);
+    } else if (Object.values(Task).includes(action.params.action.id)) {
+      const parsed = parseTask(action.params.action.id, action.params.action.params);
       actionList.push(parsed);
     } else {
       actionList.push({

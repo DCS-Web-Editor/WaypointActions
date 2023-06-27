@@ -2,7 +2,7 @@
 
 import type { ActionList } from "../types";
 import { options } from "./actions/options";
-import { OptionName, PerformCommand } from "./enums";
+import { EnrouteTask, OptionName, PerformCommand, Task } from "./enums";
 
 function findById(data: any[], id: number): any {
   for (const item of data) {
@@ -194,5 +194,301 @@ export function parseCommand(id: string, value: any): ActionList {
         option: "Command Not Found",
         value: "",
       };
+  }
+}
+/**
+ * @todo finish value parsing
+ */
+
+// @ts-expect-error DCS not avail for val usage
+
+export function parseTask(id: string, value: any): ActionList {
+  switch (id) {
+    case Task.noTask: {
+      return {
+        option: "No Task",
+        value: "",
+      };
+    }
+    case Task.attackGroup: {
+      return {
+        option: "Attack Group",
+        value: "",
+      };
+    }
+    case Task.attackUnit: {
+      return {
+        option: "Attack Unit",
+        value: "",
+      };
+    }
+    case Task.attackMapObject: {
+      return {
+        option: "Attack Map Object",
+        value: "",
+      };
+    }
+    case Task.bombing: {
+      return {
+        option: "Bombing",
+        value: "",
+      };
+    }
+    case Task.bombingRunway: {
+      return {
+        option: "Bombing Runway",
+        value: "",
+      };
+    }
+    case Task.orbit: {
+      return {
+        option: "Orbit",
+        value: "",
+      };
+    }
+    case Task.land: {
+      return {
+        option: "Land",
+        value: "",
+      };
+    }
+    case Task.refueling: {
+      return {
+        option: "Refueling",
+        value: "",
+      };
+    }
+    case Task.facAttackGroup: {
+      return {
+        option: "FAC - Attack Group",
+        value: "",
+      };
+    }
+    case Task.fireAtPoint: {
+      return {
+        option: "Fire At Point",
+        value: "",
+      };
+    }
+    case Task.hold: {
+      return {
+        option: "Hold",
+        value: "",
+      };
+    }
+    case Task.follow: {
+      return {
+        option: "Follow",
+        value: "",
+      };
+    }
+    case Task.escort: {
+      return {
+        option: "Escort",
+        value: "",
+      };
+    }
+    case Task.embarkToTransport: {
+      return {
+        option: "Embark To Transport",
+        value: "",
+      };
+    }
+    case Task.goToWaypoint: {
+      return {
+        option: "Go To Waypoint",
+        value: "",
+      };
+    }
+    case Task.embarking: {
+      return {
+        option: "Embarking",
+        value: "",
+      };
+    }
+    case Task.disembarking: {
+      return {
+        option: "Embarking",
+        value: "",
+      };
+    }
+    case Task.attachTrailer: {
+      return {
+        option: "Attach Trailer",
+        value: "",
+      };
+    }
+    case Task.detachTrailer: {
+      return {
+        option: "Detach Trailer",
+        value: "",
+      };
+    }
+    case Task.cargoTransportation: {
+      return {
+        option: "Cargo Transportation",
+        value: "",
+      };
+    }
+    case Task.cargoUnloadPlane: {
+      return {
+        option: "Cargo Unload",
+        value: "",
+      };
+    }
+    case Task.aerobatics: {
+      return {
+        option: "Aerobatics",
+        value: "",
+      };
+    }
+    case Task.carpetBombing: {
+      return {
+        option: "Carpet Bombing",
+        value: "",
+      };
+    }
+    case Task.followBigFormation: {
+      return {
+        option: "Big Formation",
+        value: "",
+      };
+    }
+    case Task.groundEscort: {
+      return {
+        option: "Ground Escort",
+        value: "",
+      };
+    }
+    case Task.paratroopersDrop: {
+      return {
+        option: "Drop Paratroopers",
+        value: "",
+      };
+    }
+    case Task.shipHoldPoint: {
+      return {
+        option: "Hold",
+        value: "",
+      };
+    }
+    case Task.recoveryTanker: {
+      return {
+        option: "Recovery Tanker",
+        value: "",
+      };
+    }
+    default:
+      return {
+        option: "Task Not Found",
+        value: "",
+      };
+  }
+}
+
+/**
+ * @todo finish value parsing
+ */
+
+// @ts-expect-error DCS not avail for val usage
+
+export function parseEnrouteTask(id: string, value: any): ActionList {
+  switch (id) {
+    case EnrouteTask.noEnrouteTask: {
+      return {
+        option: "No Enroute Task",
+        value: "",
+      };
+    }
+    case EnrouteTask.engageTargets: {
+      return {
+        option: "Engage Targets",
+        value: "",
+      };
+    }
+    case EnrouteTask.engageTargetsInZone: {
+      return {
+        option: "Engage Targets In Zone",
+        value: "",
+      };
+    }
+    case EnrouteTask.engageGroup: {
+      return {
+        option: "Engage Group",
+        value: "",
+      };
+    }
+    case EnrouteTask.engageUnit: {
+      return {
+        option: "Engage Unit",
+        value: "",
+      };
+    }
+    case EnrouteTask.awacs: {
+      return {
+        option: "AWACS",
+        value: "",
+      };
+    }
+    case EnrouteTask.ewr: {
+      return {
+        option: "EWR",
+        value: "",
+      };
+    }
+    case EnrouteTask.tanker: {
+      return {
+        option: "Tanker",
+        value: "",
+      };
+    }
+    case EnrouteTask.fac: {
+      return {
+        option: "FAC",
+        value: "",
+      };
+    }
+    case EnrouteTask.facEngageGroup: {
+      return {
+        option: "FAC - Engage Group",
+        value: "",
+      };
+    }
+    case EnrouteTask.fighterSweep: {
+      return {
+        option: "Fighter Sweep",
+        value: "",
+      };
+    }
+    case EnrouteTask.cas: {
+      return {
+        option: "CAS",
+        value: "",
+      };
+    }
+    case EnrouteTask.cap: {
+      return {
+        option: "CAP",
+        value: "",
+      };
+    }
+    case EnrouteTask.sead: {
+      return {
+        option: "SEAD",
+        value: "",
+      };
+    }
+    case EnrouteTask.antiShip: {
+      return {
+        option: "Anti-Ship",
+        value: "",
+      };
+    }
+    default: {
+      return {
+        option: "No Enroute Task Found",
+        value: "",
+      };
+    }
   }
 }
