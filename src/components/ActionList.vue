@@ -29,7 +29,11 @@
         </n-tooltip>
         <n-tooltip trigger="hover"
           ><template #trigger>
-            <n-button class="w-1/6" size="small" @click="insertListItem(currentSelection)"
+            <n-button
+              class="w-1/6"
+              :disabled="disabledActionButtons"
+              size="small"
+              @click="insertListItem(currentSelection)"
               >Ins</n-button
             >
           </template>
@@ -37,13 +41,23 @@
         </n-tooltip>
         <n-tooltip trigger="hover"
           ><template #trigger>
-            <n-button class="w-1/6" size="small" @click="editListItem">Edit</n-button>
+            <n-button
+              class="w-1/6"
+              :disabled="disabledActionButtons"
+              size="small"
+              @click="editListItem"
+              >Edit</n-button
+            >
           </template>
           <span>Edit the selected action</span>
         </n-tooltip>
         <n-tooltip trigger="hover"
           ><template #trigger>
-            <n-button class="w-1/6" size="small" @click="deleteListItem(currentSelection)"
+            <n-button
+              class="w-1/6"
+              :disabled="disabledActionButtons"
+              size="small"
+              @click="deleteListItem(currentSelection)"
               >Del</n-button
             >
           </template>
@@ -51,7 +65,11 @@
         </n-tooltip>
         <n-tooltip trigger="hover"
           ><template #trigger>
-            <n-button class="w-1/6 p-0" size="small" @click="cloneListItem(currentSelection)"
+            <n-button
+              class="w-1/6 p-0"
+              :disabled="disabledActionButtons"
+              size="small"
+              @click="cloneListItem(currentSelection)"
               >Clone</n-button
             >
           </template>
@@ -110,6 +128,9 @@ const { tasks } = useTasks();
 
 const actionList = computed<ActionList[]>(() => updateList(tasks.value));
 const currentSelection = ref(0);
+const disabledActionButtons = computed(
+  () => actionList.value.length === 0 || currentSelection.value === -1,
+);
 const upDisable = ref(false);
 const downDisable = ref(false);
 
@@ -187,35 +208,26 @@ function addListItem() {
 }
 
 function updateList(task: ITasks): ActionList[] {
-  const actionList: ActionList[] = [];
   if (task.length === 0) {
     return [];
-  } else {
-    for (const action of task) {
-      if (action.params.action.id === "Option") {
-        const parsed = parseOption(
-          action.params.action.params.name,
-          action.params.action.params.value,
-        );
-        actionList.push(parsed);
-      } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
-        const parsed = parseCommand(action.params.action.id, action.params.action.params);
-        actionList.push(parsed);
-      } else if (Object.values(EnrouteTask).includes(action.params.action.id)) {
-        const parsed = parseEnrouteTask(action.params.action.id, action.params.action.params);
-        actionList.push(parsed);
-      } else if (Object.values(Task).includes(action.params.action.id)) {
-        const parsed = parseTask(action.params.action.id, action.params.action.params);
-        actionList.push(parsed);
-      } else {
-        actionList.push({
-          option: "Error Parsing Action",
-          value: "",
-        });
-      }
-    }
-    return actionList;
   }
+
+  return task.map((action) => {
+    if (action.params.action.id === "Option") {
+      return parseOption(action.params.action.params.name, action.params.action.params.value);
+    } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
+      return parseCommand(action.params.action.id, action.params.action.params);
+    } else if (Object.values(EnrouteTask).includes(action.params.action.id)) {
+      return parseEnrouteTask(action.params.action.id, action.params.action.params);
+    } else if (Object.values(Task).includes(action.params.action.id)) {
+      return parseTask(action.params.action.id, action.params.action.params);
+    } else {
+      return {
+        option: "Error Parsing Action",
+        value: "",
+      };
+    }
+  });
 }
 
 watch(
@@ -252,6 +264,6 @@ watch(
 // import { useTasksStore } from "../stores/state";
 // import { computed } from "vue";
 
-// const store = computed(() => useTasksStore())
-// store.value.setTasks(json.task.params.tasks)
+// const store = computed(() => useTasksStore());
+// store.value.setTasks(json.task.params.tasks);
 </script>

@@ -4,20 +4,7 @@ import { defineStore } from "pinia";
 export const useTasksStore = defineStore({
   id: "tasks",
   state: () => ({
-    tasks: [
-      {
-        auto: false,
-        enabled: true,
-        id: "WrappedAction",
-        number: 1,
-        params: {
-          action: {
-            id: "",
-            params: {}
-          },
-        },
-      },
-    ] as ITasks,
+    tasks: [] as ITasks,
   }),
   actions: {
     setTasks(tasks: ITasks) {

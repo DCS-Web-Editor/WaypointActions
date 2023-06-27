@@ -3,22 +3,7 @@
 import type { ActionList } from "../types";
 import { options } from "./actions/options";
 import { EnrouteTask, OptionName, PerformCommand, Task } from "./enums";
-
-function findById(data: any[], id: number): any {
-  for (const item of data) {
-    if (Array.isArray(item)) {
-      for (const arr of item) {
-        const foundItem = findById(arr.value, id);
-        if (foundItem != null) {
-          return foundItem;
-        }
-      }
-    } else if (item.value === id) {
-      return item;
-    }
-  }
-  return null;
-}
+import { findById } from "./utils";
 
 interface TOption {
   label: string;
@@ -34,7 +19,7 @@ export function parseOption(id: number, value: number | boolean | string): Actio
       const form = findById(option.options, value);
       return {
         option: option.label,
-        value: form.label,
+        value: form.item.label,
       };
     }
     return {

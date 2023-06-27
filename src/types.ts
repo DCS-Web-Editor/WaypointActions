@@ -47,5 +47,6 @@ export interface EnumList<T> {
   label: string;
   value: T;
   options?: any[];
+  data?: number;
   [key: string]: unknown;
 }

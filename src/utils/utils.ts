@@ -1,4 +1,5 @@
-import type { Action, EnumOptions } from "../types";
+import type { Action, EnumOptions, ITask } from "../types";
+import { options } from "./actions";
 import { useTasks } from "./hooks";
 
 const { tasks } = useTasks();
@@ -61,3 +62,43 @@ export function createTask(
   } as const;
   return option;
 }
+
+export function findById(data: any[], id: number): any {
+  for (const item of data) {
+    if (Array.isArray(item)) {
+      for (const arr of item) {
+        const foundItem = findById(arr.value, id);
+        if (foundItem != null) {
+          return { item: foundItem, parent: arr };
+        }
+      }
+    } else if (item.value === id) {
+      return item;
+    }
+  }
+  return null;
+}
+
+export function setFormation(value: number) {
+  const parent = findById(options[5].options as any[], value);
+  const form = {
+    formationIndex: parent.parent.key as number,
+    name: 5,
+    value,
+    variantIndex: parent.item.key as number,
+  };
+  return form;
+}
+
+export const defaultTask: ITask = {
+  auto: false,
+  enabled: false,
+  id: "WrappedAction",
+  number: 1,
+  params: {
+    action: {
+      id: "",
+      params: {},
+    },
+  },
+};
