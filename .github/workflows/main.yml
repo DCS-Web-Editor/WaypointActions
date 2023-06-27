@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     branches:
-      - "**"
+      - "master"
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
@@ -29,17 +29,17 @@ jobs:
         run: |
           message="${{ github.event.head_commit.message }}"
           if [[ "$message" == *'--release'* ]] || [[ "$message" == *'-r'* ]]; then
-            echo "::set-output name=release::true"
+            echo "release::true"
           else
-            echo "::set-output name=release::false"
+            echo "release::false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Update Version
         if: steps.check_commit.outputs.release == 'true'
         uses: changesets/action@v1.4.4
         with:
-          commit: "chore: version changelog"
-          title: "chore: version changelog"
+          commit: "chore: version changelog [no ci]"
+          title: "chore: version changelog [no ci]"
           version: sudo npx changeset version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
