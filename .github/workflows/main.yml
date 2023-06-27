@@ -33,9 +33,9 @@ jobs:
         run: |
           message="${{ github.event.head_commit.message }}"
           if [[ "$message" == *'--release'* ]] || [[ "$message" == *'-r'* ]]; then
-            echo "release::true"
+            echo "release=true" >> "$GITHUB_OUTPUT"
           else
-            echo "release::false" >> "$GITHUB_OUTPUT"
+            echo "release=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Update Version
