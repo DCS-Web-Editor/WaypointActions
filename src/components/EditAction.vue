@@ -35,7 +35,8 @@ import { computed, inject, type ComputedRef, ref } from "vue";
 import { ITask } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/enums";
 import { availableActions } from "../utils/availableActions";
-import { defaultTask, setFormation } from "../utils/utils";
+import { defaultTask } from "../utils/utils";
+import { setFormation } from "../utils/setAction";
 import { options } from "../utils/actions";
 import { watch } from "vue";
 
@@ -111,8 +112,7 @@ function setActionValue(value: number | string) {
       } else if (unitType === "ship" || unitType === "vehicle") {
         action.value.params.value = selOption.options[1][0].value;
       }
-    }
-    if (selOption.label === "Formation" && selOption.options) {
+    } else if (selOption.label === "Formation" && selOption.options) {
       if (unitType === "helicopter") {
         action.value.params = setFormation(selOption.options[0][0].value[0].value);
       } else if (unitType === "plane") {
@@ -122,6 +122,43 @@ function setActionValue(value: number | string) {
       }
     } else if (selOption.options) {
       action.value.params.value = selOption.options[0].value;
+    } else if ([21, 22, 23].includes(selOption.value)) {
+      action.value.params = {
+        name: value,
+        noTargetTypes: [
+          "Fighters",
+          "Multirole fighters",
+          "Bombers",
+          "Helicopters",
+          "UAVs",
+          "Infantry",
+          "Fortifications",
+          "Tanks",
+          "IFV",
+          "APC",
+          "Artillery",
+          "Unarmed vehicles",
+          "AAA",
+          "SR SAM",
+          "MR SAM",
+          "LR SAM",
+          "Aircraft Carriers",
+          "Cruisers",
+          "Destroyers",
+          "Frigates",
+          "Corvettes",
+          "Light armed ships",
+          "Unarmed ships",
+          "Submarines",
+          "Cruise missiles",
+          "Antiship Missiles",
+          "AA Missiles",
+          "AG Missiles",
+          "SA Missiles",
+        ],
+        targetTypes: [],
+        value: "none;",
+      };
     }
     if (selOption.data) {
       throw new Error("Not Implemented");

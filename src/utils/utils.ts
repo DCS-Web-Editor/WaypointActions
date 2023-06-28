@@ -1,5 +1,4 @@
 import type { Action, EnumOptions, ITask } from "../types";
-import { options } from "./actions";
 import { useTasks } from "./hooks";
 
 const { tasks } = useTasks();
@@ -77,17 +76,6 @@ export function findById(data: any[], id: number): any {
     }
   }
   return null;
-}
-
-export function setFormation(value: number) {
-  const parent = findById(options[5].options as any[], value);
-  const form = {
-    formationIndex: parent.parent.key as number,
-    name: 5,
-    value,
-    variantIndex: parent.item.key as number,
-  };
-  return form;
 }
 
 export const defaultTask: ITask = {

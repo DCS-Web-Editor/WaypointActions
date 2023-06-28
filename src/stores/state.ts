@@ -24,7 +24,7 @@ export const useTasksStore = defineStore({
       return this.tasks[index];
     },
     setOneTask(task: ITask, index: number) {
-      this.tasks[index] = task
-    }
+      this.tasks[index] = task;
+    },
   },
 });
