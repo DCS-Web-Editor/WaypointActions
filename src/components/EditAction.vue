@@ -1,34 +1,29 @@
 <template>
-  <n-card class="w-3/4">
-    <n-space vertical>
-      <div class="flex flex-row justify-between">
-        <h1 class="text-base font-medium w-1/5">Type</h1>
-        <n-select v-model:value="actionType" :options="taskOptions" />
-      </div>
-      <div class="flex flex-row justify-between">
-        <h1 class="text-base font-medium w-1/5">Action</h1>
-        <n-select v-model:value="subActionOptions" :options="actionOptions" />
-      </div>
-      <div class="flex flex-row justify-between">
-        <h1 class="text-base font-medium w-1/5">Number</h1>
-        <div class="flex flex-row w-full justify-between">
-          <n-input-number
-            v-model:value="selTask"
-            :min="selTaskIndex[0] ?? 1"
-            :max="selTaskIndex.length ?? 1"
-          />
-          <div class="flex flex-row">
-            <h1 class="text-base font-medium mr-2">Enabled</h1>
-            <n-checkbox v-model:checked="enabled" />
-          </div>
+  <modal>
+    <div class="flex flex-row justify-between">
+      <h1 class="text-base font-medium w-1/5">Type</h1>
+      <n-select v-model:value="actionType" :options="taskOptions" />
+    </div>
+    <div class="flex flex-row justify-between">
+      <h1 class="text-base font-medium w-1/5">Action</h1>
+      <n-select v-model:value="subActionOptions" :options="actionOptions" />
+    </div>
+    <div class="flex flex-row justify-between">
+      <h1 class="text-base font-medium w-1/5">Number</h1>
+      <div class="flex flex-row w-full justify-between">
+        <n-input-number v-model:value="selTask" :min="selTaskIndex[0]" :max="selTaskIndex.length" />
+        <div class="flex flex-row">
+          <h1 class="text-base font-medium mr-2">Enabled</h1>
+          <n-checkbox v-model:checked="enabled" />
         </div>
       </div>
-    </n-space>
-  </n-card>
+    </div>
+  </modal>
 </template>
 
 <script setup lang="ts">
-import { NSpace, NSelect, NInputNumber, NCard, NCheckbox } from "naive-ui";
+import Modal from "./Modal.vue";
+import { NSelect, NInputNumber, NCheckbox } from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef, ref } from "vue";
@@ -60,7 +55,7 @@ function getActionType(task: ITask) {
   }
 }
 
-const selTaskIndex = computed(() => tasks.value.map((task) => task.number + 1));
+const selTaskIndex = computed(() => tasks.value.map((task) => task.number));
 const selTask = inject<number>("selection", 0) as unknown as ComputedRef<number>;
 const selTaskData = computed({
   get: () => store.getOneTask(selTask.value - 1) ?? defaultTask,

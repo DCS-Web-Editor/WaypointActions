@@ -1,8 +1,5 @@
 <template>
-  <n-config-provider
-    :theme="selectedTheme === 'Dark' ? theme : null"
-    :theme-overrides="selectedTheme === 'Dark' ? themeOverrides : null"
-  >
+  <n-config-provider :theme="theme" :theme-overrides="theme === null ? null : themeOverrides">
     <div class="grid h-screen place-items-center">
       <action-list />
     </div>
@@ -10,14 +7,18 @@
 </template>
 
 <script setup lang="ts">
-import type { GlobalTheme, GlobalThemeOverrides } from "naive-ui";
+import { darkTheme, type GlobalTheme, type GlobalThemeOverrides } from "naive-ui";
 import { NConfigProvider } from "naive-ui";
-import { useThemeStore } from "./stores/theme";
 import ActionList from "./components/ActionList.vue";
 import { ref } from "vue";
 
-const themeStore = useThemeStore();
-const theme = ref<GlobalTheme>(themeStore.theme);
-const selectedTheme = ref<string>(themeStore.getSelectedTheme);
-const themeOverrides = ref<GlobalThemeOverrides>(themeStore.getThemeOverrides);
+const theme = ref<GlobalTheme | null>(darkTheme);
+const themeOverrides: GlobalThemeOverrides = {
+  common: {
+    bodyColor: "#23313f",
+    cardColor: "#293949",
+    railColor: "#555",
+    primaryColorSuppl: "#fff",
+  },
+};
 </script>

@@ -134,6 +134,8 @@ const disabledActionButtons = computed(
 const upDisable = ref(false);
 const downDisable = ref(false);
 
+const editModalShow = ref(false);
+
 provide(
   "selection",
   computed({
@@ -180,14 +182,13 @@ function deleteListItem(index: number) {
 function insertListItem(index: number) {
   const action = createOption(index, -1, 0);
   tasks.value.splice(index, 0, action);
+  editModalShow.value = true;
 }
 
 function cloneListItem(index: number) {
   const clone = tasks.value[index];
   tasks.value.push(clone);
 }
-
-const editModalShow = ref(false);
 
 function removeNoOption() {
   const index = actionList.value.findIndex((action) => action.option === "No Option");
@@ -202,6 +203,7 @@ function editListItem() {
 
 function addListItem() {
   const index = tasks.value.length;
+  currentSelection.value = index;
   const action = createOption(index, -1, 0);
   tasks.value.splice(index, 0, action);
   editModalShow.value = true;
@@ -211,7 +213,6 @@ function updateList(task: ITasks): ActionList[] {
   if (task.length === 0) {
     return [];
   }
-
   return task.map((action) => {
     if (action.params.action.id === "Option") {
       return parseOption(action.params.action.params.name, action.params.action.params.value);
