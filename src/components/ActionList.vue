@@ -14,7 +14,7 @@
         >
           <div class="flex flex-row text-xs">
             <span class="p-2 pr-0">{{ index + 1 }}</span>
-            <span class="p-2">{{ concat(action.option, action.value) }}</span>
+            <span class="p-2">{{ concat(action.option, action.value, action.attr ?? []) }}</span>
           </div>
         </li>
       </ul>
@@ -121,7 +121,7 @@ import { EnrouteTask, PerformCommand, Task } from "../utils/enums";
 import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide } from "vue";
-import { ActionList, ITasks } from "../types";
+import { ActionList, ITasks, ITask } from "../types";
 import { createOption } from "../utils/utils";
 
 const { tasks } = useTasks();
@@ -146,11 +146,11 @@ provide(
   }),
 );
 
-const concat = (option: string, value: string) => {
+const concat = (option: string, value: string, attr: string[]) => {
   if (value === "") {
-    return `${option}${value}`;
+    return `${option}${value} ${attr.join(" ")}`;
   }
-  return `${option} = ${value}`;
+  return `${option} = ${value} ${attr.join(" ")}`;
 };
 
 function handleItemClick(index: number) {
@@ -209,23 +209,58 @@ function addListItem() {
   editModalShow.value = true;
 }
 
+function parseAttribute(action: ITask): string[] {
+  const attr: string[] = [];
+  if (action.auto) {
+    attr.push("-a");
+  }
+  if (!action.enabled) {
+    attr.push("-x");
+  }
+  return attr;
+}
+
 function updateList(task: ITasks): ActionList[] {
   if (task.length === 0) {
     return [];
   }
   return task.map((action) => {
     if (action.params.action.id === "Option") {
-      return parseOption(action.params.action.params.name, action.params.action.params.value);
+      const option = parseOption(
+        action.params.action.params.name,
+        action.params.action.params.value,
+      );
+      return {
+        option: option.option,
+        value: option.value,
+        attr: parseAttribute(action),
+      };
     } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
-      return parseCommand(action.params.action.id, action.params.action.params);
+      const command = parseCommand(action.params.action.id, action.params.action.params);
+      return {
+        option: command.option,
+        value: command.value,
+        attr: parseAttribute(action),
+      };
     } else if (Object.values(EnrouteTask).includes(action.params.action.id)) {
-      return parseEnrouteTask(action.params.action.id, action.params.action.params);
+      const enrouteTask = parseEnrouteTask(action.params.action.id, action.params.action.params);
+      return {
+        option: enrouteTask.option,
+        value: enrouteTask.value,
+        attr: parseAttribute(action),
+      };
     } else if (Object.values(Task).includes(action.params.action.id)) {
-      return parseTask(action.params.action.id, action.params.action.params);
+      const task = parseTask(action.params.action.id, action.params.action.params);
+      return {
+        option: task.option,
+        value: task.value,
+        attr: parseAttribute(action),
+      };
     } else {
       return {
         option: "Error Parsing Action",
         value: "",
+        attr: [],
       };
     }
   });

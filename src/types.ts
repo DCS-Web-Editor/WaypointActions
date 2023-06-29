@@ -41,6 +41,7 @@ export type Action<T> = T extends object
 export interface ActionList {
   option: string;
   value: string;
+  attr?: string[];
 }
 
 export interface EnumList<T> {

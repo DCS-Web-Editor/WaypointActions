@@ -18,6 +18,9 @@
         </div>
       </div>
     </div>
+    <div>
+      <h1 class="text-base font-medium w-1/5">Number</h1>
+    </div>
   </modal>
 </template>
 
