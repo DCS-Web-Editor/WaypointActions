@@ -18,15 +18,19 @@
         </div>
       </div>
     </div>
-    <div>
-      <h1 class="text-base font-medium w-1/5">Number</h1>
+    <div class="flex flex-row justify-between">
+      <n-button @click="conditionModal = true" class="bg-card" tertiary size="small"
+        ><span> Condition </span></n-button
+      >
+      <n-button @click="stopConditionModal = true" class="bg-card" tertiary size="small"
+        ><span> Stop Condition </span></n-button
+      >
     </div>
   </modal>
 </template>
 
 <script setup lang="ts">
-import Modal from "./Modal.vue";
-import { NSelect, NInputNumber, NCheckbox } from "naive-ui";
+import { NSelect, NInputNumber, NCheckbox, NButton } from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef, ref } from "vue";
@@ -37,12 +41,16 @@ import { defaultTask } from "../utils/utils";
 import { setFormation } from "../utils/setAction";
 import { options } from "../utils/actions";
 import { watch } from "vue";
+import Modal from "./Modal.vue";
 
 type UnitType = "plane" | "helicopter" | "vehicle" | "ship";
 type ActionType = "task" | "enrouteTask" | "commands" | "options";
 
 const { tasks } = useTasks();
 const store = useTasksStore();
+
+const conditionModal = inject<boolean>("condition", false);
+const stopConditionModal = inject<boolean>("stopCondition", false);
 
 function getActionType(task: ITask) {
   if (Object.values(Task).includes(task.params.action.id)) {

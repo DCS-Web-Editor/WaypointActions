@@ -111,11 +111,18 @@
     <n-modal v-model:show="editModalShow" :on-after-leave="removeNoOption">
       <edit-action />
     </n-modal>
+    <n-modal v-model:show="condition">
+      <edit-condition :condition="true" />
+    </n-modal>
+    <n-modal v-model:show="stopCondition">
+      <edit-condition :condition="false" />
+    </n-modal>
   </div>
 </template>
 
 <script setup lang="ts">
 import { parseCommand, parseEnrouteTask, parseOption, parseTask } from "../utils/parseAction";
+import EditCondition from "./EditCondition.vue";
 import EditAction from "./EditAction.vue";
 import { EnrouteTask, PerformCommand, Task } from "../utils/enums";
 import { useTasks } from "../utils/hooks";
@@ -135,6 +142,17 @@ const upDisable = ref(false);
 const downDisable = ref(false);
 
 const editModalShow = ref(false);
+const condition = ref(false);
+const stopCondition = ref(false);
+
+provide(
+  "condition",
+  computed({ get: () => condition.value, set: (value) => (condition.value = value) }),
+);
+provide(
+  "stopCondition",
+  computed({ get: () => stopCondition.value, set: (value) => (stopCondition.value = value) }),
+);
 
 provide(
   "selection",
