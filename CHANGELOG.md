@@ -1,5 +1,18 @@
 # waypointactions
 
+## 0.2.0
+
+### Minor Changes
+
+- 3d02680: Changed styling to be more consistent
+
+### Patch Changes
+
+- 08ff125: Added auto and enabled attributes to actionList
+- 3386254: Added the logic for dealing with conditon/stop condition modals when activated from editAction modal
+- bfb07c2: Refactored, reduced bundle size, removed deprecated code, updated depedencies
+- bfb07c2: Fixed various issues related to currentSelection/list indexes
+
 ## 0.1.12
 
 ### Patch Changes
