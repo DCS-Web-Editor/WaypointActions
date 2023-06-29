@@ -112,10 +112,10 @@
       <edit-action />
     </n-modal>
     <n-modal v-model:show="condition">
-      <edit-condition :condition="true" />
+      <edit-condition />
     </n-modal>
     <n-modal v-model:show="stopCondition">
-      <edit-condition :condition="false" />
+      <edit-condition :stop-condition="true" />
     </n-modal>
   </div>
 </template>

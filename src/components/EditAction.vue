@@ -1,36 +1,38 @@
 <template>
   <modal>
-    <div class="flex flex-row justify-between">
-      <h1 class="text-base font-medium w-1/5">Type</h1>
-      <n-select v-model:value="actionType" :options="taskOptions" />
-    </div>
-    <div class="flex flex-row justify-between">
-      <h1 class="text-base font-medium w-1/5">Action</h1>
-      <n-select v-model:value="subActionOptions" :options="actionOptions" />
-    </div>
-    <div class="flex flex-row justify-between">
-      <h1 class="text-base font-medium w-1/5">Number</h1>
-      <div class="flex flex-row w-full justify-between">
-        <n-input-number v-model:value="selTask" :min="selTaskIndex[0]" :max="selTaskIndex.length" />
-        <div class="flex flex-row">
-          <h1 class="text-base font-medium mr-2">Enabled</h1>
+    <div>
+      <n-form-item label="Type" label-placement="left">
+        <n-select class="w-full" v-model:value="actionType" :options="taskOptions" />
+      </n-form-item>
+      <n-form-item label="Action" label-placement="left">
+        <n-select v-model:value="subActionOptions" :options="actionOptions" />
+      </n-form-item>
+      <div class="flex flex-row justify-between">
+        <n-form-item label="Number" label-placement="left">
+          <n-input-number
+            v-model:value="selTask"
+            :min="selTaskIndex[0]"
+            :max="selTaskIndex.length"
+          />
+        </n-form-item>
+        <n-form-item label="Enabled" label-placement="left">
           <n-checkbox v-model:checked="enabled" />
-        </div>
+        </n-form-item>
       </div>
     </div>
     <div class="flex flex-row justify-between">
       <n-button @click="conditionModal = true" class="bg-card" tertiary size="small"
-        ><span> Condition </span></n-button
+        >Condition</n-button
       >
       <n-button @click="stopConditionModal = true" class="bg-card" tertiary size="small"
-        ><span> Stop Condition </span></n-button
+        >Stop Condition</n-button
       >
     </div>
   </modal>
 </template>
 
 <script setup lang="ts">
-import { NSelect, NInputNumber, NCheckbox, NButton } from "naive-ui";
+import { NSelect, NInputNumber, NCheckbox, NButton, NFormItem } from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef, ref } from "vue";
