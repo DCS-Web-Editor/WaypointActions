@@ -1,24 +1,18 @@
 <template>
   <modal>
-    <div>
-      <n-form-item label="Type" label-placement="left">
-        <n-select class="w-full" v-model:value="actionType" :options="taskOptions" />
+    <n-form-item label="Type" label-placement="left">
+      <n-select class="w-full" v-model:value="actionType" :options="taskOptions" />
+    </n-form-item>
+    <n-form-item label="Action" label-placement="left">
+      <n-select v-model:value="subActionOptions" :options="actionOptions" />
+    </n-form-item>
+    <div class="flex flex-row justify-between">
+      <n-form-item label="Number" label-placement="left">
+        <n-input-number v-model:value="selTask" :min="selTaskIndex[0]" :max="selTaskIndex.length" />
       </n-form-item>
-      <n-form-item label="Action" label-placement="left">
-        <n-select v-model:value="subActionOptions" :options="actionOptions" />
+      <n-form-item label="Enabled" label-placement="left">
+        <n-checkbox v-model:checked="enabled" />
       </n-form-item>
-      <div class="flex flex-row justify-between">
-        <n-form-item label="Number" label-placement="left">
-          <n-input-number
-            v-model:value="selTask"
-            :min="selTaskIndex[0]"
-            :max="selTaskIndex.length"
-          />
-        </n-form-item>
-        <n-form-item label="Enabled" label-placement="left">
-          <n-checkbox v-model:checked="enabled" />
-        </n-form-item>
-      </div>
     </div>
     <div class="flex flex-row justify-between">
       <n-button @click="conditionModal = true" class="bg-card" tertiary size="small"
