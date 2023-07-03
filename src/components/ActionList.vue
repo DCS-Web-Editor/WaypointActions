@@ -127,7 +127,7 @@ import EditAction from "./EditAction.vue";
 import { EnrouteTask, PerformCommand, Task } from "../utils/enums";
 import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
-import { computed, ref, watch, provide } from "vue";
+import { computed, ref, watch, provide, toRaw } from "vue";
 import { ActionList, ITasks, ITask } from "../types";
 import { createOption } from "../utils/utils";
 
@@ -165,10 +165,11 @@ provide(
 );
 
 const concat = (option: string, value: string, attr: string[]) => {
+  const name = tasks.value[currentSelection.value].name ?? "";
   if (value === "") {
-    return `${option}${value} ${attr.join(" ")}`;
+    return `${option}${value} ${name ? `"${name}"` : ""} ${attr.join(" ")}`;
   }
-  return `${option} = ${value} ${attr.join(" ")}`;
+  return `${option} = ${value} ${name ? `"${name}"` : ""} ${attr.join(" ")}`;
 };
 
 function handleItemClick(index: number) {
@@ -204,7 +205,9 @@ function insertListItem(index: number) {
 }
 
 function cloneListItem(index: number) {
-  const clone = tasks.value[index];
+  const clone = structuredClone(toRaw(tasks.value[index]));
+  clone.number++;
+  currentSelection.value = index + 1;
   tasks.value.push(clone);
 }
 

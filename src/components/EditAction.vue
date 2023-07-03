@@ -14,6 +14,9 @@
         <n-checkbox v-model:checked="enabled" />
       </n-form-item>
     </div>
+    <n-form-item label="Name" label-placement="left">
+      <n-input type="text" v-model:value="name" placeholder="Name..." />
+    </n-form-item>
     <div class="flex flex-row justify-between">
       <n-button @click="conditionModal = true" class="bg-card" tertiary size="small"
         >Condition</n-button
@@ -26,11 +29,11 @@
 </template>
 
 <script setup lang="ts">
-import { NSelect, NInputNumber, NCheckbox, NButton, NFormItem } from "naive-ui";
+import { NSelect, NInputNumber, NInput, NCheckbox, NButton, NFormItem } from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef, ref } from "vue";
-import { ITask } from "../types";
+import type { ActionType, ITask, UnitType } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/enums";
 import { availableActions } from "../utils/availableActions";
 import { defaultTask } from "../utils/utils";
@@ -38,9 +41,6 @@ import { setFormation } from "../utils/setAction";
 import { options } from "../utils/actions";
 import { watch } from "vue";
 import Modal from "./Modal.vue";
-
-type UnitType = "plane" | "helicopter" | "vehicle" | "ship";
-type ActionType = "task" | "enrouteTask" | "commands" | "options";
 
 const { tasks } = useTasks();
 const store = useTasksStore();
@@ -197,6 +197,13 @@ const enabled = computed({
   get: () => selTaskData.value.enabled,
   set: (value) => {
     selTaskData.value.enabled = value;
+  },
+});
+
+const name = computed({
+  get: () => selTaskData.value.name,
+  set: (value) => {
+    selTaskData.value.name = value;
   },
 });
 
