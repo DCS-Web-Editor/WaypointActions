@@ -2,6 +2,7 @@ import type { PerformCommand, EnrouteTask, Task } from "./utils/enums";
 export interface ITask<T = any> {
   auto: boolean;
   enabled: boolean;
+  name?: string;
   id: string;
   number: number;
   params: T;
@@ -48,6 +49,10 @@ export interface EnumList<T> {
   label: string;
   value: T;
   options?: any[];
+  params?: any;
   data?: number;
   [key: string]: unknown;
 }
+
+export type UnitType = "plane" | "helicopter" | "vehicle" | "ship";
+export type ActionType = "task" | "enrouteTask" | "commands" | "options";
