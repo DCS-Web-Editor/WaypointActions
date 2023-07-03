@@ -25,6 +25,19 @@
         >Stop Condition</n-button
       >
     </div>
+    <div class="mt-5">
+      <div v-if="subActionOptions === 0">
+        <n-select
+          v-model:value="selTaskData.params.action.params.value"
+          :options="
+            options[subActionOptions]?.options?.[
+              unitType === 'plane' || unitType === 'helicopter' ? 0 : 1
+            ] ?? []
+          "
+          placeholder="Select an Action"
+        />
+      </div>
+    </div>
   </modal>
 </template>
 

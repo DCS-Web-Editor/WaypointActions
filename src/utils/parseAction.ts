@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
-import type { ActionList } from "../types";
+import type { ActionList, UnitType } from "../types";
 import { options } from "./actions/options";
 import { EnrouteTask, OptionName, PerformCommand, Task } from "./enums";
 import { findById } from "./utils";
@@ -12,7 +12,11 @@ interface TOption {
   options?: any[];
 }
 
-export function parseOption(id: number, value: number | boolean | string): ActionList {
+export function parseOption(
+  id: number,
+  value: number | boolean | string,
+  unitType?: UnitType,
+): ActionList {
   const option: TOption = options[id];
   if (typeof value === "number" && option.options != null) {
     if (id === OptionName.formation) {
@@ -20,6 +24,14 @@ export function parseOption(id: number, value: number | boolean | string): Actio
       return {
         option: option.label,
         value: form.item.label,
+      };
+    }
+    if (id === OptionName.roe) {
+      return {
+        option: option.label,
+        value:
+          option.options[unitType === "plane" || unitType === "helicopter" ? 0 : 1][value - 1]
+            .label,
       };
     }
     return {

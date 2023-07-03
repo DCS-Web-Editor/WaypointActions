@@ -14,7 +14,9 @@
         >
           <div class="flex flex-row text-xs">
             <span class="p-2 pr-0">{{ index + 1 }}</span>
-            <span class="p-2">{{ concat(action.option, action.value, action.attr ?? []) }}</span>
+            <span class="p-2">{{
+              concat(action.option, action.value, action.attr ?? [], tasks[index].name ?? "")
+            }}</span>
           </div>
         </li>
       </ul>
@@ -130,8 +132,11 @@ import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw } from "vue";
 import { ActionList, ITasks, ITask } from "../types";
 import { createOption } from "../utils/utils";
+import { useEntryStore } from "../stores/entryState";
 
 const { tasks } = useTasks();
+const entry = computed(() => useEntryStore());
+const unitType = computed(() => entry.value.getUnit());
 
 const actionList = computed<ActionList[]>(() => updateList(tasks.value));
 const currentSelection = ref(0);
@@ -164,13 +169,28 @@ provide(
   }),
 );
 
-const concat = (option: string, value: string, attr: string[]) => {
-  const name = tasks.value[currentSelection.value].name ?? "";
+const concat = (option: string, value: string, attr: string[], name: string) => {
   if (value === "") {
     return `${option}${value} ${name ? `"${name}"` : ""} ${attr.join(" ")}`;
   }
   return `${option} = ${value} ${name ? `"${name}"` : ""} ${attr.join(" ")}`;
 };
+
+function sequenceNumbers() {
+  for (const task in tasks.value) {
+    if (tasks.value[task].number !== tasks.value.indexOf(tasks.value[task]) + 1) {
+      tasks.value[task].number = tasks.value.indexOf(tasks.value[task]) + 1;
+    }
+  }
+}
+
+watch(
+  () => tasks.value,
+  () => {
+    sequenceNumbers();
+  },
+  { deep: true },
+);
 
 function handleItemClick(index: number) {
   currentSelection.value = index;
@@ -250,6 +270,7 @@ function updateList(task: ITasks): ActionList[] {
       const option = parseOption(
         action.params.action.params.name,
         action.params.action.params.value,
+        unitType.value,
       );
       return {
         option: option.option,
