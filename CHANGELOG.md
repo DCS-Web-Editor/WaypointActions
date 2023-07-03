@@ -1,5 +1,18 @@
 # waypointactions
 
+## 0.3.0
+
+### Minor Changes
+
+- e3b152b: Added ROE value selection
+
+### Patch Changes
+
+- e3b152b: Added store entrypoint for external data
+- 36726c0: Added name property, fixed action cloning not affecting only the new action
+- 36726c0: Added params to defs, updated types (previous commit)
+- 1776fc1: Finished styles for EditConditon.vue
+
 ## 0.2.0
 
 ### Minor Changes
