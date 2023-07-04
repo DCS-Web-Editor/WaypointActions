@@ -25,38 +25,97 @@
         >Stop Condition</n-button
       >
     </div>
-    <div class="mt-5">
-      <div v-if="subActionOptions === 0">
-        <n-select
-          v-model:value="selTaskData.params.action.params.value"
-          :options="
-            options[subActionOptions]?.options?.[
-              unitType === 'plane' || unitType === 'helicopter' ? 0 : 1
-            ] ?? []
-          "
-          placeholder="Select an Action"
-        />
-      </div>
-      <div v-if="[21, 22, 23].includes(subActionOptions)">
-        <n-tree-select
-          :options="options[subActionOptions]?.options ?? []"
-          v-model:value="selTaskData.params.action.params.targetTypes"
-          @update:value="handleTargetTypes"
-          multiple
-          cascade
-          checkable
-          check-strategy="parent"
-        />
-      </div>
-      <div v-if="subActionOptions === 5">
-        <n-cascader
-          class="w-full"
-          :options="formOptions"
-          check-strategy="child"
-          :show-path="false"
-          @update-value="setFormationValue"
-          v-model:value="formValue"
-        />
+    <div
+      :class="{
+        'mt-5 border-t border-white border-solid border-1': [-1, 'NoTask', 'NoAction'].includes(
+          subActionOptions,
+        ),
+      }"
+    >
+      <div class="mt-5">
+        <div v-if="subActionOptions === 0">
+          <n-select
+            v-model:value="selTaskData.params.action.params.value"
+            :options="
+              options[subActionOptions]?.options?.[
+                unitType === 'plane' || unitType === 'helicopter' ? 0 : 1
+              ] ?? []
+            "
+            placeholder="Select an Action"
+          />
+        </div>
+        <div v-if="[21, 22, 23].includes(subActionOptions)">
+          <n-tree-select
+            :options="options[subActionOptions]?.options ?? []"
+            v-model:value="selTaskData.params.action.params.targetTypes"
+            @update:value="handleTargetTypes"
+            multiple
+            cascade
+            checkable
+            check-strategy="parent"
+          />
+        </div>
+        <div v-if="subActionOptions === 5">
+          <n-cascader
+            class="w-full"
+            :options="formOptions"
+            check-strategy="child"
+            :show-path="false"
+            @update-value="setFormationValue"
+            v-model:value="formValue"
+          />
+        </div>
+        <div v-if="[1, 3, 4, 9, 10, 11, 13, 18, 28].includes(subActionOptions)">
+          <n-select
+            v-model:value="selTaskData.params.action.params.value"
+            :options="options[subActionOptions]?.options"
+          />
+        </div>
+        <div v-if="[6, 7, 14, 15, 16, 17, 19, 20, 25, 26].includes(subActionOptions)">
+          <n-form-item label="Value" label-placement="left">
+            <n-checkbox v-model:checked="selTaskData.params.action.params.value"
+          /></n-form-item>
+        </div>
+        <div v-if="subActionOptions === 8">
+          <n-form-item label="Disperse" label-placement="left">
+            <n-checkbox v-model:checked="disperse" />
+            <n-input-number
+              :disabled="!disperse"
+              v-model:value="selTaskData.params.action.params.value"
+              :min="0"
+              :max="250000"
+            >
+              <template #suffix> s </template>
+            </n-input-number>
+          </n-form-item>
+        </div>
+        <div v-if="subActionOptions === 24">
+          <n-form-item label="Range" label-placement="left">
+            <n-input-number
+              v-model:value="selTaskData.params.action.params.value"
+              :min="0"
+              :max="100"
+            >
+              <template #suffix> % </template>
+            </n-input-number>
+          </n-form-item>
+        </div>
+        <div v-if="subActionOptions === 27">
+          <n-form-item label="Value" label-placement="left">
+            <n-checkbox v-model:checked="altRestrictionMin" />
+            <n-input-number v-model:value="altRestrictionMinData" :min="0" :max="820210">
+              <template #suffix> ft </template>
+            </n-input-number>
+          </n-form-item>
+        </div>
+        <div v-if="subActionOptions === 29">
+          <n-form-item label="Value" label-placement="left">
+            <n-checkbox v-model:checked="altRestrictionMax" />
+            <n-input-number v-model:value="altRestrictionMaxData" :min="0" :max="820210">
+              <template #suffix> ft </template>
+            </n-input-number>
+          </n-form-item>
+        </div>
       </div>
     </div>
   </modal>
@@ -112,7 +171,6 @@ const formValue = computed({
 
 const setFormationValue = (value: number) => {
   formValue.value = value;
-  console.log(setFormation(formValue.value, formOptions.value));
   selTaskData.value.params.action.params = setFormation(formValue.value, formOptions.value);
 };
 
@@ -340,4 +398,25 @@ const taskOptions = [
     value: "options",
   },
 ];
+
+const disperse = computed(() => selTaskData.value.params.action.params.value === undefined);
+const altRestrictionMax = computed(
+  () => selTaskData.value.params.action.params.value === undefined,
+);
+const altRestrictionMaxData = computed({
+  get: () => selTaskData.value.params.action.params.value / 3.28084,
+  set: (value) => {
+    selTaskData.value.params.action.params.value = Math.round(value * 3.28084);
+  },
+});
+const altRestrictionMin = computed(
+  () => selTaskData.value.params.action.params.value === undefined,
+);
+
+const altRestrictionMinData = computed({
+  get: () => selTaskData.value.params.action.params.value / 3.28084,
+  set: (value) => {
+    selTaskData.value.params.action.params.value = Math.round(value * 3.28084);
+  },
+});
 </script>
