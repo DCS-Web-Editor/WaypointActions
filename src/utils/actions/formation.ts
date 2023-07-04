@@ -4,58 +4,58 @@ import type { UnitType } from "../../types";
 
 const RotaryWing: TreeSelectOption[] = [
   {
-    label: "Helicopter - Wedge",
-    key: Formation.heli_wedge,
+    label: "Wedge",
+    value: Formation.heli_wedge,
     children: [
       {
-        label: "Helicopter - Wedge 70",
-        key: 524288,
+        label: "Wedge 70",
+        value: 524288,
       },
     ],
   },
   {
-    label: "Helicopter - Column",
-    key: Formation.heli_column,
+    label: "Column",
+    value: Formation.heli_column,
     children: [
       {
-        label: "Helicopter - Column 70",
-        key: 720896,
+        label: "Column 70",
+        value: 720896,
       },
     ],
   },
   {
-    label: "Helicopter - Echelon",
-    key: Formation.heli_echelon,
+    label: "Echelon",
+    value: Formation.heli_echelon,
     children: [
       {
-        label: "Helicopter - Echelon Right 70",
-        key: 589825,
+        label: "Echelon Right 70",
+        value: 589825,
       },
       {
-        label: "Helicopter - Echelon Left 70",
-        key: 590081,
+        label: "Echelon Left 70",
+        value: 590081,
       },
     ],
   },
   {
-    label: "Helicopter - Front",
-    key: Formation.heli_front,
+    label: "Front",
+    value: Formation.heli_front,
     children: [
       {
-        label: "Helicopter - Right Front 300",
-        key: 655361,
+        label: "Right Front 300",
+        value: 655361,
       },
       {
-        label: "Helicopter - Right Front 600",
-        key: 655362,
+        label: "Right Front 600",
+        value: 655362,
       },
       {
-        label: "Helicopter - Left Front 300",
-        key: 655617,
+        label: "Left Front 300",
+        value: 655617,
       },
       {
-        label: "Helicopter - Left Front 600",
-        key: 655618,
+        label: "Left Front 600",
+        value: 655618,
       },
     ],
   },
@@ -63,184 +63,184 @@ const RotaryWing: TreeSelectOption[] = [
 
 const FixedWing: TreeSelectOption[] = [
   {
-    label: "Fixed Wing - Line Abreast",
-    key: Formation.line_abreast,
+    label: "Line Abreast",
+    value: Formation.line_abreast,
     children: [
       {
-        label: "Fixed Wing - Line Abreast Close",
-        key: 65537,
+        label: "Line Abreast Close",
+        value: 65537,
       },
       {
-        label: "Fixed Wing - Line Abreast Open",
-        key: 65538,
+        label: "Line Abreast Open",
+        value: 65538,
       },
       {
-        label: "Fixed Wing - Line Abreast Group Close",
-        key: 65539,
+        label: "Line Abreast Group Close",
+        value: 65539,
       },
     ],
   },
   {
-    label: "Fixed Wing - Trail",
-    key: Formation.trail,
+    label: "Trail",
+    value: Formation.trail,
     children: [
       {
-        label: "Fixed Wing - Trail Close",
-        key: 131073,
+        label: "Trail Close",
+        value: 131073,
       },
       {
-        label: "Fixed Wing - Trail Open",
-        key: 131074,
+        label: "Trail Open",
+        value: 131074,
       },
       {
-        label: "Fixed Wing - Trail Group Close",
-        key: 131075,
+        label: "Trail Group Close",
+        value: 131075,
       },
     ],
   },
   {
-    label: "Fixed Wing - Wedge",
-    key: Formation.wedge,
+    label: "Wedge",
+    value: Formation.wedge,
     children: [
       {
-        label: "Fixed Wing - Wedge Close",
-        key: 196609,
+        label: "Wedge Close",
+        value: 196609,
       },
       {
-        label: "Fixed Wing - Wedge Open",
-        key: 196610,
+        label: "Wedge Open",
+        value: 196610,
       },
       {
-        label: "Fixed Wing - Wedge Group Close",
-        key: 196611,
+        label: "Wedge Group Close",
+        value: 196611,
       },
     ],
   },
   {
-    label: "Fixed Wing - Echelon Right",
-    key: Formation.echelon_right,
+    label: "Echelon Right",
+    value: Formation.echelon_right,
     children: [
       {
-        label: "Fixed Wing - Echelon Right Close",
-        key: 262145,
+        label: "Echelon Right Close",
+        value: 262145,
       },
       {
-        label: "Fixed Wing - Echelon Right Open",
-        key: 262146,
+        label: "Echelon Right Open",
+        value: 262146,
       },
       {
-        label: "Fixed Wing - Echelon Right Group Close",
-        key: 262147,
+        label: "Echelon Right Group Close",
+        value: 262147,
       },
     ],
   },
   {
-    label: "Fixed Wing - Echelon",
-    key: Formation.echelon_left,
+    label: "Echelon",
+    value: Formation.echelon_left,
     children: [
       {
-        label: "Fixed Wing - Echelon Left Close",
-        key: 327681,
+        label: "Echelon Left Close",
+        value: 327681,
       },
       {
-        label: "Fixed Wing - Echelon Left Open",
-        key: 327682,
+        label: "Echelon Left Open",
+        value: 327682,
       },
       {
-        label: "Fixed Wing - Echelon Left Group Close",
-        key: 327683,
+        label: "Echelon Left Group Close",
+        value: 327683,
       },
     ],
   },
   {
-    label: "Fixed Wing - Finger Four",
-    key: Formation.finger_four,
+    label: "Finger Four",
+    value: Formation.finger_four,
     children: [
       {
-        label: "Fixed Wing - Finger Four Close",
-        key: 393217,
+        label: "Finger Four Close",
+        value: 393217,
       },
       {
-        label: "Fixed Wing - Finger Four Open",
-        key: 393218,
+        label: "Finger Four Open",
+        value: 393218,
       },
       {
-        label: "Fixed Wing - Finger Four Group Close",
-        key: 393219,
+        label: "Finger Four Group Close",
+        value: 393219,
       },
     ],
   },
   {
-    label: "Fixed Wing - Spread Four",
-    key: Formation.spread_four,
+    label: "Spread Four",
+    value: Formation.spread_four,
     children: [
       {
-        label: "Fixed Wing - Spread Four Close",
-        key: 458753,
+        label: "Spread Four Close",
+        value: 458753,
       },
       {
-        label: "Fixed Wing - Spread Four Open",
-        key: 458754,
+        label: "Spread Four Open",
+        value: 458754,
       },
       {
-        label: "Fixed Wing - Spread Four Group Close",
-        key: 458755,
+        label: "Spread Four Group Close",
+        value: 458755,
       },
     ],
   },
   {
-    label: "Fixed Wing WW2 - Bomber Element",
-    key: Formation.ww2_bomber_element,
+    label: "WW2 - Bomber Element",
+    value: Formation.ww2_bomber_element,
     children: [
       {
-        label: "Fixed Wing WW2 - Bomber Element Close",
-        key: 786433,
+        label: "WW2 - Bomber Element Close",
+        value: 786433,
       },
       {
-        label: "Fixed Wing WW2 - Bomber Element Open",
-        key: 786434,
+        label: "WW2 - Bomber Element Open",
+        value: 786434,
       },
       {
-        label: "Fixed Wing WW2 - Bomber Element Group Close",
-        key: 786435,
+        label: "WW2 - Bomber Element Group Close",
+        value: 786435,
       },
     ],
   },
   {
-    label: "Fixed Wing WW2 - Bomber Element Height",
-    key: Formation.ww2_bomber_element_height,
+    label: "WW2 - Bomber Element Height",
+    value: Formation.ww2_bomber_element_height,
     children: [
       {
-        label: "Fixed Wing WW2 - Bomber Element Height Close",
-        key: 851969,
+        label: "WW2 - Bomber Element Height Close",
+        value: 851969,
       },
     ],
   },
   {
-    label: "Fixed Wing WW2 - Fighter Vic",
-    key: Formation.ww2_fighter_vic,
+    label: "WW2 - Fighter Vic",
+    value: Formation.ww2_fighter_vic,
     children: [
       {
-        label: "Fixed Wing WW2 - Fighter Vic Close",
-        key: 917505,
+        label: "WW2 - Fighter Vic Close",
+        value: 917505,
       },
       {
-        label: "Fixed Wing WW2 - Fighter Vic Open",
-        key: 917506,
+        label: "WW2 - Fighter Vic Open",
+        value: 917506,
       },
     ],
   },
   {
-    label: "Fixed Wing Modern - Bomber Element",
-    key: Formation.modern_bomber_element,
+    label: "Modern - Bomber Element",
+    value: Formation.modern_bomber_element,
     children: [
       {
-        label: "Fixed Wing Modern - Bomber Element Close",
-        key: 1114113,
+        label: "Modern - Bomber Element Close",
+        value: 1114113,
       },
       {
-        label: "Fixed Wing Modern - Bomber Element Open",
-        key: 1114114,
+        label: "Modern - Bomber Element Open",
+        value: 1114114,
       },
     ],
   },

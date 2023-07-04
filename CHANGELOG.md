@@ -1,5 +1,18 @@
 # waypointactions
 
+## 0.4.0
+
+### Minor Changes
+
+- 7e28855: Added support for treeSelect support for options and formation select support
+
+### Patch Changes
+
+- 7e28855: Updated utils to support new changes
+- 7e28855: Fixed tree select object having incorrect key names for some units
+- 7e28855: Fixed actions defintions to form to naive-ui types
+- 6675da3: (refactor): Changed enums to "as const" objects
+
 ## 0.3.0
 
 ### Minor Changes

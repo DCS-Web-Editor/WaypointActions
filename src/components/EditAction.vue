@@ -49,8 +49,11 @@
         />
       </div>
       <div v-if="subActionOptions === 5">
-        <n-tree-select
+        <n-cascader
+          class="w-full"
           :options="formOptions"
+          check-strategy="child"
+          :show-path="false"
           @update-value="setFormationValue"
           v-model:value="formValue"
         />
@@ -68,6 +71,7 @@ import {
   NButton,
   NFormItem,
   NTreeSelect,
+  NCascader,
   TreeSelectOption,
 } from "naive-ui";
 import { useTasksStore } from "../stores/state";
@@ -225,9 +229,9 @@ function setActionValue(value: number | string) {
         if (formValue.value !== 0) {
           action.value.params = setFormation(formValue.value, formOptions.value);
         } else {
-          if (formOptions.value && formOptions.value[0]?.children?.[0]?.key) {
+          if (formOptions.value && formOptions.value[0]?.children?.[0]?.value) {
             action.value.params = setFormation(
-              formOptions.value[0].children[0].key as number,
+              formOptions.value[0].children[0].value as number,
               formOptions.value,
             );
           }
