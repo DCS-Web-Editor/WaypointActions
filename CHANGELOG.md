@@ -1,5 +1,12 @@
 # waypointactions
 
+## 0.4.1
+
+### Patch Changes
+
+- 7a4b263: Updated formation labels
+- 7a4b263: Changed formation select to cascader
+
 ## 0.4.0
 
 ### Minor Changes
