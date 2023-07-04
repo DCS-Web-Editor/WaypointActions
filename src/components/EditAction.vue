@@ -37,12 +37,39 @@
           placeholder="Select an Action"
         />
       </div>
+      <div v-if="[21, 22, 23].includes(subActionOptions)">
+        <n-tree-select
+          :options="options[subActionOptions]?.options ?? []"
+          v-model:value="selTaskData.params.action.params.targetTypes"
+          @update:value="handleTargetTypes"
+          multiple
+          cascade
+          checkable
+          check-strategy="parent"
+        />
+      </div>
+      <div v-if="subActionOptions === 5">
+        <n-tree-select
+          :options="formOptions"
+          @update-value="setFormationValue"
+          v-model:value="formValue"
+        />
+      </div>
     </div>
   </modal>
 </template>
 
 <script setup lang="ts">
-import { NSelect, NInputNumber, NInput, NCheckbox, NButton, NFormItem } from "naive-ui";
+import {
+  NSelect,
+  NInputNumber,
+  NInput,
+  NCheckbox,
+  NButton,
+  NFormItem,
+  NTreeSelect,
+  TreeSelectOption,
+} from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef, ref } from "vue";
@@ -54,12 +81,67 @@ import { setFormation } from "../utils/setAction";
 import { options } from "../utils/actions";
 import { watch } from "vue";
 import Modal from "./Modal.vue";
+import { getFormation } from "../utils/actions/formation";
 
 const { tasks } = useTasks();
 const store = useTasksStore();
 
 const conditionModal = inject<boolean>("condition", false);
 const stopConditionModal = inject<boolean>("stopCondition", false);
+
+const formOptions = computed(() => {
+  if (unitType === "helicopter") {
+    return getFormation(unitType);
+  } else if (unitType === "plane") {
+    return getFormation(unitType);
+  } else {
+    return [];
+  }
+});
+
+const formValue = computed({
+  get: () => selTaskData.value.params.action.params.value,
+  set: (value) => {
+    selTaskData.value.params.action.params.value = value;
+  },
+});
+
+const setFormationValue = (value: number) => {
+  formValue.value = value;
+  console.log(setFormation(formValue.value, formOptions.value));
+  selTaskData.value.params.action.params = setFormation(formValue.value, formOptions.value);
+};
+
+const handleTargetTypes = (value: string | Array<string>, option: TreeSelectOption[]) => {
+  const getKeys = (option: TreeSelectOption) => {
+    if (option.children) {
+      const keys: (string | number)[] = [];
+      const findKeys = (children: TreeSelectOption[]) => {
+        children.forEach((child) => {
+          if (child.key) {
+            keys.push(child.key);
+          }
+          if (child.children) {
+            findKeys(child.children);
+          }
+        });
+      };
+      findKeys(option.children);
+      return keys;
+    }
+    return [];
+  };
+
+  const noTargetTypes = option.map((opt) => getKeys(opt)).flat();
+  const targetTypes: string[] = value as string[];
+  const stringValue = targetTypes.length === 0 ? "none;" : targetTypes.join(";") + ";";
+  selTaskData.value.params.action.params = {
+    name: selTaskData.value.params.action.params.name,
+    noTargetTypes,
+    targetTypes,
+    value: stringValue,
+  };
+};
 
 function getActionType(task: ITask) {
   if (Object.values(Task).includes(task.params.action.id)) {
@@ -127,13 +209,29 @@ function setActionValue(value: number | string) {
       } else if (unitType === "ship" || unitType === "vehicle") {
         action.value.params.value = selOption.options[1][0].value;
       }
-    } else if (selOption.label === "Formation" && selOption.options) {
+    } else if (selOption.label === "Formation") {
       if (unitType === "helicopter") {
-        action.value.params = setFormation(selOption.options[0][0].value[0].value);
+        if (formValue.value !== 0) {
+          action.value.params = setFormation(formValue.value, formOptions.value);
+        } else {
+          if (formOptions.value && formOptions.value[0]?.children?.[0]?.key) {
+            action.value.params = setFormation(
+              formOptions.value[0].children[0].key as number,
+              formOptions.value,
+            );
+          }
+        }
       } else if (unitType === "plane") {
-        const val = selOption.options[1][0].value[0].value as number;
-        const form = setFormation(val);
-        action.value.params = form;
+        if (formValue.value !== 0) {
+          action.value.params = setFormation(formValue.value, formOptions.value);
+        } else {
+          if (formOptions.value && formOptions.value[0]?.children?.[0]?.key) {
+            action.value.params = setFormation(
+              formOptions.value[0].children[0].key as number,
+              formOptions.value,
+            );
+          }
+        }
       }
     } else if (selOption.options) {
       action.value.params.value = selOption.options[0].value;

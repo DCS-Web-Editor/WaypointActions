@@ -78,6 +78,20 @@ export function findById(data: any[], id: number): any {
   return null;
 }
 
+export function findByIdKey(data: any[], id: number): any {
+  for (const item of data) {
+    if (item.children) {
+      const foundItem = findByIdKey(item.children, id);
+      if (foundItem != null) {
+        return { item: foundItem, parent: item };
+      }
+    } else if (item.key === id) {
+      return item;
+    }
+  }
+  return null;
+}
+
 export const defaultTask: ITask = {
   auto: false,
   enabled: false,

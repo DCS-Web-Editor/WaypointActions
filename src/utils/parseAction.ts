@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
 import type { ActionList, UnitType } from "../types";
+import { getFormation } from "./actions/formation";
 import { options } from "./actions/options";
 import { EnrouteTask, OptionName, PerformCommand, Task } from "./enums";
-import { findById } from "./utils";
+import { findByIdKey } from "./utils";
 
 interface TOption {
   label: string;
@@ -18,26 +19,30 @@ export function parseOption(
   unitType?: UnitType,
 ): ActionList {
   const option: TOption = options[id];
-  if (typeof value === "number" && option.options != null) {
-    if (id === OptionName.formation) {
-      const form = findById(option.options, value);
+  if (typeof value === "number") {
+    if (option.options != null) {
+      if (id === OptionName.roe) {
+        return {
+          option: option.label,
+          value:
+            option.options[unitType === "plane" || unitType === "helicopter" ? 0 : 1][value - 1]
+              .label,
+        };
+      }
+      return {
+        option: option.label,
+        value: option.options[value].label,
+      };
+    } else if (
+      (id === OptionName.formation && unitType != null && unitType === "plane") ||
+      unitType === "helicopter"
+    ) {
+      const form = findByIdKey(getFormation(unitType), value);
       return {
         option: option.label,
         value: form.item.label,
       };
     }
-    if (id === OptionName.roe) {
-      return {
-        option: option.label,
-        value:
-          option.options[unitType === "plane" || unitType === "helicopter" ? 0 : 1][value - 1]
-            .label,
-      };
-    }
-    return {
-      option: option.label,
-      value: option.options[value].label,
-    };
   }
   if (typeof value === "boolean") {
     return {
