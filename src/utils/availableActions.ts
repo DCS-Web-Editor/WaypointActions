@@ -1,4 +1,13 @@
-import { EnrouteTask, OptionName, PerformCommand, Task } from "./enums";
+import {
+  EnrouteTask,
+  type TEnrouteTask,
+  OptionName,
+  type TOptionName,
+  PerformCommand,
+  type TPerformCommand,
+  Task,
+  type TTask,
+} from "./enums";
 import type { EnumList } from "../types";
 import { performTask, enrouteTask, commands, options } from "./actions";
 
@@ -6,7 +15,7 @@ type AvailableActions = Record<
   "plane" | "helicopter" | "vehicle" | "ship",
   Record<
     "task" | "enrouteTask" | "commands" | "options",
-    Record<string, Array<EnumList<Task | EnrouteTask | PerformCommand | OptionName>>>
+    Record<string, Array<EnumList<TTask | TEnrouteTask | TPerformCommand | TOptionName>>>
   >
 >;
 

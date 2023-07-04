@@ -1,7 +1,7 @@
-import { EnrouteTask } from "../enums";
+import { EnrouteTask, type TEnrouteTask } from "../enums";
 import type { EnumList } from "../../types";
 
-export const enrouteTask: Record<string, EnumList<EnrouteTask>> = {
+export const enrouteTask: Record<string, EnumList<TEnrouteTask>> = {
   [EnrouteTask.noEnrouteTask]: {
     label: "No Task",
     value: EnrouteTask.noEnrouteTask,

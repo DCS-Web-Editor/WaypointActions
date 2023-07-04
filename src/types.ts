@@ -24,7 +24,10 @@ type Option<T extends string | boolean | number> = ITask<{
  *@description Covers performCommand, performEnrouteITask, and performITask
  */
 
-export type EnumOptions = keyof typeof PerformCommand | EnrouteTask | Task;
+export type EnumOptions =
+  | keyof typeof PerformCommand
+  | keyof typeof EnrouteTask
+  | keyof typeof Task;
 
 type UniversalAction<T extends object> = ITask<{
   action: {
