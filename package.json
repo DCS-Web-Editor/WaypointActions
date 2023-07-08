@@ -1,7 +1,7 @@
 {
   "name": "waypointactions",
   "private": true,
-  "version": "0.4.1",
+  "version": "0.3.1",
   "type": "module",
   "main": "dist/wp-actions.es.js",
   "scripts": {
