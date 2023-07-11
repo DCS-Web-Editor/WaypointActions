@@ -81,7 +81,6 @@ export function findById(data: any[], id: number): any {
 export function findByIdKey(data: any[], id: number): any {
   for (const item of data) {
     if (item.children) {
-      console.log(item);
       const foundItem = findByIdKey(item.children, id);
       if (foundItem != null) {
         return { item: foundItem, parent: item };
