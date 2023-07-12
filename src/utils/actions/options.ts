@@ -1,5 +1,5 @@
-import { OptionName, type TOptionName } from "../enums";
-import type { EnumList } from "../../types";
+import { OptionName, type TOptionName } from "../consts";
+import type { ConstsList } from "../../types";
 
 const treeSelect = [
   {
@@ -208,7 +208,7 @@ const flagSelect = [
  * @description OptionName.alarmState[options] is only valid for vehicles and ships
  */
 
-export const options: Record<number, EnumList<TOptionName>> = {
+export const options: Record<number, ConstsList<TOptionName>> = {
   [OptionName.noOption]: {
     label: "No Option",
     value: OptionName.noOption,

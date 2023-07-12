@@ -1,4 +1,4 @@
-import type { Action, EnumOptions, ITask } from "../types";
+import type { Action, ConstsOptions } from "../types";
 import { useTasks } from "./hooks";
 
 const { tasks } = useTasks();
@@ -35,7 +35,7 @@ export function createOption(
 }
 
 export function createTask(
-  name: EnumOptions,
+  name: ConstsOptions,
   value: object,
   index?: number,
   auto?: boolean,
@@ -91,16 +91,3 @@ export function findByIdKey(data: any[], id: number): any {
   }
   return null;
 }
-
-export const defaultTask: ITask = {
-  auto: false,
-  enabled: false,
-  id: "WrappedAction",
-  number: 1,
-  params: {
-    action: {
-      id: "",
-      params: {},
-    },
-  },
-};

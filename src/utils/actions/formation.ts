@@ -1,5 +1,5 @@
 import type { TreeSelectOption } from "naive-ui";
-import { Formation } from "../enums";
+import { Formation } from "../consts";
 import type { UnitType } from "../../types";
 
 const RotaryWing: TreeSelectOption[] = [

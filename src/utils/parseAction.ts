@@ -3,7 +3,7 @@
 import type { ActionList, UnitType } from "../types";
 import { getFormation } from "./actions/formation";
 import { options } from "./actions/options";
-import { EnrouteTask, OptionName, PerformCommand, Task } from "./enums";
+import { EnrouteTask, OptionName, PerformCommand, Task } from "./consts";
 import { findByIdKey } from "./utils";
 
 interface TOption {

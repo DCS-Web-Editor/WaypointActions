@@ -117,7 +117,7 @@ export const Task = {
 } as const;
 
 export const EnrouteTask = {
-  noEnrouteTask: "NoTask",
+  noEnrouteTask: "NoEnrouteTask",
   engageTargets: "EngageTargets",
   engageTargetsInZone: "EngageTargetsInZone",
   engageGroup: "EngageGroup",

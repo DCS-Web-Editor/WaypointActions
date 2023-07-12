@@ -126,7 +126,7 @@
 import { parseCommand, parseEnrouteTask, parseOption, parseTask } from "../utils/parseAction";
 import EditCondition from "./EditCondition.vue";
 import EditAction from "./EditAction.vue";
-import { EnrouteTask, PerformCommand, Task } from "../utils/enums";
+import { EnrouteTask, PerformCommand, Task } from "../utils/consts";
 import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw } from "vue";
@@ -232,7 +232,14 @@ function cloneListItem(index: number) {
 }
 
 function removeNoOption() {
-  const index = actionList.value.findIndex((action) => action.option === "No Option");
+  const index = actionList.value.findIndex((action) => {
+    return (
+      action.option === "No Option" ||
+      action.option === "No Task" ||
+      action.option === "No Enroute Task" ||
+      action.option === "No Action"
+    );
+  });
   if (index !== -1) {
     deleteListItem(index);
   }
@@ -345,3 +352,4 @@ watch(
 // const store = computed(() => useTasksStore());
 // store.value.setTasks(json.task.params.tasks);
 </script>
+../utils/consts

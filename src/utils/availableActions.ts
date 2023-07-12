@@ -1,3 +1,7 @@
+/**
+ * @todo Needs a complete rewrite to work with DCS Web Editor
+ */
+
 import {
   EnrouteTask,
   type TEnrouteTask,
@@ -7,15 +11,15 @@ import {
   type TPerformCommand,
   Task,
   type TTask,
-} from "./enums";
-import type { EnumList } from "../types";
+} from "./consts";
+import type { ConstsList } from "../types";
 import { performTask, enrouteTask, commands, options } from "./actions";
 
 type AvailableActions = Record<
   "plane" | "helicopter" | "vehicle" | "ship",
   Record<
     "task" | "enrouteTask" | "commands" | "options",
-    Record<string, Array<EnumList<TTask | TEnrouteTask | TPerformCommand | TOptionName>>>
+    Record<string, Array<ConstsList<TTask | TEnrouteTask | TPerformCommand | TOptionName>>>
   >
 >;
 
@@ -187,7 +191,7 @@ export const availableActions: AvailableActions = {
     },
     enrouteTask: {
       default: [
-        enrouteTask[Task.noTask],
+        enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
         enrouteTask[EnrouteTask.engageGroup],

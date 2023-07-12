@@ -5,6 +5,7 @@ export const useEntryStore = defineStore({
   id: "entry",
   state: () => ({
     unit: "plane" as UnitType,
+    taskCatagory: "default",
   }),
   actions: {
     setUnit(unit: UnitType) {
@@ -12,6 +13,12 @@ export const useEntryStore = defineStore({
     },
     getUnit(): UnitType {
       return this.unit;
+    },
+    setTaskCatagory(taskCatagory: string) {
+      this.taskCatagory = taskCatagory;
+    },
+    getTaskCatagory() {
+      return this.taskCatagory;
     },
   },
 });

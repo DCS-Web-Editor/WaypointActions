@@ -1,4 +1,4 @@
-import type { PerformCommand, EnrouteTask, Task } from "./utils/enums";
+import type { PerformCommand, EnrouteTask, Task } from "./utils/consts";
 export interface ITask<T = any> {
   auto: boolean;
   enabled: boolean;
@@ -24,14 +24,14 @@ type Option<T extends string | boolean | number> = ITask<{
  *@description Covers performCommand, performEnrouteITask, and performITask
  */
 
-export type EnumOptions =
+export type ConstsOptions =
   | keyof typeof PerformCommand
   | keyof typeof EnrouteTask
   | keyof typeof Task;
 
 type UniversalAction<T extends object> = ITask<{
   action: {
-    id: EnumOptions;
+    id: ConstsOptions;
     params: T;
   };
 }>;
@@ -48,7 +48,7 @@ export interface ActionList {
   attr?: string[];
 }
 
-export interface EnumList<T> {
+export interface ConstsList<T> {
   label: string;
   value: T;
   options?: any[];

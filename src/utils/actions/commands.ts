@@ -1,7 +1,7 @@
-import { PerformCommand, type TPerformCommand } from "../enums";
-import type { EnumList } from "../../types";
+import { PerformCommand, type TPerformCommand } from "../consts";
+import type { ConstsList } from "../../types";
 
-export const commands: Record<string, EnumList<TPerformCommand>> = {
+export const commands: Record<string, ConstsList<TPerformCommand>> = {
   [PerformCommand.noAction]: {
     label: "No Action",
     value: PerformCommand.noAction,

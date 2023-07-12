@@ -27,13 +27,21 @@
     </div>
     <div
       :class="{
-        'mt-5 border-t border-white border-solid border-1': ![-1, 'NoTask', 'NoAction'].includes(
-          subActionOptions,
-        ),
+        'mt-5 border-t border-white border-solid border-1': ![
+          -1,
+          'NoTask',
+          'NoEnrouteTask',
+          'NoAction',
+        ].includes(subActionOptions),
       }"
     >
       <div class="mt-5">
-        <option-select :sel-task-data="selTaskData" :sub-action-options="subActionOptions" />
+        <option-select
+          v-if="typeof subActionOptions === 'number'"
+          :sel-task-data="selTaskData"
+          :sub-action-options="subActionOptions"
+          :unit-type="unitType"
+        />
       </div>
     </div>
   </modal>
@@ -42,12 +50,13 @@
 <script setup lang="ts">
 import { NSelect, NInputNumber, NInput, NCheckbox, NButton, NFormItem } from "naive-ui";
 import { useTasksStore } from "../stores/state";
+import { useEntryStore } from "../stores/entryState";
 import { useTasks } from "../utils/hooks";
-import { computed, inject, type ComputedRef, ref, watch } from "vue";
-import type { ActionType, ITask, UnitType } from "../types";
-import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/enums";
+import { computed, inject, type ComputedRef } from "vue";
+import type { ActionType, UnitType } from "../types";
+import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
-import { defaultTask } from "../utils/utils";
+import { defaultAction } from "../utils/defaultActions";
 import { setFormation } from "../utils/setAction";
 import { options } from "../utils/actions";
 import Modal from "./Modal.vue";
@@ -55,50 +64,41 @@ import OptionSelect from "./OptionSelect.vue";
 
 const { tasks } = useTasks();
 const store = useTasksStore();
+const entry = useEntryStore();
 
 const conditionModal = inject<boolean>("condition", false);
 const stopConditionModal = inject<boolean>("stopCondition", false);
 
-function getActionType(task: ITask) {
-  if (Object.values(Task).includes(task.params.action.id)) {
-    return "task";
-  } else if (Object.values(EnrouteTask).includes(task.params.action.id)) {
-    return "enrouteTask";
-  } else if (Object.values(PerformCommand).includes(task.params.action.id)) {
-    return "commands";
-  } else if (task.params.action.id === "Option") {
-    return "options";
-  } else {
-    return "task";
-  }
-}
-
 const selTaskIndex = computed(() => tasks.value.map((task) => task.number));
 const selTask = inject<number>("selection", 0) as unknown as ComputedRef<number>;
 const selTaskData = computed({
-  get: () => store.getOneTask(selTask.value - 1) ?? defaultTask,
+  get: () => store.getOneTask(selTask.value - 1),
   set: (value) => {
     store.setOneTask(value, selTask.value - 1);
   },
 });
 
-const actionType = ref<ActionType>(getActionType(selTaskData.value));
-
-watch(
-  () => actionType.value,
-  (value) => {
-    actionType.value = value;
+const actionType = computed<ActionType>({
+  get: () => {
+    if (Object.values(Task).includes(selTaskData.value.params.action.id)) {
+      return "task";
+    } else if (Object.values(EnrouteTask).includes(selTaskData.value.params.action.id)) {
+      return "enrouteTask";
+    } else if (Object.values(PerformCommand).includes(selTaskData.value.params.action.id)) {
+      return "commands";
+    } else if (selTaskData.value.params.action.id === "Option") {
+      return "options";
+    } else {
+      return "task";
+    }
   },
-);
+  set: (value) => (selTaskData.value = defaultAction(value)),
+});
 
-watch(
-  () => selTaskData.value,
-  (value) => {
-    actionType.value = getActionType(value);
-  },
-);
-
-const unitType = inject<UnitType>("unitType", "plane");
+const unitType = computed({
+  get: () => entry.getUnit(),
+  set: (value) => entry.setUnit(value),
+});
 
 function getActionOptions(unitType: UnitType, taskCatagory: string) {
   switch (unitType) {
@@ -120,13 +120,13 @@ function setActionValue(value: number | string) {
     action.value.params.name = value;
     const selOption = options[value];
     if (selOption.label === "ROE" && selOption.options) {
-      if (unitType === "plane" || unitType === "helicopter") {
+      if (unitType.value === "plane" || unitType.value === "helicopter") {
         action.value.params.value = selOption.options[0][0].value;
-      } else if (unitType === "ship" || unitType === "vehicle") {
+      } else if (unitType.value === "ship" || unitType.value === "vehicle") {
         action.value.params.value = selOption.options[1][0].value;
       }
     } else if (selOption.label === "Formation") {
-      action.value.params = setFormation(unitType);
+      action.value.params = setFormation(unitType.value);
     } else if (selOption.options) {
       action.value.params.value = selOption.options[0].value;
     } else if ([21, 22, 23].includes(selOption.value)) {
@@ -168,15 +168,15 @@ function setActionValue(value: number | string) {
       };
     }
     if (selOption.data) {
-      throw new Error("Not Implemented");
+      action.value.params.value = selOption.data;
     }
   } else {
     throw new Error("Not Implemented");
   }
 }
 
-const taskCatagory = inject<string>("taskCatagory", "default");
-const actionOptions = computed(() => getActionOptions(unitType, taskCatagory));
+const taskCatagory = computed(() => entry.getTaskCatagory());
+const actionOptions = computed(() => getActionOptions(unitType.value, taskCatagory.value));
 const subActionOptions = computed({
   get: () => {
     if (selTaskData.value.params.action.id !== "Option") {

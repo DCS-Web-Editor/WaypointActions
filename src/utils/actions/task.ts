@@ -1,7 +1,7 @@
-import { Task, type TTask } from "../enums";
-import type { EnumList } from "../../types";
+import { Task, type TTask } from "../consts";
+import type { ConstsList } from "../../types";
 
-export const performTask: Record<string, EnumList<TTask>> = {
+export const performTask: Record<string, ConstsList<TTask>> = {
   [Task.noTask]: {
     label: "No Task",
     value: Task.noTask,
