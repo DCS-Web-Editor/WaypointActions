@@ -45,7 +45,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import Modal from "./Modal.vue";
+import Modal from "./CustomModal.vue";
 import { NCheckbox, NFormItem, NInput, NTimePicker, NInputNumber } from "naive-ui";
 
 const props = defineProps<{

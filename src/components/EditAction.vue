@@ -59,7 +59,7 @@ import { availableActions } from "../utils/availableActions";
 import { defaultAction } from "../utils/defaultActions";
 import { setFormation } from "../utils/setAction";
 import { options } from "../utils/actions";
-import Modal from "./Modal.vue";
+import Modal from "./CustomModal.vue";
 import OptionSelect from "./OptionSelect.vue";
 
 const { tasks } = useTasks();
