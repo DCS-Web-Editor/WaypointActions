@@ -56,7 +56,7 @@ import { computed, inject, type ComputedRef } from "vue";
 import type { ActionType, UnitType } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
-import { defaultAction } from "../utils/defaultActions";
+import { defaultAction } from "../utils/utils";
 import { setFormation } from "../utils/setAction";
 import { options } from "../utils/actions";
 import Modal from "./CustomModal.vue";
