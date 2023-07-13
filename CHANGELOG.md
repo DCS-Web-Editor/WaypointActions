@@ -1,5 +1,24 @@
 # waypointactions
 
+## 0.4.0
+
+### Minor Changes
+
+- 23b4191: (feat): Added support for all options
+
+### Patch Changes
+
+- b943e38: (refactor): Consolidated action creation functions
+- 7029b82: (refactor): Changed enums.ts to consts.ts, and their respective type names to better reflect the file contents
+- 7029b82: (fix): Intergrated entryStore instead of inject/provide
+- 23b4191: (refactor): Refactored the specific actions selections to be more scalable
+- 7029b82: (feat): Added support for number based options
+- eab0cfd: (chore): Changed eslint config
+- 7029b82: (fix): Corrected the default params when changing the type of the action
+- eab0cfd: (chore): Updated depedencies
+- a182689: (chore): Removed husky as its redundant to CI workflow
+- 7029b82: (fix): Fixed default subActionOptions value not changing when changing the type of the action
+
 ## 0.3.1
 
 ### Patch Changes
