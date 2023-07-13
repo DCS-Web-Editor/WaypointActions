@@ -6,6 +6,7 @@ export const useEntryStore = defineStore({
   state: () => ({
     unit: "plane" as UnitType,
     taskCatagory: "default",
+    waypointNumber: 0,
   }),
   actions: {
     setUnit(unit: UnitType) {
@@ -20,5 +21,11 @@ export const useEntryStore = defineStore({
     getTaskCatagory() {
       return this.taskCatagory;
     },
+    setWaypointNumber(waypointNumber: number) {
+      this.waypointNumber = waypointNumber;
+    },
+    getWaypointNumber() {
+      return this.waypointNumber;
+    }
   },
 });
