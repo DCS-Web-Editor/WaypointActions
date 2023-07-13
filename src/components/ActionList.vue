@@ -131,7 +131,7 @@ import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw } from "vue";
 import { ActionList, ITasks, ITask } from "../types";
-import { createOption } from "../utils/utils";
+import { createOption } from "../utils/setAction";
 import { useEntryStore } from "../stores/entryState";
 
 const { tasks } = useTasks();
