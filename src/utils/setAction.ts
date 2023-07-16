@@ -1,11 +1,9 @@
-import type { UnitType, ConstsOptions, ActionType } from "../types";
+import type { TUnitType, TActionType } from "../types";
 import { getFormation } from "./actions/formation";
 import { findByIdKey } from "./utils";
-import { useEntryStore } from "../stores/entryState";
 import { enrouteTask, performTask } from "./actions";
-import { useTasks } from "./hooks";
 
-export const formOptions = (unitType: UnitType) => {
+export const formOptions = (unitType: TUnitType) => {
   if (unitType === "helicopter") {
     return getFormation(unitType);
   } else if (unitType === "plane") {
@@ -15,7 +13,7 @@ export const formOptions = (unitType: UnitType) => {
   }
 };
 
-export function setFormation(unitType: UnitType, value?: number) {
+export function setFormation(unitType: TUnitType, value?: number) {
   const options = formOptions(unitType);
   if (value) {
     const parent = findByIdKey(options, value);
@@ -36,111 +34,70 @@ export function setFormation(unitType: UnitType, value?: number) {
   }
 }
 
-const { tasks } = useTasks();
-const entry = useEntryStore();
-
-export function createOption(
-  name: number,
-  value: number | string | boolean,
-  index?: number,
+export function createWrappedAction(
+  number: number,
+  params: any,
   auto?: boolean,
   enabled?: boolean,
 ) {
-  let actionNumber = tasks.value.length + 1;
-
-  if (index != null && index < tasks.value.length) {
-    actionNumber = index;
-  }
-
-  const option = {
-    auto: auto ?? false,
-    enabled: enabled ?? false,
-    id: "WrappedAction",
-    number: actionNumber,
-    params: {
-      action: {
-        id: "Option",
-        params: {
-          name,
-          value,
-        },
-      },
-    },
-  } as const;
-  return option;
-}
-
-export function createCommand(
-  name: ConstsOptions,
-  value: object,
-  index?: number,
-  auto?: boolean,
-  enabled?: boolean,
-) {
-  let actionNumber = tasks.value.length + 1;
-
-  if (index != null && index < tasks.value.length) {
-    actionNumber = index;
-  }
-
   return {
     auto: auto ?? false,
-    enabled: enabled ?? false,
+    enabled: enabled ?? true,
     id: "WrappedAction",
-    number: actionNumber,
-    params: {
-      action: {
-        id: name,
-        params: value,
-      },
-    },
-  } as const;
+    number,
+    params,
+  };
 }
 
 export function createTask(
-  value: object,
+  number: number,
+  params: object,
   id: string,
-  index?: number,
+  key?: string,
   auto?: boolean,
   enabled?: boolean,
 ) {
-  let actionNumber = tasks.value.length + 1;
-
-  if (index != null && index < tasks.value.length) {
-    actionNumber = index;
-  }
-
   return {
     auto: auto ?? false,
-    enabled: enabled ?? false,
+    enabled: enabled ?? true,
     id,
-    number: actionNumber,
-    params: {
-      action: {
-        params: value,
-      },
-    },
-  } as const;
+    key,
+    number,
+    params,
+  };
 }
 
-export function defaultAction(actionType: ActionType) {
+export function defaultAction(actionType: TActionType) {
   if (actionType === "options") {
-    return createOption(-1, "");
+    return createWrappedAction(1, {
+      action: {
+        id: "Option",
+        params: {
+          name: -1,
+          value: "",
+        },
+      },
+    });
   } else if (actionType === "task") {
-    if (entry.getWaypointNumber() === 0) {
-      return createTask(performTask.noTask.params, "NoTask", undefined, true);
-    } else {
-      return createTask(performTask.noTask.params, "NoTask");
-    }
+    return createTask(1, performTask.NoTask.params, "NoTask");
   } else if (actionType === "enrouteTask") {
-    if (entry.getWaypointNumber() === 0) {
-      return createTask(enrouteTask.noTask.params, "NoEnrouteTask", undefined, true);
-    } else {
-      return createTask(enrouteTask.noTask.params, "NoEnrouteTask");
-    }
+    return createTask(1, enrouteTask.NoEnrouteTask.params, "NoEnrouteTask");
   } else if (actionType === "commands") {
-    return createCommand("noAction", {});
+    return createWrappedAction(1, {
+      action: {
+        id: "NoAction",
+        params: {},
+      },
+    });
   } else {
-    return createOption(-1, "");
+    return createWrappedAction(1, {
+      action: {
+        id: "Option",
+        params: {
+          name: -1,
+          value: "",
+        },
+      },
+    });
   }
 }

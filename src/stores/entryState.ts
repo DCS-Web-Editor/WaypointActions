@@ -1,18 +1,19 @@
 import { defineStore } from "pinia";
-import type { UnitType } from "../types";
+import type { TUnitType, TActionType } from "../types";
 
 export const useEntryStore = defineStore({
   id: "entry",
   state: () => ({
-    unit: "plane" as UnitType,
+    unit: "plane" as TUnitType,
     taskCatagory: "default",
+    actionType: "options" as TActionType,
     waypointNumber: 0,
   }),
   actions: {
-    setUnit(unit: UnitType) {
+    setUnit(unit: TUnitType) {
       this.unit = unit;
     },
-    getUnit(): UnitType {
+    getUnit(): TUnitType {
       return this.unit;
     },
     setTaskCatagory(taskCatagory: string) {
@@ -26,6 +27,12 @@ export const useEntryStore = defineStore({
     },
     getWaypointNumber() {
       return this.waypointNumber;
-    }
+    },
+    setActionType(actionType: TActionType) {
+      this.actionType = actionType;
+    },
+    getActionType() {
+      return this.actionType;
+    },
   },
 });

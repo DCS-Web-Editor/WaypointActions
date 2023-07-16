@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
-import type { ActionList, UnitType } from "../types";
+import type { TActionList, TUnitType } from "../types";
 import { getFormation } from "./actions/formation";
 import { options } from "./actions/options";
 import { EnrouteTask, OptionName, PerformCommand, Task } from "./consts";
@@ -16,8 +16,8 @@ interface TOption {
 export function parseOption(
   id: number,
   value: number | boolean | string,
-  unitType?: UnitType,
-): ActionList {
+  unitType?: TUnitType,
+): TActionList {
   const option: TOption = options[id];
   if (typeof value === "number") {
     if (option.options != null) {
@@ -71,7 +71,7 @@ export function parseOption(
  * @todo Go through each command and add unit names to ones that need it (e.g. "Set ACLS")
  */
 
-export function parseCommand(id: string, value: any): ActionList {
+export function parseCommand(id: string, value: any): TActionList {
   switch (id) {
     case PerformCommand.noAction:
       return {

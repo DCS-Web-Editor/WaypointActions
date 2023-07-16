@@ -130,15 +130,14 @@ import { EnrouteTask, PerformCommand, Task } from "../utils/consts";
 import { useTasks } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw } from "vue";
-import { ActionList, ITasks, ITask } from "../types";
-import { createOption } from "../utils/setAction";
+import { TActionList, TTask } from "../types";
+import { defaultAction } from "../utils/setAction";
 import { useEntryStore } from "../stores/entryState";
 
 const { tasks } = useTasks();
 const entry = computed(() => useEntryStore());
-const unitType = computed(() => entry.value.getUnit());
 
-const actionList = computed<ActionList[]>(() => updateList(tasks.value));
+const actionList = computed<TActionList[]>(() => updateList(tasks.value));
 const currentSelection = ref(0);
 const disabledActionButtons = computed(
   () => actionList.value.length === 0 || currentSelection.value === -1,
@@ -219,7 +218,7 @@ function deleteListItem(index: number) {
 }
 
 function insertListItem(index: number) {
-  const action = createOption(index, -1, 0);
+  const action = defaultAction(entry.value.getActionType());
   tasks.value.splice(index, 0, action);
   editModalShow.value = true;
 }
@@ -252,12 +251,12 @@ function editListItem() {
 function addListItem() {
   const index = tasks.value.length;
   currentSelection.value = index;
-  const action = createOption(index, -1, 0);
+  const action = defaultAction(entry.value.getActionType());
   tasks.value.splice(index, 0, action);
   editModalShow.value = true;
 }
 
-function parseAttribute(action: ITask): string[] {
+function parseAttribute(action: TTask): string[] {
   const attr: string[] = [];
   if (action.auto) {
     attr.push("-a");
@@ -268,38 +267,46 @@ function parseAttribute(action: ITask): string[] {
   return attr;
 }
 
-function updateList(task: ITasks): ActionList[] {
+function updateList(task: TTask[]): TActionList[] {
   if (task.length === 0) {
     return [];
   }
   return task.map((action) => {
-    if (action.params.action.id === "Option") {
-      const option = parseOption(
-        action.params.action.params.name,
-        action.params.action.params.value,
-        unitType.value,
-      );
-      return {
-        option: option.option,
-        value: option.value,
-        attr: parseAttribute(action),
-      };
-    } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
-      const command = parseCommand(action.params.action.id, action.params.action.params);
-      return {
-        option: command.option,
-        value: command.value,
-        attr: parseAttribute(action),
-      };
-    } else if (Object.values(EnrouteTask).includes(action.params.action.id)) {
-      const enrouteTask = parseEnrouteTask(action.params.action.id, action.params.action.params);
+    if (action.id === "WrappedAction") {
+      if (action.params.action.id === "Option") {
+        const option = parseOption(
+          action.params.action.params.name,
+          action.params.action.params.value,
+          entry.value.getUnit(),
+        );
+        return {
+          option: option.option,
+          value: option.value,
+          attr: parseAttribute(action),
+        };
+      } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
+        const command = parseCommand(action.params.action.id, action.params.action.params);
+        return {
+          option: command.option,
+          value: command.value,
+          attr: parseAttribute(action),
+        };
+      } else {
+        return {
+          option: "Error Parsing Action",
+          value: "",
+          attr: [],
+        };
+      }
+    } else if (Object.values(EnrouteTask).includes(action.id)) {
+      const enrouteTask = parseEnrouteTask(action.id, action.params);
       return {
         option: enrouteTask.option,
         value: enrouteTask.value,
         attr: parseAttribute(action),
       };
-    } else if (Object.values(Task).includes(action.params.action.id)) {
-      const task = parseTask(action.params.action.id, action.params.action.params);
+    } else if (Object.values(Task).includes(action.id)) {
+      const task = parseTask(action.id, action.params);
       return {
         option: task.option,
         value: task.value,
@@ -339,7 +346,7 @@ watch(
       actionList.value.find((action) => action.option === "No Option") !== undefined &&
       actionList.value[val].option !== "No Option"
     ) {
-      deleteListItem(actionList.value.findIndex((action) => action.option === "No Option"));
+      removeNoOption();
     }
   },
   { immediate: true },
@@ -352,4 +359,3 @@ watch(
 // const store = computed(() => useTasksStore());
 // store.value.setTasks(json.task.params.tasks);
 </script>
-../utils/consts

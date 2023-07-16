@@ -1,7 +1,7 @@
 import { EnrouteTask, type TEnrouteTask } from "../consts";
-import type { ConstsList } from "../../types";
+import type { TConstsList } from "../../types";
 
-export const enrouteTask: Record<string, ConstsList<TEnrouteTask>> = {
+export const enrouteTask: Record<string, TConstsList<TEnrouteTask>> = {
   [EnrouteTask.noEnrouteTask]: {
     label: "No Task",
     value: EnrouteTask.noEnrouteTask,

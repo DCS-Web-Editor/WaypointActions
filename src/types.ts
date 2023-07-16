@@ -1,61 +1,75 @@
-import type { PerformCommand, EnrouteTask, Task } from "./utils/consts";
-export interface ITask<T = any> {
+import type { PerformCommand, TPerformCommand, EnrouteTask, Task } from "./utils/consts";
+
+export type TFormation = {
+  name: 5;
+  formationIndex: number;
+  value: number;
+  variantIndex: number;
+};
+
+export type TTargetTypes = {
+  noTargetTypes: string[];
+  targetTypes: string[];
+  value: string;
+};
+
+export type TBaseOption = {
+  value: boolean;
+};
+
+export interface TTask {
   auto: boolean;
   enabled: boolean;
   name?: string;
+  key?: string;
   id: string;
   number: number;
+  params: any;
+}
+
+export type TTasks = TTask[];
+
+export interface TOptionParams<T extends TFormation | TTargetTypes | TBaseOption> extends TTask {
+  params: {
+    action: {
+      id: "Option";
+      params: T & { name: number };
+    };
+  };
+}
+
+export interface TPerformCommandParams<T extends object> extends TTask {
+  params: {
+    action: {
+      id: TPerformCommand;
+      params: T;
+    };
+  };
+}
+
+export interface TPerformTaskParams<T extends object> extends TTask {
   params: T;
 }
 
-export type ITasks<T = any> = Array<ITask<T>>;
+export type TActionList = {
+  option: string;
+  value: string;
+  attr?: string[];
+};
 
-type Option<T extends string | boolean | number> = ITask<{
-  action: {
-    id: "Option";
-    params: {
-      name: number;
-      value: T;
-    };
-  };
-}>;
-
-/**
- *@description Covers performCommand, performEnrouteITask, and performITask
- */
-
-export type ConstsOptions =
+export type TConstsOptions =
   | keyof typeof PerformCommand
   | keyof typeof EnrouteTask
   | keyof typeof Task;
 
-type UniversalAction<T extends object> = ITask<{
-  action: {
-    id: ConstsOptions;
-    params: T;
-  };
-}>;
-
-export type Action<T> = T extends object
-  ? UniversalAction<T>
-  : T extends string | number | boolean
-  ? Option<string | number | boolean>
-  : never;
-
-export interface ActionList {
-  option: string;
-  value: string;
-  attr?: string[];
-}
-
-export interface ConstsList<T> {
+export type TConstsList<T> = {
   label: string;
   value: T;
   options?: any[];
   params?: any;
   data?: number;
   [key: string]: unknown;
-}
+};
 
-export type UnitType = "plane" | "helicopter" | "vehicle" | "ship";
-export type ActionType = "task" | "enrouteTask" | "commands" | "options";
+export type TUnitType = "plane" | "helicopter" | "vehicle" | "ship";
+export type TActionType = "task" | "enrouteTask" | "commands" | "options";

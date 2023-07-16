@@ -1,5 +1,5 @@
 import { OptionName, type TOptionName } from "../consts";
-import type { ConstsList } from "../../types";
+import type { TConstsList } from "../../types";
 
 const treeSelect = [
   {
@@ -208,7 +208,7 @@ const flagSelect = [
  * @description OptionName.alarmState[options] is only valid for vehicles and ships
  */
 
-export const options: Record<number, ConstsList<TOptionName>> = {
+export const options: Record<number, TConstsList<TOptionName>> = {
   [OptionName.noOption]: {
     label: "No Option",
     value: OptionName.noOption,

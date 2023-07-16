@@ -1,7 +1,7 @@
 import { Task, type TTask } from "../consts";
-import type { ConstsList } from "../../types";
+import type { TConstsList } from "../../types";
 
-export const performTask: Record<string, ConstsList<TTask>> = {
+export const performTask: Record<string, TConstsList<TTask>> = {
   [Task.noTask]: {
     label: "No Task",
     value: Task.noTask,

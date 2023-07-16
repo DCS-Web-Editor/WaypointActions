@@ -91,14 +91,14 @@ import {
   type TreeSelectOption,
 } from "naive-ui";
 import { computed } from "vue";
-import { ITask, UnitType } from "../types";
+import { TTask, TUnitType } from "../types";
 import { setFormation, formOptions } from "../utils/setAction";
 import { options } from "../utils/actions";
 
 const props = defineProps<{
-  selTaskData: ITask<any>;
+  selTaskData: TTask;
   subActionOptions: number;
-  unitType: UnitType;
+  unitType: TUnitType;
 }>();
 
 const selTaskData = computed(() => props.selTaskData);

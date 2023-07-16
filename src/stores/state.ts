@@ -1,14 +1,14 @@
-import type { ITask, ITasks } from "../types";
+import type { TTask } from "../types";
 import { defineStore } from "pinia";
 
 export const useTasksStore = defineStore({
   id: "tasks",
   state: () => ({
-    tasks: [] as ITasks,
+    tasks: [] as TTask[],
   }),
   actions: {
-    setTasks(tasks: ITasks) {
-      const taskArr: ITasks = [];
+    setTasks(tasks: TTask[]) {
+      const taskArr: TTask[] = [];
       for (const task of tasks) {
         if (task.number !== tasks.indexOf(task)) {
           task.number = tasks.indexOf(task);
@@ -17,13 +17,13 @@ export const useTasksStore = defineStore({
       }
       this.tasks = taskArr;
     },
-    getTasks(): ITasks {
+    getTasks(): TTask[] {
       return this.tasks;
     },
-    getOneTask(index: number): ITask {
+    getOneTask(index: number): TTask {
       return this.tasks[index];
     },
-    setOneTask(task: ITask, index: number) {
+    setOneTask(task: TTask, index: number) {
       this.tasks[index] = task;
     },
   },

@@ -1,6 +1,6 @@
 import type { TreeSelectOption } from "naive-ui";
 import { Formation } from "../consts";
-import type { UnitType } from "../../types";
+import type { TUnitType } from "../../types";
 
 const RotaryWing: TreeSelectOption[] = [
   {
@@ -246,7 +246,7 @@ const FixedWing: TreeSelectOption[] = [
   },
 ];
 
-export const getFormation = (unitType: Exclude<UnitType, "ship" | "vehicle">) => {
+export const getFormation = (unitType: Exclude<TUnitType, "ship" | "vehicle">) => {
   if (unitType === "helicopter") {
     return RotaryWing;
   }

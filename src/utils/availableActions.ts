@@ -12,14 +12,14 @@ import {
   Task,
   type TTask,
 } from "./consts";
-import type { ConstsList } from "../types";
+import type { TConstsList } from "../types";
 import { performTask, enrouteTask, commands, options } from "./actions";
 
 type AvailableActions = Record<
   "plane" | "helicopter" | "vehicle" | "ship",
   Record<
     "task" | "enrouteTask" | "commands" | "options",
-    Record<string, Array<ConstsList<TTask | TEnrouteTask | TPerformCommand | TOptionName>>>
+    Record<string, Array<TConstsList<TTask | TEnrouteTask | TPerformCommand | TOptionName>>>
   >
 >;
 

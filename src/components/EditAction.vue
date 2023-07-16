@@ -53,7 +53,7 @@ import { useTasksStore } from "../stores/state";
 import { useEntryStore } from "../stores/entryState";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef } from "vue";
-import type { ActionType, UnitType } from "../types";
+import type { TActionType, TUnitType } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
 import { setFormation, defaultAction } from "../utils/setAction";
@@ -77,21 +77,29 @@ const selTaskData = computed({
   },
 });
 
-const actionType = computed<ActionType>({
+const actionType = computed<TActionType>({
   get: () => {
-    if (Object.values(Task).includes(selTaskData.value.params.action.id)) {
+    if (Object.values(Task).includes(selTaskData.value.id)) {
+      entry.setActionType("task");
       return "task";
-    } else if (Object.values(EnrouteTask).includes(selTaskData.value.params.action.id)) {
+    } else if (Object.values(EnrouteTask).includes(selTaskData.value.id)) {
+      entry.setActionType("enrouteTask");
       return "enrouteTask";
     } else if (Object.values(PerformCommand).includes(selTaskData.value.params.action.id)) {
+      entry.setActionType("commands");
       return "commands";
     } else if (selTaskData.value.params.action.id === "Option") {
+      entry.setActionType("options");
       return "options";
     } else {
+      entry.setActionType("task");
       return "task";
     }
   },
-  set: (value) => (selTaskData.value = defaultAction(value)),
+  set: (value) => {
+    selTaskData.value = defaultAction(value);
+    console.log(selTaskData.value);
+  },
 });
 
 const unitType = computed({
@@ -99,7 +107,7 @@ const unitType = computed({
   set: (value) => entry.setUnit(value),
 });
 
-function getActionOptions(unitType: UnitType, taskCatagory: string) {
+function getActionOptions(unitType: TUnitType, taskCatagory: string) {
   switch (unitType) {
     case "plane":
       return availableActions.plane[actionType.value][taskCatagory];
@@ -178,21 +186,27 @@ const taskCatagory = computed(() => entry.getTaskCatagory());
 const actionOptions = computed(() => getActionOptions(unitType.value, taskCatagory.value));
 const subActionOptions = computed({
   get: () => {
-    if (selTaskData.value.params.action.id !== "Option") {
-      return selTaskData.value.params.action.id;
+    if (selTaskData.value.id !== "WrappedAction") {
+      return selTaskData.value.id;
     } else {
-      const action =
-        Object.values(OptionName).find(
-          (option) => option === selTaskData.value.params.action.params.name,
-        ) ?? -1;
-      return action ?? "No Option";
+      if (selTaskData.value.params.action.id === "Option") {
+        const action =
+          Object.values(OptionName).find(
+            (option) => option === selTaskData.value.params.action.params.name,
+          ) ?? -1;
+        return action ?? "No Option";
+      } else {
+        return selTaskData.value.params.action.id;
+      }
     }
   },
   set: (value) => {
     if (actionType.value === "options") {
       setActionValue(value);
-    } else {
+    } else if (actionType.value === "commands") {
       selTaskData.value.params.action.id = value;
+    } else {
+      selTaskData.value.id = value;
     }
   },
 });

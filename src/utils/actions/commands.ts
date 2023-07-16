@@ -1,7 +1,7 @@
 import { PerformCommand, type TPerformCommand } from "../consts";
-import type { ConstsList } from "../../types";
+import type { TConstsList } from "../../types";
 
-export const commands: Record<string, ConstsList<TPerformCommand>> = {
+export const commands: Record<string, TConstsList<TPerformCommand>> = {
   [PerformCommand.noAction]: {
     label: "No Action",
     value: PerformCommand.noAction,
