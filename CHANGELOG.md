@@ -1,5 +1,14 @@
 # waypointactions
 
+## 0.4.1
+
+### Patch Changes
+
+- 714104c: (refactor): Moved default action creators to setAction
+- 359124f: (fix): Fixed create task generating the wrong object structure
+- 3e04dbb: (chore): Update some devDeps
+- 359124f: (refactor): Renamed most types and got rid of unused types
+
 ## 0.4.0
 
 ### Minor Changes
