@@ -28,11 +28,12 @@ export function parseOption(
             option.options[unitType === "plane" || unitType === "helicopter" ? 0 : 1][value - 1]
               .label,
         };
+      } else {
+        return {
+          option: option.label,
+          value: option.options.find((val) => val.value === value)?.label ?? "Option Not Found",
+        };
       }
-      return {
-        option: option.label,
-        value: option.options[value].label,
-      };
     } else if (
       (id === OptionName.formation && unitType != null && unitType === "plane") ||
       unitType === "helicopter"

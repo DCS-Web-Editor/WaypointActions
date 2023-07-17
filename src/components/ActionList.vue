@@ -110,13 +110,19 @@
         <div class="w-1/6"></div>
       </div>
     </div>
-    <n-modal v-model:show="editModalShow" :on-after-leave="removeNoOption">
+    <n-modal
+      v-model:show="editModalShow"
+      :on-after-leave="removeNoOption"
+      preset="card"
+      class="w-3/4"
+      title="Edit Action"
+    >
       <edit-action />
     </n-modal>
-    <n-modal v-model:show="condition">
+    <n-modal v-model:show="condition" preset="card" class="w-3/4" title="Edit Condition">
       <edit-condition />
     </n-modal>
-    <n-modal v-model:show="stopCondition">
+    <n-modal v-model:show="stopCondition" preset="card" class="w-3/4" title="Edit Stop Condition">
       <edit-condition :stop-condition="true" />
     </n-modal>
   </div>

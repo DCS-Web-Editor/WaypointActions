@@ -1,50 +1,48 @@
 <template>
-  <modal>
-    <n-form-item label="Type" label-placement="left">
-      <n-select class="w-full" v-model:value="actionType" :options="taskOptions" />
+  <n-form-item label="Type" label-placement="left">
+    <n-select class="w-full" v-model:value="actionType" :options="taskOptions" />
+  </n-form-item>
+  <n-form-item label="Action" label-placement="left">
+    <n-select v-model:value="subActionOptions" :options="actionOptions" />
+  </n-form-item>
+  <div class="flex flex-row justify-between">
+    <n-form-item label="Number" label-placement="left">
+      <n-input-number v-model:value="selTask" :min="selTaskIndex[0]" :max="selTaskIndex.length" />
     </n-form-item>
-    <n-form-item label="Action" label-placement="left">
-      <n-select v-model:value="subActionOptions" :options="actionOptions" />
+    <n-form-item label="Enabled" label-placement="left">
+      <n-checkbox v-model:checked="enabled" />
     </n-form-item>
-    <div class="flex flex-row justify-between">
-      <n-form-item label="Number" label-placement="left">
-        <n-input-number v-model:value="selTask" :min="selTaskIndex[0]" :max="selTaskIndex.length" />
-      </n-form-item>
-      <n-form-item label="Enabled" label-placement="left">
-        <n-checkbox v-model:checked="enabled" />
-      </n-form-item>
-    </div>
-    <n-form-item label="Name" label-placement="left">
-      <n-input type="text" v-model:value="name" placeholder="Name..." />
-    </n-form-item>
-    <div class="flex flex-row justify-between">
-      <n-button @click="conditionModal = true" class="bg-card" tertiary size="small"
-        >Condition</n-button
-      >
-      <n-button @click="stopConditionModal = true" class="bg-card" tertiary size="small"
-        >Stop Condition</n-button
-      >
-    </div>
-    <div
-      :class="{
-        'mt-5 border-t border-white border-solid border-1': ![
-          -1,
-          'NoTask',
-          'NoEnrouteTask',
-          'NoAction',
-        ].includes(subActionOptions),
-      }"
+  </div>
+  <n-form-item label="Name" label-placement="left">
+    <n-input type="text" v-model:value="name" placeholder="Name..." />
+  </n-form-item>
+  <div class="flex flex-row justify-between">
+    <n-button @click="conditionModal = true" class="bg-card" tertiary size="small"
+      >Condition</n-button
     >
-      <div class="mt-5">
-        <option-select
-          v-if="typeof subActionOptions === 'number'"
-          :sel-task-data="selTaskData"
-          :sub-action-options="subActionOptions"
-          :unit-type="unitType"
-        />
-      </div>
+    <n-button @click="stopConditionModal = true" class="bg-card" tertiary size="small"
+      >Stop Condition</n-button
+    >
+  </div>
+  <div
+    :class="{
+      'mt-5 border-t border-white border-solid border-1': ![
+        -1,
+        'NoTask',
+        'NoEnrouteTask',
+        'NoAction',
+      ].includes(subActionOptions),
+    }"
+  >
+    <div class="mt-5">
+      <option-select
+        v-if="typeof subActionOptions === 'number'"
+        :sel-task-data="selTaskData"
+        :sub-action-options="subActionOptions"
+        :unit-type="unitType"
+      />
     </div>
-  </modal>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -58,7 +56,6 @@ import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
 import { setFormation, defaultAction } from "../utils/setAction";
 import { options } from "../utils/actions";
-import Modal from "./CustomModal.vue";
 import OptionSelect from "./OptionSelect.vue";
 
 const { tasks } = useTasks();
@@ -98,7 +95,6 @@ const actionType = computed<TActionType>({
   },
   set: (value) => {
     selTaskData.value = defaultAction(value);
-    console.log(selTaskData.value);
   },
 });
 
@@ -124,6 +120,7 @@ function setActionValue(value: number | string) {
   if (actionType.value === "options" && typeof value === "number") {
     const action = computed(() => selTaskData.value.params.action);
     action.value.id = "Option";
+    action.value.params = {};
     action.value.params.name = value;
     const selOption = options[value];
     if (selOption.label === "ROE" && selOption.options) {
