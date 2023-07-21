@@ -1,5 +1,22 @@
 # waypointactions
 
+## 0.5.0
+
+### Minor Changes
+
+- 525e7c3: (feat): Added automatic actions
+
+### Patch Changes
+
+- 525e7c3: (feat): Added hook for entry state
+- d41f1bc: (fix): Fixed parseOption not working with values that aren't the index
+- 525e7c3: (fix): Fixed some type names overlapping with each other
+- 525e7c3: (feat): Updated types for various actionTypes
+- d41f1bc: (refactor): Removed CustomModal.vue as it was deprecated
+- 525e7c3: (refactor): Added more strict param arguments to createWrappedAction
+- 525e7c3: (fix): Fixed upper level task names
+- d41f1bc: (fix): Fixed params carrying over to the next option
+
 ## 0.4.1
 
 ### Patch Changes
