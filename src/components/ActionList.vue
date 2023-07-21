@@ -133,15 +133,14 @@ import { parseCommand, parseEnrouteTask, parseOption, parseTask } from "../utils
 import EditCondition from "./EditCondition.vue";
 import EditAction from "./EditAction.vue";
 import { EnrouteTask, PerformCommand, Task } from "../utils/consts";
-import { useTasks } from "../utils/hooks";
+import { useTasks, useEntry } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
-import { computed, ref, watch, provide, toRaw } from "vue";
+import { computed, ref, watch, provide, toRaw, onMounted } from "vue";
 import { TActionList, TTask } from "../types";
-import { defaultAction } from "../utils/setAction";
-import { useEntryStore } from "../stores/entryState";
+import { createAutoActions, defaultAction } from "../utils/setAction";
 
 const { tasks } = useTasks();
-const entry = computed(() => useEntryStore());
+const { unit, actionType, taskCatagory, waypointNumber } = useEntry();
 
 const actionList = computed<TActionList[]>(() => updateList(tasks.value));
 const currentSelection = ref(0);
@@ -224,7 +223,7 @@ function deleteListItem(index: number) {
 }
 
 function insertListItem(index: number) {
-  const action = defaultAction(entry.value.getActionType());
+  const action = defaultAction(actionType.value);
   tasks.value.splice(index, 0, action);
   editModalShow.value = true;
 }
@@ -257,7 +256,7 @@ function editListItem() {
 function addListItem() {
   const index = tasks.value.length;
   currentSelection.value = index;
-  const action = defaultAction(entry.value.getActionType());
+  const action = defaultAction(actionType.value);
   tasks.value.splice(index, 0, action);
   editModalShow.value = true;
 }
@@ -283,7 +282,7 @@ function updateList(task: TTask[]): TActionList[] {
         const option = parseOption(
           action.params.action.params.name,
           action.params.action.params.value,
-          entry.value.getUnit(),
+          unit.value,
         );
         return {
           option: option.option,
@@ -357,6 +356,12 @@ watch(
   },
   { immediate: true },
 );
+
+onMounted(() => {
+  if (tasks.value.length === 0 && waypointNumber.value === 0) {
+    tasks.value = createAutoActions(unit.value, taskCatagory.value);
+  }
+});
 
 // import json from "../../dev.json";
 // import { useTasksStore } from "../stores/state";

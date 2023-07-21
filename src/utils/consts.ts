@@ -2,7 +2,7 @@ type ObjectValues<T> = T[keyof T];
 export type TPerformCommand = ObjectValues<typeof PerformCommand>;
 export type TOptionName = ObjectValues<typeof OptionName>;
 export type TFormation = ObjectValues<typeof Formation>;
-export type TTask = ObjectValues<typeof Task>;
+export type TPerformTask = ObjectValues<typeof Task>;
 export type TEnrouteTask = ObjectValues<typeof EnrouteTask>;
 
 export const PerformCommand = {

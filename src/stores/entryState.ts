@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
-import type { TUnitType, TActionType } from "../types";
+import type { TUnitType, TActionType, TUpperLevelTasks } from "../types";
 
 export const useEntryStore = defineStore({
   id: "entry",
   state: () => ({
     unit: "plane" as TUnitType,
-    taskCatagory: "default",
+    taskCatagory: "Default" as TUpperLevelTasks,
     actionType: "options" as TActionType,
     waypointNumber: 0,
   }),
@@ -16,7 +16,7 @@ export const useEntryStore = defineStore({
     getUnit(): TUnitType {
       return this.unit;
     },
-    setTaskCatagory(taskCatagory: string) {
+    setTaskCatagory(taskCatagory: TUpperLevelTasks) {
       this.taskCatagory = taskCatagory;
     },
     getTaskCatagory() {

@@ -27,8 +27,6 @@ export interface TTask {
   params: any;
 }
 
-export type TTasks = TTask[];
-
 export interface TOptionParams<T extends TFormation | TTargetTypes | TBaseOption> extends TTask {
   params: {
     action: {
@@ -73,3 +71,23 @@ export type TConstsList<T> = {
 
 export type TUnitType = "plane" | "helicopter" | "vehicle" | "ship";
 export type TActionType = "task" | "enrouteTask" | "commands" | "options";
+export type TUpperLevelTasks =
+  | "AFAC"
+  | "Antiship Strike"
+  | "CAS"
+  | "Default"
+  | "Escort"
+  | "Ground Attack"
+  | "Nothing"
+  | "Reconnaissance"
+  | "SEAD"
+  | "Transport"
+  | "AWACS"
+  | "Airborne"
+  | "CAP"
+  | "Fighter Sweep"
+  | "GAI"
+  | "Intercept"
+  | "Pinpoint Strike"
+  | "Refueling"
+  | "Runway Attack";

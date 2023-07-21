@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
 import type { TActionList, TUnitType } from "../types";
-import { getFormation } from "./actions/formation";
-import { options } from "./actions/options";
+import { options, getFormation } from "./actions";
 import { EnrouteTask, OptionName, PerformCommand, Task } from "./consts";
 import { findByIdKey } from "./utils";
 

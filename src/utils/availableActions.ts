@@ -1,7 +1,3 @@
-/**
- * @todo Needs a complete rewrite to work with DCS Web Editor
- */
-
 import {
   EnrouteTask,
   type TEnrouteTask,
@@ -10,23 +6,26 @@ import {
   PerformCommand,
   type TPerformCommand,
   Task,
-  type TTask,
+  type TPerformTask,
 } from "./consts";
-import type { TConstsList } from "../types";
+import type { TConstsList, TUpperLevelTasks } from "../types";
 import { performTask, enrouteTask, commands, options } from "./actions";
 
 type AvailableActions = Record<
   "plane" | "helicopter" | "vehicle" | "ship",
   Record<
     "task" | "enrouteTask" | "commands" | "options",
-    Record<string, Array<TConstsList<TTask | TEnrouteTask | TPerformCommand | TOptionName>>>
+    Record<
+      TUpperLevelTasks,
+      Array<TConstsList<TPerformTask | TEnrouteTask | TPerformCommand | TOptionName>>
+    >
   >
 >;
 
 export const availableActions: AvailableActions = {
   plane: {
     task: {
-      default: [
+      Default: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -42,14 +41,14 @@ export const availableActions: AvailableActions = {
         performTask[Task.cargoTransportationPlane],
         performTask[Task.cargoUnloadPlane],
       ],
-      nothing: [
+      Nothing: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
         performTask[Task.aerobatics],
       ],
-      airborne: [
+      Airborne: [
         performTask[Task.noTask],
         performTask[Task.paratroopersDrop],
         performTask[Task.orbit],
@@ -57,7 +56,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.follow],
         performTask[Task.followBigFormation],
       ],
-      sead: [
+      SEAD: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -66,7 +65,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.follow],
         performTask[Task.escort],
       ],
-      antiShipStrike: [
+      "Antiship Strike": [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -74,13 +73,13 @@ export const availableActions: AvailableActions = {
         performTask[Task.refueling],
         performTask[Task.follow],
       ],
-      awacs: [
+      AWACS: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
       ],
-      cas: [
+      CAS: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -89,14 +88,14 @@ export const availableActions: AvailableActions = {
         performTask[Task.follow],
         performTask[Task.aerobatics],
       ],
-      cap: [
+      CAP: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
         performTask[Task.aerobatics],
       ],
-      pinpointStrike: [
+      "Pinpoint Strike": [
         performTask[Task.noTask],
         performTask[Task.attackMapObject],
         performTask[Task.bombing],
@@ -104,27 +103,27 @@ export const availableActions: AvailableActions = {
         performTask[Task.refueling],
         performTask[Task.follow],
       ],
-      escort: [
+      Escort: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
         performTask[Task.escort],
       ],
-      fighterSweep: [
+      "Fighter Sweep": [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
         performTask[Task.aerobatics],
       ],
-      gai: [
+      GAI: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
       ],
-      groundAttack: [
+      "Ground Attack": [
         performTask[Task.noTask],
         performTask[Task.attackMapObject],
         performTask[Task.bombing],
@@ -135,7 +134,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.carpetBombing],
         performTask[Task.followBigFormation],
       ],
-      intercept: [
+      Intercept: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -144,7 +143,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.follow],
         performTask[Task.aerobatics],
       ],
-      afac: [
+      AFAC: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -155,21 +154,21 @@ export const availableActions: AvailableActions = {
         performTask[Task.attackMapObject],
         performTask[Task.follow],
       ],
-      recon: [
+      Reconnaissance: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
         performTask[Task.aerobatics],
       ],
-      refueling: [
+      Refueling: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
         performTask[Task.follow],
         performTask[Task.recoveryTanker],
       ],
-      runwayAttack: [
+      "Runway Attack": [
         performTask[Task.noTask],
         performTask[Task.attackMapObject],
         performTask[Task.bombing],
@@ -178,7 +177,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.refueling],
         performTask[Task.follow],
       ],
-      transport: [
+      Transport: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.refueling],
@@ -190,7 +189,7 @@ export const availableActions: AvailableActions = {
       ],
     },
     enrouteTask: {
-      default: [
+      Default: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -201,8 +200,8 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.facEngageGroup],
         enrouteTask[EnrouteTask.tanker],
       ],
-      nothing: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      sead: [
+      Nothing: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      SEAD: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -210,7 +209,7 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.sead],
       ],
-      antiShipStrike: [
+      "Antiship Strike": [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -218,8 +217,8 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.antiShip],
       ],
-      awacs: [enrouteTask[EnrouteTask.noEnrouteTask], enrouteTask[EnrouteTask.awacs]],
-      cas: [
+      AWACS: [enrouteTask[EnrouteTask.noEnrouteTask], enrouteTask[EnrouteTask.awacs]],
+      CAS: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -227,8 +226,8 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.cas],
       ],
-      pinpointStrike: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      cap: [
+      "Pinpoint Strike": [enrouteTask[EnrouteTask.noEnrouteTask]],
+      CAP: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -236,8 +235,8 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.cap],
       ],
-      escort: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      fighterSweep: [
+      Escort: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      "Fighter Sweep": [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -245,10 +244,10 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.fighterSweep],
       ],
-      gai: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      groundAttack: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      intercept: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      afac: [
+      GAI: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      "Ground Attack": [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Intercept: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      AFAC: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -257,13 +256,14 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.fac],
         enrouteTask[EnrouteTask.facEngageGroup],
       ],
-      recon: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      refueling: [enrouteTask[EnrouteTask.noEnrouteTask], enrouteTask[EnrouteTask.tanker]],
-      runwayAttack: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      transport: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Reconnaissance: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Refueling: [enrouteTask[EnrouteTask.noEnrouteTask], enrouteTask[EnrouteTask.tanker]],
+      "Runway Attack": [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Transport: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Airborne: [],
     },
     commands: {
-      default: [
+      Default: [
         commands[PerformCommand.noAction],
         commands[PerformCommand.runScript],
         commands[PerformCommand.scriptFile],
@@ -281,9 +281,27 @@ export const availableActions: AvailableActions = {
         commands[PerformCommand.elprs],
         commands[PerformCommand.smokeOnOff],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     options: {
-      default: [
+      Default: [
         options[OptionName.noOption],
         options[OptionName.roe],
         options[OptionName.reactionOnThreat],
@@ -307,11 +325,29 @@ export const availableActions: AvailableActions = {
         options[OptionName.jettTanksIfEmpty],
         options[OptionName.forcedAttack],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
   },
   helicopter: {
     task: {
-      default: [
+      Default: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -325,13 +361,13 @@ export const availableActions: AvailableActions = {
         performTask[Task.cargoTransportation],
         performTask[Task.groundEscort],
       ],
-      nothing: [
+      Nothing: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.land],
         performTask[Task.follow],
       ],
-      sead: [
+      SEAD: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -342,7 +378,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.cargoTransportation],
         performTask[Task.groundEscort],
       ],
-      antiShipStrike: [
+      "Antiship Strike": [
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
         performTask[Task.orbit],
@@ -350,7 +386,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.follow],
         performTask[Task.cargoTransportation],
       ],
-      cas: [
+      CAS: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -362,7 +398,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.cargoTransportation],
         performTask[Task.groundEscort],
       ],
-      groundAttack: [
+      "Ground Attack": [
         performTask[Task.noTask],
         performTask[Task.attackMapObject],
         performTask[Task.bombing],
@@ -373,7 +409,7 @@ export const availableActions: AvailableActions = {
         performTask[Task.disembarking],
         performTask[Task.groundEscort],
       ],
-      afac: [
+      AFAC: [
         performTask[Task.noTask],
         performTask[Task.attackGroup],
         performTask[Task.attackUnit],
@@ -384,13 +420,13 @@ export const availableActions: AvailableActions = {
         performTask[Task.attackMapObject],
         performTask[Task.follow],
       ],
-      recon: [
+      Reconnaissance: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.land],
         performTask[Task.follow],
       ],
-      transport: [
+      Transport: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.land],
@@ -399,15 +435,24 @@ export const availableActions: AvailableActions = {
         performTask[Task.disembarking],
         performTask[Task.cargoTransportation],
       ],
-      escort: [
+      Escort: [
         performTask[Task.noTask],
         performTask[Task.orbit],
         performTask[Task.land],
         performTask[Task.escort],
       ],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     enrouteTask: {
-      default: [
+      Default: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -416,8 +461,8 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.fac],
         enrouteTask[EnrouteTask.facEngageGroup],
       ],
-      nothing: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      sead: [
+      Nothing: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      SEAD: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -425,7 +470,7 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.sead],
       ],
-      antiShipStrike: [
+      "Antiship Strike": [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -433,7 +478,7 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.antiShip],
       ],
-      cas: [
+      CAS: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -441,8 +486,8 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.engageUnit],
         enrouteTask[EnrouteTask.cas],
       ],
-      groundAttack: [enrouteTask[EnrouteTask.noEnrouteTask]],
-      afac: [
+      "Ground Attack": [enrouteTask[EnrouteTask.noEnrouteTask]],
+      AFAC: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.engageTargets],
         enrouteTask[EnrouteTask.engageTargetsInZone],
@@ -451,10 +496,21 @@ export const availableActions: AvailableActions = {
         enrouteTask[EnrouteTask.fac],
         enrouteTask[EnrouteTask.facEngageGroup],
       ],
-      recon: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Reconnaissance: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Escort: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     commands: {
-      default: [
+      Default: [
         commands[PerformCommand.noAction],
         commands[PerformCommand.runScript],
         commands[PerformCommand.scriptFile],
@@ -472,9 +528,27 @@ export const availableActions: AvailableActions = {
         commands[PerformCommand.elprs],
         commands[PerformCommand.smokeOnOff],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     options: {
-      default: [
+      Default: [
         options[OptionName.noOption],
         options[OptionName.roe],
         options[OptionName.reactionOnThreat],
@@ -491,11 +565,29 @@ export const availableActions: AvailableActions = {
         options[OptionName.radioUsageEngage],
         options[OptionName.radioUsageKill],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
   },
   vehicle: {
     task: {
-      default: [
+      Default: [
         performTask[Task.noTask],
         performTask[Task.facAttackGroup],
         performTask[Task.fireAtPoint],
@@ -509,17 +601,53 @@ export const availableActions: AvailableActions = {
         performTask[Task.attachTrailer],
         performTask[Task.detachTrailer],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     enrouteTask: {
-      default: [
+      Default: [
         enrouteTask[EnrouteTask.noEnrouteTask],
         enrouteTask[EnrouteTask.fac],
         enrouteTask[EnrouteTask.facEngageGroup],
         enrouteTask[EnrouteTask.ewr],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     commands: {
-      default: [
+      Default: [
         commands[PerformCommand.noAction],
         commands[PerformCommand.runScript],
         commands[PerformCommand.scriptFile],
@@ -534,9 +662,27 @@ export const availableActions: AvailableActions = {
         commands[PerformCommand.activateBeacon],
         commands[PerformCommand.deactivateBeacon],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     options: {
-      default: [
+      Default: [
         options[OptionName.noOption],
         options[OptionName.roe],
         options[OptionName.disperseOnAttack],
@@ -548,23 +694,77 @@ export const availableActions: AvailableActions = {
         options[OptionName.altRestrictionMax],
         options[OptionName.restrictTarget],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
   },
   ship: {
     task: {
-      default: [
+      Default: [
         performTask[Task.noTask],
         performTask[Task.fireAtPoint],
         performTask[Task.attackGroup],
         performTask[Task.goToWaypoint],
         performTask[Task.shipHoldPoint],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     enrouteTask: {
-      default: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      Default: [enrouteTask[EnrouteTask.noEnrouteTask]],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     commands: {
-      default: [
+      Default: [
         commands[PerformCommand.noAction],
         commands[PerformCommand.runScript],
         commands[PerformCommand.scriptFile],
@@ -582,9 +782,27 @@ export const availableActions: AvailableActions = {
         commands[PerformCommand.deactivateACLS],
         commands[Task.shipHoldPoint],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
     options: {
-      default: [
+      Default: [
         options[OptionName.noOption],
         options[OptionName.roe],
         options[OptionName.alarmState],
@@ -592,6 +810,24 @@ export const availableActions: AvailableActions = {
         options[OptionName.engageAirWeapons],
         options[OptionName.aircraftInterceptRange],
       ],
+      AFAC: [],
+      "Antiship Strike": [],
+      CAS: [],
+      Escort: [],
+      "Ground Attack": [],
+      Nothing: [],
+      Reconnaissance: [],
+      SEAD: [],
+      Transport: [],
+      AWACS: [],
+      Airborne: [],
+      CAP: [],
+      "Fighter Sweep": [],
+      GAI: [],
+      Intercept: [],
+      "Pinpoint Strike": [],
+      Refueling: [],
+      "Runway Attack": [],
     },
   },
 };

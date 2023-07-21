@@ -51,7 +51,7 @@ import { useTasksStore } from "../stores/state";
 import { useEntryStore } from "../stores/entryState";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef } from "vue";
-import type { TActionType, TUnitType } from "../types";
+import type { TActionType, TUnitType, TUpperLevelTasks } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
 import { setFormation, defaultAction } from "../utils/setAction";
@@ -103,7 +103,7 @@ const unitType = computed({
   set: (value) => entry.setUnit(value),
 });
 
-function getActionOptions(unitType: TUnitType, taskCatagory: string) {
+function getActionOptions(unitType: TUnitType, taskCatagory: TUpperLevelTasks) {
   switch (unitType) {
     case "plane":
       return availableActions.plane[actionType.value][taskCatagory];

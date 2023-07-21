@@ -1,7 +1,6 @@
-import type { TUnitType, TActionType } from "../types";
-import { getFormation } from "./actions/formation";
+import type { TUnitType, TActionType, TUpperLevelTasks, TTask } from "../types";
 import { findByIdKey } from "./utils";
-import { enrouteTask, performTask } from "./actions";
+import { enrouteTask, performTask, autoActions, getFormation } from "./actions";
 
 export const formOptions = (unitType: TUnitType) => {
   if (unitType === "helicopter") {
@@ -37,6 +36,7 @@ export function setFormation(unitType: TUnitType, value?: number) {
 export function createWrappedAction(
   number: number,
   params: any,
+  id: string,
   auto?: boolean,
   enabled?: boolean,
 ) {
@@ -45,7 +45,12 @@ export function createWrappedAction(
     enabled: enabled ?? true,
     id: "WrappedAction",
     number,
-    params,
+    params: {
+      action: {
+        id,
+        params,
+      },
+    },
   };
 }
 
@@ -69,35 +74,64 @@ export function createTask(
 
 export function defaultAction(actionType: TActionType) {
   if (actionType === "options") {
-    return createWrappedAction(1, {
-      action: {
-        id: "Option",
-        params: {
-          name: -1,
-          value: "",
-        },
+    return createWrappedAction(
+      1,
+      {
+        name: -1,
+        value: "",
       },
-    });
+      "Option",
+    );
   } else if (actionType === "task") {
     return createTask(1, performTask.NoTask.params, "NoTask");
   } else if (actionType === "enrouteTask") {
     return createTask(1, enrouteTask.NoEnrouteTask.params, "NoEnrouteTask");
   } else if (actionType === "commands") {
-    return createWrappedAction(1, {
-      action: {
-        id: "NoAction",
-        params: {},
-      },
-    });
+    return createWrappedAction(1, {}, "NoAction");
   } else {
-    return createWrappedAction(1, {
-      action: {
-        id: "Option",
-        params: {
-          name: -1,
-          value: "",
-        },
+    return createWrappedAction(
+      1,
+      {
+        name: -1,
+        value: "",
       },
-    });
+      "Option",
+    );
   }
+}
+
+function getAutoActions(
+  params: {
+    actionType: TActionType;
+    data: any;
+  },
+  number: number,
+  task: TUpperLevelTasks,
+): TTask {
+  switch (params.actionType) {
+    case "enrouteTask":
+      if (["AWACS", "Refuleing", "CAS", "CAP", "Fighter Sweep", "SEAD", "Anti-ship"].includes(task))
+        return createTask(number, params.data.params, params.data.value, "EngageTargets", true);
+      else return createTask(number, params.data.params, params.data.value, undefined, true);
+    case "commands":
+      return createWrappedAction(number, params.data.params, params.data.value, true);
+    case "options":
+      return createWrappedAction(number, params.data, "Option", true);
+    case "task":
+      return createTask(number, {}, "NoTask", undefined, true);
+  }
+}
+
+export function createAutoActions(unitType: TUnitType, task: TUpperLevelTasks) {
+  const actions: TTask[] = [];
+  let number = 1;
+  autoActions.all[task].forEach((action) => {
+    actions.push(getAutoActions(action, number, task));
+    number++;
+  });
+  autoActions[unitType][task].forEach((action) => {
+    actions.push(getAutoActions(action, number, task));
+    number++;
+  });
+  return actions;
 }
