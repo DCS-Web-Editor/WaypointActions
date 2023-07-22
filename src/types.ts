@@ -70,6 +70,16 @@ export type TConstsList<T> = {
 };
 
 export type TUnitType = "plane" | "helicopter" | "vehicle" | "ship";
+export type TGroupTypes =
+  | "nothing"
+  | "unknown"
+  | "static"
+  | "point"
+  | "runway"
+  | "plane"
+  | "helicopter"
+  | "vehicle"
+  | "ship";
 export type TActionType = "task" | "enrouteTask" | "commands" | "options";
 export type TUpperLevelTasks =
   | "AFAC"
