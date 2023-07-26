@@ -72,8 +72,8 @@ import { computed, inject, type ComputedRef } from "vue";
 import type { TActionType, TUnitType, TUpperLevelTasks } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
-import { setFormation, defaultAction, createWrappedAction } from "../utils/setAction";
-import { options } from "../utils/actions";
+import { setFormation, defaultAction, createWrappedAction, createTask } from "../utils/setAction";
+import { commands, enrouteTask, options, performTask } from "../utils/actions";
 import OptionSelect from "./OptionSelect.vue";
 import PerformTaskSelect from "./PerformTaskSelect.vue";
 import EnrouteTaskSelect from "./EnrouteTaskSelect.vue";
@@ -215,8 +215,31 @@ function setActionValue(value: number | string) {
       });
     }
     selTaskData.value = createWrappedAction(args.number, args.params, args.id);
-  } else {
-    throw new Error("Not Implemented");
+  } else if (typeof value === "string") {
+    if (actionType.value === "commands") {
+      selTaskData.value = createWrappedAction(
+        selTaskData.value.number,
+        commands[value].params,
+        value,
+      );
+    }
+    if (actionType.value === "task") {
+      selTaskData.value = createTask(selTaskData.value.number, performTask[value].params, value);
+    }
+    if (actionType.value === "enrouteTask") {
+      if (
+        ["AWACS", "Refuleing", "CAS", "CAP", "Fighter Sweep", "SEAD", "Anti-ship"].includes(value)
+      ) {
+        selTaskData.value = createTask(
+          selTaskData.value.number,
+          enrouteTask[value].params,
+          value,
+          "EngageTargets",
+        );
+      } else {
+        selTaskData.value = createTask(selTaskData.value.number, enrouteTask[value].params, value);
+      }
+    }
   }
 }
 
@@ -239,13 +262,7 @@ const subActionOptions = computed({
     }
   },
   set: (value) => {
-    if (actionType.value === "options") {
-      setActionValue(value);
-    } else if (actionType.value === "commands") {
-      selTaskData.value.params.action.id = value;
-    } else {
-      selTaskData.value.id = value;
-    }
+    setActionValue(value);
   },
 });
 
