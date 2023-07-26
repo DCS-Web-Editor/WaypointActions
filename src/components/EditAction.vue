@@ -72,7 +72,7 @@ import { computed, inject, type ComputedRef } from "vue";
 import type { TActionType, TUnitType, TUpperLevelTasks } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
-import { setFormation, defaultAction } from "../utils/setAction";
+import { setFormation, defaultAction, createWrappedAction } from "../utils/setAction";
 import { options } from "../utils/actions";
 import OptionSelect from "./OptionSelect.vue";
 import PerformTaskSelect from "./PerformTaskSelect.vue";
@@ -141,23 +141,38 @@ function getActionOptions(unitType: TUnitType, taskCatagory: TUpperLevelTasks) {
 
 function setActionValue(value: number | string) {
   if (actionType.value === "options" && typeof value === "number") {
-    const action = computed(() => selTaskData.value.params.action);
-    action.value.id = "Option";
-    action.value.params = {};
-    action.value.params.name = value;
+    const args = {
+      number: selTaskData.value.number,
+      params: {
+        name: value,
+      },
+      id: "Option",
+    };
+    const setArgs = (v: any) => {
+      args.params = {
+        ...args.params,
+        ...v,
+      };
+    };
     const selOption = options[value];
     if (selOption.label === "ROE" && selOption.options) {
       if (unitType.value === "plane" || unitType.value === "helicopter") {
-        action.value.params.value = selOption.options[0][0].value;
+        setArgs({
+          value: selOption.options[0][0].value,
+        });
       } else if (unitType.value === "ship" || unitType.value === "vehicle") {
-        action.value.params.value = selOption.options[1][0].value;
+        setArgs({
+          value: selOption.options[1][0].value,
+        });
       }
     } else if (selOption.label === "Formation") {
-      action.value.params = setFormation(unitType.value);
+      setArgs(setFormation(unitType.value));
     } else if (selOption.options) {
-      action.value.params.value = selOption.options[0].value;
+      setArgs({
+        value: selOption.options[0].value,
+      });
     } else if ([21, 22, 23].includes(selOption.value)) {
-      action.value.params = {
+      setArgs({
         name: value,
         noTargetTypes: [
           "Fighters",
@@ -192,11 +207,14 @@ function setActionValue(value: number | string) {
         ],
         targetTypes: [],
         value: "none;",
-      };
+      });
     }
     if (selOption.data) {
-      action.value.params.value = selOption.data;
+      setArgs({
+        value: selOption.data,
+      });
     }
+    selTaskData.value = createWrappedAction(args.number, args.params, args.id);
   } else {
     throw new Error("Not Implemented");
   }
