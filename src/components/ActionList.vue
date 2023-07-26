@@ -289,7 +289,7 @@ function updateList(task: TTask[]): TActionList[] {
           value: option.value,
           attr: parseAttribute(action),
         };
-      } else if (Object.values(PerformCommand).includes(action.params.action.id)) {
+      } else if (Object.values(PerformCommand).some((v) => v === action.params.action.id)) {
         const command = parseCommand(action.params.action.id, action.params.action.params);
         return {
           option: command.option,
@@ -303,14 +303,14 @@ function updateList(task: TTask[]): TActionList[] {
           attr: [],
         };
       }
-    } else if (Object.values(EnrouteTask).includes(action.id)) {
+    } else if (Object.values(EnrouteTask).some((v) => v === action.id)) {
       const enrouteTask = parseEnrouteTask(action.id, action.params);
       return {
         option: enrouteTask.option,
         value: enrouteTask.value,
         attr: parseAttribute(action),
       };
-    } else if (Object.values(Task).includes(action.id)) {
+    } else if (Object.values(Task).some((v) => v === action.id)) {
       const task = parseTask(action.id, action.params);
       return {
         option: task.option,

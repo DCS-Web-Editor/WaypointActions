@@ -5,7 +5,7 @@ export const commands: Record<string, TConstsList<TPerformCommand>> = {
   [PerformCommand.noAction]: {
     label: "No Action",
     value: PerformCommand.noAction,
-    params: null,
+    params: {},
   },
   [PerformCommand.runScript]: {
     label: "Run Script",
@@ -24,7 +24,7 @@ export const commands: Record<string, TConstsList<TPerformCommand>> = {
   [PerformCommand.setCallsign]: {
     label: "Set Callsign",
     value: PerformCommand.setCallsign,
-    params: null,
+    params: {},
   },
   [PerformCommand.setFrequency]: {
     label: "Set Frequency",
@@ -57,12 +57,12 @@ export const commands: Record<string, TConstsList<TPerformCommand>> = {
   [PerformCommand.stopTransmitting]: {
     label: "Stop Transmitting",
     value: PerformCommand.stopTransmitting,
-    params: null,
+    params: {},
   },
   [PerformCommand.switchWaypoint]: {
     label: "Switch Waypoint",
     value: PerformCommand.switchWaypoint,
-    params: null,
+    params: {},
   },
   [PerformCommand.switchAction]: {
     label: "Switch Action",
@@ -88,7 +88,7 @@ export const commands: Record<string, TConstsList<TPerformCommand>> = {
   [PerformCommand.start]: {
     label: "Start",
     value: PerformCommand.start,
-    params: null,
+    params: {},
   },
   [PerformCommand.loadingShip]: {
     label: "Loading Ship",
@@ -98,7 +98,7 @@ export const commands: Record<string, TConstsList<TPerformCommand>> = {
     },
   },
   [PerformCommand.activateBeacon]: {
-    label: "Activate Beacon",
+    label: "Activate TACAN",
     value: PerformCommand.activateBeacon,
     params: {
       type: 4,
@@ -112,9 +112,9 @@ export const commands: Record<string, TConstsList<TPerformCommand>> = {
     },
   },
   [PerformCommand.deactivateBeacon]: {
-    label: "Deactivate Beacon",
+    label: "Deactivate TACAN",
     value: PerformCommand.deactivateBeacon,
-    params: null,
+    params: {},
   },
   [PerformCommand.activateICLS]: {
     label: "Activate ICLS",
@@ -127,27 +127,34 @@ export const commands: Record<string, TConstsList<TPerformCommand>> = {
   [PerformCommand.deactivateICLS]: {
     label: "Deactivate ICLS",
     value: PerformCommand.deactivateICLS,
-    params: null,
+    params: {},
   },
   [PerformCommand.activateLink4]: {
     label: "Activate Link 4",
     value: PerformCommand.activateLink4,
-    params: null,
+    params: {},
   },
   [PerformCommand.deactivateLink4]: {
     label: "Deactivate Link 4",
     value: PerformCommand.deactivateLink4,
-    params: null,
+    params: {},
   },
   [PerformCommand.activateACLS]: {
     label: "Activate ACLS",
     value: PerformCommand.activateACLS,
-    params: null,
+    params: {},
   },
   [PerformCommand.deactivateACLS]: {
     label: "Deactivate ACLS",
     value: PerformCommand.deactivateACLS,
-    params: null,
+    params: {},
+  },
+  [PerformCommand.loadingShip]: {
+    label: "Set Ship Draft",
+    value: PerformCommand.loadingShip,
+    params: {
+      cargo: 0,
+    },
   },
   [PerformCommand.elprs]: {
     label: "ELPRS",

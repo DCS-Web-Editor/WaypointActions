@@ -36,7 +36,25 @@
   >
     <div class="mt-5">
       <option-select
-        v-if="typeof subActionOptions === 'number'"
+        v-if="Object.values(OptionName).some((v) => v === subActionOptions)"
+        :sel-task-data="selTaskData"
+        :sub-action-options="subActionOptions"
+        :unit-type="unitType"
+      />
+      <command-select
+        v-if="Object.values(PerformCommand).some((v) => v === subActionOptions)"
+        :sel-task-data="selTaskData"
+        :sub-action-options="subActionOptions"
+        :unit-type="unitType"
+      />
+      <perform-task-select
+        v-if="Object.values(Task).some((v) => v === subActionOptions)"
+        :sel-task-data="selTaskData"
+        :sub-action-options="subActionOptions"
+        :unit-type="unitType"
+      />
+      <enroute-task-select
+        v-if="Object.values(EnrouteTask).some((v) => v === subActionOptions)"
         :sel-task-data="selTaskData"
         :sub-action-options="subActionOptions"
         :unit-type="unitType"
@@ -57,6 +75,9 @@ import { availableActions } from "../utils/availableActions";
 import { setFormation, defaultAction } from "../utils/setAction";
 import { options } from "../utils/actions";
 import OptionSelect from "./OptionSelect.vue";
+import PerformTaskSelect from "./PerformTaskSelect.vue";
+import EnrouteTaskSelect from "./EnrouteTaskSelect.vue";
+import CommandSelect from "./CommandSelect.vue";
 
 const { tasks } = useTasks();
 const store = useTasksStore();
@@ -76,13 +97,15 @@ const selTaskData = computed({
 
 const actionType = computed<TActionType>({
   get: () => {
-    if (Object.values(Task).includes(selTaskData.value.id)) {
+    if (Object.values(Task).some((v) => v === selTaskData.value.id)) {
       entry.setActionType("task");
       return "task";
-    } else if (Object.values(EnrouteTask).includes(selTaskData.value.id)) {
+    } else if (Object.values(EnrouteTask).some((v) => v === selTaskData.value.id)) {
       entry.setActionType("enrouteTask");
       return "enrouteTask";
-    } else if (Object.values(PerformCommand).includes(selTaskData.value.params.action.id)) {
+    } else if (
+      Object.values(PerformCommand).some((v) => v === selTaskData.value.params.action.id)
+    ) {
       entry.setActionType("commands");
       return "commands";
     } else if (selTaskData.value.params.action.id === "Option") {

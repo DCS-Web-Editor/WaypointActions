@@ -30,7 +30,7 @@ export const PerformCommand = {
   deactivateACLS: "DeactivateACLS",
   elprs: "ELPRS",
   smokeOnOff: "SMOKE_ON_OFF",
-};
+} as const;
 
 export const OptionName = {
   noOption: -1,
@@ -63,7 +63,7 @@ export const OptionName = {
   altRestrictionMin: 27,
   restrictTarget: 28,
   altRestrictionMax: 29,
-};
+} as const;
 
 export const Formation = {
   line_abreast: 1,
@@ -81,7 +81,7 @@ export const Formation = {
   ww2_bomber_element_height: 13,
   ww2_fighter_vic: 14,
   modern_bomber_element: 17,
-};
+} as const;
 
 export const Task = {
   noTask: "NoTask",
@@ -114,7 +114,7 @@ export const Task = {
   paratroopersDrop: "ParatroopersDrop",
   shipHoldPoint: "ShipHoldPoint",
   recoveryTanker: "RecoveryTanker",
-};
+} as const;
 
 export const EnrouteTask = {
   noEnrouteTask: "NoEnrouteTask",
@@ -132,4 +132,4 @@ export const EnrouteTask = {
   sead: "SEAD",
   antiShip: "AntiShip",
   facEngageGroup: "FAC_EngageGroup",
-};
+} as const;

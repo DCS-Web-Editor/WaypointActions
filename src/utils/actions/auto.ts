@@ -624,10 +624,7 @@ export const autoActions: TAutoActions = {
     GAI: [],
   },
   vehicle: {
-    Default: [
-      { actionType: "commands", data: commands.ELPRS },
-      { actionType: "enrouteTask", data: enrouteTask.EWR },
-    ],
+    Default: [{ actionType: "enrouteTask", data: enrouteTask.EWR }],
     AFAC: [],
     AWACS: [],
     Refueling: [],

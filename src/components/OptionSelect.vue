@@ -94,10 +94,11 @@ import { computed } from "vue";
 import { TTask, TUnitType } from "../types";
 import { setFormation, formOptions } from "../utils/setAction";
 import { options } from "../utils/actions";
+import { TOptionName } from "../utils/consts";
 
 const props = defineProps<{
   selTaskData: TTask;
-  subActionOptions: number;
+  subActionOptions: TOptionName;
   unitType: TUnitType;
 }>();
 
