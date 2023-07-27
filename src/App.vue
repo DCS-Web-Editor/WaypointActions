@@ -9,7 +9,7 @@
 <script setup lang="ts">
 import { darkTheme, type GlobalTheme, type GlobalThemeOverrides } from "naive-ui";
 import { NConfigProvider } from "naive-ui";
-import ActionList from "./components/ActionList.vue";
+import ActionList from "./views/ActionList.vue";
 import { ref } from "vue";
 
 const theme = ref<GlobalTheme | null>(darkTheme);
