@@ -4,5 +4,15 @@
   "initialVersions": {
     "waypointactions": "0.5.0"
   },
-  "changesets": []
+  "changesets": [
+    "beige-tables-explain",
+    "bright-kangaroos-punch",
+    "chilly-nails-shout",
+    "cyan-ducks-tell",
+    "five-years-whisper",
+    "odd-bears-impress",
+    "sour-cougars-promise",
+    "sour-llamas-shop",
+    "three-beds-care"
+  ]
 }
