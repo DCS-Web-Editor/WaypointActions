@@ -1,5 +1,19 @@
 # waypointactions
 
+## 0.5.1-next.0
+
+### Patch Changes
+
+- a1a0d11: (refactor): Changed setAction in EditAction.vue to use new action APIs
+- e4efdd1: (feat): Added template for PerformCommand
+- 4108b78: (chore): Update deps
+- e4efdd1: (fix): Removed invalid actions for ships and vehicles
+- e4efdd1: (fix): Fixed null params for commands
+- 5e655fd: (feat): Added support for all actions in setActionValue
+- e4efdd1: (feat): Added types for subActionOptions
+- e4efdd1: (feat): Added boilerplate for the rest of the action selectors
+- 9131b1c: (feat): Added availableWeapons
+
 ## 0.5.0
 
 ### Minor Changes
