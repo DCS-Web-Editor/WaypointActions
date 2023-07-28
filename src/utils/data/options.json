@@ -1,0 +1,1084 @@
+{
+  "0": {
+    "label": "ROE",
+    "value": 0,
+    "options": [
+      [
+        {
+          "label": "WEAPON FREE",
+          "value": 1
+        },
+        {
+          "label": "PRIORITY DESIGNATED",
+          "value": 2
+        },
+        {
+          "label": "ONLY DESIGNATED",
+          "value": 3
+        },
+        {
+          "label": "RETURN FIRE",
+          "value": 4
+        },
+        {
+          "label": "WEAPON HOLD",
+          "value": 5
+        }
+      ],
+      [
+        [
+          {
+            "label": "WEAPON FREE",
+            "value": 1
+          },
+          {
+            "label": "RETURN FIRE",
+            "value": 4
+          },
+          {
+            "label": "WEAPON HOLD",
+            "value": 5
+          }
+        ]
+      ]
+    ]
+  },
+  "1": {
+    "label": "Reaction To Threat",
+    "value": 1,
+    "options": [
+      {
+        "label": "NO REACTION",
+        "value": 1
+      },
+      {
+        "label": "PASSIVE DEFENCE",
+        "value": 2
+      },
+      {
+        "label": "EVADE FIRE",
+        "value": 3
+      },
+      {
+        "label": "EVASIVE VERTICAL MANOEUVER",
+        "value": 4
+      },
+      {
+        "label": "ALLOW ABORT MISSION",
+        "value": 5
+      },
+      {
+        "label": "HORIZONTAL AAA FIRE EVADE",
+        "value": 6
+      }
+    ]
+  },
+  "3": {
+    "label": "Radar Using",
+    "value": 3,
+    "options": [
+      {
+        "label": "NEVER USE",
+        "value": 1
+      },
+      {
+        "label": "USE FOR ATTACK ONLY",
+        "value": 2
+      },
+      {
+        "label": "USE FOR SEARCH IF REQUIRED",
+        "value": 3
+      },
+      {
+        "label": "USE FOR CONTINUOUS SEARCH",
+        "value": 4
+      }
+    ]
+  },
+  "4": {
+    "label": "Chaff - Flare Using",
+    "value": 4,
+    "options": [
+      {
+        "label": "NEVER USE",
+        "value": 1
+      },
+      {
+        "label": "USE AGAINST FIRED MISSILE",
+        "value": 2
+      },
+      {
+        "label": "USE WHEN FLYING IN SAM WEZ",
+        "value": 3
+      },
+      {
+        "label": "USE WHEN FLYING NEAR ENEMIES (N/A)",
+        "value": 4
+      }
+    ]
+  },
+  "5": {
+    "label": "Formation",
+    "value": 5
+  },
+  "6": {
+    "label": "RTB On Bingo Fuel",
+    "value": 6,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "7": {
+    "label": "Silence",
+    "value": 7,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "8": {
+    "label": "Disperse On Attack",
+    "value": 8,
+    "data": 600
+  },
+  "9": {
+    "label": "Alarm State",
+    "value": 9,
+    "options": [
+      {
+        "label": "Auto",
+        "value": 0
+      },
+      {
+        "label": "Green",
+        "value": 1
+      },
+      {
+        "label": "Red",
+        "value": 2
+      }
+    ]
+  },
+  "10": {
+    "label": "RTB On Out Of Ammo",
+    "value": 10,
+    "options": [
+      {
+        "label": "No weapon",
+        "value": 0
+      },
+      {
+        "label": "All",
+        "value": 4294967295
+      },
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "-Cannons",
+        "value": 805306368
+      },
+      {
+        "label": "-Rockets",
+        "value": 30720
+      },
+      {
+        "label": "--Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "--Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "-Bombs",
+        "value": 2032
+      },
+      {
+        "label": "--Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "--Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "--Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "-Torpedoes",
+        "value": 4294967296
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "-Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "-Missiles",
+        "value": 268402688
+      },
+      {
+        "label": "-ASM",
+        "value": 4161536
+      },
+      {
+        "label": "--ATGM",
+        "value": 131072
+      },
+      {
+        "label": "--Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "--ARM",
+        "value": 32768
+      },
+      {
+        "label": "--Antiship Missiles",
+        "value": 65536
+      },
+      {
+        "label": "--Cruise Missiles",
+        "value": 2097152
+      },
+      {
+        "label": "-AAM",
+        "value": 264241152
+      },
+      {
+        "label": "--SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "--MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "--LR AAM",
+        "value": 16777216
+      }
+    ]
+  },
+  "11": {
+    "label": "Awarness Level",
+    "value": 11,
+    "options": [
+      {
+        "label": "Safe",
+        "value": 0
+      },
+      {
+        "label": "Aware",
+        "value": 1
+      },
+      {
+        "label": "Danger",
+        "value": 2
+      }
+    ]
+  },
+  "13": {
+    "label": "ECM Using",
+    "value": 13,
+    "options": [
+      {
+        "label": "NEVER USE",
+        "value": 1
+      },
+      {
+        "label": "USE IF ONLY LOCKED BY RADAR",
+        "value": 2
+      },
+      {
+        "label": "USE IF DETECTED OR LOCKED BY RADAR",
+        "value": 3
+      },
+      {
+        "label": "ALWAYS USE",
+        "value": 4
+      }
+    ]
+  },
+  "14": {
+    "label": "Restrict Air-to-Air Attack",
+    "value": 14,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "15": {
+    "label": "Restrict Jettision",
+    "value": 15,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "16": {
+    "label": "Restrict Afterburner",
+    "value": 16,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "17": {
+    "label": "Restrict Air-to-Ground Attack",
+    "value": 17,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "18": {
+    "label": "AA Missile Attack Ranges",
+    "value": 18,
+    "options": [
+      {
+        "label": "MAX RANGE LAUNCH",
+        "value": 1
+      },
+      {
+        "label": "NO ESCAPE ZONE LAUNCH",
+        "value": 2
+      },
+      {
+        "label": "HALF WAY MAX RANGE - NO ESCAPE ZONE LAUNCH",
+        "value": 3
+      },
+      {
+        "label": "LAUNCH BY TARGET THREAT ESTIMATE",
+        "value": 4
+      },
+      {
+        "label": "RANDOM BETWEEN MAX RANGE AND NO ESCAPE ZONE LAUNCH",
+        "value": 5
+      }
+    ]
+  },
+  "19": {
+    "label": "No Report Waypoint Pass",
+    "value": 19,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "20": {
+    "label": "Engage Air Weapons",
+    "value": 20,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "21": {
+    "label": "Radio Usage When Contact",
+    "value": 21,
+    "options": [
+      {
+        "label": "All",
+        "key": "All",
+        "children": [
+          {
+            "label": "Air",
+            "key": "Air",
+            "children": [
+              {
+                "label": "Airplanes",
+                "key": "Airplanes",
+                "children": [
+                  {
+                    "label": "Fighters",
+                    "key": "Fighters"
+                  },
+                  {
+                    "label": "Multirole fighters",
+                    "key": "Multirole fighters"
+                  },
+                  {
+                    "label": "Bombers",
+                    "key": "Bombers"
+                  }
+                ]
+              },
+              {
+                "label": "Helicopters",
+                "key": "Helicopters"
+              },
+              {
+                "label": "UAVs",
+                "key": "UAVs"
+              }
+            ]
+          },
+          {
+            "label": "Ground",
+            "key": "Ground Units",
+            "children": [
+              {
+                "label": "Infantry",
+                "key": "Infantry"
+              },
+              {
+                "label": "Fortifications",
+                "key": "Fortifications"
+              },
+              {
+                "label": "Vehicles",
+                "key": "Ground vehicles",
+                "children": [
+                  {
+                    "label": "Armor",
+                    "key": "Armored vehicles",
+                    "children": [
+                      {
+                        "label": "Tanks",
+                        "key": "Tanks"
+                      },
+                      {
+                        "label": "IFV",
+                        "key": "IFV"
+                      },
+                      {
+                        "label": "APC",
+                        "key": "APC"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Artillery",
+                    "key": "Artillery"
+                  },
+                  {
+                    "label": "Unarmed vehicles",
+                    "key": "Unarmed vehicles"
+                  }
+                ]
+              },
+              {
+                "label": "Air Defence",
+                "key": "Air Defence",
+                "children": [
+                  {
+                    "label": "AAA",
+                    "key": "AAA"
+                  },
+                  {
+                    "label": "SAM",
+                    "key": "SAM",
+                    "children": [
+                      {
+                        "label": "SR SAM",
+                        "key": "SR SAM"
+                      },
+                      {
+                        "label": "MR SAM",
+                        "key": "MR SAM"
+                      },
+                      {
+                        "label": "LR SAM",
+                        "key": "LR SAM"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Naval",
+            "key": "Naval",
+            "children": [
+              {
+                "label": "Ships",
+                "key": "Ships",
+                "children": [
+                  {
+                    "label": "Armed ships",
+                    "key": "Armed ships",
+                    "children": [
+                      {
+                        "label": "Aircraft Carriers",
+                        "key": "Aircraft Carriers"
+                      },
+                      {
+                        "label": "Cruisers",
+                        "key": "Cruisers"
+                      },
+                      {
+                        "label": "Destroyers",
+                        "key": "Destroyers"
+                      },
+                      {
+                        "label": "Frigates",
+                        "key": "Frigates"
+                      },
+                      {
+                        "label": "Corvettes",
+                        "key": "Corvettes"
+                      },
+                      {
+                        "label": "Light armed ships",
+                        "key": "Light armed ships"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Unarmed ships",
+                    "key": "Unarmed ships"
+                  }
+                ]
+              },
+              {
+                "label": "Submarines",
+                "key": "Submarines"
+              }
+            ]
+          },
+          {
+            "label": "Missiles",
+            "key": "Missile",
+            "children": [
+              {
+                "label": "Cruise missiles",
+                "key": "Cruise missiles"
+              },
+              {
+                "label": "Antiship Missiles",
+                "key": "Antiship Missiles"
+              },
+              {
+                "label": "AA Missiles",
+                "key": "AA Missiles"
+              },
+              {
+                "label": "AG Missiles",
+                "key": "AG Missiles"
+              },
+              {
+                "label": "SA Missiles",
+                "key": "SA Missiles"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "22": {
+    "label": "Radio Usage When Engage",
+    "value": 22,
+    "options": [
+      {
+        "label": "All",
+        "key": "All",
+        "children": [
+          {
+            "label": "Air",
+            "key": "Air",
+            "children": [
+              {
+                "label": "Airplanes",
+                "key": "Airplanes",
+                "children": [
+                  {
+                    "label": "Fighters",
+                    "key": "Fighters"
+                  },
+                  {
+                    "label": "Multirole fighters",
+                    "key": "Multirole fighters"
+                  },
+                  {
+                    "label": "Bombers",
+                    "key": "Bombers"
+                  }
+                ]
+              },
+              {
+                "label": "Helicopters",
+                "key": "Helicopters"
+              },
+              {
+                "label": "UAVs",
+                "key": "UAVs"
+              }
+            ]
+          },
+          {
+            "label": "Ground",
+            "key": "Ground Units",
+            "children": [
+              {
+                "label": "Infantry",
+                "key": "Infantry"
+              },
+              {
+                "label": "Fortifications",
+                "key": "Fortifications"
+              },
+              {
+                "label": "Vehicles",
+                "key": "Ground vehicles",
+                "children": [
+                  {
+                    "label": "Armor",
+                    "key": "Armored vehicles",
+                    "children": [
+                      {
+                        "label": "Tanks",
+                        "key": "Tanks"
+                      },
+                      {
+                        "label": "IFV",
+                        "key": "IFV"
+                      },
+                      {
+                        "label": "APC",
+                        "key": "APC"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Artillery",
+                    "key": "Artillery"
+                  },
+                  {
+                    "label": "Unarmed vehicles",
+                    "key": "Unarmed vehicles"
+                  }
+                ]
+              },
+              {
+                "label": "Air Defence",
+                "key": "Air Defence",
+                "children": [
+                  {
+                    "label": "AAA",
+                    "key": "AAA"
+                  },
+                  {
+                    "label": "SAM",
+                    "key": "SAM",
+                    "children": [
+                      {
+                        "label": "SR SAM",
+                        "key": "SR SAM"
+                      },
+                      {
+                        "label": "MR SAM",
+                        "key": "MR SAM"
+                      },
+                      {
+                        "label": "LR SAM",
+                        "key": "LR SAM"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Naval",
+            "key": "Naval",
+            "children": [
+              {
+                "label": "Ships",
+                "key": "Ships",
+                "children": [
+                  {
+                    "label": "Armed ships",
+                    "key": "Armed ships",
+                    "children": [
+                      {
+                        "label": "Aircraft Carriers",
+                        "key": "Aircraft Carriers"
+                      },
+                      {
+                        "label": "Cruisers",
+                        "key": "Cruisers"
+                      },
+                      {
+                        "label": "Destroyers",
+                        "key": "Destroyers"
+                      },
+                      {
+                        "label": "Frigates",
+                        "key": "Frigates"
+                      },
+                      {
+                        "label": "Corvettes",
+                        "key": "Corvettes"
+                      },
+                      {
+                        "label": "Light armed ships",
+                        "key": "Light armed ships"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Unarmed ships",
+                    "key": "Unarmed ships"
+                  }
+                ]
+              },
+              {
+                "label": "Submarines",
+                "key": "Submarines"
+              }
+            ]
+          },
+          {
+            "label": "Missiles",
+            "key": "Missile",
+            "children": [
+              {
+                "label": "Cruise missiles",
+                "key": "Cruise missiles"
+              },
+              {
+                "label": "Antiship Missiles",
+                "key": "Antiship Missiles"
+              },
+              {
+                "label": "AA Missiles",
+                "key": "AA Missiles"
+              },
+              {
+                "label": "AG Missiles",
+                "key": "AG Missiles"
+              },
+              {
+                "label": "SA Missiles",
+                "key": "SA Missiles"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "23": {
+    "label": "Radio Usage When Kill",
+    "value": 23,
+    "options": [
+      {
+        "label": "All",
+        "key": "All",
+        "children": [
+          {
+            "label": "Air",
+            "key": "Air",
+            "children": [
+              {
+                "label": "Airplanes",
+                "key": "Airplanes",
+                "children": [
+                  {
+                    "label": "Fighters",
+                    "key": "Fighters"
+                  },
+                  {
+                    "label": "Multirole fighters",
+                    "key": "Multirole fighters"
+                  },
+                  {
+                    "label": "Bombers",
+                    "key": "Bombers"
+                  }
+                ]
+              },
+              {
+                "label": "Helicopters",
+                "key": "Helicopters"
+              },
+              {
+                "label": "UAVs",
+                "key": "UAVs"
+              }
+            ]
+          },
+          {
+            "label": "Ground",
+            "key": "Ground Units",
+            "children": [
+              {
+                "label": "Infantry",
+                "key": "Infantry"
+              },
+              {
+                "label": "Fortifications",
+                "key": "Fortifications"
+              },
+              {
+                "label": "Vehicles",
+                "key": "Ground vehicles",
+                "children": [
+                  {
+                    "label": "Armor",
+                    "key": "Armored vehicles",
+                    "children": [
+                      {
+                        "label": "Tanks",
+                        "key": "Tanks"
+                      },
+                      {
+                        "label": "IFV",
+                        "key": "IFV"
+                      },
+                      {
+                        "label": "APC",
+                        "key": "APC"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Artillery",
+                    "key": "Artillery"
+                  },
+                  {
+                    "label": "Unarmed vehicles",
+                    "key": "Unarmed vehicles"
+                  }
+                ]
+              },
+              {
+                "label": "Air Defence",
+                "key": "Air Defence",
+                "children": [
+                  {
+                    "label": "AAA",
+                    "key": "AAA"
+                  },
+                  {
+                    "label": "SAM",
+                    "key": "SAM",
+                    "children": [
+                      {
+                        "label": "SR SAM",
+                        "key": "SR SAM"
+                      },
+                      {
+                        "label": "MR SAM",
+                        "key": "MR SAM"
+                      },
+                      {
+                        "label": "LR SAM",
+                        "key": "LR SAM"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "label": "Naval",
+            "key": "Naval",
+            "children": [
+              {
+                "label": "Ships",
+                "key": "Ships",
+                "children": [
+                  {
+                    "label": "Armed ships",
+                    "key": "Armed ships",
+                    "children": [
+                      {
+                        "label": "Aircraft Carriers",
+                        "key": "Aircraft Carriers"
+                      },
+                      {
+                        "label": "Cruisers",
+                        "key": "Cruisers"
+                      },
+                      {
+                        "label": "Destroyers",
+                        "key": "Destroyers"
+                      },
+                      {
+                        "label": "Frigates",
+                        "key": "Frigates"
+                      },
+                      {
+                        "label": "Corvettes",
+                        "key": "Corvettes"
+                      },
+                      {
+                        "label": "Light armed ships",
+                        "key": "Light armed ships"
+                      }
+                    ]
+                  },
+                  {
+                    "label": "Unarmed ships",
+                    "key": "Unarmed ships"
+                  }
+                ]
+              },
+              {
+                "label": "Submarines",
+                "key": "Submarines"
+              }
+            ]
+          },
+          {
+            "label": "Missiles",
+            "key": "Missile",
+            "children": [
+              {
+                "label": "Cruise missiles",
+                "key": "Cruise missiles"
+              },
+              {
+                "label": "Antiship Missiles",
+                "key": "Antiship Missiles"
+              },
+              {
+                "label": "AA Missiles",
+                "key": "AA Missiles"
+              },
+              {
+                "label": "AG Missiles",
+                "key": "AG Missiles"
+              },
+              {
+                "label": "SA Missiles",
+                "key": "SA Missiles"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "24": {
+    "label": "Aircraft Intercept Range",
+    "value": 24,
+    "data": 100
+  },
+  "25": {
+    "label": "Jettison fuel tanks when empty",
+    "value": 25,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "26": {
+    "label": "Override AI attack avoidance decisions",
+    "value": 26,
+    "options": [
+      {
+        "label": "On",
+        "value": true
+      },
+      {
+        "label": "Off",
+        "value": false
+      }
+    ]
+  },
+  "27": {
+    "label": "Altitude Restriction Min",
+    "value": 27,
+    "data": 200
+  },
+  "28": {
+    "label": "Restrict Target",
+    "value": 28,
+    "options": [
+      {
+        "label": "Engage All Units",
+        "value": 0
+      },
+      {
+        "label": "Engage Air Units Only",
+        "value": 1
+      },
+      {
+        "label": "Engage Ground Units Only",
+        "value": 2
+      }
+    ]
+  },
+  "29": {
+    "label": "Altitude Restriction Max",
+    "value": 29,
+    "data": 3500
+  },
+  "-1": {
+    "label": "No Option",
+    "value": -1,
+    "options": [
+      {
+        "label": "",
+        "value": 0
+      }
+    ]
+  }
+}

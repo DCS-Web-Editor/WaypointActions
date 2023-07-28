@@ -364,6 +364,7 @@ import {
   NSlider,
   NTimePicker,
   NTransfer,
+  NCascader,
 } from "naive-ui";
 import AttackUnit from "../components/AttackUnit.vue";
 import FacUnit from "../components/FacUnit.vue";

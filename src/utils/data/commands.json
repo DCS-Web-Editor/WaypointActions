@@ -1,0 +1,164 @@
+{
+  "NoAction": {
+    "label": "No Action",
+    "value": "NoAction",
+    "params": {}
+  },
+  "Script": {
+    "label": "Run Script",
+    "value": "Script",
+    "params": {
+      "command": ""
+    }
+  },
+  "ScriptFile": {
+    "label": "Script File",
+    "value": "ScriptFile",
+    "params": {
+      "file": ""
+    }
+  },
+  "SetCallsign": {
+    "label": "Set Callsign",
+    "value": "SetCallsign",
+    "params": {}
+  },
+  "SetFrequency": {
+    "label": "Set Frequency",
+    "value": "SetFrequency",
+    "params": {
+      "frequency": 131000000,
+      "modulation": 0,
+      "power": 10
+    }
+  },
+  "SetFrequencyForUnit": {
+    "label": "Set Frequency For Unit",
+    "value": "SetFrequencyForUnit",
+    "params": {
+      "frequency": 131000000,
+      "modulation": 0,
+      "power": 10
+    }
+  },
+  "TransmitMessage": {
+    "label": "Transmit Message",
+    "value": "TransmitMessage",
+    "params": {
+      "file": "",
+      "subtitle": "",
+      "loop": false,
+      "duration": 5
+    }
+  },
+  "StopTransmission": {
+    "label": "Stop Transmitting",
+    "value": "StopTransmission",
+    "params": {}
+  },
+  "SwitchWaypoint": {
+    "label": "Switch Waypoint",
+    "value": "SwitchWaypoint",
+    "params": {}
+  },
+  "SwitchAction": {
+    "label": "Switch Action",
+    "value": "SwitchAction",
+    "params": {
+      "actionIndex": 1
+    }
+  },
+  "SetInvisible": {
+    "label": "Set Invisible",
+    "value": "SetInvisible",
+    "params": {
+      "value": true
+    }
+  },
+  "SetImmortal": {
+    "label": "Set Immortal",
+    "value": "SetImmortal",
+    "params": {
+      "value": true
+    }
+  },
+  "Start": {
+    "label": "Start",
+    "value": "Start",
+    "params": {}
+  },
+  "LoadingShip": {
+    "label": "Set Ship Draft",
+    "value": "LoadingShip",
+    "params": {
+      "cargo": 0
+    }
+  },
+  "ActivateBeacon": {
+    "label": "Activate TACAN",
+    "value": "ActivateBeacon",
+    "params": {
+      "type": 4,
+      "system": 4,
+      "bearing": true,
+      "modeChannel": "X",
+      "channel": 1,
+      "AA": true,
+      "frequency": 1000000,
+      "callsign": "TKR"
+    }
+  },
+  "DeactivateBeacon": {
+    "label": "Deactivate TACAN",
+    "value": "DeactivateBeacon",
+    "params": {}
+  },
+  "ActivateICLS": {
+    "label": "Activate ICLS",
+    "value": "ActivateICLS",
+    "params": {
+      "type": 131584,
+      "channel": 1
+    }
+  },
+  "DeactivateICLS": {
+    "label": "Deactivate ICLS",
+    "value": "DeactivateICLS",
+    "params": {}
+  },
+  "ActivateLink4": {
+    "label": "Activate Link 4",
+    "value": "ActivateLink4",
+    "params": {}
+  },
+  "DeactivateLink4": {
+    "label": "Deactivate Link 4",
+    "value": "DeactivateLink4",
+    "params": {}
+  },
+  "ActivateACLS": {
+    "label": "Activate ACLS",
+    "value": "ActivateACLS",
+    "params": {}
+  },
+  "DeactivateACLS": {
+    "label": "Deactivate ACLS",
+    "value": "DeactivateACLS",
+    "params": {}
+  },
+  "ELPRS": {
+    "label": "ELPRS",
+    "value": "ELPRS",
+    "params": {
+      "value": true,
+      "groupId": 0
+    }
+  },
+  "SMOKE_ON_OFF": {
+    "label": "Smoke On/Off",
+    "value": "SMOKE_ON_OFF",
+    "params": {
+      "value": true
+    }
+  }
+}

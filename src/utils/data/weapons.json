@@ -1,0 +1,1161 @@
+{
+  "nothing": {
+    "Default": [
+      {
+        "label": "Auto",
+        "value": 0
+      }
+    ],
+    "AFAC": [],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Pinpoint Strike": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "unknown": {
+    "Default": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Torpedoes",
+        "value": 4294967296
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Missiles",
+        "value": 268402688
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      },
+      {
+        "label": "AAM",
+        "value": 264241152
+      },
+      {
+        "label": "SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "LR AAM",
+        "value": 16777216
+      },
+      {
+        "label": "Decoys",
+        "value": 8589934592
+      }
+    ],
+    "AFAC": [],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Pinpoint Strike": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "plane": {
+    "Default": [
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "AAM",
+        "value": 264241152
+      },
+      {
+        "label": "SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "LR AAM",
+        "value": 16777216
+      },
+      {
+        "label": "Decoys",
+        "value": 8589934592
+      }
+    ],
+    "AFAC": [],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Pinpoint Strike": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "helicopter": {
+    "Default": [
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "AAM",
+        "value": 264241152
+      },
+      {
+        "label": "SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "LR AAM",
+        "value": 16777216
+      }
+    ],
+    "AFAC": [],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Pinpoint Strike": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "vehicle": {
+    "Default": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Decoys",
+        "value": 8589934592
+      }
+    ],
+    "AFAC": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Smoke Rockets",
+        "value": 4096
+      },
+      {
+        "label": "Candle Rockets",
+        "value": 8192
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Missiles",
+        "value": 268402688
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      },
+      {
+        "label": "AAM",
+        "value": 264241152
+      },
+      {
+        "label": "SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "LR AAM",
+        "value": 16777216
+      }
+    ],
+    "Pinpoint Strike": [
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      }
+    ],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "ship": {
+    "Default": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Torpedoes",
+        "value": 4294967296
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Decoys",
+        "value": 8589934592
+      }
+    ],
+    "AFAC": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Smoke Rockets",
+        "value": 4096
+      },
+      {
+        "label": "Candle Rockets",
+        "value": 8192
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Missiles",
+        "value": 268402688
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      },
+      {
+        "label": "AAM",
+        "value": 264241152
+      },
+      {
+        "label": "SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "LR AAM",
+        "value": 16777216
+      }
+    ],
+    "Pinpoint Strike": [
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      }
+    ],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "static": {
+    "Default": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      },
+      {
+        "label": "Decoys",
+        "value": 8589934592
+      }
+    ],
+    "AFAC": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Smoke Rockets",
+        "value": 4096
+      },
+      {
+        "label": "Candle Rockets",
+        "value": 8192
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Missiles",
+        "value": 268402688
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      },
+      {
+        "label": "AAM",
+        "value": 264241152
+      },
+      {
+        "label": "SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "LR AAM",
+        "value": 16777216
+      }
+    ],
+    "Pinpoint Strike": [
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      }
+    ],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "point": {
+    "Default": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      },
+      {
+        "label": "Decoys",
+        "value": 8589934592
+      }
+    ],
+    "AFAC": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Cannon",
+        "value": 805306368
+      },
+      {
+        "label": "Rockets",
+        "value": 30720
+      },
+      {
+        "label": "Light Rockets",
+        "value": 2048
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Smoke Rockets",
+        "value": 4096
+      },
+      {
+        "label": "Candle Rockets",
+        "value": 8192
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Missiles",
+        "value": 268402688
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "ATGM",
+        "value": 131072
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      },
+      {
+        "label": "AAM",
+        "value": 264241152
+      },
+      {
+        "label": "SR AAM",
+        "value": 4194304
+      },
+      {
+        "label": "MR AAM",
+        "value": 8388608
+      },
+      {
+        "label": "LR AAM",
+        "value": 16777216
+      }
+    ],
+    "Pinpoint Strike": [
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      }
+    ],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Refueling": [],
+    "Runway Attack": []
+  },
+  "runway": {
+    "Default": [
+      {
+        "label": "Unguided",
+        "value": 805339120
+      },
+      {
+        "label": "Heavy Rockets",
+        "value": 16384
+      },
+      {
+        "label": "Bombs",
+        "value": 2032
+      },
+      {
+        "label": "Iron Bombs",
+        "value": 240
+      },
+      {
+        "label": "Cluster Bombs",
+        "value": 768
+      },
+      {
+        "label": "Candle Bombs",
+        "value": 1024
+      },
+      {
+        "label": "Guided",
+        "value": 268402702
+      },
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "ASM",
+        "value": 4161536
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      }
+    ],
+    "Pinpoint Strike": [
+      {
+        "label": "Guided Bombs",
+        "value": 14
+      },
+      {
+        "label": "Standard ASM",
+        "value": 1835008
+      },
+      {
+        "label": "ARM",
+        "value": 32768
+      },
+      {
+        "label": "Antiship",
+        "value": 65536
+      },
+      {
+        "label": "Cruise Missile",
+        "value": 2097152
+      }
+    ],
+    "AFAC": [],
+    "Antiship Strike": [],
+    "CAS": [],
+    "Escort": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "SEAD": [],
+    "Transport": [],
+    "AWACS": [],
+    "Airborne": [],
+    "CAP": [],
+    "Fighter Sweep": [],
+    "GAI": [],
+    "Intercept": [],
+    "Refueling": [],
+    "Runway Attack": []
+  }
+}

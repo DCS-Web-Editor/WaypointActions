@@ -1,0 +1,58 @@
+[
+  {
+    "label": "Wedge",
+    "value": 8,
+    "children": [
+      {
+        "label": "Wedge 70",
+        "value": 524288
+      }
+    ]
+  },
+  {
+    "label": "Column",
+    "value": 11,
+    "children": [
+      {
+        "label": "Column 70",
+        "value": 720896
+      }
+    ]
+  },
+  {
+    "label": "Echelon",
+    "value": 9,
+    "children": [
+      {
+        "label": "Echelon Right 70",
+        "value": 589825
+      },
+      {
+        "label": "Echelon Left 70",
+        "value": 590081
+      }
+    ]
+  },
+  {
+    "label": "Front",
+    "value": 10,
+    "children": [
+      {
+        "label": "Right Front 300",
+        "value": 655361
+      },
+      {
+        "label": "Right Front 600",
+        "value": 655362
+      },
+      {
+        "label": "Left Front 300",
+        "value": 655617
+      },
+      {
+        "label": "Left Front 600",
+        "value": 655618
+      }
+    ]
+  }
+]

@@ -8,13 +8,13 @@ import {
   Task,
   type TPerformTask,
 } from "./consts";
-import type { TConstsList, TUpperLevelTasks } from "../types";
+import type { TActionType, TConstsList, TUnitType, TUpperLevelTasks } from "../types";
 import { performTask, enrouteTask, commands, options } from "./actions";
 
 type AvailableActions = Record<
-  "plane" | "helicopter" | "vehicle" | "ship",
+  TUnitType,
   Record<
-    "task" | "enrouteTask" | "commands" | "options",
+    TActionType,
     Record<
       TUpperLevelTasks,
       Array<TConstsList<TPerformTask | TEnrouteTask | TPerformCommand | TOptionName>>

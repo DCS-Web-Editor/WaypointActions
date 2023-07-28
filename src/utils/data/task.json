@@ -1,0 +1,288 @@
+{
+  "NoTask": {
+    "label": "No Task",
+    "value": "NoTask",
+    "params": {}
+  },
+  "AttackGroup": {
+    "label": "Attack Group",
+    "value": "AttackGroup",
+    "params": {
+      "groupId": null,
+      "weaponType": null,
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1
+    }
+  },
+  "AttackUnit": {
+    "label": "Attack Unit",
+    "value": "AttackUnit",
+    "params": {
+      "groupId": null,
+      "weaponType": null,
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1
+    }
+  },
+  "AttackMapObject": {
+    "label": "Attack Map Object",
+    "value": "AttackMapObject",
+    "params": {
+      "weaponType": null,
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1
+    }
+  },
+  "Bombing": {
+    "label": "Bombing",
+    "value": "Bombing",
+    "params": {
+      "weaponType": null,
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1,
+      "attackType": null
+    }
+  },
+  "BombingRunway": {
+    "label": "Bombing Runway",
+    "value": "BombingRunway",
+    "params": {
+      "weaponType": null,
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1
+    }
+  },
+  "CargoTransportation": {
+    "label": "Cargo Transportation",
+    "value": "CargoTransportation",
+    "params": {
+      "groupId": null,
+      "zoneId": null
+    }
+  },
+  "CargoTransportationPlane": {
+    "label": "Cargo Transportation Plane",
+    "value": "CargoTransportationPlane",
+    "params": {
+      "groupId": null
+    }
+  },
+  "CargoUnloadPlane": {
+    "label": "Cargo Unload Plane",
+    "value": "CargoUnloadPlane",
+    "params": {
+      "groupId": null
+    }
+  },
+  "Orbit": {
+    "label": "Orbit",
+    "value": "Orbit",
+    "params": {
+      "pattern": null
+    }
+  },
+  "Land": {
+    "label": "Land",
+    "value": "Land",
+    "params": {
+      "durationFlag": false,
+      "duration": 300
+    }
+  },
+  "Refueling": {
+    "label": "Refueling",
+    "value": "Refueling",
+    "params": {}
+  },
+  "FAC_AttackGroup": {
+    "label": "FAC Attack Group",
+    "value": "FAC_AttackGroup",
+    "params": {
+      "groupId": null,
+      "weaponType": null
+    }
+  },
+  "FireAtPoint": {
+    "label": "Fire At Point",
+    "value": "FireAtPoint",
+    "params": {
+      "zoneRadius": 0,
+      "templateId": "",
+      "expendQtyEnabled": false,
+      "expendQty": 1,
+      "altitude": null,
+      "alt_type": 1
+    }
+  },
+  "Hold": {
+    "label": "Hold",
+    "value": "Hold",
+    "params": {
+      "templateId": ""
+    }
+  },
+  "Follow": {
+    "label": "Follow",
+    "value": "Follow",
+    "params": {
+      "pos": {
+        "x": -500,
+        "y": 0,
+        "z": 200
+      },
+      "lastWptIndexFlag": true,
+      "lastWptIndexFlagChangedManually": true,
+      "lastWptIndex": null
+    }
+  },
+  "Escort": {
+    "label": "Escort",
+    "value": "Escort",
+    "params": {
+      "pos": {
+        "x": -500,
+        "y": 0,
+        "z": 200
+      },
+      "lastWptIndexFlag": true,
+      "lastWptIndexFlagChangedManually": true,
+      "lastWptIndex": null,
+      "engagementDistMax": 60000,
+      "targetTypes": [
+        "Planes"
+      ]
+    }
+  },
+  "EmbarkToTransport": {
+    "label": "Embark To Transport",
+    "value": "EmbarkToTransport",
+    "params": {
+      "zoneRadius": 200
+    }
+  },
+  "GoToWaypoint": {
+    "label": "Go To Waypoint",
+    "value": "GoToWaypoint",
+    "params": {}
+  },
+  "Embarking": {
+    "label": "Embarking",
+    "value": "Embarking",
+    "params": {
+      "durationFlag": false,
+      "distributionFlag": false,
+      "duration": 300,
+      "groupsForEmbarking": [],
+      "distribution": {},
+      "onStartMission": false
+    }
+  },
+  "Disembarking": {
+    "label": "Disembarking",
+    "value": "Disembarking",
+    "params": {
+      "x": 0,
+      "y": 0,
+      "groupsForEmbarking": {}
+    }
+  },
+  "AttachTrailer": {
+    "label": "Attach Trailer",
+    "value": "AttachTrailer",
+    "params": {
+      "onStartMission": false
+    }
+  },
+  "DetachTrailer": {
+    "label": "Detach Trailer",
+    "value": "DetachTrailer",
+    "params": {
+      "x": 0,
+      "y": 0
+    }
+  },
+  "Aerobatics": {
+    "label": "Aerobatics",
+    "value": "Aerobatics",
+    "params": {}
+  },
+  "CarpetBombing": {
+    "label": "Carpet Bombing",
+    "value": "CarpetBombing",
+    "params": {
+      "weaponType": "weaponTable.ironBombs",
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1,
+      "carpetLength": 500,
+      "attackType": "Carpet"
+    }
+  },
+  "FollowBigFormation": {
+    "label": "Follow Big Formation",
+    "value": "FollowBigFormation",
+    "params": {
+      "pos": {
+        "x": -150,
+        "y": 0,
+        "z": 150
+      },
+      "lastWptIndexFlag": true,
+      "lastWptIndexFlagChangedManually": true,
+      "lastWptIndex": null,
+      "formationType": 0,
+      "posInBox": 1,
+      "posInGroup": 1,
+      "posInWing": 1
+    }
+  },
+  "GroundEscort": {
+    "label": "Ground Escort",
+    "value": "GroundEscort",
+    "params": {
+      "lastWptIndexFlag": true,
+      "lastWptIndexFlagChangedManually": true,
+      "lastWptIndex": null,
+      "engagementDistMax": 500,
+      "targetTypes": [
+        "Helicopters",
+        "Ground Units"
+      ]
+    }
+  },
+  "ParatroopersDrop": {
+    "label": "Paratroopers Drop",
+    "value": "ParatroopersDrop",
+    "params": {
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1,
+      "carpetLength": 500,
+      "attackType": "Carpet",
+      "scriptFileName": "",
+      "groupsOnBoard": []
+    }
+  },
+  "ShipHoldPoint": {
+    "label": "Ship Hold Point",
+    "value": "ShipHoldPoint",
+    "params": {}
+  },
+  "RecoveryTanker": {
+    "label": "Recovery Tanker",
+    "value": "RecoveryTanker",
+    "params": {
+      "lastWptIndexFlag": true,
+      "lastWptIndexFlagChangedManually": true,
+      "lastWptIndex": null,
+      "targetTypes": [
+        "Ships"
+      ]
+    }
+  }
+}

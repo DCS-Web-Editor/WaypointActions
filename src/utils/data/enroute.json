@@ -1,0 +1,120 @@
+{
+  "NoEnrouteTask": {
+    "label": "No Task",
+    "value": "NoEnrouteTask",
+    "params": {}
+  },
+  "AntiShip": {
+    "label": "Anti Ship",
+    "value": "AntiShip",
+    "params": {
+      "targetTypes": [
+        "Ships"
+      ],
+      "priority": 0
+    }
+  },
+  "AWACS": {
+    "label": "AWACS",
+    "value": "AWACS",
+    "params": {}
+  },
+  "CAS": {
+    "label": "CAS",
+    "value": "CAS",
+    "params": {
+      "targetTypes": [
+        "Helicopters",
+        "Ground Units",
+        "Light armed ships"
+      ],
+      "priority": 0
+    }
+  },
+  "CAP": {
+    "label": "CAP",
+    "value": "CAP",
+    "params": {
+      "targetTypes": [
+        "Air"
+      ],
+      "priority": 0
+    }
+  },
+  "EngageGroup": {
+    "label": "Engage Group",
+    "value": "EngageGroup",
+    "params": {
+      "groupId": null,
+      "weaponType": null,
+      "priority": 1
+    }
+  },
+  "EngageTargets": {
+    "label": "Engage Targets",
+    "value": "EngageTargets",
+    "params": {
+      "maxDistEnabled": false,
+      "maxDist": 15000
+    }
+  },
+  "EngageTargetsInZone": {
+    "label": "Engage Targets In Zone",
+    "value": "EngageTargetsInZone",
+    "params": {
+      "zoneRadius": 5000
+    }
+  },
+  "EngageUnit": {
+    "label": "Engage Unit",
+    "value": "EngageUnit",
+    "params": {
+      "unitId": null,
+      "weaponType": null,
+      "priority": 1,
+      "groupAttack": false,
+      "attackQtyLimit": false,
+      "attackQty": 1
+    }
+  },
+  "EWR": {
+    "label": "EWR",
+    "value": "EWR",
+    "params": {}
+  },
+  "FAC": {
+    "label": "FAC",
+    "value": "FAC",
+    "params": {}
+  },
+  "FAC_EngageGroup": {
+    "label": "FAC Engage Group",
+    "value": "FAC_EngageGroup",
+    "params": {}
+  },
+  "FighterSweep": {
+    "label": "Fighter Sweep",
+    "value": "FighterSweep",
+    "params": {
+      "targetTypes": [
+        "Planes"
+      ],
+      "priority": 0
+    }
+  },
+  "SEAD": {
+    "label": "SEAD",
+    "value": "SEAD",
+    "params": {
+      "targetTypes": [
+        "Air Defence"
+      ],
+      "priority": 0
+    }
+  },
+  "Tanker": {
+    "label": "Tanker",
+    "value": "Tanker",
+    "params": {}
+  }
+}

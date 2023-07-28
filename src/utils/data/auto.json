@@ -1,0 +1,901 @@
+{
+  "all": {
+    "Default": [
+      {
+        "actionType": "commands",
+        "data": {
+          "label": "ELPRS",
+          "value": "ELPRS",
+          "params": {
+            "value": true,
+            "groupId": 0
+          }
+        }
+      }
+    ],
+    "AWACS": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "AWACS",
+          "value": "AWACS",
+          "params": {}
+        }
+      }
+    ],
+    "Refueling": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "Tanker",
+          "value": "Tanker",
+          "params": {}
+        }
+      },
+      {
+        "actionType": "commands",
+        "data": {
+          "label": "Activate TACAN",
+          "value": "ActivateBeacon",
+          "params": {
+            "type": 4,
+            "system": 4,
+            "bearing": true,
+            "modeChannel": "X",
+            "channel": 1,
+            "AA": true,
+            "frequency": 1000000,
+            "callsign": "TKR"
+          }
+        }
+      }
+    ],
+    "Fighter Sweep": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "Fighter Sweep",
+          "value": "FighterSweep",
+          "params": {
+            "targetTypes": [
+              "Planes"
+            ],
+            "priority": 0
+          }
+        }
+      }
+    ],
+    "CAS": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "CAS",
+          "value": "CAS",
+          "params": {
+            "targetTypes": [
+              "Helicopters",
+              "Ground Units",
+              "Light armed ships"
+            ],
+            "priority": 0
+          }
+        }
+      }
+    ],
+    "CAP": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "CAP",
+          "value": "CAP",
+          "params": {
+            "targetTypes": [
+              "Air"
+            ],
+            "priority": 0
+          }
+        }
+      }
+    ],
+    "SEAD": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "SEAD",
+          "value": "SEAD",
+          "params": {
+            "targetTypes": [
+              "Air Defence"
+            ],
+            "priority": 0
+          }
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 1,
+          "value": 4
+        }
+      }
+    ],
+    "Antiship Strike": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "Anti Ship",
+          "value": "AntiShip",
+          "params": {
+            "targetTypes": [
+              "Ships"
+            ],
+            "priority": 0
+          }
+        }
+      }
+    ],
+    "AFAC": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "FAC",
+          "value": "FAC",
+          "params": {}
+        }
+      }
+    ],
+    "Escort": [],
+    "Reconnaissance": [],
+    "Runway Attack": [],
+    "GAI": [],
+    "Ground Attack": [],
+    "Nothing": [],
+    "Transport": [],
+    "Airborne": [],
+    "Intercept": [],
+    "Pinpoint Strike": []
+  },
+  "plane": {
+    "Default": [],
+    "AWACS": [],
+    "Refueling": [],
+    "Fighter Sweep": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 17,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 18,
+          "value": 4
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 19,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "CAS": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 1,
+          "value": 2
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 3,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 5,
+          "value": 131074,
+          "variantIndex": 2,
+          "formationIndex": 2
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 15,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 19,
+          "value": true
+        }
+      }
+    ],
+    "CAP": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 17,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 18,
+          "value": 4
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 19,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "SEAD": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 13,
+          "value": 2
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 19,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "Air Defence;",
+          "targetTypes": [
+            "Air Defence"
+          ],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "Antiship Strike": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 1,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 3,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 5,
+          "value": 131074,
+          "variantIndex": 2,
+          "formationIndex": 2
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 15,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "AFAC": [],
+    "Escort": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 17,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 18,
+          "value": 4
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 19,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "Intercept": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 17,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 18,
+          "value": 4
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 19,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "Ground Attack": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 1,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 3,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 5,
+          "value": 131074,
+          "variantIndex": 2,
+          "formationIndex": 2
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 15,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "Pinpoint Strike": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 1,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 3,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 5,
+          "value": 131074,
+          "variantIndex": 2,
+          "formationIndex": 2
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 15,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "Runway Attack": [
+      {
+        "actionType": "options",
+        "data": {
+          "name": 1,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 3,
+          "value": 1
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 5,
+          "value": 131074,
+          "variantIndex": 2,
+          "formationIndex": 2
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 15,
+          "value": true
+        }
+      },
+      {
+        "actionType": "options",
+        "data": {
+          "name": 21,
+          "value": "none;",
+          "targetTypes": [],
+          "noTargetTypes": [
+            "Fighters",
+            "Multirole fighters",
+            "Bombers",
+            "Helicopters",
+            "UAVs",
+            "Infantry",
+            "Fortifications",
+            "Tanks",
+            "IFV",
+            "APC",
+            "Artillery",
+            "Unarmed vehicles",
+            "AAA",
+            "SR SAM",
+            "MR SAM",
+            "LR SAM",
+            "Aircraft Carriers",
+            "Cruisers",
+            "Destroyers",
+            "Frigates",
+            "Corvettes",
+            "Light armed ships",
+            "Unarmed ships",
+            "Submarines",
+            "Cruise missiles",
+            "Antiship Missiles",
+            "AA Missiles",
+            "AG Missiles",
+            "SA Missiles"
+          ]
+        }
+      }
+    ],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "Transport": [],
+    "Airborne": [],
+    "GAI": []
+  },
+  "vehicle": {
+    "Default": [
+      {
+        "actionType": "enrouteTask",
+        "data": {
+          "label": "EWR",
+          "value": "EWR",
+          "params": {}
+        }
+      }
+    ],
+    "AFAC": [],
+    "AWACS": [],
+    "Refueling": [],
+    "Fighter Sweep": [],
+    "CAS": [],
+    "CAP": [],
+    "SEAD": [],
+    "Antiship Strike": [],
+    "Escort": [],
+    "Intercept": [],
+    "Ground Attack": [],
+    "Pinpoint Strike": [],
+    "Runway Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "Transport": [],
+    "Airborne": [],
+    "GAI": []
+  },
+  "ship": {
+    "Default": [
+      {
+        "actionType": "commands",
+        "data": {
+          "label": "Activate TACAN",
+          "value": "ActivateBeacon",
+          "params": {
+            "type": 4,
+            "system": 4,
+            "bearing": true,
+            "modeChannel": "X",
+            "channel": 1,
+            "AA": true,
+            "frequency": 1000000,
+            "callsign": "TKR"
+          }
+        }
+      }
+    ],
+    "AFAC": [],
+    "AWACS": [],
+    "Refueling": [],
+    "Fighter Sweep": [],
+    "CAS": [],
+    "CAP": [],
+    "SEAD": [],
+    "Antiship Strike": [],
+    "Escort": [],
+    "Intercept": [],
+    "Ground Attack": [],
+    "Pinpoint Strike": [],
+    "Runway Attack": [],
+    "Nothing": [],
+    "Reconnaissance": [],
+    "Transport": [],
+    "Airborne": [],
+    "GAI": []
+  }
+}
