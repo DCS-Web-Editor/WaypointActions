@@ -1,5 +1,13 @@
 # waypointactions
 
+## 0.5.1-next.1
+
+### Patch Changes
+
+- bdde3f0: (feat): Added PerformTask template
+- bdde3f0: (refactor): Split components into views and components
+- 582ac5c: (fix): Fixed the creation of EnrouteTasks since keys and ids were improperly casted
+
 ## 0.5.1-next.0
 
 ### Patch Changes
