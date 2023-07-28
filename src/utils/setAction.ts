@@ -111,7 +111,7 @@ function getAutoActions(
   switch (params.actionType) {
     case "enrouteTask":
       if (["AWACS", "Refuleing", "CAS", "CAP", "Fighter Sweep", "SEAD", "Anti-ship"].includes(task))
-        return createTask(number, params.data.params, params.data.value, "EngageTargets", true);
+        return createTask(number, params.data.params, "EngageTargets", params.data.value, true);
       else return createTask(number, params.data.params, params.data.value, undefined, true);
     case "commands":
       return createWrappedAction(number, params.data.params, params.data.value, true);

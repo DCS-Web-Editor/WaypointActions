@@ -70,7 +70,7 @@ import { useEntryStore } from "../stores/entryState";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef } from "vue";
 import type { TActionType, TUnitType, TUpperLevelTasks } from "../types";
-import { Task, EnrouteTask, PerformCommand, OptionName } from "../utils/consts";
+import { Task, EnrouteTask, PerformCommand, OptionName, TEnrouteTask } from "../utils/consts";
 import { availableActions } from "../utils/availableActions";
 import { setFormation, defaultAction, createWrappedAction, createTask } from "../utils/setAction";
 import { commands, enrouteTask, options, performTask } from "../utils/actions";
@@ -228,13 +228,23 @@ function setActionValue(value: number | string) {
     }
     if (actionType.value === "enrouteTask") {
       if (
-        ["AWACS", "Refuleing", "CAS", "CAP", "Fighter Sweep", "SEAD", "Anti-ship"].includes(value)
+        (
+          [
+            "AWACS",
+            "Tanker",
+            "CAS",
+            "CAP",
+            "FighterSweep",
+            "SEAD",
+            "AntiShip",
+          ] satisfies TEnrouteTask[]
+        ).some((v) => v === value)
       ) {
         selTaskData.value = createTask(
           selTaskData.value.number,
           enrouteTask[value].params,
-          value,
           "EngageTargets",
+          value,
         );
       } else {
         selTaskData.value = createTask(selTaskData.value.number, enrouteTask[value].params, value);
