@@ -52,6 +52,7 @@ export interface TPerformTaskParams<T extends object> extends TTask {
 export type TActionList = {
   option: string;
   value: string;
+  actionType: TActionType;
   attr?: string[];
 };
 

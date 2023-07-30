@@ -14,9 +14,17 @@
         >
           <div class="flex flex-row text-xs">
             <span class="p-2 pr-0">{{ index + 1 }}</span>
-            <span class="p-2">{{
-              concat(action.option, action.value, action.attr ?? [], tasks[index].name ?? "")
-            }}</span>
+            <span
+              class="p-2"
+              :class="{
+                'text-red-500': !verifyAction(tasks[index], action.actionType),
+              }"
+              >{{ concat(action.option, action.value, action.attr ?? [], tasks[index].name ?? "") }}
+              <n-tooltip v-if="!verifyAction(tasks[index], action.actionType)" placement="right">
+                <template #trigger> ? </template>
+                <span>Invalid Action</span>
+              </n-tooltip>
+            </span>
           </div>
         </li>
       </ul>
@@ -136,8 +144,9 @@ import { EnrouteTask, PerformCommand, Task } from "../utils/consts";
 import { useTasks, useEntry } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw, onMounted } from "vue";
-import { TActionList, TTask } from "../types";
+import { TActionList, TActionType, TTask } from "../types";
 import { createAutoActions, defaultAction } from "../utils/setAction";
+import { availableActions } from "../utils/availableActions";
 
 const { tasks } = useTasks();
 const { unit, actionType, taskCatagory, waypointNumber } = useEntry();
@@ -272,6 +281,30 @@ function parseAttribute(action: TTask): string[] {
   return attr;
 }
 
+function verifyAction(task: TTask, actionType: TActionType) {
+  const verify = (avail: any[], v: any) => {
+    return avail.some((a) => a.value === v);
+  };
+
+  if (actionType === "options") {
+    return verify(
+      availableActions[unit.value].options[taskCatagory.value],
+      task.params.action.params.name,
+    );
+  } else if (actionType === "commands") {
+    return verify(availableActions[unit.value].commands[taskCatagory.value], task.params.action.id);
+  } else if (actionType === "enrouteTask") {
+    if (task.key) {
+      return verify(availableActions[unit.value].enrouteTask[taskCatagory.value], task.key);
+    }
+    return verify(availableActions[unit.value].enrouteTask[taskCatagory.value], task.id);
+  } else if (actionType === "task") {
+    return verify(availableActions[unit.value].task[taskCatagory.value], task.id);
+  } else {
+    return false;
+  }
+}
+
 function updateList(task: TTask[]): TActionList[] {
   if (task.length === 0) {
     return [];
@@ -287,6 +320,7 @@ function updateList(task: TTask[]): TActionList[] {
         return {
           option: option.option,
           value: option.value,
+          actionType: "options",
           attr: parseAttribute(action),
         };
       } else if (Object.values(PerformCommand).some((v) => v === action.params.action.id)) {
@@ -294,20 +328,26 @@ function updateList(task: TTask[]): TActionList[] {
         return {
           option: command.option,
           value: command.value,
+          actionType: "commands",
           attr: parseAttribute(action),
         };
       } else {
         return {
           option: "Error Parsing Action",
           value: "",
+          actionType: "options",
           attr: [],
         };
       }
     } else if (Object.values(EnrouteTask).some((v) => v === action.id)) {
-      const enrouteTask = parseEnrouteTask(action.id, action.params);
+      let enrouteTask = parseEnrouteTask(action.id, action.params);
+      if (action.key) {
+        enrouteTask = parseEnrouteTask(action.key, action.params);
+      }
       return {
         option: enrouteTask.option,
         value: enrouteTask.value,
+        actionType: "enrouteTask",
         attr: parseAttribute(action),
       };
     } else if (Object.values(Task).some((v) => v === action.id)) {
@@ -315,12 +355,14 @@ function updateList(task: TTask[]): TActionList[] {
       return {
         option: task.option,
         value: task.value,
+        actionType: "task",
         attr: parseAttribute(action),
       };
     } else {
       return {
         option: "Error Parsing Action",
         value: "",
+        actionType: "options",
         attr: [],
       };
     }

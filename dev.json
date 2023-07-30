@@ -157,6 +157,19 @@
               }
             }
           }
+        },
+        {
+          "auto": true,
+          "enabled": true,
+          "id": "EngageTargets",
+          "key": "SEAD",
+          "number": 1,
+          "params": {
+            "priority": 0,
+            "targetTypes": [
+              "Air Defence"
+            ]
+          }
         }
       ]
     }
