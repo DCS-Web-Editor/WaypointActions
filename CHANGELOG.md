@@ -1,5 +1,16 @@
 # waypointactions
 
+## 0.6.0-next.2
+
+### Minor Changes
+
+- ee5274a: (refactor): Moved action defs to json
+- 9fef9f5: (feat): Added actionList validation
+
+### Patch Changes
+
+- 2e2360f: (feat): Added types to action creators
+
 ## 0.5.1-next.1
 
 ### Patch Changes
