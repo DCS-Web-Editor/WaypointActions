@@ -1,4 +1,12 @@
-import type { TUnitType, TActionType, TUpperLevelTasks, TTask } from "../types";
+import type {
+  TUnitType,
+  TActionType,
+  TUpperLevelTasks,
+  TTask,
+  TPerformTaskParams,
+  TOptionParams,
+  TPerformCommandParams,
+} from "../types";
 import { findByIdKey } from "./utils";
 import { enrouteTask, performTask, autoActions, getFormation } from "./actions";
 
@@ -39,7 +47,7 @@ export function createWrappedAction(
   id: string,
   auto?: boolean,
   enabled?: boolean,
-) {
+): TOptionParams<typeof params> | TPerformTaskParams<typeof params> {
   return {
     auto: auto ?? false,
     enabled: enabled ?? true,
@@ -61,7 +69,7 @@ export function createTask(
   key?: string,
   auto?: boolean,
   enabled?: boolean,
-) {
+): TPerformTaskParams<typeof params> {
   return {
     auto: auto ?? false,
     enabled: enabled ?? true,
@@ -72,7 +80,9 @@ export function createTask(
   };
 }
 
-export function defaultAction(actionType: TActionType) {
+export function defaultAction(
+  actionType: TActionType,
+): TPerformTaskParams<any> | TOptionParams<any> | TPerformCommandParams<any> {
   if (actionType === "options") {
     return createWrappedAction(
       1,
@@ -107,7 +117,7 @@ function getAutoActions(
   },
   number: number,
   task: TUpperLevelTasks,
-): TTask {
+): TPerformTaskParams<any> | TOptionParams<any> | TPerformCommandParams<any> {
   switch (params.actionType) {
     case "enrouteTask":
       if (["AWACS", "Refuleing", "CAS", "CAP", "Fighter Sweep", "SEAD", "Anti-ship"].includes(task))

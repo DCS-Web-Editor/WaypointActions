@@ -8,14 +8,7 @@ export const useTasksStore = defineStore({
   }),
   actions: {
     setTasks(tasks: TTask[]) {
-      const taskArr: TTask[] = [];
-      for (const task of tasks) {
-        if (task.number !== tasks.indexOf(task)) {
-          task.number = tasks.indexOf(task);
-        }
-        taskArr.push(task);
-      }
-      this.tasks = taskArr;
+      this.tasks = tasks;
     },
     getTasks(): TTask[] {
       return this.tasks;
