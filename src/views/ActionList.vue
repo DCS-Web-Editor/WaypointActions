@@ -189,13 +189,13 @@ const concat = (option: string, value: string, attr: string[], name: string) => 
   return `${option} = ${value} ${name ? `"${name}"` : ""} ${attr.join(" ")}`;
 };
 
-function sequenceNumbers() {
+const sequenceNumbers = () => {
   for (const task in tasks.value) {
     if (tasks.value[task].number !== tasks.value.indexOf(tasks.value[task]) + 1) {
       tasks.value[task].number = tasks.value.indexOf(tasks.value[task]) + 1;
     }
   }
-}
+};
 
 watch(
   () => tasks.value,
@@ -205,46 +205,46 @@ watch(
   { deep: true },
 );
 
-function handleItemClick(index: number) {
+const handleItemClick = (index: number) => {
   currentSelection.value = index;
-}
+};
 
-function moveArrayItem(oldIndex: number, newIndex: number): void {
+const moveArrayItem = (oldIndex: number, newIndex: number) => {
   tasks.value.splice(newIndex, 0, tasks.value.splice(oldIndex, 1)[0]);
-}
+};
 
-function moveListItemDown(index: number) {
+const moveListItemDown = (index: number) => {
   if (index < tasks.value.length - 1) {
     moveArrayItem(index, index + 1);
     currentSelection.value = index + 1;
   }
-}
+};
 
-function moveListItemUp(index: number) {
+const moveListItemUp = (index: number) => {
   if (index <= tasks.value.length - 1 && index > 0) {
     moveArrayItem(index, index - 1);
     currentSelection.value = index - 1;
   }
-}
+};
 
-function deleteListItem(index: number) {
+const deleteListItem = (index: number) => {
   tasks.value.splice(index, 1);
-}
+};
 
-function insertListItem(index: number) {
+const insertListItem = (index: number) => {
   const action = defaultAction(actionType.value);
   tasks.value.splice(index, 0, action);
   editModalShow.value = true;
-}
+};
 
-function cloneListItem(index: number) {
+const cloneListItem = (index: number) => {
   const clone = structuredClone(toRaw(tasks.value[index]));
   clone.number++;
   currentSelection.value = index + 1;
   tasks.value.push(clone);
-}
+};
 
-function removeNoOption() {
+const removeNoOption = () => {
   const index = actionList.value.findIndex((action) => {
     return (
       action.option === "No Option" ||
@@ -256,21 +256,21 @@ function removeNoOption() {
   if (index !== -1) {
     deleteListItem(index);
   }
-}
+};
 
-function editListItem() {
+const editListItem = () => {
   editModalShow.value = true;
-}
+};
 
-function addListItem() {
+const addListItem = () => {
   const index = tasks.value.length;
   currentSelection.value = index;
   const action = defaultAction(actionType.value);
   tasks.value.splice(index, 0, action);
   editModalShow.value = true;
-}
+};
 
-function parseAttribute(action: TTask): string[] {
+const parseAttribute = (action: TTask) => {
   const attr: string[] = [];
   if (action.auto) {
     attr.push("-a");
@@ -279,9 +279,9 @@ function parseAttribute(action: TTask): string[] {
     attr.push("-x");
   }
   return attr;
-}
+};
 
-function verifyAction(task: TTask, actionType: TActionType) {
+const verifyAction = (task: TTask, actionType: TActionType) => {
   const verify = (avail: any[], v: any) => {
     return avail.some((a) => a.value === v);
   };
@@ -303,9 +303,9 @@ function verifyAction(task: TTask, actionType: TActionType) {
   } else {
     return false;
   }
-}
+};
 
-function updateList(task: TTask[]): TActionList[] {
+const updateList = (task: TTask[]): TActionList[] => {
   if (task.length === 0) {
     return [];
   }
@@ -367,7 +367,7 @@ function updateList(task: TTask[]): TActionList[] {
       };
     }
   });
-}
+};
 
 watch(
   currentSelection,

@@ -126,7 +126,7 @@ const unitType = computed({
   set: (value) => entry.setUnit(value),
 });
 
-function getActionOptions(unitType: TUnitType, taskCatagory: TUpperLevelTasks) {
+const getActionOptions = (unitType: TUnitType, taskCatagory: TUpperLevelTasks) => {
   switch (unitType) {
     case "plane":
       return availableActions.plane[actionType.value][taskCatagory];
@@ -137,9 +137,9 @@ function getActionOptions(unitType: TUnitType, taskCatagory: TUpperLevelTasks) {
     case "ship":
       return availableActions.ship[actionType.value][taskCatagory];
   }
-}
+};
 
-function setActionValue(value: number | string) {
+const setActionValue = (value: number | string) => {
   if (actionType.value === "options" && typeof value === "number") {
     const args = {
       number: selTaskData.value.number,
@@ -251,7 +251,7 @@ function setActionValue(value: number | string) {
       }
     }
   }
-}
+};
 
 const taskCatagory = computed(() => entry.getTaskCatagory());
 const actionOptions = computed(() => getActionOptions(unitType.value, taskCatagory.value));

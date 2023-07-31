@@ -1,5 +1,34 @@
 # waypointactions
 
+## 0.6.1
+
+### Patch Changes
+
+- (feat): Added targetTypes data
+
+## 0.6.0
+
+### Minor Changes
+
+- ee5274a: (refactor): Moved action defs to json
+- 9fef9f5: (feat): Added actionList validation
+
+### Patch Changes
+
+- a1a0d11: (refactor): Changed setAction in EditAction.vue to use new action APIs
+- e4efdd1: (feat): Added template for PerformCommand
+- 4108b78: (chore): Update deps
+- bdde3f0: (feat): Added PerformTask template
+- e4efdd1: (fix): Removed invalid actions for ships and vehicles
+- bdde3f0: (refactor): Split components into views and components
+- e4efdd1: (fix): Fixed null params for commands
+- 5e655fd: (feat): Added support for all actions in setActionValue
+- 2e2360f: (feat): Added types to action creators
+- e4efdd1: (feat): Added types for subActionOptions
+- e4efdd1: (feat): Added boilerplate for the rest of the action selectors
+- 9131b1c: (feat): Added availableWeapons
+- 582ac5c: (fix): Fixed the creation of EnrouteTasks since keys and ids were improperly casted
+
 ## 0.6.0-next.2
 
 ### Minor Changes

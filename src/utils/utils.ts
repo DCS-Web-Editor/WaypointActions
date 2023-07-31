@@ -1,4 +1,4 @@
-export function findById(data: any[], id: number): any {
+export const findById = (data: any[], id: number): any => {
   for (const item of data) {
     if (Array.isArray(item)) {
       for (const arr of item) {
@@ -12,9 +12,9 @@ export function findById(data: any[], id: number): any {
     }
   }
   return null;
-}
+};
 
-export function findByIdKey(data: any[], id: number): any {
+export const findByIdKey = (data: any[], id: number): any => {
   for (const item of data) {
     if (item.children) {
       const foundItem = findByIdKey(item.children, id);
@@ -26,4 +26,24 @@ export function findByIdKey(data: any[], id: number): any {
     }
   }
   return null;
-}
+};
+
+export const calcTACANFrequencyMHz = (A2A: boolean, mode: "X" | "y", channel: number) => {
+  let freq = 0;
+
+  if (!A2A && mode === "X") {
+    if (channel < 64) {
+      freq = 962 + channel - 1;
+    } else {
+      freq = 1151 + channel - 64;
+    }
+  } else {
+    if (channel < 64) {
+      freq = 1088 + channel - 1;
+    } else {
+      freq = 1025 + channel - 64;
+    }
+  }
+
+  return freq * 1000000;
+};

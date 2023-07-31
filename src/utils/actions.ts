@@ -6,6 +6,7 @@ import autoJSON from "./data/auto.json";
 import taskJSON from "./data/task.json";
 import weaponsJSON from "./data/weapons.json";
 import optionsJSON from "./data/options.json";
+import targetTypesJSON from "./data/targetTypes.json";
 import { type TreeSelectOption, type SelectOption } from "naive-ui";
 import type { TActionType, TConstsList, TGroupTypes, TUnitType, TUpperLevelTasks } from "../types";
 import type { TEnrouteTask, TOptionName, TPerformCommand, TPerformTask } from "./consts";
@@ -33,9 +34,10 @@ const enrouteTask = enrouteJSON as Record<string, TConstsList<TEnrouteTask>>;
 const performTask = taskJSON as Record<string, TConstsList<TPerformTask>>;
 const options = optionsJSON as Record<number, TConstsList<TOptionName>>;
 const autoActions = autoJSON as TAutoActions;
+const targetTypes = targetTypesJSON as Record<string, TreeSelectOption>;
 const availableWeapons = weaponsJSON as Record<
   TGroupTypes,
   Record<TUpperLevelTasks, SelectOption[]>
 >;
 
-export { commands, enrouteTask, autoActions, performTask, availableWeapons, options };
+export { commands, enrouteTask, performTask, options, autoActions, availableWeapons, targetTypes };
