@@ -26,7 +26,7 @@ jobs:
         run: pnpm install --no-frozen-lockfile
 
       - name: Lint and Format
-        run: pnpm release:check
+        run: pnpm type-check
 
       - name: Check commit message
         id: check_commit

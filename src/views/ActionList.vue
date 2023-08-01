@@ -146,7 +146,7 @@ import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw, onMounted } from "vue";
 import { TActionList, TActionType, TTask } from "../types";
 import { createAutoActions, defaultAction } from "../utils/setAction";
-import { availableActions } from "../utils/availableActions";
+import { getAvailableActions } from "../utils/actions";
 
 const { tasks } = useTasks();
 const { unit, actionType, taskCatagory, waypointNumber } = useEntry();
@@ -286,20 +286,19 @@ const verifyAction = (task: TTask, actionType: TActionType) => {
     return avail.some((a) => a.value === v);
   };
 
+  const actions = getAvailableActions(unit.value, actionType, taskCatagory.value);
+
   if (actionType === "options") {
-    return verify(
-      availableActions[unit.value].options[taskCatagory.value],
-      task.params.action.params.name,
-    );
+    return verify(actions, task.params.action.params.name);
   } else if (actionType === "commands") {
-    return verify(availableActions[unit.value].commands[taskCatagory.value], task.params.action.id);
+    return verify(actions, task.params.action.id);
   } else if (actionType === "enrouteTask") {
     if (task.key) {
-      return verify(availableActions[unit.value].enrouteTask[taskCatagory.value], task.key);
+      return verify(actions, task.key);
     }
-    return verify(availableActions[unit.value].enrouteTask[taskCatagory.value], task.id);
+    return verify(actions, task.id);
   } else if (actionType === "task") {
-    return verify(availableActions[unit.value].task[taskCatagory.value], task.id);
+    return verify(actions, task.id);
   } else {
     return false;
   }

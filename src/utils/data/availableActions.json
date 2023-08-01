@@ -1,0 +1,838 @@
+{
+  "plane": {
+    "task": {
+      "Default": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "AttackMapObject",
+        "Bombing",
+        "BombingRunway",
+        "Orbit",
+        "Refueling",
+        "FAC_AttackGroup",
+        "Follow",
+        "Aerobatics",
+        "FollowBigFormation",
+        "CargoTransportationPlane",
+        "CargoUnloadPlane"
+      ],
+      "Nothing": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics"
+      ],
+      "Airborne": [
+        "NoTask",
+        "ParatroopersDrop",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "FollowBigFormation"
+      ],
+      "SEAD": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Escort"
+      ],
+      "Antiship Strike": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Refueling",
+        "Follow"
+      ],
+      "AWACS": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow"
+      ],
+      "CAS": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics"
+      ],
+      "CAP": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics"
+      ],
+      "Pinpoint Strike": [
+        "NoTask",
+        "AttackMapObject",
+        "Bombing",
+        "Orbit",
+        "Refueling",
+        "Follow"
+      ],
+      "Escort": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Escort"
+      ],
+      "Fighter Sweep": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics"
+      ],
+      "GAI": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow"
+      ],
+      "Ground Attack": [
+        "NoTask",
+        "AttackMapObject",
+        "Bombing",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics",
+        "CarpetBombing",
+        "FollowBigFormation"
+      ],
+      "Intercept": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics"
+      ],
+      "AFAC": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Refueling",
+        "FAC_AttackGroup",
+        "Bombing",
+        "AttackMapObject",
+        "Follow"
+      ],
+      "Reconnaissance": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics"
+      ],
+      "Refueling": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "RecoveryTanker"
+      ],
+      "Runway Attack": [
+        "NoTask",
+        "AttackMapObject",
+        "Bombing",
+        "BombingRunway",
+        "Orbit",
+        "Refueling",
+        "Follow"
+      ],
+      "Transport": [
+        "NoTask",
+        "Orbit",
+        "Refueling",
+        "Follow",
+        "Aerobatics",
+        "FollowBigFormation",
+        "CargoTransportationPlane",
+        "CargoUnloadPlane"
+      ]
+    },
+    "enrouteTask": {
+      "Default": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "AWACS",
+        "FAC",
+        "FAC_EngageGroup",
+        "Tanker"
+      ],
+      "Nothing": [
+        "NoEnrouteTask"
+      ],
+      "SEAD": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "SEAD"
+      ],
+      "Antiship Strike": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "AntiShip"
+      ],
+      "AWACS": [
+        "NoEnrouteTask",
+        "AWACS"
+      ],
+      "CAS": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "CAS"
+      ],
+      "Pinpoint Strike": [
+        "NoEnrouteTask"
+      ],
+      "CAP": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "CAP"
+      ],
+      "Escort": [
+        "NoEnrouteTask"
+      ],
+      "Fighter Sweep": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "FighterSweep"
+      ],
+      "GAI": [
+        "NoEnrouteTask"
+      ],
+      "Ground Attack": [
+        "NoEnrouteTask"
+      ],
+      "Intercept": [
+        "NoEnrouteTask"
+      ],
+      "AFAC": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "FAC",
+        "FAC_EngageGroup"
+      ],
+      "Reconnaissance": [
+        "NoEnrouteTask"
+      ],
+      "Refueling": [
+        "NoEnrouteTask",
+        "Tanker"
+      ],
+      "Runway Attack": [
+        "NoEnrouteTask"
+      ],
+      "Transport": [
+        "NoEnrouteTask"
+      ],
+      "Airborne": []
+    },
+    "commands": {
+      "Default": [
+        "NoAction",
+        "Script",
+        "ScriptFile",
+        "SetFrequency",
+        "SetFrequencyForUnit",
+        "TransmitMessage",
+        "StopTransmission",
+        "SwitchWaypoint",
+        "SwitchAction",
+        "SetInvisible",
+        "SetImmortal",
+        "Start",
+        "ActivateBeacon",
+        "DeactivateBeacon",
+        "ELPRS",
+        "SMOKE_ON_OFF"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "options": {
+      "Default": [
+        -1,
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        10,
+        7,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        25,
+        26
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    }
+  },
+  "helicopter": {
+    "task": {
+      "Default": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "AttackMapObject",
+        "Bombing",
+        "BombingRunway",
+        "Orbit",
+        "Land",
+        "FAC_AttackGroup",
+        "Follow",
+        "CargoTransportation",
+        "GroundEscort"
+      ],
+      "Nothing": [
+        "NoTask",
+        "Orbit",
+        "Land",
+        "Follow"
+      ],
+      "SEAD": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Land",
+        "Follow",
+        "Escort",
+        "CargoTransportation",
+        "GroundEscort"
+      ],
+      "Antiship Strike": [
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Land",
+        "Follow",
+        "CargoTransportation"
+      ],
+      "CAS": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Land",
+        "Follow",
+        "Embarking",
+        "Disembarking",
+        "CargoTransportation",
+        "GroundEscort"
+      ],
+      "Ground Attack": [
+        "NoTask",
+        "AttackMapObject",
+        "Bombing",
+        "Orbit",
+        "Land",
+        "Follow",
+        "Embarking",
+        "Disembarking",
+        "GroundEscort"
+      ],
+      "AFAC": [
+        "NoTask",
+        "AttackGroup",
+        "AttackUnit",
+        "Orbit",
+        "Land",
+        "FAC_AttackGroup",
+        "Bombing",
+        "AttackMapObject",
+        "Follow"
+      ],
+      "Reconnaissance": [
+        "NoTask",
+        "Orbit",
+        "Land",
+        "Follow"
+      ],
+      "Transport": [
+        "NoTask",
+        "Orbit",
+        "Land",
+        "Follow",
+        "Embarking",
+        "Disembarking",
+        "CargoTransportation"
+      ],
+      "Escort": [
+        "NoTask",
+        "Orbit",
+        "Land",
+        "Escort"
+      ],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "enrouteTask": {
+      "Default": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "FAC",
+        "FAC_EngageGroup"
+      ],
+      "Nothing": [
+        "NoEnrouteTask"
+      ],
+      "SEAD": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "SEAD"
+      ],
+      "Antiship Strike": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "AntiShip"
+      ],
+      "CAS": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "CAS"
+      ],
+      "Ground Attack": [
+        "NoEnrouteTask"
+      ],
+      "AFAC": [
+        "NoEnrouteTask",
+        "EngageTargets",
+        "EngageTargetsInZone",
+        "EngageGroup",
+        "EngageUnit",
+        "FAC",
+        "FAC_EngageGroup"
+      ],
+      "Reconnaissance": [
+        "NoEnrouteTask"
+      ],
+      "Escort": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "commands": {
+      "Default": [
+        "NoAction",
+        "Script",
+        "ScriptFile",
+        "SetFrequency",
+        "SetFrequencyForUnit",
+        "TransmitMessage",
+        "StopTransmission",
+        "SwitchWaypoint",
+        "SwitchAction",
+        "SetInvisible",
+        "SetImmortal",
+        "Start",
+        "ActivateBeacon",
+        "DeactivateBeacon",
+        "ELPRS",
+        "SMOKE_ON_OFF"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "options": {
+      "Default": [
+        -1,
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        10,
+        7,
+        11,
+        25,
+        19,
+        21,
+        22,
+        23
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    }
+  },
+  "vehicle": {
+    "task": {
+      "Default": [
+        "NoTask",
+        "FAC_AttackGroup",
+        "FireAtPoint",
+        "AttackGroup",
+        "AttackUnit",
+        "Hold",
+        "EmbarkToTransport",
+        "GoToWaypoint",
+        "Embarking",
+        "Disembarking",
+        "AttachTrailer",
+        "DetachTrailer"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "enrouteTask": {
+      "Default": [
+        "NoEnrouteTask",
+        "FAC",
+        "FAC_EngageGroup",
+        "EWR"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "commands": {
+      "Default": [
+        "NoAction",
+        "Script",
+        "ScriptFile",
+        "SetCallsign",
+        "SetFrequency",
+        "TransmitMessage",
+        "StopTransmission",
+        "SetInvisible",
+        "SetImmortal",
+        "ELPRS",
+        "ActivateBeacon",
+        "DeactivateBeacon"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "options": {
+      "Default": [
+        -1,
+        0,
+        8,
+        9,
+        11,
+        20,
+        24,
+        27,
+        29,
+        28
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    }
+  },
+  "ship": {
+    "task": {
+      "Default": [
+        "NoTask",
+        "FireAtPoint",
+        "AttackGroup",
+        "GoToWaypoint",
+        "ShipHoldPoint"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "enrouteTask": {
+      "Default": [
+        "NoEnrouteTask"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "commands": {
+      "Default": [
+        "NoAction",
+        "Script",
+        "ScriptFile",
+        "SetInvisible",
+        "SetImmortal",
+        "ActivateBeacon",
+        "DeactivateBeacon",
+        "ActivateICLS",
+        "DeactivateICLS",
+        "LoadingShip",
+        "ActivateLink4",
+        "DeactivateLink4",
+        "ActivateACLS",
+        "DeactivateACLS"
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    },
+    "options": {
+      "Default": [
+        -1,
+        0,
+        9,
+        11,
+        20,
+        24
+      ],
+      "AFAC": [],
+      "Antiship Strike": [],
+      "CAS": [],
+      "Escort": [],
+      "Ground Attack": [],
+      "Nothing": [],
+      "Reconnaissance": [],
+      "SEAD": [],
+      "Transport": [],
+      "AWACS": [],
+      "Airborne": [],
+      "CAP": [],
+      "Fighter Sweep": [],
+      "GAI": [],
+      "Intercept": [],
+      "Pinpoint Strike": [],
+      "Refueling": [],
+      "Runway Attack": []
+    }
+  }
+}

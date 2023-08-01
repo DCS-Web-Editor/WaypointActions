@@ -1,5 +1,12 @@
 # waypointactions
 
+## 0.6.2
+
+### Patch Changes
+
+- (feat): Added targetTypes getter
+- (feat): Moved available actions to json
+
 ## 0.6.1
 
 ### Patch Changes

@@ -69,11 +69,10 @@ import { useTasksStore } from "../stores/state";
 import { useEntryStore } from "../stores/entryState";
 import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef } from "vue";
-import type { TActionType, TUnitType, TUpperLevelTasks } from "../types";
+import type { TActionType } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName, TEnrouteTask } from "../utils/consts";
-import { availableActions } from "../utils/availableActions";
 import { setFormation, defaultAction, createWrappedAction, createTask } from "../utils/setAction";
-import { commands, enrouteTask, options, performTask } from "../utils/actions";
+import { commands, enrouteTask, options, performTask, getAvailableActions } from "../utils/actions";
 import OptionSelect from "./OptionSelect.vue";
 import PerformTaskSelect from "./PerformTaskSelect.vue";
 import EnrouteTaskSelect from "./EnrouteTaskSelect.vue";
@@ -125,19 +124,6 @@ const unitType = computed({
   get: () => entry.getUnit(),
   set: (value) => entry.setUnit(value),
 });
-
-const getActionOptions = (unitType: TUnitType, taskCatagory: TUpperLevelTasks) => {
-  switch (unitType) {
-    case "plane":
-      return availableActions.plane[actionType.value][taskCatagory];
-    case "helicopter":
-      return availableActions.helicopter[actionType.value][taskCatagory];
-    case "vehicle":
-      return availableActions.vehicle[actionType.value][taskCatagory];
-    case "ship":
-      return availableActions.ship[actionType.value][taskCatagory];
-  }
-};
 
 const setActionValue = (value: number | string) => {
   if (actionType.value === "options" && typeof value === "number") {
@@ -254,7 +240,9 @@ const setActionValue = (value: number | string) => {
 };
 
 const taskCatagory = computed(() => entry.getTaskCatagory());
-const actionOptions = computed(() => getActionOptions(unitType.value, taskCatagory.value));
+const actionOptions = computed(() =>
+  getAvailableActions(unitType.value, actionType.value, taskCatagory.value),
+);
 const subActionOptions = computed({
   get: () => {
     if (selTaskData.value.id !== "WrappedAction") {
