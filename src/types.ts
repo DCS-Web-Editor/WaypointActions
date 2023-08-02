@@ -17,37 +17,29 @@ export type TBaseOption = {
   value: boolean;
 };
 
-export interface TTask {
+export type TTask<T = any> = {
   auto: boolean;
   enabled: boolean;
   name?: string;
   key?: string;
   id: string;
   number: number;
-  params: any;
-}
-
-export interface TOptionParams<T extends TFormation | TTargetTypes | TBaseOption> extends TTask {
-  params: {
-    action: {
-      id: "Option";
-      params: T & { name: number };
-    };
-  };
-}
-
-export interface TPerformCommandParams<T extends object> extends TTask {
-  params: {
-    action: {
-      id: TPerformCommand;
-      params: T;
-    };
-  };
-}
-
-export interface TPerformTaskParams<T extends object> extends TTask {
   params: T;
-}
+};
+
+export type TOptionParams<T extends TFormation | TTargetTypes | TBaseOption> = {
+  action: {
+    id: "Option";
+    params: T & { name: number };
+  };
+};
+
+export type TPerformCommandParams<T extends object> = {
+  action: {
+    id: TPerformCommand;
+    params: T;
+  };
+};
 
 export type TActionList = {
   option: string;
