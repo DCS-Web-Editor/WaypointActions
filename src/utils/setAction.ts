@@ -5,6 +5,7 @@ import type {
   TTask,
   TOptionParams,
   TPerformCommandParams,
+  TControlledTask,
 } from "../types";
 import { findByIdKey } from "./utils";
 import { enrouteTask, performTask, autoActions, getFormation } from "./actions";
@@ -19,7 +20,7 @@ export const formOptions = (unitType: TUnitType) => {
   }
 };
 
-export function setFormation(unitType: TUnitType, value?: number) {
+export const setFormation = (unitType: TUnitType, value?: number) => {
   const options = formOptions(unitType);
   if (value) {
     const parent = findByIdKey(options, value);
@@ -38,15 +39,15 @@ export function setFormation(unitType: TUnitType, value?: number) {
       variantIndex: parent.parent.children.indexOf(parent.item),
     };
   }
-}
+};
 
-export function createWrappedAction(
+export const createWrappedAction = (
   number: number,
   params: any,
   id: string,
   auto?: boolean,
   enabled?: boolean,
-): TTask<TOptionParams<typeof params>> | TTask<typeof params> {
+): TTask<TOptionParams<typeof params>> | TTask<typeof params> => {
   return {
     auto: auto ?? false,
     enabled: enabled ?? true,
@@ -59,16 +60,16 @@ export function createWrappedAction(
       },
     },
   };
-}
+};
 
-export function createTask(
+export const createTask = (
   number: number,
   params: object,
   id: string,
   key?: string,
   auto?: boolean,
   enabled?: boolean,
-): TTask<typeof params> {
+): TTask<typeof params> => {
   return {
     auto: auto ?? false,
     enabled: enabled ?? true,
@@ -77,11 +78,45 @@ export function createTask(
     number,
     params,
   };
-}
+};
 
-export function defaultAction(
+export const createControlledTask = (task: TTask) => {
+  if (task.key) {
+    return {
+      ...task,
+      id: "ControlledTask",
+      params: {
+        task: {
+          id: task.id,
+          key: task.key,
+          params: task.params,
+        },
+      },
+    };
+  } else
+    return {
+      ...task,
+      id: "ControlledTask",
+      params: {
+        task: {
+          id: task.id,
+          params: task.params,
+        },
+      },
+    };
+};
+
+export const ControlledToUncontrolledTask = (task: TTask<TControlledTask>): TTask => {
+  return {
+    ...task,
+    id: task.params.task.id,
+    params: task.params.task.params,
+  };
+};
+
+export const defaultAction = (
   actionType: TActionType,
-): TTask<any> | TTask<TOptionParams<any>> | TTask<TPerformCommandParams<any>> {
+): TTask<any> | TTask<TOptionParams<any>> | TTask<TPerformCommandParams<any>> => {
   if (actionType === "options") {
     return createWrappedAction(
       1,
@@ -107,16 +142,16 @@ export function defaultAction(
       "Option",
     );
   }
-}
+};
 
-function getAutoActions(
+const getAutoActions = (
   params: {
     actionType: TActionType;
     data: any;
   },
   number: number,
   task: TUpperLevelTasks,
-): TTask<any> | TTask<TOptionParams<any>> | TTask<TPerformCommandParams<any>> {
+): TTask<any> | TTask<TOptionParams<any>> | TTask<TPerformCommandParams<any>> => {
   switch (params.actionType) {
     case "enrouteTask":
       if (["AWACS", "Refuleing", "CAS", "CAP", "Fighter Sweep", "SEAD", "Anti-ship"].includes(task))
@@ -129,9 +164,9 @@ function getAutoActions(
     case "task":
       return createTask(number, {}, "NoTask", undefined, true);
   }
-}
+};
 
-export function createAutoActions(unitType: TUnitType, task: TUpperLevelTasks) {
+export const createAutoActions = (unitType: TUnitType, task: TUpperLevelTasks) => {
   const actions: TTask[] = [];
   let number = 1;
   autoActions.all[task].forEach((action) => {
@@ -143,4 +178,4 @@ export function createAutoActions(unitType: TUnitType, task: TUpperLevelTasks) {
     number++;
   });
   return actions;
-}
+};

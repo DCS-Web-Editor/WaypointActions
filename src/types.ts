@@ -41,6 +41,12 @@ export type TPerformCommandParams<T extends object> = {
   };
 };
 
+export type TControlledTask<T extends object = any> = {
+  condition?: Record<string, unknown>;
+  task: T;
+  stopCondition?: Record<string, unknown>;
+};
+
 export type TActionList = {
   option: string;
   value: string;

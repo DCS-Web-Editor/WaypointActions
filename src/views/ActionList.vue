@@ -21,7 +21,7 @@
               }"
               >{{ concat(action.option, action.value, action.attr ?? [], tasks[index].name ?? "") }}
               <n-tooltip v-if="!verifyAction(tasks[index], action.actionType)" placement="right">
-                <template #trigger> ? </template>
+                <template #trigger> -! </template>
                 <span>Invalid Action</span>
               </n-tooltip>
             </span>
@@ -278,6 +278,18 @@ const parseAttribute = (action: TTask) => {
   if (!action.enabled) {
     attr.push("-x");
   }
+
+  if (action.params.condition) {
+    attr.push("-?/");
+  }
+
+  if (action.params.stopCondition) {
+    attr.push("-/?");
+  }
+
+  if (action.params.condition && action.params.stopCondition) {
+    attr.push("-?/?");
+  }
   return attr;
 };
 
@@ -304,11 +316,18 @@ const verifyAction = (task: TTask, actionType: TActionType) => {
   }
 };
 
-const updateList = (task: TTask[]): TActionList[] => {
-  if (task.length === 0) {
+const updateList = (tasks: TTask[]): TActionList[] => {
+  if (tasks.length === 0) {
     return [];
   }
-  return task.map((action) => {
+
+  return tasks.map((task) => {
+    let action = task;
+
+    if (action.id === "ControlledTask") {
+      action = action.params.task;
+    }
+
     if (action.id === "WrappedAction") {
       if (action.params.action.id === "Option") {
         const option = parseOption(
@@ -320,7 +339,7 @@ const updateList = (task: TTask[]): TActionList[] => {
           option: option.option,
           value: option.value,
           actionType: "options",
-          attr: parseAttribute(action),
+          attr: parseAttribute(task),
         };
       } else if (Object.values(PerformCommand).some((v) => v === action.params.action.id)) {
         const command = parseCommand(action.params.action.id, action.params.action.params);
@@ -328,7 +347,7 @@ const updateList = (task: TTask[]): TActionList[] => {
           option: command.option,
           value: command.value,
           actionType: "commands",
-          attr: parseAttribute(action),
+          attr: parseAttribute(task),
         };
       } else {
         return {
@@ -347,15 +366,15 @@ const updateList = (task: TTask[]): TActionList[] => {
         option: enrouteTask.option,
         value: enrouteTask.value,
         actionType: "enrouteTask",
-        attr: parseAttribute(action),
+        attr: parseAttribute(task),
       };
     } else if (Object.values(Task).some((v) => v === action.id)) {
-      const task = parseTask(action.id, action.params);
+      const performTask = parseTask(action.id, action.params);
       return {
-        option: task.option,
-        value: task.value,
+        option: performTask.option,
+        value: performTask.value,
         actionType: "task",
-        attr: parseAttribute(action),
+        attr: parseAttribute(task),
       };
     } else {
       return {
