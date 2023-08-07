@@ -41,10 +41,25 @@ export type TPerformCommandParams<T extends object> = {
   };
 };
 
+type TCondition = {
+  condition: string;
+  probability: number;
+  time: number;
+  userFlag: number;
+  userFlagValue?: false;
+};
+
+type TStopCondition = {
+  condition: string;
+  duration: number;
+  time: number;
+  userFlag: number;
+};
+
 export type TControlledTask<T extends object = any> = {
-  condition?: Record<string, unknown>;
+  condition?: Partial<TCondition>;
   task: T;
-  stopCondition?: Record<string, unknown>;
+  stopCondition?: Partial<TStopCondition>;
 };
 
 export type TActionList = {
