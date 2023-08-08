@@ -60,15 +60,26 @@
         :unit-type="unitType"
       />
     </div>
+    <n-modal v-model:show="conditionModal" preset="card" class="w-3/4" title="Edit Condition">
+      <edit-condition />
+    </n-modal>
+    <n-modal
+      v-model:show="stopConditionModal"
+      preset="card"
+      class="w-3/4"
+      title="Edit Stop Condition"
+    >
+      <edit-condition :stop-condition="true" />
+    </n-modal>
   </div>
 </template>
 
 <script setup lang="ts">
-import { NSelect, NInputNumber, NInput, NCheckbox, NButton, NFormItem } from "naive-ui";
+import { NSelect, NInputNumber, NInput, NCheckbox, NButton, NFormItem, NModal } from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useEntryStore } from "../stores/entryState";
 import { useTasks } from "../utils/hooks";
-import { computed, inject, type ComputedRef } from "vue";
+import { computed, inject, type ComputedRef, ref } from "vue";
 import type { TActionType } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName, TEnrouteTask } from "../utils/consts";
 import { setFormation, defaultAction, createWrappedAction, createTask } from "../utils/setAction";
@@ -77,13 +88,14 @@ import OptionSelect from "./OptionSelect.vue";
 import PerformTaskSelect from "./PerformTaskSelect.vue";
 import EnrouteTaskSelect from "./EnrouteTaskSelect.vue";
 import CommandSelect from "./CommandSelect.vue";
+import EditCondition from "./EditCondition.vue";
 
 const { tasks } = useTasks();
 const store = useTasksStore();
 const entry = useEntryStore();
 
-const conditionModal = inject<boolean>("condition", false);
-const stopConditionModal = inject<boolean>("stopCondition", false);
+const conditionModal = ref(false);
+const stopConditionModal = ref(false);
 
 const selTaskIndex = computed(() => tasks.value.map((task) => task.number));
 const selTask = inject<number>("selection", 0) as unknown as ComputedRef<number>;

@@ -127,18 +127,11 @@
     >
       <edit-action />
     </n-modal>
-    <n-modal v-model:show="condition" preset="card" class="w-3/4" title="Edit Condition">
-      <edit-condition />
-    </n-modal>
-    <n-modal v-model:show="stopCondition" preset="card" class="w-3/4" title="Edit Stop Condition">
-      <edit-condition :stop-condition="true" />
-    </n-modal>
   </div>
 </template>
 
 <script setup lang="ts">
 import { parseCommand, parseEnrouteTask, parseOption, parseTask } from "../utils/parseAction";
-import EditCondition from "./EditCondition.vue";
 import EditAction from "./EditAction.vue";
 import { EnrouteTask, PerformCommand, Task } from "../utils/consts";
 import { useTasks, useEntry } from "../utils/hooks";
@@ -169,17 +162,6 @@ const upDisable = ref(false);
 const downDisable = ref(false);
 
 const editModalShow = ref(false);
-const condition = ref(false);
-const stopCondition = ref(false);
-
-provide(
-  "condition",
-  computed({ get: () => condition.value, set: (value) => (condition.value = value) }),
-);
-provide(
-  "stopCondition",
-  computed({ get: () => stopCondition.value, set: (value) => (stopCondition.value = value) }),
-);
 
 provide(
   "selection",
