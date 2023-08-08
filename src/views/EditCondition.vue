@@ -42,6 +42,7 @@
 import { ref, watch } from "vue";
 import { NCheckbox, NFormItem, NInput, NTimePicker, NInputNumber } from "naive-ui";
 import { useTasksStore } from "../stores/state";
+import type { TCondition, TStopCondition } from "../types";
 
 const props = defineProps<{
   stopCondition?: boolean;
@@ -51,8 +52,8 @@ const props = defineProps<{
 const store = useTasksStore();
 const conditionData = ref(
   props.stopCondition
-    ? store.getStopCondition(props.selTask).condition
-    : store.getCondition(props.selTask).condition,
+    ? (store.getStopCondition(props.selTask).condition as Partial<TStopCondition>)
+    : (store.getCondition(props.selTask).condition as Partial<TCondition>),
 );
 
 watch(
