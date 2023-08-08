@@ -163,12 +163,72 @@
           "enabled": true,
           "id": "EngageTargets",
           "key": "SEAD",
-          "number": 1,
+          "number": 8,
           "params": {
             "priority": 0,
             "targetTypes": [
               "Air Defence"
             ]
+          }
+        },
+        {
+          "auto": false,
+          "enabled": true,
+          "id": "ControlledTask",
+          "number": 9,
+          "params": {
+            "condition": {
+              "condition": "",
+              "probability": 100,
+              "time": 0,
+              "userFlag": "0",
+              "userFlagValue": false
+            },
+            "stopCondition": {
+              "condition": "",
+              "duration": 900,
+              "time": 900,
+              "userFlag": "0"
+            },
+            "task": {
+              "id": "EngageTargets",
+              "key": "SEAD",
+              "params": {
+                "priority": 0,
+                "targetTypes": [
+                  "Air Defence"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "auto": false,
+          "enabled": true,
+          "id": "ControlledTask",
+          "number": 10,
+          "params": {
+            "condition": {
+              "condition": "",
+              "probability": 100,
+              "time": 0,
+              "userFlag": "0",
+              "userFlagValue": false
+            },
+            "stopCondition": {
+              "condition": "",
+              "duration": 900,
+              "time": 900,
+              "userFlag": "0"
+            },
+            "task": {
+              "id": "Orbit",
+              "params": {
+                "altitude": 2000,
+                "pattern": "Race-Track",
+                "speed": 100
+              }
+            }
           }
         }
       ]

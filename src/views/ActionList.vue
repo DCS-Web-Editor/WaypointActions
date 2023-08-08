@@ -144,10 +144,19 @@ import { EnrouteTask, PerformCommand, Task } from "../utils/consts";
 import { useTasks, useEntry } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw, onMounted } from "vue";
-import { TActionList, TActionType, TTask } from "../types";
+import {
+  TActionList,
+  TActionType,
+  TTask,
+  TStateConditions,
+  TStopCondition,
+  TCondition,
+} from "../types";
 import { createAutoActions, defaultAction } from "../utils/setAction";
 import { getAvailableActions } from "../utils/actions";
+import { useTasksStore } from "../stores/state";
 
+const store = useTasksStore();
 const { tasks } = useTasks();
 const { unit, actionType, taskCatagory, waypointNumber } = useEntry();
 
@@ -279,16 +288,27 @@ const parseAttribute = (action: TTask) => {
     attr.push("-x");
   }
 
-  if (action.params.condition) {
-    attr.push("-?/");
-  }
-
-  if (action.params.stopCondition) {
-    attr.push("-/?");
-  }
-
-  if (action.params.condition && action.params.stopCondition) {
+  if (
+    store.condition.find(
+      (item: TStateConditions<TCondition>) => item.number === action.number && item.condition,
+    ) &&
+    store.stopCondition.find(
+      (item: TStateConditions<TStopCondition>) => item.number === action.number && item.condition,
+    )
+  ) {
     attr.push("-?/?");
+  } else if (
+    store.condition.find(
+      (item: TStateConditions<TCondition>) => item.number === action.number && item.condition,
+    )
+  ) {
+    attr.push("-?/");
+  } else if (
+    store.stopCondition.find(
+      (item: TStateConditions<TStopCondition>) => item.number === action.number && item.condition,
+    )
+  ) {
+    attr.push("-/?");
   }
   return attr;
 };
@@ -425,8 +445,7 @@ onMounted(() => {
 
 // import json from "../../dev.json";
 // import { useTasksStore } from "../stores/state";
-// import { computed } from "vue";
 
-// const store = computed(() => useTasksStore());
-// store.value.setTasks(json.task.params.tasks);
+// store.setTasks(json.task.params.tasks);
+// console.log(store.condition, store.stopCondition);
 </script>

@@ -6,6 +6,8 @@ import type {
   TOptionParams,
   TPerformCommandParams,
   TControlledTask,
+  TCondition,
+  TStopCondition,
 } from "../types";
 import { findByIdKey } from "./utils";
 import { enrouteTask, performTask, autoActions, getFormation } from "./actions";
@@ -80,17 +82,23 @@ export const createTask = (
   };
 };
 
-export const createControlledTask = (task: TTask) => {
+export const createControlledTask = (
+  task: TTask,
+  condition?: Partial<TCondition>,
+  stopCondition?: Partial<TStopCondition>,
+): TTask => {
   if (task.key) {
     return {
       ...task,
       id: "ControlledTask",
       params: {
+        condition,
         task: {
           id: task.id,
           key: task.key,
           params: task.params,
         },
+        stopCondition,
       },
     };
   } else
