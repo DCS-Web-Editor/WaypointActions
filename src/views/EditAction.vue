@@ -61,7 +61,7 @@
       />
     </div>
     <n-modal v-model:show="conditionModal" preset="card" class="w-3/4" title="Edit Condition">
-      <edit-condition />
+      <edit-condition :sel-task="selTask" />
     </n-modal>
     <n-modal
       v-model:show="stopConditionModal"
@@ -69,7 +69,7 @@
       class="w-3/4"
       title="Edit Stop Condition"
     >
-      <edit-condition :stop-condition="true" />
+      <edit-condition :sel-task="selTask" :stop-condition="true" />
     </n-modal>
   </div>
 </template>

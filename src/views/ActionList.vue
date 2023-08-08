@@ -272,22 +272,26 @@ const parseAttribute = (action: TTask) => {
 
   if (
     store.condition.find(
-      (item: TStateConditions<TCondition>) => item.number === action.number && item.condition,
+      (item: TStateConditions<TCondition>) =>
+        item.number === action.number && item.condition && Object.keys(item.condition).length > 0,
     ) &&
     store.stopCondition.find(
-      (item: TStateConditions<TStopCondition>) => item.number === action.number && item.condition,
+      (item: TStateConditions<TStopCondition>) =>
+        item.number === action.number && item.condition && Object.keys(item.condition).length > 0,
     )
   ) {
     attr.push("-?/?");
   } else if (
     store.condition.find(
-      (item: TStateConditions<TCondition>) => item.number === action.number && item.condition,
+      (item: TStateConditions<TCondition>) =>
+        item.number === action.number && item.condition && Object.keys(item.condition).length > 0,
     )
   ) {
     attr.push("-?/");
   } else if (
     store.stopCondition.find(
-      (item: TStateConditions<TStopCondition>) => item.number === action.number && item.condition,
+      (item: TStateConditions<TStopCondition>) =>
+        item.number === action.number && item.condition && Object.keys(item.condition).length > 0,
     )
   ) {
     attr.push("-/?");

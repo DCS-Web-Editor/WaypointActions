@@ -181,14 +181,13 @@
               "condition": "",
               "probability": 100,
               "time": 0,
-              "userFlag": "0",
+              "userFlag": "2",
               "userFlagValue": false
             },
             "stopCondition": {
               "condition": "",
               "duration": 900,
-              "time": 900,
-              "userFlag": "0"
+              "time": 900
             },
             "task": {
               "id": "EngageTargets",

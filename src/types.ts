@@ -54,6 +54,7 @@ export type TStopCondition = {
   duration: number;
   time: number;
   userFlag: number;
+  userFlagValue?: false;
 };
 
 export type TStateConditions<T = any> = {

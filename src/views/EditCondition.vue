@@ -39,15 +39,36 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { NCheckbox, NFormItem, NInput, NTimePicker, NInputNumber } from "naive-ui";
+import { useTasksStore } from "../stores/state";
 
 const props = defineProps<{
   stopCondition?: boolean;
+  selTask: number;
 }>();
 
-const timeMoreEnabled = ref(false);
+const store = useTasksStore();
+const conditionData = ref(
+  props.stopCondition
+    ? store.getStopCondition(props.selTask).condition
+    : store.getCondition(props.selTask).condition,
+);
+
+watch(
+  conditionData,
+  (value) => {
+    if (props.stopCondition) {
+      store.setStopCondition(props.selTask, value);
+    } else {
+      store.setCondition(props.selTask, value);
+    }
+  },
+  { deep: true },
+);
+
 const isUserFlagEnabled = ref(false);
+const timeMoreEnabled = ref(false);
 const isUserFlagIsEnabled = ref(false);
 const probabilityEnabled = ref(false);
 const conditionEnabled = ref(false);

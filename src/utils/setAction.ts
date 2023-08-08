@@ -92,13 +92,14 @@ export const createControlledTask = (
       ...task,
       id: "ControlledTask",
       params: {
-        condition,
+        condition: condition && Object.keys(condition).length === 0 ? undefined : condition,
         task: {
           id: task.id,
           key: task.key,
           params: task.params,
         },
-        stopCondition,
+        stopCondition:
+          stopCondition && Object.keys(stopCondition).length === 0 ? undefined : stopCondition,
       },
     };
   } else

@@ -10,7 +10,7 @@ export const useTasksStore = defineStore({
     stopCondition: [] as Array<TStateConditions<TStopCondition>>,
   }),
   actions: {
-    setCondition(task: TTask) {
+    setControlledTask(task: TTask) {
       const condition = this.condition.find((condition) => condition.number === task.number);
       const stopCondition = this.stopCondition.find(
         (condition) => condition.number === task.number,
@@ -22,34 +22,76 @@ export const useTasksStore = defineStore({
       }
       return task;
     },
-    getCondition(task: TTask) {
+    getControlledTask(task: TTask) {
       if (task.params.condition || task.params.stopCondition) {
         this.condition.push({
           number: task.number,
-          condition: task.params.condition,
+          condition:
+            Object.keys(task.params.condition).length === 0 ? undefined : task.params.condition,
         });
         this.stopCondition.push({
           number: task.number,
-          condition: task.params.stopCondition,
+          condition:
+            Object.keys(task.params.stopCondition).length === 0
+              ? undefined
+              : task.params.stopCondition,
         });
         return ControlledToUncontrolledTask(task);
       } else return task;
     },
+    getCondition(number: number): TStateConditions<TCondition> {
+      return (
+        this.condition.find((condition) => condition.number === number) ?? {
+          number,
+          condition: {},
+        }
+      );
+    },
+    getStopCondition(number: number): TStateConditions<TStopCondition> {
+      return (
+        this.stopCondition.find((condition) => condition.number === number) ?? {
+          number,
+          condition: {},
+        }
+      );
+    },
+    setCondition(number: number, condition: Partial<TCondition>) {
+      const index = this.condition.findIndex((condition) => condition.number === number);
+      if (index === -1) {
+        this.condition.push({
+          number,
+          condition,
+        });
+      } else {
+        this.condition[index].condition = condition;
+      }
+    },
+    setStopCondition(number: number, condition: Partial<TStopCondition>) {
+      const index = this.stopCondition.findIndex((condition) => condition.number === number);
+      if (index === -1) {
+        this.stopCondition.push({
+          number,
+          condition,
+        });
+      } else {
+        this.stopCondition[index].condition = condition;
+      }
+    },
     setTasks(tasks: TTask[]) {
       this.tasks = tasks.map((task) => {
-        return this.setCondition(task);
+        return this.setControlledTask(task);
       });
     },
     getTasks(): TTask[] {
       return this.tasks.map((task) => {
-        return this.getCondition(task);
+        return this.getControlledTask(task);
       });
     },
     getOneTask(index: number): TTask {
-      return this.getCondition(this.tasks[index]);
+      return this.getControlledTask(this.tasks[index]);
     },
     setOneTask(task: TTask, index: number) {
-      this.tasks[index] = this.setCondition(task);
+      this.tasks[index] = this.setControlledTask(task);
     },
   },
 });
