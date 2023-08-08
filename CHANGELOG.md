@@ -1,5 +1,12 @@
 # waypointactions
 
+## 0.6.3
+
+### Patch Changes
+
+- f84865a: (feat): Added support functionality for condition and stopCondition
+- 1244b6e: (feat): Added support for ControlledTask's
+
 ## 0.6.2
 
 ### Patch Changes
