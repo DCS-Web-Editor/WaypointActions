@@ -1,5 +1,13 @@
 # waypointactions
 
+## 0.6.4
+
+### Patch Changes
+
+- 74447f4: (fix): Fixed reactivity for EditCondition
+- 74447f4: (fix): Fixed ActionList not parsing condition correctly
+- 74447f4: (fix): Fixed undefined properties for EditCondition
+
 ## 0.6.3
 
 ### Patch Changes
