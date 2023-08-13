@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { TUnitType, TActionType, TUpperLevelTasks } from "../types";
+import type { TUnitType, TActionType, TUpperLevelTasks, Files } from "../types";
 
 export const useEntryStore = defineStore({
   id: "entry",
@@ -8,6 +8,18 @@ export const useEntryStore = defineStore({
     taskCatagory: "Default" as TUpperLevelTasks,
     actionType: "options" as TActionType,
     waypointNumber: 0,
+    maxDictId: 6,
+    files: [
+      {
+        id: "",
+        data: null,
+        name: "",
+        status: "finished",
+      } satisfies Files,
+    ],
+    groupIds: [] as string[],
+    points: 0,
+    currentWaypoint: 0,
   }),
   actions: {
     setUnit(unit: TUnitType) {
@@ -33,6 +45,39 @@ export const useEntryStore = defineStore({
     },
     getActionType() {
       return this.actionType;
+    },
+    setMaxDictId(maxDictId: number) {
+      this.maxDictId = maxDictId;
+    },
+    getMaxDictId() {
+      return this.maxDictId;
+    },
+    setFiles(files: Files[]) {
+      this.files = files;
+    },
+    getFiles() {
+      return this.files;
+    },
+    setOneFile(file: Files) {
+      this.files.push(file);
+    },
+    getOneFile(id: string) {
+      return this.files.find((file) => file.id === id);
+    },
+    deleteOneFile(id: string) {
+      this.files = this.files.filter((file) => file.id !== id);
+    },
+    setGroupIds(groupIds: string[]) {
+      this.groupIds = groupIds;
+    },
+    getGroupIds() {
+      return this.groupIds;
+    },
+    setPoints(points: number) {
+      this.points = points;
+    },
+    getPoints() {
+      return this.points;
     },
   },
 });

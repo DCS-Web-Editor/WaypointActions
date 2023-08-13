@@ -90,6 +90,13 @@ export type TConstsList<T> = {
   [key: string]: unknown;
 };
 
+export type Files = {
+  id: string;
+  data: any;
+  name: string;
+  status: "finished";
+};
+
 export type TUnitType = "plane" | "helicopter" | "vehicle" | "ship";
 export type TGroupTypes =
   | "nothing"

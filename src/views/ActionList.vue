@@ -148,8 +148,10 @@ import {
 import { createAutoActions, defaultAction } from "../utils/setAction";
 import { getAvailableActions } from "../utils/actions";
 import { useTasksStore } from "../stores/state";
+import { useEntryStore } from "../stores/entryState";
 
 const store = useTasksStore();
+const entry = useEntryStore();
 const { tasks } = useTasks();
 const { unit, actionType, taskCatagory, waypointNumber } = useEntry();
 
@@ -349,6 +351,17 @@ const updateList = (tasks: TTask[]): TActionList[] => {
         };
       } else if (Object.values(PerformCommand).some((v) => v === action.params.action.id)) {
         const command = parseCommand(action.params.action.id, action.params.action.params);
+        if (
+          action.params.action.id === "ScriptFile" ||
+          action.params.action.id === "TransmitMessage"
+        ) {
+          return {
+            option: command.option,
+            value: `"${entry.getOneFile(command.value)?.name}"` ?? "File Not Found",
+            actionType: "commands",
+            attr: parseAttribute(task),
+          };
+        }
         return {
           option: command.option,
           value: command.value,
