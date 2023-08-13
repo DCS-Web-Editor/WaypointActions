@@ -258,7 +258,11 @@ const actionOptions = computed(() =>
 const subActionOptions = computed({
   get: () => {
     if (selTaskData.value.id !== "WrappedAction") {
-      return selTaskData.value.id;
+      if (selTaskData.value.key) {
+        return selTaskData.value.key;
+      } else {
+        return selTaskData.value.id;
+      }
     } else {
       if (selTaskData.value.params.action.id === "Option") {
         const action =

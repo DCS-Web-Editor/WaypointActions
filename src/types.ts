@@ -42,18 +42,19 @@ export type TPerformCommandParams<T extends object> = {
 };
 
 export type TCondition = {
-  condition: string;
-  probability: number;
-  time: number;
-  userFlag: number;
+  condition?: string;
+  probability?: number;
+  time?: number;
+  userFlag?: number;
   userFlagValue?: false;
 };
 
 export type TStopCondition = {
-  condition: string;
-  duration: number;
-  time: number;
-  userFlag: number;
+  condition?: string;
+  duration?: number;
+  probability?: number;
+  time?: number;
+  userFlag?: number;
   userFlagValue?: false;
 };
 

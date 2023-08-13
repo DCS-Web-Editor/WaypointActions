@@ -429,9 +429,6 @@ onMounted(() => {
   }
 });
 
-// import json from "../../dev.json";
-// import { useTasksStore } from "../stores/state";
-
 // store.setTasks(json.task.params.tasks);
 // console.log(store.condition, store.stopCondition);
 </script>

@@ -119,6 +119,7 @@ export const ControlledToUncontrolledTask = (task: TTask<TControlledTask>): TTas
   return {
     ...task,
     id: task.params.task.id,
+    key: task.params.task.key,
     params: task.params.task.params,
   };
 };

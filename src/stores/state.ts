@@ -1,6 +1,7 @@
 import type { TTask, TStateConditions, TCondition, TStopCondition } from "../types";
 import { defineStore } from "pinia";
 import { ControlledToUncontrolledTask, createControlledTask } from "../utils/setAction";
+import { toRaw } from "vue";
 
 export const useTasksStore = defineStore({
   id: "tasks",
@@ -36,7 +37,7 @@ export const useTasksStore = defineStore({
               ? undefined
               : task.params.stopCondition,
         });
-        return ControlledToUncontrolledTask(task);
+        return ControlledToUncontrolledTask(toRaw(task));
       } else return task;
     },
     getCondition(number: number): TStateConditions<TCondition> {
