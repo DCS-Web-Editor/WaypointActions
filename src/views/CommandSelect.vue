@@ -85,7 +85,7 @@
       label="Unit"
       label-placement="left"
     >
-      <n-select :options="arrayToOptions(entry.getGroupIds())" />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
   </div>
   <div v-else-if="subActionOptions === 'SwitchWaypoint'">
@@ -100,7 +100,9 @@
   <div
     v-else-if="['SetInvisible', 'SetImmortal', 'ELPRS', 'SMOKE_ON_OFF'].includes(subActionOptions)"
   >
-    <n-form-item label="Value" label-placement="left"> <n-checkbox /></n-form-item>
+    <n-form-item label="Value" label-placement="left">
+      <n-checkbox v-model:checked="selTaskData.params.action.params.value"
+    /></n-form-item>
   </div>
   <div v-else-if="subActionOptions === 'ActivateBeacon'">
     <n-form-item label="Channel Mode" label-placement="left">
@@ -115,54 +117,69 @@
             value: 'Y',
           },
         ]"
+        v-model:value="selTaskData.params.action.params.modeChannel"
       />
     </n-form-item>
     <n-form-item label="Channel" label-placement="left">
-      <n-input-number :min="1" :max="126" />
+      <n-input-number
+        :min="1"
+        :max="126"
+        v-model:value="selTaskData.params.action.params.channel"
+      />
     </n-form-item>
     <n-form-item label="Callsign" label-placement="left">
-      <n-input />
+      <n-input v-model:value="selTaskData.params.action.params.callsign" />
     </n-form-item>
     <n-form-item label="Unit" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <n-form-item label="Bearing" label-placement="left">
-      <n-checkbox />
+      <n-checkbox v-model:value="selTaskData.params.action.params.bearing" />
     </n-form-item>
   </div>
   <div v-else-if="subActionOptions === 'ActivateICLS'">
     <n-form-item label="Channel" label-placement="left">
-      <n-input-number :min="1" :max="20" />
+      <n-input-number :min="1" :max="20" v-model:value="selTaskData.params.action.params.channel" />
     </n-form-item>
     <n-form-item label="Unit" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
   </div>
   <div v-else-if="subActionOptions === 'ActivateLink4'">
     <n-form-item label="Frequency" label-placement="left">
-      <n-input-number :min="225.0" :max="399.9">
+      <n-input-number
+        :min="225.0"
+        :max="399.9"
+        :value="selTaskData.params.action.params.frequency / 1000000"
+        @update:value="selTaskData.params.action.params.frequency * 1000000"
+      >
         <template #suffix>
           <span class="text-white">MHz</span>
         </template>
       </n-input-number>
     </n-form-item>
     <n-form-item label="Unit" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
   </div>
   <div v-else-if="subActionOptions === 'ActivateACLS'">
     <n-form-item label="Unit" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
   </div>
   <div v-else-if="subActionOptions === 'LoadingShip'">
     <n-form-item label="Cargo" label-placement="left">
-      <n-input-number :min="0" :max="100" :step="10">
+      <n-input-number
+        :min="0"
+        :max="100"
+        :step="10"
+        v-model:value="selTaskData.params.action.params.cargo"
+      >
         <template #suffix> % </template>
       </n-input-number>
     </n-form-item>
     <n-form-item label="Unit" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
   </div>
   <div v-else>
@@ -182,13 +199,13 @@ import {
   UploadCustomRequestOptions,
   UploadFileInfo,
 } from "naive-ui";
-import type { Files, TUnitType } from "../types";
+import type { Files, TUnitType, TUpperLevelTasks } from "../types";
 import { TPerformCommand } from "../utils/consts";
 import { commands } from "../utils/actions";
 import { useTasksStore } from "../stores/state";
 import { computed } from "vue";
 import { useEntryStore } from "../stores/entryState";
-import { SelectMixedOption } from "naive-ui/es/select/src/interface";
+import { getTacanFreq } from "../utils/utils";
 
 const props = defineProps<{
   selTask: number;
@@ -236,22 +253,6 @@ const removeFile = (data: { file: UploadFileInfo }) => {
   return true;
 };
 
-const arrayToOptions = <T extends string | number>(arr: T[]): SelectMixedOption[] => {
-  const options: SelectMixedOption[] = [
-    {
-      label: "Nothing",
-      value: undefined,
-    },
-  ];
-  arr.forEach((item) => {
-    options.push({
-      label: item.toString(),
-      value: item,
-    });
-  });
-  return options;
-};
-
 const numberToOptions = (number: number, currentWaypoint: number) => {
   if (number < 1) {
     return [];
@@ -273,4 +274,47 @@ const setWaypoint = (value: number) => {
   selTaskData.value.params.action.params.fromWaypointIndex = entry.currentWaypoint;
   selTaskData.value.params.action.params.goToWaypointIndex = value;
 };
+
+type TParams = {
+  type: number;
+  system: number;
+  bearing: boolean;
+  modeChannel: "X" | "Y";
+  channel: number;
+  AA: boolean;
+  frequency: number;
+  callsign: string;
+};
+
+const tacanParams = (unitType: TUnitType, params: TParams, task: TUpperLevelTasks) => {
+  if (unitType === "plane" || unitType === "helicopter") {
+    params.AA = task !== "Refueling";
+  } else if (unitType === "ship") {
+    params.system = 3;
+  } else if (unitType === "vehicle") {
+    params.system = params.modeChannel === "Y" ? 19 : 18;
+  } else {
+    params.system = params.modeChannel === "Y" ? 14 : 13;
+  }
+
+  if (task === "Refueling") {
+    params.system = params.modeChannel === "Y" ? 5 : 4;
+  }
+
+  params.frequency = 1000000 * getTacanFreq(params.AA, params.modeChannel, params.channel);
+
+  return params;
+};
+
+if (props.subActionOptions === "ActivateBeacon") {
+  selTaskData.value.params.action.params = tacanParams(
+    props.unitType,
+    selTaskData.value.params.action.params,
+    entry.getTaskCatagory(),
+  );
+}
+
+if (props.subActionOptions === "ActivateICLS") {
+  selTaskData.value.params.action.params.type = 131584;
+}
 </script>

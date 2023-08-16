@@ -28,7 +28,7 @@ export const findByIdKey = (data: any[], id: number): any => {
   return null;
 };
 
-export const calcTACANFrequencyMHz = (A2A: boolean, mode: "X" | "y", channel: number) => {
+export const getTacanFreq = (A2A: boolean, mode: "X" | "Y", channel: number) => {
   let freq = 0;
 
   if (!A2A && mode === "X") {

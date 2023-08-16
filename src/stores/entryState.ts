@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import type { TUnitType, TActionType, TUpperLevelTasks, Files } from "../types";
+import { type SelectOption } from "naive-ui";
 
 export const useEntryStore = defineStore({
   id: "entry",
@@ -17,7 +18,7 @@ export const useEntryStore = defineStore({
         status: "finished",
       } satisfies Files,
     ],
-    groupIds: [] as string[],
+    groupIds: [] as SelectOption[],
     points: 0,
     currentWaypoint: 0,
   }),
@@ -67,7 +68,7 @@ export const useEntryStore = defineStore({
     deleteOneFile(id: string) {
       this.files = this.files.filter((file) => file.id !== id);
     },
-    setGroupIds(groupIds: string[]) {
+    setGroupIds(groupIds: SelectOption[]) {
       this.groupIds = groupIds;
     },
     getGroupIds() {
