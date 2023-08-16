@@ -80,8 +80,8 @@ const props = defineProps<{
 const store = useTasksStore();
 const conditionData = ref<TStopCondition | TCondition>(
   props.stopCondition
-    ? store.getStopCondition(props.selTask).condition
-    : store.getCondition(props.selTask).condition,
+    ? store.getStopCondition(props.selTask)?.condition ?? {}
+    : store.getCondition(props.selTask)?.condition ?? {},
 );
 
 watch(

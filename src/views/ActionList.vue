@@ -308,8 +308,6 @@ const verifyAction = (task: TTask, actionType: TActionType) => {
 
   const actions = getAvailableActions(unit.value, actionType, taskCatagory.value);
 
-  console.log(task)
-
   if (actionType === "options") {
     return verify(actions, task.params.action.params.name);
   } else if (actionType === "commands") {
