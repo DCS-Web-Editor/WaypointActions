@@ -134,7 +134,7 @@
 import { parseCommand, parseEnrouteTask, parseOption, parseTask } from "../utils/parseAction";
 import EditAction from "./EditAction.vue";
 import { EnrouteTask, PerformCommand, Task } from "../utils/consts";
-import { useTasks, useEntry } from "../utils/hooks";
+import { useEntry } from "../utils/hooks";
 import { NButton, NTooltip, NModal } from "naive-ui";
 import { computed, ref, watch, provide, toRaw, onMounted } from "vue";
 import {
@@ -152,7 +152,7 @@ import { useEntryStore } from "../stores/entryState";
 
 const store = useTasksStore();
 const entry = useEntryStore();
-const { tasks } = useTasks();
+const tasks = computed<TTask[]>(() => store.getTasks());
 const { unit, actionType, taskCatagory, waypointNumber } = useEntry();
 
 const actionList = computed<TActionList[]>(() => updateList(tasks.value));
@@ -221,12 +221,12 @@ const moveListItemUp = (index: number) => {
 };
 
 const deleteListItem = (index: number) => {
-  tasks.value.splice(index, 1);
+  store.removeOneTask(index);
 };
 
 const insertListItem = (index: number) => {
   const action = defaultAction(actionType.value);
-  tasks.value.splice(index, 0, action);
+  store.insertOneTask(action, index);
   editModalShow.value = true;
 };
 
@@ -234,7 +234,7 @@ const cloneListItem = (index: number) => {
   const clone = structuredClone(toRaw(tasks.value[index]));
   clone.number++;
   currentSelection.value = index + 1;
-  tasks.value.push(clone);
+  store.setOneTask(clone, index + 1);
 };
 
 const removeNoOption = () => {
@@ -259,7 +259,7 @@ const addListItem = () => {
   const index = tasks.value.length;
   currentSelection.value = index;
   const action = defaultAction(actionType.value);
-  tasks.value.splice(index, 0, action);
+  store.setOneTask(action, index);
   editModalShow.value = true;
 };
 
@@ -307,6 +307,8 @@ const verifyAction = (task: TTask, actionType: TActionType) => {
   };
 
   const actions = getAvailableActions(unit.value, actionType, taskCatagory.value);
+
+  console.log(task)
 
   if (actionType === "options") {
     return verify(actions, task.params.action.params.name);
@@ -438,9 +440,11 @@ watch(
 
 onMounted(() => {
   if (tasks.value.length === 0 && waypointNumber.value === 0) {
-    tasks.value = createAutoActions(unit.value, taskCatagory.value);
+    store.setTasks(createAutoActions(unit.value, taskCatagory.value));
   }
 });
+
+// import json from "../../dev.json"
 
 // store.setTasks(json.task.params.tasks);
 // console.log(store.condition, store.stopCondition);

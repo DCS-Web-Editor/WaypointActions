@@ -12,16 +12,13 @@ export const useTasksStore = defineStore({
   }),
   actions: {
     setControlledTask(task: TTask) {
-      const condition = this.condition.find((condition) => condition.number === task.number);
-      const stopCondition = this.stopCondition.find(
-        (condition) => condition.number === task.number,
-      );
-      if (task.number === condition?.number) {
+      const condition = this.getCondition(task.number);
+      const stopCondition = this.getStopCondition(task.number);
+      if (condition) {
         return createControlledTask(task, condition.condition);
-      } else if (task.number === stopCondition?.number) {
+      } else if (stopCondition) {
         return createControlledTask(task, undefined, stopCondition.condition);
-      }
-      return task;
+      } else return task;
     },
     getControlledTask(task: TTask) {
       if (task.params.condition || task.params.stopCondition) {
@@ -40,21 +37,11 @@ export const useTasksStore = defineStore({
         return ControlledToUncontrolledTask(toRaw(task));
       } else return task;
     },
-    getCondition(number: number): TStateConditions<TCondition> {
-      return (
-        this.condition.find((condition) => condition.number === number) ?? {
-          number,
-          condition: {},
-        }
-      );
+    getCondition(number: number) {
+      return this.condition.find((condition) => condition.number === number) ?? undefined;
     },
-    getStopCondition(number: number): TStateConditions<TStopCondition> {
-      return (
-        this.stopCondition.find((condition) => condition.number === number) ?? {
-          number,
-          condition: {},
-        }
-      );
+    getStopCondition(number: number) {
+      return this.stopCondition.find((condition) => condition.number === number) ?? undefined;
     },
     setCondition(number: number, condition: Partial<TCondition>) {
       const index = this.condition.findIndex((condition) => condition.number === number);
@@ -93,6 +80,24 @@ export const useTasksStore = defineStore({
     },
     setOneTask(task: TTask, index: number) {
       this.tasks[index] = this.setControlledTask(task);
+    },
+    removeOneTask(index: number) {
+      this.tasks.splice(index, 1);
+      if (this.condition[index]) this.condition.splice(index, 1);
+      if (this.stopCondition[index]) this.stopCondition.splice(index, 1);
+    },
+    insertOneTask(task: TTask, index: number) {
+      this.tasks.splice(index, 0, this.setControlledTask(task));
+      if (this.condition[index])
+        this.condition.splice(index, 0, {
+          number: index,
+          condition: this.condition[index].condition,
+        });
+      if (this.stopCondition[index])
+        this.stopCondition.splice(index, 0, {
+          number: index,
+          condition: this.stopCondition[index].condition,
+        });
     },
   },
 });

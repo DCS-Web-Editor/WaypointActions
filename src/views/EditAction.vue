@@ -78,7 +78,6 @@
 import { NSelect, NInputNumber, NInput, NCheckbox, NButton, NFormItem, NModal } from "naive-ui";
 import { useTasksStore } from "../stores/state";
 import { useEntryStore } from "../stores/entryState";
-import { useTasks } from "../utils/hooks";
 import { computed, inject, type ComputedRef, ref } from "vue";
 import type { TActionType } from "../types";
 import { Task, EnrouteTask, PerformCommand, OptionName, TEnrouteTask } from "../utils/consts";
@@ -90,14 +89,13 @@ import EnrouteTaskSelect from "./EnrouteTaskSelect.vue";
 import CommandSelect from "./CommandSelect.vue";
 import EditCondition from "./EditCondition.vue";
 
-const { tasks } = useTasks();
 const store = useTasksStore();
 const entry = useEntryStore();
 
 const conditionModal = ref(false);
 const stopConditionModal = ref(false);
 
-const selTaskIndex = computed(() => tasks.value.map((task) => task.number));
+const selTaskIndex = computed(() => store.getTasks().map((task) => task.number));
 const selTask = inject<number>("selection", 0) as unknown as ComputedRef<number>;
 const selTaskData = computed({
   get: () => store.getOneTask(selTask.value - 1),
