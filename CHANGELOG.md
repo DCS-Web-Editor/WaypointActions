@@ -1,5 +1,18 @@
 # waypointactions
 
+## 0.7.0
+
+### Minor Changes
+
+- (feat): Added condition and stop condition editor
+- (refactor): Removed useTasks hook
+- (feat): Completed PerformCommand editor
+
+### Patch Changes
+
+- (fix): Fixed getTasks() state action
+- (fix): Fixed task insertion editing selected task and not a new task
+
 ## 0.6.4
 
 ### Patch Changes
