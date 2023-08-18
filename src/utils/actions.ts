@@ -33,8 +33,8 @@ const targetTypes = targetTypesJSON as Record<
   TreeSelectOption
 >;
 const availableWeapons = weaponsJSON as Record<
-  TGroupTypes,
-  Record<TUpperLevelTasks, SelectOption[]>
+  TUnitType & "nothing",
+  Record<TGroupTypes, SelectOption[]>
 >;
 const availableActions = availableActionsJSON as Record<
   TUnitType,
@@ -95,5 +95,7 @@ export const getAvailableActions = (
     return options[action as TOptionName];
   });
 };
+
+export const getWeapon = (unitType: TUnitType, task: TUpperLevelTasks) => {};
 
 export { commands, enrouteTask, performTask, options, autoActions, availableWeapons, targetTypes };
