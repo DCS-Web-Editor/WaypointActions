@@ -11,8 +11,8 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint ./src --ext .vue,.ts --fix",
     "format": "prettier \"src/**/*.{ts,vue}\" --write",
-    "release": "npm run format && npm run lint && changeset version",
-    "release:check": "npm run format && npm run lint && npm run type-check"
+    "release:check": "pnpm format && pnpm lint && pnpm type-check",
+    "release": "pnpm changeset version && git cmp 'version changelog [no ci]'"
   },
   "dependencies": {
     "pinia": "^2.1.6",
