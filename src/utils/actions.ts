@@ -96,6 +96,4 @@ export const getAvailableActions = (
   });
 };
 
-export const getWeapon = (unitType: TUnitType, task: TUpperLevelTasks) => {};
-
 export { commands, enrouteTask, performTask, options, autoActions, availableWeapons, targetTypes };
