@@ -1,3 +1,7 @@
+import type { SelectOption } from "naive-ui";
+import type { TGroupTypes, TUnitType, TUpperLevelTasks } from "../types";
+import { availableWeapons } from "./actions";
+
 export const findById = (data: any[], id: number): any => {
   for (const item of data) {
     if (Array.isArray(item)) {
@@ -46,4 +50,20 @@ export const getTacanFreq = (A2A: boolean, mode: "X" | "Y", channel: number) => 
   }
 
   return freq * 1000000;
+};
+
+export const getWeaponOptions = (
+  unitType: TUnitType<true>,
+  targetUnit: TGroupTypes,
+  task: TUpperLevelTasks,
+): SelectOption[] => {
+  const base = availableWeapons[unitType];
+  if (base[task as keyof typeof base]) {
+    return base[task as keyof typeof base];
+  } else {
+    const baseTarget = base[targetUnit as keyof typeof base];
+    if (baseTarget[task as keyof typeof baseTarget]) {
+      return baseTarget[task as keyof typeof baseTarget];
+    } else return baseTarget;
+  }
 };

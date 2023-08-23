@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { TUnitType, TActionType, TUpperLevelTasks, Files } from "../types";
+import type { TUnitType, TActionType, TUpperLevelTasks, Files, TGroupTypes } from "../types";
 import { type SelectOption } from "naive-ui";
 
 export const useEntryStore = defineStore({
@@ -7,7 +7,8 @@ export const useEntryStore = defineStore({
   state: () => ({
     unit: "plane" as TUnitType,
     taskCatagory: "Default" as TUpperLevelTasks,
-    actionType: "options" as TActionType,
+    actionType: "task" as TActionType,
+    targetGroup: "unknown" as TGroupTypes,
     waypointNumber: 0,
     maxDictId: 6,
     files: [
@@ -26,7 +27,7 @@ export const useEntryStore = defineStore({
     setUnit(unit: TUnitType) {
       this.unit = unit;
     },
-    getUnit(): TUnitType {
+    getUnit() {
       return this.unit;
     },
     setTaskCatagory(taskCatagory: TUpperLevelTasks) {
@@ -34,6 +35,12 @@ export const useEntryStore = defineStore({
     },
     getTaskCatagory() {
       return this.taskCatagory;
+    },
+    getTargetGroup() {
+      return this.targetGroup;
+    },
+    setTargetGroup(targetGroup: TGroupTypes) {
+      this.targetGroup = targetGroup;
     },
     setWaypointNumber(waypointNumber: number) {
       this.waypointNumber = waypointNumber;

@@ -8,8 +8,8 @@ import weaponsJSON from "./data/weapons.json";
 import optionsJSON from "./data/options.json";
 import targetTypesJSON from "./data/targetTypes.json";
 import availableActionsJSON from "./data/availableActions.json";
-import { type TreeSelectOption, type SelectOption } from "naive-ui";
-import type { TActionType, TConstsList, TGroupTypes, TUnitType, TUpperLevelTasks } from "../types";
+import { type TreeSelectOption } from "naive-ui";
+import type { TActionType, TConstsList, TUnitType, TUpperLevelTasks } from "../types";
 import type { TEnrouteTask, TOptionName, TPerformCommand, TPerformTask } from "./consts";
 
 type TAutoActions = Record<
@@ -32,10 +32,7 @@ const targetTypes = targetTypesJSON as Record<
   "air" | "airDefense" | "airplanes" | "all" | "ground" | "missles" | "naval",
   TreeSelectOption
 >;
-const availableWeapons = weaponsJSON as Record<
-  TUnitType & "nothing",
-  Record<TGroupTypes, SelectOption[]>
->;
+const availableWeapons = weaponsJSON; // TODO: Add types
 const availableActions = availableActionsJSON as Record<
   TUnitType,
   Record<

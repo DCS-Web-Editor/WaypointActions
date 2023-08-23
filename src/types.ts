@@ -97,7 +97,13 @@ export type Files = {
   status: "finished";
 };
 
-export type TUnitType = "plane" | "helicopter" | "vehicle" | "ship";
+type TUnitTypeBase = "plane" | "helicopter" | "vehicle" | "ship";
+type TExtendedUnitType = TUnitTypeBase | "nothing";
+
+export type TUnitType<ExtendType extends boolean = false> = ExtendType extends true
+  ? TExtendedUnitType
+  : TUnitTypeBase;
+
 export type TGroupTypes =
   | "nothing"
   | "unknown"
@@ -110,6 +116,7 @@ export type TGroupTypes =
   | "ship";
 export type TActionType = "task" | "enrouteTask" | "commands" | "options";
 export type TUpperLevelTasks =
+  | "Default"
   | "AFAC"
   | "Antiship Strike"
   | "CAS"

@@ -1,7 +1,7 @@
 <template>
   <slot name="above"></slot>
   <n-form-item label="Weapon" label-placement="left">
-    <n-select />
+    <n-select :options="weaponOptions" />
   </n-form-item>
   <n-form-item label="Rel Qty" label-placement="left">
     <n-select />
@@ -34,6 +34,11 @@
 
 <script setup lang="ts">
 import { NFormItem, NCheckbox, NSelect, NInputNumber, NSlider } from "naive-ui";
+import { getWeaponOptions } from "../utils/utils";
+import { computed } from "vue";
+import { useEntryStore } from "../stores/entryState";
+
+const entry = useEntryStore();
 
 const compassDir = (wind: number | null): string => {
   if (wind === null) {
@@ -47,4 +52,8 @@ const compassDir = (wind: number | null): string => {
     return wind.toString();
   }
 };
+
+const weaponOptions = computed(() =>
+  getWeaponOptions(entry.getUnit(), entry.getTargetGroup(), entry.getTaskCatagory()),
+);
 </script>
