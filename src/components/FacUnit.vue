@@ -1,13 +1,21 @@
 <template>
   <slot name="above"></slot>
   <n-form-item label="Callsign" label-placement="left">
-    <n-select />
+    <n-select v-model:value="callsign" @update:value="$emit('update:callsign', $event)" />
   </n-form-item>
   <n-form-item label="Number" label-placement="left">
-    <n-input-number class="w-full" />
+    <n-input-number
+      v-model:value="number"
+      @update:value="$emit('update:number', $event)"
+      class="w-full"
+    />
   </n-form-item>
   <n-form-item label="Frequency" label-placement="left">
-    <n-input-number class="w-full">
+    <n-input-number
+      v-model:value="freq"
+      @update:value="$emit('update:freq', $event)"
+      class="w-full"
+    >
       <template #suffix>
         <span class="text-white">MHz</span>
       </template>
@@ -15,6 +23,8 @@
   </n-form-item>
   <n-form-item label="Modulation" label-placement="left">
     <n-select
+      v-model:value="modulation"
+      @update:value="$emit('update:modulation', $event)"
       :options="[
         {
           label: 'AM',
@@ -32,4 +42,22 @@
 
 <script setup lang="ts">
 import { NFormItem, NSelect, NInputNumber } from "naive-ui";
+import { computed, toRef } from "vue";
+
+const props = defineProps<{
+  callsign: string;
+  number: number;
+  freq: number;
+  modulation: number;
+}>();
+
+const freq = computed({
+  get: () => props.freq / 1000000,
+  set: () => props.freq * 1000000,
+});
+const number = toRef(props.number);
+const callsign = toRef(props.callsign);
+const modulation = toRef(props.modulation);
+
+defineEmits(["update:freq", "update:number", "update:callsign", "update:modulation"]);
 </script>
