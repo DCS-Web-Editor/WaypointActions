@@ -4,7 +4,7 @@
     <n-select
       v-model:value="weapon"
       :options="weaponOptions"
-      @update:value="$emit('update:weapon', $event)"
+      @update:value="(val) => $emit('update:weapon', val)"
     />
   </n-form-item>
   <n-form-item label="Rel Qty" label-placement="left">
@@ -20,13 +20,23 @@
       :max="1000"
       v-model:value="maxAtkQty"
       :disabled="!maxAtkQtyEnabled"
+      @update:value="(val) => $emit('update:maxAtkQty', val)"
     />
     <n-form-item class="ml-5" label="Group Attack" label-placement="left"
-      ><n-checkbox v-model:checked="groupAtk" />
+      ><n-checkbox
+        v-model:checked="groupAtk"
+        @update:value="(val) => $emit('update:groupAtk', val)"
+      />
     </n-form-item>
   </div>
   <n-form-item label="Direction From" label-placement="left">
-    <n-input-number v-model:value="directionFrom" :min="0" :format="compassDir" class="w-full">
+    <n-input-number
+      v-model:value="directionFrom"
+      :min="0"
+      :format="compassDir"
+      class="w-full"
+      @update:value="(val) => $emit('update:directionFrom', val)"
+    >
       <template #suffix>°</template>
     </n-input-number>
   </n-form-item>
@@ -42,7 +52,14 @@
       v-model:value="altitudeAbove"
     >
     </n-slider>
-    <n-input-number :step="1" :min="0" :max="62336" class="w-full" v-model:value="altitudeAbove">
+    <n-input-number
+      :step="1"
+      :min="0"
+      :max="62336"
+      class="w-full"
+      v-model:value="altitudeAbove"
+      @update:value="(val) => $emit('update:altitudeAbove', val)"
+    >
       <template #suffix>ft</template>
     </n-input-number>
   </div>

@@ -1,19 +1,19 @@
 <template>
   <slot name="above"></slot>
   <n-form-item label="Callsign" label-placement="left">
-    <n-select v-model:value="callsign" @update:value="$emit('update:callsign', $event)" />
+    <n-select v-model:value="callsign" @update:value="(val) => $emit('update:callsign', val)" />
   </n-form-item>
   <n-form-item label="Number" label-placement="left">
     <n-input-number
       v-model:value="number"
-      @update:value="$emit('update:number', $event)"
+      @update:value="(val) => $emit('update:number', val)"
       class="w-full"
     />
   </n-form-item>
   <n-form-item label="Frequency" label-placement="left">
     <n-input-number
       v-model:value="freq"
-      @update:value="$emit('update:freq', $event)"
+      @update:value="(val) => $emit('update:freq', val)"
       class="w-full"
     >
       <template #suffix>
@@ -24,7 +24,7 @@
   <n-form-item label="Modulation" label-placement="left">
     <n-select
       v-model:value="modulation"
-      @update:value="$emit('update:modulation', $event)"
+      @update:value="(val) => $emit('update:modulation', val)"
       :options="[
         {
           label: 'AM',
