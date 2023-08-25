@@ -4,7 +4,7 @@
     <n-select
       v-model:value="weapon"
       :options="weaponOptions"
-      @update:value="(val) => $emit('update:weapon', val)"
+      @update:value="(val: number) => $emit('update:weapon', val)"
     />
   </n-form-item>
   <n-form-item label="Rel Qty" label-placement="left">
@@ -72,14 +72,24 @@ import { getWeaponOptions } from "../utils/utils";
 import { computed, ref, toRef, watch } from "vue";
 import { useEntryStore } from "../stores/entryState";
 
-const props = defineProps<{
-  weapon: number;
-  relQty: number;
-  maxAtkQty?: number;
-  groupAtk: boolean;
-  directionFrom: number;
-  altitudeAbove?: number;
-}>();
+const props = withDefaults(
+  defineProps<{
+    weapon: number;
+    relQty: number;
+    maxAtkQty: number;
+    groupAtk: boolean;
+    directionFrom: number;
+    altitudeAbove: number;
+  }>(),
+  {
+    weapon: 0,
+    relQty: 1,
+    maxAtkQty: 1,
+    groupAtk: false,
+    directionFrom: 0,
+    altitudeAbove: 1,
+  },
+);
 
 const weapon = toRef(props.weapon);
 const relQty = toRef(props.relQty);

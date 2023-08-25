@@ -44,12 +44,20 @@
 import { NFormItem, NSelect, NInputNumber } from "naive-ui";
 import { computed, toRef } from "vue";
 
-const props = defineProps<{
-  callsign: string;
-  number: number;
-  freq: number;
-  modulation: number;
-}>();
+const props = withDefaults(
+  defineProps<{
+    callsign: string;
+    number: number;
+    freq: number;
+    modulation: number;
+  }>(),
+  {
+    callsign: "Colt 1-1",
+    number: 1,
+    freq: 131600000,
+    modulation: 0,
+  },
+);
 
 const freq = computed({
   get: () => props.freq / 1000000,
