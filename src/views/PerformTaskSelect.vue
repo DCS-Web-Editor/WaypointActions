@@ -1,6 +1,6 @@
 <template>
   <div v-if="subActionOptions === 'AttackGroup'">
-    <attack-unit>
+    <attack-unit :sel-task="selTask">
       <template #above>
         <n-form-item label="Group" label-placement="left">
           <n-select />
@@ -9,7 +9,7 @@
     </attack-unit>
   </div>
   <div v-else-if="subActionOptions === 'AttackUnit'">
-    <attack-unit>
+    <attack-unit :sel-task="selTask">
       <template #above>
         <n-form-item label="Group" label-placement="left">
           <n-select />
@@ -24,17 +24,17 @@
     </attack-unit>
   </div>
   <div v-else-if="subActionOptions === 'AttackMapObject'">
-    <attack-unit />
+    <attack-unit :sel-task="selTask" />
   </div>
   <div v-else-if="subActionOptions === 'Bombing'">
-    <attack-unit>
+    <attack-unit :sel-task="selTask">
       <template #below>
         <n-form-item label="Dive Bomb" label-placement="left"><n-checkbox /> </n-form-item>
       </template>
     </attack-unit>
   </div>
   <div v-else-if="subActionOptions === 'BombingRunway'">
-    <attack-unit>
+    <attack-unit :sel-task="selTask">
       <template #above>
         <n-form-item label="Runway" label-placement="left">
           <n-select />
@@ -354,7 +354,7 @@
 </template>
 
 <script setup lang="ts">
-import { TTask, TUnitType } from "../types";
+import type { TUnitType } from "../types";
 import { TPerformTask } from "../utils/consts";
 import {
   NFormItem,
@@ -372,7 +372,7 @@ import FacUnit from "../components/FacUnit.vue";
 // @ts-expect-error
 // eslint-disable-next-line no-unused-vars
 const props = defineProps<{
-  selTaskData: TTask;
+  selTask: number;
   subActionOptions: TPerformTask;
   unitType: TUnitType;
 }>();

@@ -49,7 +49,7 @@
       />
       <perform-task-select
         v-if="Object.values(Task).some((v) => v === subActionOptions)"
-        :sel-task-data="selTaskData"
+        :sel-task="selTask"
         :sub-action-options="subActionOptions"
         :unit-type="unitType"
       />
