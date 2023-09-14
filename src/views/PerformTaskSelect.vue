@@ -3,7 +3,7 @@
     <attack-unit :sel-task="selTask">
       <template #above>
         <n-form-item label="Group" label-placement="left">
-          <n-select />
+          <n-select :options="entry.getGroupIds()" />
         </n-form-item>
       </template>
     </attack-unit>
@@ -12,7 +12,7 @@
     <attack-unit :sel-task="selTask">
       <template #above>
         <n-form-item label="Group" label-placement="left">
-          <n-select />
+          <n-select :options="entry.getGroupIds()" />
         </n-form-item>
         <n-form-item label="Unit" label-placement="left">
           <n-select />
@@ -50,7 +50,7 @@
     "
   >
     <n-form-item label="Group" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <n-form-item
       v-if="subActionOptions === 'CargoTransportation'"
@@ -78,10 +78,10 @@
   </div>
   <div v-else-if="subActionOptions === 'FAC_AttackGroup'">
     <n-form-item label="Group" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <n-form-item label="Weapon" label-placement="left">
-      <n-select />
+      <n-select v-model:value="selTaskData.params.weaponType" :options="weaponOptions" />
     </n-form-item>
     <n-form-item label="Designation" label-placement="left">
       <n-select />
@@ -130,7 +130,7 @@
       />
     </div>
     <n-form-item label="Weapon" label-placement="left">
-      <n-select />
+      <n-select v-model:value="selTaskData.params.weaponType" :options="weaponOptions" />
     </n-form-item>
     <div class="flex">
       <n-form-item class="flex-none mr-5" label="Rounds Expend" label-placement="left">
@@ -146,7 +146,7 @@
   </div>
   <div v-else-if="subActionOptions === 'Follow'">
     <n-form-item label="Group" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <n-form-item label="Distance" label-placement="left">
       <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
@@ -175,7 +175,7 @@
   </div>
   <div v-else-if="subActionOptions === 'Escort'">
     <n-form-item label="Group" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <n-form-item label="Distance" label-placement="left">
       <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
@@ -250,7 +250,7 @@
   </div>
   <div v-if="subActionOptions === 'CarpetBombing'">
     <n-form-item label="Weapon" label-placement="left">
-      <n-select />
+      <n-select v-model:value="selTaskData.params.weaponType" :options="weaponOptions" />
     </n-form-item>
     <n-form-item label="Rel Qty" label-placement="left">
       <n-select />
@@ -273,7 +273,7 @@
   </div>
   <div v-if="subActionOptions === 'FollowBigFormation'">
     <n-form-item label="Group" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <n-form-item label="Distance" label-placement="left">
       <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
@@ -314,7 +314,7 @@
   </div>
   <div v-if="subActionOptions === 'GroundEscort'">
     <n-form-item label="Group" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <div class="flex">
       <n-form-item class="flex-none mr-5" label="Last Wpt" label-placement="left">
@@ -331,7 +331,7 @@
   </div>
   <div v-if="subActionOptions === 'RecoveryTanker'">
     <n-form-item label="Group" label-placement="left">
-      <n-select />
+      <n-select :options="entry.getGroupIds()" />
     </n-form-item>
     <n-form-item label="Speed" label-placement="left">
       <n-input-number :min="108" :max="545" class="w-full">
@@ -354,7 +354,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TUnitType } from "../types";
+import type { TTask, TUnitType } from "../types";
 import { TPerformTask } from "../utils/consts";
 import {
   NFormItem,
@@ -368,12 +368,26 @@ import {
 } from "naive-ui";
 import AttackUnit from "../components/AttackUnit.vue";
 import FacUnit from "../components/FacUnit.vue";
+import { useEntryStore } from "../stores/entryState";
+import { computed } from "vue";
+import { getWeaponOptions } from "../utils/utils";
+import { useTasksStore } from "../stores/state";
 
-// @ts-expect-error
-// eslint-disable-next-line no-unused-vars
 const props = defineProps<{
   selTask: number;
   subActionOptions: TPerformTask;
   unitType: TUnitType;
 }>();
+
+const entry = useEntryStore();
+const store = useTasksStore();
+
+const selTaskData = computed<TTask>({
+  get: () => store.getOneTask(props.selTask - 1),
+  set: (value) => store.setOneTask(value, props.selTask - 1),
+});
+
+const weaponOptions = computed(() =>
+  getWeaponOptions(entry.getUnit(), entry.getTargetGroup(), entry.getTaskCatagory()),
+);
 </script>
