@@ -12,13 +12,13 @@ import { type TreeSelectOption } from "naive-ui";
 import type { TActionType, TConstsList, TUnitType, TUpperLevelTasks } from "../types";
 import type { TEnrouteTask, TOptionName, TPerformCommand, TPerformTask } from "./consts";
 
-type TAutoActions = Record<
+type TAutoActions<T = any> = Record<
   string,
   Record<
     TUpperLevelTasks,
     Array<{
       actionType: TActionType;
-      data: any;
+      data: T;
     }>
   >
 >;
@@ -69,9 +69,7 @@ export const getTargetTypes = (unitType: TUnitType, task: TUpperLevelTasks) => {
     return targetTypesByTask.all[task as keyof typeof targetTypesByTask.all];
   } else if (unitType === "helicopter" && task === "Escort") {
     return targetTypesByTask.helicopter[task as keyof typeof targetTypesByTask.helicopter];
-  } else {
-    return {};
-  }
+  } else return {};
 };
 
 export const getAvailableActions = (

@@ -148,24 +148,7 @@
     <n-form-item label="Group" label-placement="left">
       <n-select :options="entry.getGroupIds()" />
     </n-form-item>
-    <n-form-item label="Distance" label-placement="left">
-      <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="164" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
-    <n-form-item label="Elevation" label-placement="left">
-      <n-slider :step="33" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="33" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
-    <n-form-item label="Interval" label-placement="left">
-      <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="164" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
+    <d-e-i />
     <div class="flex">
       <n-form-item class="flex-none mr-5" label="Last Wpt" label-placement="left">
         <n-checkbox />
@@ -177,24 +160,7 @@
     <n-form-item label="Group" label-placement="left">
       <n-select :options="entry.getGroupIds()" />
     </n-form-item>
-    <n-form-item label="Distance" label-placement="left">
-      <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="164" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
-    <n-form-item label="Elevation" label-placement="left">
-      <n-slider :step="33" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="33" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
-    <n-form-item label="Interval" label-placement="left">
-      <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="164" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
+    <d-e-i />
     <div class="flex">
       <n-form-item class="flex-none mr-5" label="Last Wpt" label-placement="left">
         <n-checkbox />
@@ -275,24 +241,7 @@
     <n-form-item label="Group" label-placement="left">
       <n-select :options="entry.getGroupIds()" />
     </n-form-item>
-    <n-form-item label="Distance" label-placement="left">
-      <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="164" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
-    <n-form-item label="Elevation" label-placement="left">
-      <n-slider :step="33" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="33" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
-    <n-form-item label="Interval" label-placement="left">
-      <n-slider :step="164" :min="-1312336" :max="131234" class="mr-10 mt-0.5" />
-      <n-input-number :step="164" :min="-1312336" :max="131234" class="w-full">
-        <template #suffix>ft</template>
-      </n-input-number>
-    </n-form-item>
+    <d-e-i />
     <n-form-item label="Formation Type" label-placement="left">
       <n-select />
     </n-form-item>
@@ -368,6 +317,7 @@ import {
 } from "naive-ui";
 import AttackUnit from "../components/AttackUnit.vue";
 import FacUnit from "../components/FacUnit.vue";
+import DEI from "../components/DEI.vue";
 import { useEntryStore } from "../stores/entryState";
 import { computed } from "vue";
 import { getWeaponOptions } from "../utils/utils";
