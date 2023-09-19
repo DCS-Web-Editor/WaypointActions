@@ -29,7 +29,17 @@
   <div v-else-if="subActionOptions === 'Bombing'">
     <attack-unit :sel-task="selTask">
       <template #below>
-        <n-form-item label="Dive Bomb" label-placement="left"><n-checkbox /> </n-form-item>
+        <n-form-item label="Dive Bomb" label-placement="left"
+          ><n-checkbox
+            v-model:checked="selTaskData.params.attackType"
+            @update:value="
+              (val) =>
+                val
+                  ? (selTaskData.params.attackType = true)
+                  : (selTaskData.params.attackType = null)
+            "
+          />
+        </n-form-item>
       </template>
     </attack-unit>
   </div>
