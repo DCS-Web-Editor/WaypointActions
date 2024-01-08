@@ -7,7 +7,7 @@
           :key="index"
           class="cursor-pointer rounded"
           :class="{
-            'bg-blue-200 pl-2 text-black': currentSelection === index,
+            'highlight text-black': currentSelection === index,
             'bg-gray-500 pl-2 text-black': actionList[index].option === 'No Option',
           }"
           @click="handleItemClick(index)"
@@ -234,7 +234,7 @@ const cloneListItem = (index: number) => {
   const clone = structuredClone(toRaw(tasks.value[index]));
   clone.number++;
   currentSelection.value = index + 1;
-  store.setOneTask(clone, index + 1);
+  store.insertOneTask(clone, index + 1);
 };
 
 const removeNoOption = () => {
@@ -447,3 +447,11 @@ onMounted(() => {
 // store.setTasks(json.task.params.tasks);
 // console.log(store.condition, store.stopCondition);
 </script>
+
+
+
+<style>
+.highlight {
+  background-color: #1abc9c
+}
+</style>
