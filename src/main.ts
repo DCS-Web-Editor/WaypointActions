@@ -7,4 +7,10 @@ const pinia = createPinia();
 const app = createApp(App);
 app.use(pinia);
 
+// prevent tailwind override
+const meta = document.createElement('meta');
+meta.name = 'naive-ui-style';
+document.head.appendChild(meta);
+
 app.mount("#app");
+

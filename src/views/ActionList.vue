@@ -33,11 +33,13 @@
       <div class="flex justify-between">
         <n-tooltip trigger="hover"
           ><template #trigger>
-            <n-button class="w-1/6" size="small" @click="addListItem()">Add</n-button>
+            <n-button class="w-1/6" size="small" type="success" @click="addListItem()">
+              <i class="fa fa-plus"></i>Add
+            </n-button>
           </template>
           <span>Add a new action</span>
         </n-tooltip>
-        <n-tooltip trigger="hover"
+        <!-- <n-tooltip trigger="hover"
           ><template #trigger>
             <n-button
               class="w-1/6"
@@ -48,15 +50,18 @@
             >
           </template>
           <span>Insert a new action above the selected action</span>
-        </n-tooltip>
+        </n-tooltip> -->
         <n-tooltip trigger="hover"
           ><template #trigger>
             <n-button
               class="w-1/6"
               :disabled="disabledActionButtons"
               size="small"
+              type="warning"
               @click="editListItem"
-              >Edit</n-button
+              >
+              <i class="fa fa-edit"></i>Edit
+              </n-button
             >
           </template>
           <span>Edit the selected action</span>
@@ -66,9 +71,11 @@
             <n-button
               class="w-1/6"
               :disabled="disabledActionButtons"
+              type="error"
               size="small"
               @click="deleteListItem(currentSelection)"
-              >Del</n-button
+              ><i class="fa fa-trash"></i>Del
+              </n-button
             >
           </template>
           <span>Delete the selected action</span>
@@ -76,12 +83,14 @@
         <n-tooltip trigger="hover"
           ><template #trigger>
             <n-button
+              type="primary"
               class="w-1/6 p-0"
               :disabled="disabledActionButtons"
               size="small"
               @click="cloneListItem(currentSelection)"
-              >Clone</n-button
-            >
+              >
+              <i class="fa fa-clone"></i>Clone
+            </n-button>
           </template>
           <span>Clone the selected action</span>
         </n-tooltip>
@@ -95,10 +104,10 @@
               size="small"
               @click="moveListItemUp(currentSelection)"
             >
-              Up
+            <i class="fa fa-arrow-up"></i>Up
             </n-button>
           </template>
-          <span>Move the selected action up in the execution chain</span>
+          <span>Move the selected action up</span>
         </n-tooltip>
         <n-tooltip trigger="hover"
           ><template #trigger>
@@ -108,10 +117,10 @@
               size="small"
               @click="moveListItemDown(currentSelection)"
             >
-              Down
+              <i class="fa fa-arrow-down"></i>Down
             </n-button>
           </template>
-          <span>Move the selected action down in the execution chain</span>
+          <span>Move the selected action down</span>
         </n-tooltip>
         <div class="w-1/6"></div>
         <div class="w-1/6"></div>
@@ -126,6 +135,12 @@
       title="Edit Action"
     >
       <edit-action />
+      <template #footer>
+      <n-button
+      @click="handleClose"
+        class="w-1/6 p-0"
+      >OK</n-button>
+    </template>
     </n-modal>
   </div>
 </template>
@@ -164,6 +179,10 @@ const upDisable = ref(false);
 const downDisable = ref(false);
 
 const editModalShow = ref(false);
+
+const handleClose =   function () {
+  editModalShow.value = false;
+}
 
 provide(
   "selection",
