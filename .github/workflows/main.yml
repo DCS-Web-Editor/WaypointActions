@@ -1,4 +1,4 @@
-name: CI
+name: CI-gh-pages
 
 permissions:
   contents: read
@@ -13,69 +13,45 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  build:
-    if: ${{ github.actor != 'github-actions[bot]' }} || ${{ github.event_name != 'pull_request' }}
-    runs-on: ubuntu-latest
+  # build:
+  #   if: ${{ github.actor != 'github-actions[bot]' }} || ${{ github.event_name != 'pull_request' }}
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 7
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16.x
-          cache: "pnpm"
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: pnpm/action-setup@v2
+  #       with:
+  #         version: 7
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16.x
+  #         cache: "pnpm"
 
-      - name: Install NPM Dependencies
-        run: pnpm install --no-frozen-lockfile
+  #     - name: Install NPM Dependencies
+  #       run: pnpm install --no-frozen-lockfile
 
-#      - name: Lint and Format
-#        run: pnpm type-check
+    build-and-deploy:
+      # concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+      runs-on: ubuntu-latest
 
-      - name: Check commit message
-        id: check_commit
-        run: |
-          message="${{ github.event.head_commit.message }}"
-          if [[ "$message" == *'--release'* ]] || [[ "$message" == *'-r'* ]]; then
-            echo "release=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "release=false" >> "$GITHUB_OUTPUT"
-          fi
+      steps:
+        - name: Checkout *
+          uses: actions/checkout@v3
+        - uses: pnpm/action-setup@v2
+          with:
+            version: 7
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 16.x
+            cache: "pnpm"
 
-      - name: Update Version
-        if: steps.check_commit.outputs.release == 'true'
-        uses: changesets/action@v1.4.4
-        with:
-          commit: "chore: version changelog"
-          title: "chore: version changelog"
-          version: sudo npx changeset version
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'dist' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+          run: |
+            pnpm install --no-frozen-lockfile --legacy-peer-deps
+            pnpm run build
 
-      - name: Save changes to gh-pages branch
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Apply files
-          branch: gh-pages
-
-  publish:
-    name: Publish GitHub Pages
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Checkout latest commit of gh-pages
-        uses: actions/checkout@v3
-        with:
-          ref: gh-pages
-          submodules: recursive
-      - name: Upload page artifact
-        uses: actions/upload-pages-artifact@v0
-        with:
-          path: .
-      - name: Upload artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: github-pages
-          path: /home/runner/work/_temp/artifact.tar
-          retention-days: 1
+        - name: Deploy 🚀
+          uses: JamesIves/github-pages-deploy-action@v4
+          with:
+            folder: dist # The folder the action should deploy.
+            ssh-key: ${{ secrets.DEPLOY_KEY }}
