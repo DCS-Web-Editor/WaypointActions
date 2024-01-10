@@ -19,8 +19,12 @@
               class="p-2"
               :class="{
                 'text-red-500': !verifyAction(tasks[index], action.actionType),
+                'text-gray-500': action.enabled,
               }"
-              >{{ concat(action.option, action.value, action.attr ?? [], tasks[index].name ?? "") }}
+              >
+              {{ concat(action.option, action.value, action.attr ?? [], tasks[index].name ?? "") }}
+              {{ action.enabled }}
+
               <n-tooltip v-if="!verifyAction(tasks[index], action.actionType)" placement="right">
                 <template #trigger> <i class="fa fa-warning"></i> </template>
                 <span>Invalid Action</span>
@@ -226,20 +230,16 @@ const handleItemDoubleClick = (index: number) => {
   editListItem();
 };
 
-const moveArrayItem = (oldIndex: number, newIndex: number) => {
-  tasks.value.splice(newIndex, 0, tasks.value.splice(oldIndex, 1)[0]);
-};
-
 const moveListItemDown = (index: number) => {
   if (index < tasks.value.length - 1) {
-    moveArrayItem(index, index + 1);
+    store.moveTask(index, index + 1);
     currentSelection.value = index + 1;
   }
 };
 
 const moveListItemUp = (index: number) => {
   if (index <= tasks.value.length - 1 && index > 0) {
-    moveArrayItem(index, index - 1);
+    store.moveTask(index, index - 1);
     currentSelection.value = index - 1;
   }
 };
@@ -373,6 +373,7 @@ const updateList = (tasks: TTask[]): TActionList[] => {
         );
         return {
           option: option.option,
+          enabled: option.enabled,
           value: option.value,
           actionType: "options",
           attr: parseAttribute(task),
@@ -385,6 +386,7 @@ const updateList = (tasks: TTask[]): TActionList[] => {
         ) {
           return {
             option: command.option,
+            enabled: command.enabled,
             value: `"${entry.getOneFile(command.value)?.name}"` ?? "File Not Found",
             actionType: "commands",
             attr: parseAttribute(task),
@@ -392,6 +394,7 @@ const updateList = (tasks: TTask[]): TActionList[] => {
         }
         return {
           option: command.option,
+          enabled: command.enabled,
           value: command.value,
           actionType: "commands",
           attr: parseAttribute(task),
@@ -399,6 +402,7 @@ const updateList = (tasks: TTask[]): TActionList[] => {
       } else {
         return {
           option: "Error Parsing Action",
+          enabled: false,
           value: "",
           actionType: "options",
           attr: [],
@@ -411,6 +415,7 @@ const updateList = (tasks: TTask[]): TActionList[] => {
       }
       return {
         option: enrouteTask.option,
+        enabled: enrouteTask.enabled,
         value: enrouteTask.value,
         actionType: "enrouteTask",
         attr: parseAttribute(task),
@@ -419,6 +424,7 @@ const updateList = (tasks: TTask[]): TActionList[] => {
       const performTask = parseTask(action.id, action.params);
       return {
         option: performTask.option,
+        enabled: performTask.enabled,
         value: performTask.value,
         actionType: "task",
         attr: parseAttribute(task),
@@ -466,7 +472,7 @@ onMounted(() => {
 import json from "../../dev.json"
 
 store.setTasks(json.task.params.tasks);
-console.log(store.condition, store.stopCondition);
+// console.log(store.condition, store.stopCondition);
 </script>
 
 
