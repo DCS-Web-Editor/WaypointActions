@@ -1,7 +1,7 @@
 <template>
   <div class="w-300">
     <div class="outline outline-secondary outline-1 p-5 w-full">
-      <ul>
+      <ul class="action-list">
         <li
           v-for="(action, index) in actionList"
           :key="index"
@@ -10,10 +10,11 @@
             'highlight text-black': currentSelection === index,
             'bg-gray-500 pl-2 text-black': actionList[index].option === 'No Option',
           }"
+          v-on:dblclick="handleItemDoubleClick(index)"
           @click="handleItemClick(index)"
         >
           <div class="flex flex-row text-xs">
-            <span class="p-2 pr-0">{{ index + 1 }}</span>
+            <!-- <span class="p-2 pr-0">{{ index + 1 }}</span> -->
             <span
               class="p-2"
               :class="{
@@ -21,7 +22,7 @@
               }"
               >{{ concat(action.option, action.value, action.attr ?? [], tasks[index].name ?? "") }}
               <n-tooltip v-if="!verifyAction(tasks[index], action.actionType)" placement="right">
-                <template #trigger> -! </template>
+                <template #trigger> <i class="fa fa-warning"></i> </template>
                 <span>Invalid Action</span>
               </n-tooltip>
             </span>
@@ -220,6 +221,10 @@ watch(
 const handleItemClick = (index: number) => {
   currentSelection.value = index;
 };
+const handleItemDoubleClick = (index: number) => {
+  currentSelection.value = index;
+  editListItem();
+};
 
 const moveArrayItem = (oldIndex: number, newIndex: number) => {
   tasks.value.splice(newIndex, 0, tasks.value.splice(oldIndex, 1)[0]);
@@ -321,16 +326,19 @@ const parseAttribute = (action: TTask) => {
 };
 
 const verifyAction = (task: TTask, actionType: TActionType) => {
-  const verify = (avail: any[], v: any) => {
+  // console.log(task, actionType);
+  
+  const verify = (avail: any[], v: any) => {    
     return avail.some((a) => a.value === v);
   };
 
   const actions = getAvailableActions(unit.value, actionType, taskCatagory.value);
+  // console.log('actions', actions);
 
   if (actionType === "options") {
-    return verify(actions, task.params.action.params.name);
+    return verify(actions, task.params.action?.params.name);
   } else if (actionType === "commands") {
-    return verify(actions, task.params.action.id);
+    return verify(actions, task.params.action?.id);
   } else if (actionType === "enrouteTask") {
     if (task.key) {
       return verify(actions, task.key);
@@ -461,10 +469,10 @@ onMounted(() => {
   }
 });
 
-// import json from "../../dev.json"
+import json from "../../dev.json"
 
-// store.setTasks(json.task.params.tasks);
-// console.log(store.condition, store.stopCondition);
+store.setTasks(json.task.params.tasks);
+console.log(store.condition, store.stopCondition);
 </script>
 
 
@@ -472,5 +480,8 @@ onMounted(() => {
 <style>
 .highlight {
   background-color: #1abc9c
+}
+ul.action-list {
+  list-style: decimal;
 }
 </style>
