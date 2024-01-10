@@ -245,6 +245,7 @@ const moveListItemUp = (index: number) => {
 };
 
 const deleteListItem = (index: number) => {
+  currentSelection.value = index > 0 ? index -1 : 0;
   store.removeOneTask(index);
 };
 
@@ -434,33 +435,26 @@ const updateList = (tasks: TTask[]): TActionList[] => {
 };
 
 watch(
-  currentSelection,
-  (val) => {
-    if (val === 0) {
-      upDisable.value = true;
-    } else {
-      upDisable.value = false;
-    }
-    if (val === actionList.value.length - 1) {
-      downDisable.value = true;
-    } else {
-      downDisable.value = false;
-    }
-    if (actionList.value.length === 0) {
-      upDisable.value = true;
-      downDisable.value = true;
-    } else {
-      upDisable.value = currentSelection.value === 0;
-      downDisable.value = currentSelection.value === actionList.value.length - 1;
-    }
+  [currentSelection, actionList],
+  () => {
+    
+    const index = currentSelection.value;
+    const lastIndex = actionList.value.length - 1;
+    const listEmpty = actionList.value.length === 0;
+    
+    // first ?
+    upDisable.value = (index === 0) && !listEmpty;
+    // last ?
+    downDisable.value = (index === lastIndex) && !listEmpty;
+
     if (
       actionList.value.find((action) => action.option === "No Option") !== undefined &&
-      actionList.value[val].option !== "No Option"
+      actionList.value[index].option !== "No Option"
     ) {
       removeNoOption();
     }
   },
-  { immediate: true },
+  { immediate: true, deep: true},
 );
 
 onMounted(() => {
