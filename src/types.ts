@@ -72,6 +72,7 @@ export type TControlledTask<T extends object = any> = {
 export type TActionList = {
   option: string;
   value: string;
+  enabled?: boolean;
   actionType: TActionType;
   attr?: string[];
 };

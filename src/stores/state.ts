@@ -81,6 +81,9 @@ export const useTasksStore = defineStore({
     setOneTask(task: TTask, index: number) {
       this.tasks[index] = this.setControlledTask(task);
     },
+    moveTask(oldIndex: number, newIndex: number) {
+      this.tasks.splice(newIndex, 0, this.tasks.splice(oldIndex, 1)[0]);
+    },
     removeOneTask(index: number) {
       this.tasks.splice(index, 1);
       if (this.condition[index]) this.condition.splice(index, 1);
