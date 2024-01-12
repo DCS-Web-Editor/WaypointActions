@@ -469,8 +469,8 @@ onMounted(() => {
   }
 });
 
+// sample data
 import json from "../../dev.json"
-
 store.setTasks(json.task.params.tasks);
 // console.log(store.condition, store.stopCondition);
 </script>
